@@ -1,7 +1,6 @@
 {{ define "main" }}
 <main>
   <article class="content">
-
     <section class="content-header">
       <figure class="content-header-figure">
         <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
@@ -15,27 +14,50 @@
       {{ .Content }}
     </section>
 
-    <section class="content-footer">
-      <div id="homeCard">
-        {{- $pages := site.RegularPages -}}
-        {{- $paginator := .Paginate $pages -}}
-        {{- range $paginator.Pages -}}
-        <article>
-          <img
-          src="{{- .Params.thumbnail -}}" 
-          alt="Thumbnail image for the post titled {{- .Title -}}">
-          <header>
-            <strong>{{- .Title -}}</strong>
-            <p>{{- .Params.excerpt -}}</p>
-            <a href="{{- .RelPermalink -}}">Read More</a>
-          </header>
-        </article>
-        {{- end -}}
+    <section id="projects-and-notes">
+      <h2>📌 My Projects & Notes</h2>
+      {{ $status_order := dict "important" 1 "active" 2 "success" 3 "in-progress" 4 "plan" 5 "draft" 6 "finished" 7 }}
+      {{ $.Scratch.Set "projectPages" slice }}
+      {{ $.Scratch.Set "notePages" slice }}
+      {{ range where .Site.RegularPages "Params.groups" "Projects" }}
+        {{ $order := index $status_order (lower .Params.status) | default 99 }}
+        {{ $.Scratch.Add "projectPages" (dict "order" $order "page" .) }}
+      {{ end }}
+      {{ range where .Site.RegularPages "Params.groups" "notes" }}
+        {{ $order := index $status_order (lower .Params.status) | default 99 }}
+        {{ $.Scratch.Add "notePages" (dict "order" $order "page" .) }}
+      {{ end }}
+
+      {{ $sortedProjects := sort ($.Scratch.Get "projectPages") "order" }}
+      {{ $sortedNotes := sort ($.Scratch.Get "notePages") "order" }}
+
+      <div class="projects">
+        <!-- Tampilkan Projects -->
+        <h2>🚀 Projects</h2>
+        <div class="cards">
+          {{ range $sortedProjects }}
+            <div class="card">
+              <h3><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></h3>
+              <p>Status: <strong>{{ .page.Params.status }}</strong></p>
+              <p>{{ .page.Params.description | default "No description available." }}</p>
+            </div>
+          {{ end }}
+        </div>
       </div>
-      
-      <nav id="pagination">
-        {{ template "_internal/pagination.html" . }}
-      </nav>
+
+      <div class="notes">
+        <!-- Tampilkan Notes -->
+        <h2>📝 Notes</h2>
+        <div class="cards">
+          {{ range $sortedNotes }}
+            <div class="card">
+              <h3><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></h3>
+              <p>Status: <strong>{{ .page.Params.status }}</strong></p>
+              <p>{{ .page.Params.description | default "No description available." }}</p>
+            </div>
+          {{ end }}
+        </div>
+      </div>
     </section>
   </article>
 </main>

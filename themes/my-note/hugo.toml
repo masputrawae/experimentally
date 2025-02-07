@@ -24,3 +24,8 @@ markup.tableOfContents = { endLevel = 6, ordered = false, startLevel = 2 }
   name = "Notes"
   url = "/notes/"
   weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "pages/about/"
+  weight = 1

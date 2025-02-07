@@ -1,5 +1,5 @@
 ---
-title: My Notes
+title: Articles
 ---
 Voluptate minim sunt id nostrud consequat dolor. Nisi et enim duis adipisicing irure cillum laboris reprehenderit reprehenderit laboris officia. Consectetur dolor excepteur nisi adipisicing magna qui ullamco. Adipisicing enim Lorem consectetur aliquip ex ex ullamco aliquip. Sint tempor qui voluptate sint aute do do culpa.
 
