@@ -14,3 +14,13 @@ markup.tableOfContents = { endLevel = 6, ordered = false, startLevel = 2 }
   category = 'categories'
   tag = 'tags'
   group = 'group'
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 1
+
+[[menu.main]]
+  name = "Notes"
+  url = "/notes/"
+  weight = 2

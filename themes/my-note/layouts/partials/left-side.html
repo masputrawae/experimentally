@@ -17,7 +17,7 @@
     <div>
       <form action="">
         <input type="search">
-        <button type="submit"></button>
+        <button type="submit"><i class="bi bi-search"></i></button>
       </form>
       <ul>
         {{ range .Site.Params.socialMedia }}
@@ -27,6 +27,13 @@
         {{ end }}
       </ul>
     </div>
+    <nav>
+      <ul>
+        {{ range site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>    
   </header>
 
   <nav class="collapsible-nav">

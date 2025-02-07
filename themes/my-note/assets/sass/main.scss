@@ -1,3 +1,13 @@
 @forward 'base';
 @forward 'components';
 @forward 'layouts';
+
+body {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+ul {
+    padding-left: 10px;
+}

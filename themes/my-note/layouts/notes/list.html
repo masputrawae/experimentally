@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ $status_order := dict "important" 1 "active" 2 "success" 3 "in-progress" 4 "plan" 5 "draft" 6 "finished" 7 }}
+  {{ $.Scratch.Set "sortedPages" slice }} <!-- Inisialisasi array kosong -->
+
+  {{ range where .Site.RegularPages "Params.groups" .Title }}
+      {{ $order := index $status_order (lower .Params.status) | default 99 }}
+      {{ $.Scratch.Add "sortedPages" (dict "order" $order "page" .) }}
+  {{ end }}
+
+  {{ $sortedPages := sort ($.Scratch.Get "sortedPages") "order" }}
+
+  <ul>
+    {{ range $sortedPages }}
+      <li>
+        <a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a> - <strong>{{ .page.Params.status }}</strong>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
