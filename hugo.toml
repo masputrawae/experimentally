@@ -1,0 +1,44 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "my-note"
+
+[[params.socialMedia]]
+social = "facebook"
+url = "https://facebook.com/example.com"
+icon = "bi-facebook"
+
+[[params.socialMedia]]
+social = "twitter"
+url = "https://twitter.com/example"
+icon = "bi-twitter"
+
+[[params.socialMedia]]
+social = "instagram"
+url = "https://instagram.com/example"
+icon = "bi-instagram"
+
+[[params.socialMedia]]
+social = "discord"
+url = "https://discord.com/in/example"
+icon = "bi-discord"
+
+[[params.socialMedia]]
+social = "youtube"
+url = "https://youtube.com/channel/example"
+icon = "bi-youtube"
+
+[[params.socialMedia]]
+social = "github"
+url = "https://github.com/example"
+icon = "bi-github"
+
+[[params.socialMedia]]
+social = "pinterest"
+url = "https://pinterest.com/example"
+icon = "bi-pinterest"
+
+[[params.socialMedia]]
+social = "rss"
+url = "/index.xml"
+icon = "bi-rss"

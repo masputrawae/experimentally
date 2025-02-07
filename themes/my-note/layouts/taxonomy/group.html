@@ -1,0 +1,19 @@
+{{- define "main" -}}
+<header>
+  <h1>Posts with the Group: {{- .Title -}}</h1>
+</header>
+
+<article id="contentArticle">
+  {{- .Content -}}
+</article>
+
+<nav>
+  <ul>
+    {{- range .Pages -}}
+      <li>
+        <a href="{{- .Permalink -}}">{{- .Title -}}</span></a>
+      </li>
+    {{- end -}}
+  </ul>
+</nav>
+{{- end -}}

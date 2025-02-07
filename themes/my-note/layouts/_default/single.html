@@ -1,0 +1,37 @@
+{{ define "main" }}
+<main>
+  <article class="content">
+    <section class="content-header">
+      <figure class="content-header-figure">
+        <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
+        <figcaption>
+          {{ .Params.description }}
+        </figcaption>
+      </figure>
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    </section>
+    <section class="content-article" id="contentArticle">
+      {{ .Content }}
+    </section>
+    <section class="content-footer">
+      <strong>Reference:</strong>
+      <ul>
+        {{- range .Params.reference -}}
+        <li><a href="{{- .url -}}" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i><span>{{- .name -}}</span></a></li>
+        {{- end -}}
+      </ul>
+      <strong>Related:</strong>
+      <ul>
+        {{- $related := .Site.RegularPages.Related . | first 20 -}}
+        {{- with $related -}}
+          {{- range . -}}
+            <li><a href="{{- .RelPermalink -}}"><i class="bi bi-link"></i><span>{{- .LinkTitle -}}</span></a></li>
+          {{- end -}}
+        {{- end -}}
+      </ul>
+    </section>
+  </article>
+</main>
+{{ end }}

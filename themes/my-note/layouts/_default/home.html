@@ -1,0 +1,42 @@
+{{ define "main" }}
+<main>
+  <article class="content">
+
+    <section class="content-header">
+      <figure class="content-header-figure">
+        <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
+        <figcaption>
+          {{ .Params.subtitle }}
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="content-article" id="contentArticle">
+      {{ .Content }}
+    </section>
+
+    <section class="content-footer">
+      <div id="homeCard">
+        {{- $pages := site.RegularPages -}}
+        {{- $paginator := .Paginate $pages -}}
+        {{- range $paginator.Pages -}}
+        <article>
+          <img
+          src="{{- .Params.thumbnail -}}" 
+          alt="Thumbnail image for the post titled {{- .Title -}}">
+          <header>
+            <strong>{{- .Title -}}</strong>
+            <p>{{- .Params.excerpt -}}</p>
+            <a href="{{- .RelPermalink -}}">Read More</a>
+          </header>
+        </article>
+        {{- end -}}
+      </div>
+      
+      <nav id="pagination">
+        {{ template "_internal/pagination.html" . }}
+      </nav>
+    </section>
+  </article>
+</main>
+{{ end }}

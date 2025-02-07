@@ -1,0 +1,34 @@
+<!-- TEMPLATES -->
+{{- define "collapsible_nav" -}}
+  {{- if .Pages -}}
+    {{- range .Pages -}}
+      {{- if .IsSection -}}
+
+        <!-- ==================== -->
+        <li class="list-item-folder">
+          <button class="btn-collapse">
+            <i class="bi bi-folder2"></i>
+            <span>{{- .LinkTitle -}}</span>
+          </button>
+          <ul class="list-collapse">
+            {{- template "collapsible_nav" . -}}
+          </ul>
+        </li>
+        <!-- ==================== -->
+
+      {{- else if .IsPage -}}
+
+        <!-- ==================== -->
+        <li class="list-item-file">
+          <a href="{{- .RelPermalink -}}">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>{{- .LinkTitle -}}</span>
+          </a>
+        </li>
+        <!-- ==================== -->
+
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<!-- TEMPLATES -->

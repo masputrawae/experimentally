@@ -1,0 +1,73 @@
+$themes: (
+    dark: (
+        bg:(
+            default: ,
+            primary: ,
+            secondary: ,
+            card: ,
+            card-hover: ,
+        ),
+        
+        cl: (
+            primary: ,
+            secondary: ,
+            tertiary: ,
+            accent: ,
+            text: ,
+            heading: ,
+            muted: ,            
+        ),
+        
+        status (
+            plan: ,
+            draft: ,
+            in-progress: ,
+            finished: ,
+            important: ,
+            active: ,
+            focus: ,
+            success: ,
+            info: ,
+            tips: ,
+            warning: ,
+            danger: ,
+            error: ,
+        ),
+    )
+    
+    light: (
+        bg:(
+            default: ,
+            primary: ,
+            secondary: ,
+            card: ,
+            card-hover: ,
+        ),
+        
+        cl: (
+            primary: ,
+            secondary: ,
+            tertiary: ,
+            accent: ,
+            text: ,
+            heading: ,
+            muted: ,
+        ),
+        
+        status (
+            plan: ,
+            draft: ,
+            in-progress: ,
+            finished: ,
+            important: ,
+            active: ,
+            focus: ,
+            success: ,
+            info: ,
+            tips: ,
+            warning: ,
+            danger: ,
+            error: ,
+        ),
+    ),
+);

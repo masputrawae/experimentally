@@ -1,0 +1,37 @@
+<aside class="sidebar sidebar--left">
+  <header class="sidebar-header">
+
+    <div class="justify-content-between">
+      <a href="{{- .Site.BaseURL -}}">{{- .Site.Title -}}</a>
+
+      <div class="justify-content-between">
+        <button id="switchTheme">
+          <i class="bi bi-moon"></i>
+        </button>
+        <button id="leftClose">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <form action="">
+        <input type="search">
+        <button type="submit"></button>
+      </form>
+      <ul>
+        {{ range .Site.Params.socialMedia }}
+          <li>
+            <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </header>
+
+  <nav class="collapsible-nav">
+    <ul>
+      {{- template "collapsible_nav" .Site.Home -}}
+    </ul>
+  </nav>
+</aside>

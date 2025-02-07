@@ -1,0 +1,12 @@
+@mixin ellipsis($width){
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: $width;
+}
+
+@mixin align-center {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

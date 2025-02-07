@@ -1,0 +1,23 @@
+@use '../abstract/variables' as v;
+@use '../abstract/color' as clr;
+
+:root {
+    @each $name, $value in clr.$colors {
+        --#{$name}: #{$value};
+    }
+    @each $name, $value in v.$font-family {
+        --#{$name}: #{$value};
+    }
+    
+    @each $name, $value in v.$font-size {
+        --#{$name}: #{$value};
+    }
+
+    @each $name, $value in v.$size {
+        --#{$name}: #{$value};
+    }
+
+    @each $name, $value in v.$border {
+        --#{$name}: #{$value};
+    }
+}
