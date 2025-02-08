@@ -55,39 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
   
-    // ========================= TABS FUNCTIONALITY =========================
-    const tabSelects = document.querySelectorAll(".tab-select");
-    const tabLists = document.querySelectorAll(".tab-list");
-  
-    const updateTabs = (selectedTab, tabGroup) => {
-      tabLists.forEach((tab) => {
-        if (tab.dataset.tabGroup === tabGroup) {
-          tab.classList.toggle(
-            "tab-list--active",
-            tab.dataset.tab === selectedTab
-          );
-        }
-      });
-    };
-  
-    tabSelects.forEach((tabSelect) => {
-      const tabGroup = tabSelect.dataset.tabGroup;
-      const storageKey = `lastSelectedTab_${tabGroup}`;
-  
-      const lastSelectedTab = sessionStorage.getItem(storageKey);
-      if (lastSelectedTab) {
-        tabSelect.value = lastSelectedTab;
-        updateTabs(lastSelectedTab, tabGroup);
-      }
-  
-      tabSelect.addEventListener("change", function () {
-        sessionStorage.setItem(storageKey, this.value);
-        updateTabs(this.value, tabGroup);
-      });
-    });
-  
     // ========================= COLLAPSE FUNCTIONALITY =========================
-    const collapseButtons = document.querySelectorAll(".btn-collapse");
+    const collapseButtons = document.querySelectorAll(".btn--collapse");
     const collapseAllButton = document.getElementById("toggleCollapseAll");
     let allCollapsed = false;
   
@@ -101,20 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const toggleFolderCollapse = (folder, isCollapsed) => {
-      const sublist = folder.querySelector(".list-collapse");
+      const sublist = folder.querySelector(".menu__list--collapse");
       if (sublist) {
         sublist.classList.toggle("collapsed", isCollapsed);
         sessionStorage.setItem(`collapsed_${folder.dataset.id}`, isCollapsed);
-        toggleIcon(folder.querySelector(".btn-collapse i"), isCollapsed);
+        toggleIcon(folder.querySelector(".btn--collapse i"), isCollapsed);
       }
     };
   
     collapseButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        const parentItem = this.closest(".list-item-folder");
+        const parentItem = this.closest(".menu__item--folder");
         if (parentItem) {
           const isCollapsed = parentItem
-            .querySelector(".list-collapse")
+            .querySelector(".menu__list--collapse")
             .classList.toggle("collapsed");
           sessionStorage.setItem(
             `collapsed_${parentItem.dataset.id}`,
@@ -125,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    document.querySelectorAll(".list-item-folder").forEach((folder) => {
+    document.querySelectorAll(".menu__item--folder").forEach((folder) => {
       toggleFolderCollapse(
         folder,
         sessionStorage.getItem(`collapsed_${folder.dataset.id}`) === "true"
@@ -136,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       collapseAllButton.addEventListener("click", function () {
         allCollapsed = !allCollapsed;
         document
-          .querySelectorAll(".list-item-folder")
+          .querySelectorAll(".menu__item--folder")
           .forEach((folder) => toggleFolderCollapse(folder, allCollapsed));
         toggleIcon(collapseAllButton.querySelector("i"), allCollapsed);
       });

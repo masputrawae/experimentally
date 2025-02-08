@@ -1,30 +1,14 @@
 @use '../abstract/mixins' as m;
 
-button {
-    color: var(--cl-secondary);
+.btn {
+    color: var(--cl-btn);
 
-    &.btn-icon {
+    &--icon {
         font-size: var(--fs-7xl);
-
-        &--border{
-            width: 40px;
-            height: 40px;
-            font-size: var(--fs-4xl);
-            border: var(--border-1) solid var(--cl-border);
-            border-radius: var(--size-1);
-            @include m.shadow;
-        }
-
-        &--search {
-            width: 30px;
-            height: 30px;
-            font-size: var(--fs-1xl);
-        }
     }
 
-    &.btn-collapse, &#toggleCollapseAll {
-        text-transform: capitalize;
-        text-align: start;
-        width: 100%;
+    &--text {
+        font-family: var(--font-nav);
+        font-size: var(--fs-base);
     }
 }

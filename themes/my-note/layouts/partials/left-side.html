@@ -3,10 +3,10 @@
     <div class="sidebar__header-container">
       <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       <div class="sidebar__actions">
-        <button class="btn btn--icon btn--border" id="switchTheme">
+        <button class="btn btn--icon sidebar__button" id="switchTheme">
           <i class="bi bi-moon"></i>
         </button>
-        <button class="btn btn--icon btn--border" id="leftClose">
+        <button class="btn btn--icon sidebar__button" id="leftClose">
           <i class="bi bi-x"></i>
         </button>
       </div>
@@ -14,14 +14,14 @@
     
     <form class="sidebar__form">
       <input class="sidebar__input" type="search">
-      <button class="btn btn--icon btn--border" type="submit">
+      <button class="btn btn--icon sidebar__button sidebar__button--search" type="submit">
         <i class="bi bi-search"></i>
       </button>
     </form>
   </header>
   
   <nav class="menu">
-    <button class="btn btn--text" id="toggleCollapseAll">
+    <button class="btn btn--text sidebar__button" id="toggleCollapseAll">
       <i class="bi bi-folder2"></i>
       <span>Root</span>
     </button>

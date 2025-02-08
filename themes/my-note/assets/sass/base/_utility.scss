@@ -1,9 +1,0 @@
-@use '../abstract/breakpoint' as bp;
-@use '../abstract/mixins' as m;
-
-.justify-content-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--size-2);
-}

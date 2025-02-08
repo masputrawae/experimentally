@@ -2,102 +2,83 @@
 @use '../abstract/mixins' as m;
 
 .sidebar {
-    background-color: var(--bg-default);
-    padding: var(--size-1);
     z-index: 10;
-
-    header {
-        height: 6rem;
-        max-height: 6rem;
+    background-color: var(--bg-default);
+    padding: var(--size-2);
+    
+    &__button {
+        @include m.width-height(30px, 30px);
+        border-radius: var(--size-1);
+        font-size: var(--fs-xl);
+        border: var(--border-1) solid var(--cl-border);
     }
-
-    form {
-        @include m.align-center;
-        padding-top: var(--size-2);
-        width: 90%;
-        input {
-            @include m.shadow;
-            border-radius: var(--size-1);
-            color: var(--cl-text);
-            height: 30px;
-            border: var(--border-1) solid var(--cl-border);
-            background-color: var(--bg-secondary);
-            width: 87%;
-
-            &:focus {
-                border-color: var(--status-focus);
-                outline: none;
-            }
-        }
+    
+    &__header-container {
+        @include m.flex-justify();
+    }
+    
+    &__action {
+        @include m.flex-justify();
     }
 
     &--left {
-        border-right: var(--border-1) solid var(--cl-border);
-    }
-
-    .sidebar-navigation-container {
-        height: 100dvh;
-        overflow-y: auto;
-        border-top: var(--border-1) solid var(--cl-border);
-    }
-
-    nav {
-        font-size: var(--fs-tiny);
-        border-top: var(--border-1) solid var(--cl-border);
-        ul {
-            list-style-type: none;
-            padding-left: var(--size-2);
-            position: relative;
-    
-            & li {
-                position: relative;
-                padding-left: var(--size-5);
-    
-                &::before {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    bottom: 0;
-                    width: var(--border-1);
-                    background-color: var(--cl-border);
-                }
-    
-                &::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 10px;
-                    width: 15px;
-                    height: var(--border-1);
-                    background-color: var(--cl-border);
-                }
-    
-                &:last-child::before {
-                    height: 10px;
-                }
-            }
-    
-            a {
-                text-transform: capitalize;
-                display: block;
-                text-decoration: none;
-                color: var(--cl-primary);
-                font-family: monospace;
-                transition: color 0.3s ease-in-out;
-    
-                &:hover {
-                    color: var(--cl-secondary);
-                }
-            }
-        }
+        transform: translateX(0%)!important; // sementara
     }
 }
 
-.collapsible-nav {
-    .list-collapse {
-        display: none;
+.menu {
+    font-size: var(--fs-tiny);
 
+    &__list {
+        list-style-type: none;
+        padding-left: var(--size-2);
+        position: relative;
+    }
+
+    &__item {
+        position: relative;
+        padding-left: var(--size-5);
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--cl-border);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 10px;
+            height: 1px;
+            background-color: var(--cl-border);
+        }
+
+        &:last-child::before {
+            height: 15px;
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: var(--cl-success);
+        font-family: monospace;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: var(--cl-link-hover);
+        }
+    }
+    
+    &__list--collapse {
+        display: none;
+    
         &.collapsed {
             display: block;
         }
