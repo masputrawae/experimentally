@@ -19,7 +19,7 @@
               <i class="bi bi-link"></i>
               <span>{{ .LinkTitle }}</span>
             </a>
-            <div class="card">
+            <div class="menu__card-content">
               {{ .Params.description }}
             </div>
           </li>
@@ -31,7 +31,7 @@
         {{- range where .Site.RegularPages "Params.pinned" true -}}
           <li class="menu__item">
             <a class="menu__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <div class="card">
+            <div class="menu__card-content">
               {{ .Params.description }}
             </div>
           </li>
@@ -40,7 +40,9 @@
     {{- end -}}
     
     <div class="menu__table-of-contents" id="tableOfContents">
-      {{ .TableOfContents }}
+      <ul>
+        {{ .TableOfContents }}
+      </ul>
     </div>
   </nav>
 </aside>
