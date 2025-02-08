@@ -1,68 +1,76 @@
 $themes: (
     dark: (
         bg: (
-            default: #1e1e2e,
-            primary: #2a2a3b,
-            secondary: #313244,
-            card: #28283a,
-            card-hover: #3b3b58,
+            default: #121212,
+            primary: #1E1E1E,
+            secondary: #252525,
+            card: #1A1A1A,
+            card-hover: #292929,
+            btn: #2D2D2D,
         ),
         cl: (
-            primary: #cba6f7,
-            secondary: #f38ba8,
-            tertiary: #89b4fa,
-            accent: #f9e2af,
-            text: #cdd6f4,
-            heading: #f5e0dc,
-            muted: #6c7086,
+            primary: #4A90E2,   // Biru soft
+            secondary: #50E3C2, // Hijau toska
+            tertiary: #F5A623,  // Oranye keemasan
+            accent: #D0021B,    // Merah aksen
+            text: #EAEAEA,      // Abu muda
+            heading: #FFFFFF,   // Putih
+            muted: #B0B0B0,     // Abu redup
+            border: #444444,    // Abu tua
+            btn: #4A90E2,       // Biru soft
+            title: #EAEAEA,     // Abu muda
         ),
         status: (
-            plan: #fab387,
-            draft: #cdd6f4,
-            in-progress: #f9e2af,
-            finished: #a6e3a1,
-            important: #f38ba8,
-            active: #89b4fa,
-            focus: #cba6f7,
-            success: #a6e3a1,
-            info: #89b4fa,
-            tips: #94e2d5,
-            warning: #fab387,
-            danger: #f38ba8,
-            error: #f38ba8,
+            plan: #50E3C2,
+            draft: #B0B0B0,
+            in-progress: #F5A623,
+            finished: #7ED321,
+            important: #D0021B,
+            active: #4A90E2,
+            focus: #B8E986,
+            success: #7ED321,
+            info: #50E3C2,
+            tips: #9B9B9B,
+            warning: #F8E71C,
+            danger: #D0021B,
+            error: #D0021B,
         ),
     ),
     light: (
         bg: (
-            default: #eff1f5,
-            primary: #e6e9ef,
-            secondary: #dce0e8,
-            card: #ffffff,
-            card-hover: #e6e9ef,
+            default: #F5F5F5,
+            primary: #FFFFFF,
+            secondary: #EAEAEA,
+            card: #FFFFFF,
+            card-hover: #F0F0F0,
+            btn: #E0E0E0,
         ),
         cl: (
-            primary: #8839ef,
-            secondary: #d20f39,
-            tertiary: #1e66f5,
-            accent: #df8e1d,
-            text: #4c4f69,
-            heading: #1e1e2e,
-            muted: #6c7086,
+            primary: #007AFF,   // Biru Apple
+            secondary: #34C759, // Hijau segar
+            tertiary: #FF9500,  // Oranye hangat
+            accent: #FF3B30,    // Merah intens
+            text: #333333,      // Hitam soft
+            heading: #000000,   // Hitam pekat
+            muted: #7F7F7F,     // Abu tua
+            border: #D1D1D1,    // Abu terang
+            btn: #007AFF,       // Biru Apple
+            title: #333333,     // Hitam soft
         ),
         status: (
-            plan: #df8e1d,
-            draft: #4c4f69,
-            in-progress: #dc8a78,
-            finished: #40a02b,
-            important: #d20f39,
-            active: #1e66f5,
-            focus: #8839ef,
-            success: #40a02b,
-            info: #1e66f5,
-            tips: #179299,
-            warning: #df8e1d,
-            danger: #d20f39,
-            error: #d20f39,
+            plan: #34C759,
+            draft: #A1A1A1,
+            in-progress: #FF9500,
+            finished: #28CD41,
+            important: #FF3B30,
+            active: #007AFF,
+            focus: #32D74B,
+            success: #28CD41,
+            info: #0A84FF,
+            tips: #8E8E93,
+            warning: #FFCC00,
+            danger: #FF3B30,
+            error: #FF453A,
         ),
     ),
 );

@@ -1,4 +1,8 @@
-<aside class="sidebar sidebar--left">
+<aside class="sidebar sidebar--right">
+  <header class="justify-content-between">
+    <div>{{ .Title }}</div>
+    <button id="rightClose"><i class="bi bi-x"></i></button>
+  </header>
   <nav>
     {{- $related := .Site.RegularPages.Related . | first 20 -}}
     {{- if $related -}}

@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Testing'
 paginate = 6
 
 markup.tableOfContents = { endLevel = 6, ordered = false, startLevel = 2 }
@@ -13,4 +13,3 @@ markup.tableOfContents = { endLevel = 6, ordered = false, startLevel = 2 }
 [taxonomies]
   category = 'categories'
   tag = 'tags'
-  group = 'group'

@@ -11,11 +11,11 @@
     }
 
     @each $name, $value in v.$size {
-        --#{$name}: #{$value};
+        --size-#{$name}: #{$value};
     }
 
     @each $name, $value in v.$border {
-        --#{$name}: #{$value};
+        --border-#{$name}: #{$value};
     }
 }
 @each $theme, $categories in clr.$themes {

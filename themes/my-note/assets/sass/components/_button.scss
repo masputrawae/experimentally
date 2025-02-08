@@ -1,0 +1,15 @@
+button {
+    color: var(--cl-secondary);
+
+    &.btn-icon {
+        font-size: var(--fs-7xl);
+
+        &--border{
+            width: 40px;
+            height: 40px;
+            font-size: var(--fs-4xl);
+            border: var(--border-1) solid var(--cl-border);
+            border-radius: var(--size-1);
+        }
+    }
+}

@@ -8,7 +8,10 @@ categories:
   - Linux
   - Commands
   - Tutorial
-group: Linux
+groups: 
+  - Linux
+  - Other
+  - Testing
 reference:
   - name: Linux Manual
     url: https://www.linux.org/docs/man/

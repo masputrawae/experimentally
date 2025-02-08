@@ -1,25 +1,32 @@
 <aside class="sidebar sidebar--left">
   <header>
     <div class="justify-content-between">
-      <a href="{{- .Site.BaseURL -}}">{{- .Site.Title -}}</a>
+      <a class="site-title" href="{{- .Site.BaseURL -}}">{{- .Site.Title -}}</a>
 
       <div class="justify-content-between">
-        <button id="switchTheme">
+        <button class="btn-icon btn-icon--border" id="switchTheme">
           <i class="bi bi-moon"></i>
         </button>
-        <button id="leftClose">
+        <button class="btn-icon btn-icon--border" id="leftClose">
           <i class="bi bi-x"></i>
         </button>
       </div>
     </div>
     
-    <form action="">
-      <input type="search">
-      <button type="submit"><i class="bi bi-search"></i></button>
-    </form>
+    <div>
+      <form action="">
+        <input type="search">
+        <button type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      
+    </div>
   </header>
 
   <nav class="collapsible-nav">
+    <button id="toggleCollapseAll">
+      <i class="bi bi-folder2"></i>
+      <span>Root</span>
+    </button>
     <ul>
       {{- template "collapsible_nav" .Site.Home -}}
     </ul>

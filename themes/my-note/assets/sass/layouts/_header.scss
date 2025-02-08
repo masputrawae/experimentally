@@ -1,0 +1,25 @@
+@use '../abstract/breakpoint' as bp;
+
+.site-header {
+    position: sticky;
+    top: 0;
+    padding: var(--size-3);
+
+    background-color: var(--bg-secondary);
+    border-bottom: var(--border-1) solid var(--cl-border);
+
+    z-index: 5;
+    @include bp.min-width(lg){
+        display: none;
+    }
+}
+
+.site-title {
+    font-size: var(--fs-7xl);
+    font-family: var(--font-title);
+    color: var(--cl-secondary);
+
+    &:hover {
+        text-decoration: none;
+    }
+}

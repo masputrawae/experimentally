@@ -1,21 +1,32 @@
-{{ define "main" }}
+{{- define "main" -}}
 <main>
   <article>
-    <section>
-      <figure>
-        <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
-        <figcaption>
-          {{ .Params.description }}
-        </figcaption>
-      </figure>
-      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-      {{ $dateHuman := .Date | time.Format ":date_long" }}
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-    </section>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
 
     <section id="contentArticle">
-      {{ .Content }}
+      {{- .Content | safeHTML -}}
     </section>
+
+    <footer>
+      <ul>
+        <li><strong>Tags: </strong>
+          {{- with .Params.tags -}}
+            {{- range . -}}
+            <a href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
+            {{- end -}}
+          {{- end -}}
+        </li>
+        <li><strong>Categories: </strong>
+          {{- with .Params.categories -}}
+            {{- range . -}}
+            <a href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
+            {{- end -}}
+          {{- end -}}
+        </li>
+      </ul>
+    </footer>
   </article>
 </main>
-{{ end }}
+{{- end -}}

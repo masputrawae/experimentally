@@ -1,17 +1,12 @@
 {{ define "main" }}
 <main>
   <article>
-    <section id="metaPost">
-      <figure>
-        <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
-        <figcaption>
-          {{ .Params.subtitle }}
-        </figcaption>
-      </figure>
-    </section>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
 
     <section id="contentArticle">
-      {{ .Content }}
+      {{ .Content | safeHTML }}
     </section>
 
     <section id="taxonomyCloud">

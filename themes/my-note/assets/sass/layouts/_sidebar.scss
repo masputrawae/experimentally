@@ -1,0 +1,82 @@
+@use '../abstract/breakpoint' as bp;
+
+.sidebar {
+    background-color: var(--bg-default);
+    padding: var(--size-1);
+    z-index: 10;
+
+    header {
+        height: 6rem;
+        max-height: 6rem;
+    }
+
+    &--left {
+        border-right: var(--border-1) solid var(--cl-border);
+        transform: translateX(0)!important; // SEMENTARA
+    }
+
+    nav {
+        height: 100dvh;
+        overflow-y: auto;
+    }
+
+    nav {
+        border-top: var(--border-1) solid var(--cl-border);
+        font-size: var(--fs-tiny);
+        ul {
+            list-style-type: none;
+            padding-left: var(--size-2);
+            position: relative;
+    
+            & li {
+                position: relative;
+                padding-left: var(--size-5);
+    
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: var(--border-1);
+                    background-color: var(--cl-border);
+                }
+    
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    width: 15px;
+                    height: var(--border-1);
+                    background-color: var(--cl-border);
+                }
+    
+                &:last-child::before {
+                    height: 10px;
+                }
+            }
+    
+            a {
+                display: block;
+                text-decoration: none;
+                color: var(--cl-primary);
+                font-family: monospace;
+                transition: color 0.3s ease-in-out;
+    
+                &:hover {
+                    color: var(--cl-secondary);
+                }
+            }
+        }
+    }
+}
+.collapsible-nav {
+    .list-collapse {
+        display: none;
+
+        &.collapsed {
+            display: block;
+        }
+    }
+}
