@@ -4,13 +4,34 @@
 .sidebar {
     z-index: 10;
     background-color: var(--bg-default);
-    padding: var(--size-2);
+    padding: 0 var(--size-2);
+    overflow-y: auto;
     
     &__button {
         @include m.width-height(30px, 30px);
         border-radius: var(--size-1);
         font-size: var(--fs-xl);
         border: var(--border-1) solid var(--cl-border);
+    }
+
+    &__title {
+        font-family: var(--font-title);
+        font-size: var(--fs-7xl);
+
+        &--small {
+            font-size: var(--fs-body);
+        }
+    }
+
+    &__header {
+        @include m.sticky-top;
+        padding-top: var(--size-2);
+        padding-bottom: var(--size-2);
+
+        background-color: var(--bg-default);
+        z-index: 5;
+        max-height: 6rem;
+        border-bottom: var(--border-1) solid var(--cl-border);
     }
     
     &__header-container {
@@ -23,11 +44,23 @@
 
     &--left {
         transform: translateX(0%)!important; // sementara
+        border-right: var(--border-1) solid var(--cl-border);
+    }
+
+    &--right {
+
     }
 }
 
 .menu {
-    font-size: var(--fs-tiny);
+    margin-top: var(--size-2);
+    &__list--collapse {
+        display: none;
+    
+        &.collapsed {
+            display: block;
+        }
+    }
 
     &__list {
         list-style-type: none;
@@ -73,14 +106,6 @@
 
         &:hover {
             color: var(--cl-link-hover);
-        }
-    }
-    
-    &__list--collapse {
-        display: none;
-    
-        &.collapsed {
-            display: block;
         }
     }
 }

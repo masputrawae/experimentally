@@ -1,3 +1,12 @@
-<footer>
+<footer class="footer">
+  <ul class="footer__nav">
+    {{ range .Site.Params.socialMedia }}
+      <li class="footer__item">
+        <a class="footer__link footer__link--icon" id="{{ .social }}" href="{{ .url }}" target="_blank">
+          <i class="bi {{ .icon }}"></i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
   <p>Copyright {{ now.Year }}. All rights reserved.</p>
 </footer>

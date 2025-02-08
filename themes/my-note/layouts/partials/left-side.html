@@ -1,7 +1,7 @@
 <aside class="sidebar sidebar--left">
   <header class="sidebar__header">
     <div class="sidebar__header-container">
-      <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <a class="sidebar__title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       <div class="sidebar__actions">
         <button class="btn btn--icon sidebar__button" id="switchTheme">
           <i class="bi bi-moon"></i>
@@ -27,16 +27,6 @@
     </button>
     <ul class="menu__list">
       {{- template "collapsible_nav" .Site.Home -}}
-    </ul>
-    
-    <ul class="menu__list menu__list--social">
-      {{ range .Site.Params.socialMedia }}
-        <li class="menu__item">
-          <a class="menu__link menu__link--icon" id="{{ .social }}" href="{{ .url }}" target="_blank">
-            <i class="bi {{ .icon }}"></i>
-          </a>
-        </li>
-      {{ end }}
     </ul>
   </nav>
 </aside>
