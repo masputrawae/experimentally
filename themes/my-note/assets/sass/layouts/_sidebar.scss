@@ -157,4 +157,11 @@
 }
 .menu {
     @extend #tableOfContents;
+    &__list--collapse {
+        display: none;
+    
+        &.collapsed {
+            display: block;
+         }
+     }
 }
