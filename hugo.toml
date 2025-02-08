@@ -1,5 +1,5 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
+baseURL = 'https://masputrawae.github.io/experimentally/'
+languageCode = 'id'
 title = 'Testing'
 theme = "my-note"
 usernameGithub = "masputrawae"
