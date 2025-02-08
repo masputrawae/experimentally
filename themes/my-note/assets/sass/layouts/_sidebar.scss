@@ -1,6 +1,12 @@
 @use '../abstract/breakpoint' as bp;
 @use '../abstract/mixins' as m;
 
+#leftClose{
+    @include bp.min-width(lg){
+        display: none;
+    }
+}
+
 .sidebar {
     z-index: 10;
     background-color: var(--bg-default);
@@ -16,7 +22,14 @@
 
     &__title {
         font-family: var(--font-title);
+        color: var(--cl-primary);
         font-size: var(--fs-7xl);
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: var(--cl-secondary);
+            text-decoration: none;
+        }
 
         &--small {
             font-size: var(--fs-body);
@@ -37,9 +50,32 @@
     &__header-container {
         @include m.flex-justify();
     }
-    
+
     &__action {
         @include m.flex-justify();
+    }
+
+    &__form {
+        @include m.flex-justify();
+    }
+
+    &__input {
+        @include m.width-height(85%, 28px);
+        background-color: var(--bg-primary);
+        border: var(--border-1) solid var(--cl-border);
+        padding: var(--size-2);
+        color: var(--cl-text);
+        border-radius: var(--size-1);
+        transition: border-color 0.3s ease-in-out;
+        
+        &:focus {
+            border-color: var(--status-focus);
+            outline: none;
+        }
+
+        &:hover {
+            border-color: var(--status-active);
+        }
     }
 
     &--left {
