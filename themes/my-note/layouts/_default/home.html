@@ -1,18 +1,18 @@
 {{ define "main" }}
-<main>
-  <article>
-    <header>
-      <h1>{{ .Title }}</h1>
+<main class="article">
+  <article class="article__content">
+    <header class="article__header">
+      <h1 class="article__title">{{ .Title }}</h1>
     </header>
 
-    <section id="contentArticle">
+    <section class="article__body" id="contentArticle">
       {{ .Content | safeHTML }}
     </section>
 
-    <section id="taxonomyCloud">
-      <div class="cloud-container">
-        <h3>Tag Cloud</h3>
-        <ul>
+    <section class="taxonomy-cloud">
+      <div class="taxonomy-cloud__container">
+        <h3 class="taxonomy-cloud__title">Tag Cloud</h3>
+        <ul class="taxonomy-cloud__list">
           {{ $tags := .Site.Taxonomies.tags }}
           {{ $tagCounts := slice }}
           {{ range $tag, $pages := $tags }}
@@ -20,13 +20,18 @@
           {{ end }}
           {{ $sortedtags := sort $tagCounts "count" "desc" }}
           {{ range $sortedtags }}
-            <li><a href="{{ "/tags/" | relURL }}{{ .name | urlize }}">{{ .name }}</a> ({{ .count }})</li>
+            <li class="taxonomy-cloud__item">
+              <a class="taxonomy-cloud__link" href="{{ "/tags/" | relURL }}{{ .name | urlize }}">
+                {{ .name }}
+              </a> ({{ .count }})
+            </li>
           {{ end }}
         </ul>
       </div>
-      <div class="cloud-container">
-        <h3>Categories Cloud</h3>
-        <ul>
+      
+      <div class="taxonomy-cloud__container">
+        <h3 class="taxonomy-cloud__title">Categories Cloud</h3>
+        <ul class="taxonomy-cloud__list">
           {{ $categories := .Site.Taxonomies.categories }}
           {{ $categoryCounts := slice }}
           {{ range $category, $pages := $categories }}
@@ -34,7 +39,11 @@
           {{ end }}
           {{ $sortedcategories := sort $categoryCounts "count" "desc" }}
           {{ range $sortedcategories }}
-            <li><a href="{{ "/categories/" | relURL }}{{ .name | urlize }}">{{ .name }}</a> ({{ .count }})</li>
+            <li class="taxonomy-cloud__item">
+              <a class="taxonomy-cloud__link" href="{{ "/categories/" | relURL }}{{ .name | urlize }}">
+                {{ .name }}
+              </a> ({{ .count }})
+            </li>
           {{ end }}
         </ul>
       </div>

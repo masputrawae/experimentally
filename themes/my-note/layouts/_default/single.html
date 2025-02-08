@@ -1,27 +1,27 @@
 {{- define "main" -}}
-<main>
-  <article>
-    <header>
-      <h1>{{ .Title }}</h1>
+<main class="article">
+  <article class="article__content">
+    <header class="article__header">
+      <h1 class="article__title">{{ .Title }}</h1>
     </header>
 
-    <section id="contentArticle">
+    <section class="article__body" id="contentArticle">
       {{- .Content | safeHTML -}}
     </section>
 
-    <footer>
-      <ul>
-        <li><strong>Tags: </strong>
+    <footer class="article__footer">
+      <ul class="article__meta">
+        <li class="article__meta-item"><strong>Tags: </strong>
           {{- with .Params.tags -}}
             {{- range . -}}
-            <a href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
+            <a class="article__meta-link" href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
             {{- end -}}
           {{- end -}}
         </li>
-        <li><strong>Categories: </strong>
+        <li class="article__meta-item"><strong>Categories: </strong>
           {{- with .Params.categories -}}
             {{- range . -}}
-            <a href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
+            <a class="article__meta-link" href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
             {{- end -}}
           {{- end -}}
         </li>

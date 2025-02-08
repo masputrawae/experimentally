@@ -1,22 +1,22 @@
 {{- define "main" -}}
-<main>
-  <article>
-    <header>
-      <h1>{{- .Title -}}</h1>
+<main class="article">
+  <article class="article__content">
+    <header class="article__header">
+      <h1 class="article__title">{{- .Title -}}</h1>
     </header>
     
-    <section id="contentArticle">
+    <section class="article__body" id="contentArticle">
       {{- .Content -}}
     </section>
   
-    <nav>
-      <ul>
+    <nav class="article__nav">
+      <ul class="article__nav-list">
         {{- range .Data.Terms.Alphabetical -}}
-          <li class="nav__item">
-            <a class="nav__link" href="{{- .Page.RelPermalink -}}">
-              <span class="nav__link-name">{{- .Page.LinkTitle -}}</span>
+          <li class="article__nav-item">
+            <a class="article__nav-link" href="{{- .Page.RelPermalink -}}">
+              <span>{{- .Page.LinkTitle -}}</span>
             </a>
-            <span class="nav__item-name">({{- .Count -}})</span>
+            <span class="article__nav-count">({{- .Count -}})</span>
           </li>
         {{- end -}}
       </ul>

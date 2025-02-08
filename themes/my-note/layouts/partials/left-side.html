@@ -1,43 +1,42 @@
 <aside class="sidebar sidebar--left">
-  <header>
-    <div class="justify-content-between">
-      <a class="site-title" href="{{- .Site.BaseURL -}}">{{- .Site.Title -}}</a>
-
-      <div class="justify-content-between">
-        <button class="btn-icon btn-icon--border" id="switchTheme">
+  <header class="sidebar__header">
+    <div class="sidebar__header-container">
+      <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <div class="sidebar__actions">
+        <button class="btn btn--icon btn--border" id="switchTheme">
           <i class="bi bi-moon"></i>
         </button>
-        <button class="btn-icon btn-icon--border" id="leftClose">
+        <button class="btn btn--icon btn--border" id="leftClose">
           <i class="bi bi-x"></i>
         </button>
       </div>
     </div>
     
-    <form class="justify-content-between" action="">
-      <input type="search">
-      <button class="btn-icon btn-icon--border btn-icon--search" type="submit"><i class="bi bi-search"></i></button>
+    <form class="sidebar__form">
+      <input class="sidebar__input" type="search">
+      <button class="btn btn--icon btn--border" type="submit">
+        <i class="bi bi-search"></i>
+      </button>
     </form>
   </header>
-
-  <div class="sidebar-navigation-container">
-    <nav class="sidebar-nav-list collapsible-nav">
-      <button id="toggleCollapseAll">
-        <i class="bi bi-folder2"></i>
-        <span>Root</span>
-      </button>
-      <ul>
-        {{- template "collapsible_nav" .Site.Home -}}
-      </ul>
-    </nav>
   
-    <nav id="socialLink">
-      <ul class="justify-content-between">
-        {{ range .Site.Params.socialMedia }}
-          <li>
-            <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
-          </li>
-        {{ end }}
-      </ul>
-    </nav>
-  </div>
+  <nav class="menu">
+    <button class="btn btn--text" id="toggleCollapseAll">
+      <i class="bi bi-folder2"></i>
+      <span>Root</span>
+    </button>
+    <ul class="menu__list">
+      {{- template "collapsible_nav" .Site.Home -}}
+    </ul>
+    
+    <ul class="menu__list menu__list--social">
+      {{ range .Site.Params.socialMedia }}
+        <li class="menu__item">
+          <a class="menu__link menu__link--icon" id="{{ .social }}" href="{{ .url }}" target="_blank">
+            <i class="bi {{ .icon }}"></i>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
 </aside>
