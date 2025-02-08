@@ -1,6 +1,5 @@
 <aside class="sidebar sidebar--left">
-  <header class="sidebar-header">
-
+  <header>
     <div class="justify-content-between">
       <a href="{{- .Site.BaseURL -}}">{{- .Site.Title -}}</a>
 
@@ -13,32 +12,26 @@
         </button>
       </div>
     </div>
-
-    <div>
-      <form action="">
-        <input type="search">
-        <button type="submit"><i class="bi bi-search"></i></button>
-      </form>
-      <ul>
-        {{ range .Site.Params.socialMedia }}
-          <li>
-            <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
-          </li>
-        {{ end }}
-      </ul>
-    </div>
-    <nav>
-      <ul>
-        {{ range site.Menus.main }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-      </ul>
-    </nav>    
+    
+    <form action="">
+      <input type="search">
+      <button type="submit"><i class="bi bi-search"></i></button>
+    </form>
   </header>
 
   <nav class="collapsible-nav">
     <ul>
       {{- template "collapsible_nav" .Site.Home -}}
+    </ul>
+  </nav>
+
+  <nav id="socialLink">
+    <ul class="justify-content-between">
+      {{ range .Site.Params.socialMedia }}
+        <li>
+          <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
+        </li>
+      {{ end }}
     </ul>
   </nav>
 </aside>

@@ -11,3 +11,9 @@ body {
 ul {
     padding-left: 10px;
 }
+
+.justify-content-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
