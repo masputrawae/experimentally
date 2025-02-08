@@ -10,3 +10,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+@mixin shadow {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}

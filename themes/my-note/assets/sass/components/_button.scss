@@ -1,3 +1,5 @@
+@use '../abstract/mixins' as m;
+
 button {
     color: var(--cl-secondary);
 
@@ -10,6 +12,19 @@ button {
             font-size: var(--fs-4xl);
             border: var(--border-1) solid var(--cl-border);
             border-radius: var(--size-1);
+            @include m.shadow;
         }
+
+        &--search {
+            width: 30px;
+            height: 30px;
+            font-size: var(--fs-1xl);
+        }
+    }
+
+    &.btn-collapse, &#toggleCollapseAll {
+        text-transform: capitalize;
+        text-align: start;
+        width: 100%;
     }
 }

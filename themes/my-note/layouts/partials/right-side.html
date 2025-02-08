@@ -3,36 +3,38 @@
     <div>{{ .Title }}</div>
     <button id="rightClose"><i class="bi bi-x"></i></button>
   </header>
-  <nav>
-    {{- $related := .Site.RegularPages.Related . | first 20 -}}
-    {{- if $related -}}
-      <strong>Related:</strong>
-      <ul>
-        {{- range $related -}}
-          <li>
-            <a href="{{ .RelPermalink }}"><i class="bi bi-link"></i><span>{{ .LinkTitle }}</span></a>
-            <div class="card">
-              {{ .Params.description }}
-            </div>
-          </li>
-        {{- end -}}
-      </ul>
-    {{- else -}}
-      <strong>Pinned:</strong>
-      <ul>
-        {{- range where .Site.RegularPages "Params.pinned" true -}}
-          <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <div class="card">
-              {{ .Params.description }}
-            </div>
-          </li>
-        {{- end -}}
-      </ul>
-    {{- end -}}
-  </nav>
-
-  <nav id="tableOfContent">
-    {{ .TableOfContents }}
-  </nav>
+  <div class="sidebar-navigation-container">
+    <nav>
+      {{- $related := .Site.RegularPages.Related . | first 20 -}}
+      {{- if $related -}}
+        <strong>Related:</strong>
+        <ul>
+          {{- range $related -}}
+            <li>
+              <a href="{{ .RelPermalink }}"><i class="bi bi-link"></i><span>{{ .LinkTitle }}</span></a>
+              <div class="card">
+                {{ .Params.description }}
+              </div>
+            </li>
+          {{- end -}}
+        </ul>
+      {{- else -}}
+        <strong>Pinned:</strong>
+        <ul>
+          {{- range where .Site.RegularPages "Params.pinned" true -}}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <div class="card">
+                {{ .Params.description }}
+              </div>
+            </li>
+          {{- end -}}
+        </ul>
+      {{- end -}}
+    </nav>
+  
+    <nav id="tableOfContent">
+      {{ .TableOfContents }}
+    </nav>
+  </div>
 </aside>

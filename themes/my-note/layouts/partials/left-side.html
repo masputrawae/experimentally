@@ -13,32 +13,31 @@
       </div>
     </div>
     
-    <div>
-      <form action="">
-        <input type="search">
-        <button type="submit"><i class="bi bi-search"></i></button>
-      </form>
-      
-    </div>
+    <form class="justify-content-between" action="">
+      <input type="search">
+      <button class="btn-icon btn-icon--border btn-icon--search" type="submit"><i class="bi bi-search"></i></button>
+    </form>
   </header>
 
-  <nav class="collapsible-nav">
-    <button id="toggleCollapseAll">
-      <i class="bi bi-folder2"></i>
-      <span>Root</span>
-    </button>
-    <ul>
-      {{- template "collapsible_nav" .Site.Home -}}
-    </ul>
-  </nav>
-
-  <nav id="socialLink">
-    <ul class="justify-content-between">
-      {{ range .Site.Params.socialMedia }}
-        <li>
-          <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
-        </li>
-      {{ end }}
-    </ul>
-  </nav>
+  <div class="sidebar-navigation-container">
+    <nav class="sidebar-nav-list collapsible-nav">
+      <button id="toggleCollapseAll">
+        <i class="bi bi-folder2"></i>
+        <span>Root</span>
+      </button>
+      <ul>
+        {{- template "collapsible_nav" .Site.Home -}}
+      </ul>
+    </nav>
+  
+    <nav id="socialLink">
+      <ul class="justify-content-between">
+        {{ range .Site.Params.socialMedia }}
+          <li>
+            <a class="social-icon" id="{{ .social }}" href="{{ .url }}" target="_blank"><i class="{{ .icon }}"></i></a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
 </aside>

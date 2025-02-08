@@ -1,4 +1,5 @@
 @use '../abstract/breakpoint' as bp;
+@use '../abstract/mixins' as m;
 
 .sidebar {
     background-color: var(--bg-default);
@@ -10,19 +11,39 @@
         max-height: 6rem;
     }
 
+    form {
+        @include m.align-center;
+        padding-top: var(--size-2);
+        width: 90%;
+        input {
+            @include m.shadow;
+            border-radius: var(--size-1);
+            color: var(--cl-text);
+            height: 30px;
+            border: var(--border-1) solid var(--cl-border);
+            background-color: var(--bg-secondary);
+            width: 87%;
+
+            &:focus {
+                border-color: var(--status-focus);
+                outline: none;
+            }
+        }
+    }
+
     &--left {
         border-right: var(--border-1) solid var(--cl-border);
-        transform: translateX(0)!important; // SEMENTARA
     }
 
-    nav {
+    .sidebar-navigation-container {
         height: 100dvh;
         overflow-y: auto;
+        border-top: var(--border-1) solid var(--cl-border);
     }
 
     nav {
-        border-top: var(--border-1) solid var(--cl-border);
         font-size: var(--fs-tiny);
+        border-top: var(--border-1) solid var(--cl-border);
         ul {
             list-style-type: none;
             padding-left: var(--size-2);
@@ -58,6 +79,7 @@
             }
     
             a {
+                text-transform: capitalize;
                 display: block;
                 text-decoration: none;
                 color: var(--cl-primary);
@@ -71,6 +93,7 @@
         }
     }
 }
+
 .collapsible-nav {
     .list-collapse {
         display: none;
