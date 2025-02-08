@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main>
-  <article class="content">
-    <section class="content-header">
-      <figure class="content-header-figure">
+  <article>
+    <section id="metaPost">
+      <figure>
         <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
         <figcaption>
           {{ .Params.subtitle }}
@@ -10,7 +10,7 @@
       </figure>
     </section>
 
-    <section class="content-article" id="contentArticle">
+    <section id="contentArticle">
       {{ .Content }}
     </section>
 

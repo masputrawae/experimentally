@@ -1,8 +1,8 @@
 {{ define "main" }}
 <main>
-  <article class="content">
-    <section class="content-header">
-      <figure class="content-header-figure">
+  <article>
+    <section>
+      <figure>
         <img src="{{ .Params.image }}" alt="Gambar {{ .Title }}">
         <figcaption>
           {{ .Params.description }}
@@ -13,7 +13,7 @@
       <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
     </section>
 
-    <section class="content-article" id="contentArticle">
+    <section id="contentArticle">
       {{ .Content }}
     </section>
   </article>
