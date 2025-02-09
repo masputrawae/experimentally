@@ -5,12 +5,12 @@
       {{- if .IsSection -}}
 
         <!-- ==================== -->
-        <li class="menu__item menu__item--folder" data-id="{{ .RelPermalink | urlize }}">
+        <li class="menu-left__item menu-left__item--folder" data-id="{{ .RelPermalink | urlize }}">
           <button class="btn btn--text btn--collapse">
             <i class="bi bi-folder2"></i>
             <span>{{ .LinkTitle }}</span>
           </button>
-          <ul class="menu__list menu__list--collapse">
+          <ul class="menu-left__list menu-left__list--collapse">
             {{- template "collapsible_nav" . -}}
           </ul>
         </li>
@@ -19,7 +19,7 @@
       {{- else if .IsPage -}}
 
         <!-- ==================== -->
-        <li class="menu__item menu__item--file" data-id="{{ .RelPermalink | urlize }}">
+        <li class="menu-left__item menu-left__item--file" data-id="{{ .RelPermalink | urlize }}">
           <a href="{{- .RelPermalink -}}">
             <i class="bi bi-file-earmark-text"></i>
             <span>{{- .LinkTitle -}}</span>

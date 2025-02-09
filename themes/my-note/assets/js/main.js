@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const toggleFolderCollapse = (folder, isCollapsed) => {
-      const sublist = folder.querySelector(".menu__list--collapse");
+      const sublist = folder.querySelector(".menu-left__list--collapse");
       if (sublist) {
         sublist.classList.toggle("collapsed", isCollapsed);
         sessionStorage.setItem(`collapsed_${folder.dataset.id}`, isCollapsed);
@@ -80,10 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
     collapseButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        const parentItem = this.closest(".menu__item--folder");
+        const parentItem = this.closest(".menu-left__item--folder");
         if (parentItem) {
           const isCollapsed = parentItem
-            .querySelector(".menu__list--collapse")
+            .querySelector(".menu-left__list--collapse")
             .classList.toggle("collapsed");
           sessionStorage.setItem(
             `collapsed_${parentItem.dataset.id}`,
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   
-    document.querySelectorAll(".menu__item--folder").forEach((folder) => {
+    document.querySelectorAll(".menu-left__item--folder").forEach((folder) => {
       toggleFolderCollapse(
         folder,
         sessionStorage.getItem(`collapsed_${folder.dataset.id}`) === "true"
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       collapseAllButton.addEventListener("click", function () {
         allCollapsed = !allCollapsed;
         document
-          .querySelectorAll(".menu__item--folder")
+          .querySelectorAll(".menu-left__item--folder")
           .forEach((folder) => toggleFolderCollapse(folder, allCollapsed));
         toggleIcon(collapseAllButton.querySelector("i"), allCollapsed);
       });

@@ -8,30 +8,30 @@
     </div>
   </header>
   
-  <nav class="menu">
+  <nav class="menu-right">
     {{- $related := .Site.RegularPages.Related . | first 20 -}}
     {{- if $related -}}
-      <strong class="menu__title">Related:</strong>
-      <ul class="menu__list">
+      <strong class="menu-right__title">Related:</strong>
+      <ul class="menu-right__list">
         {{- range $related -}}
-          <li class="menu__item">
-            <a class="menu__link" href="{{ .RelPermalink }}">
+          <li class="menu-right__item">
+            <a class="menu-right__link" href="{{ .RelPermalink }}">
               <i class="bi bi-link"></i>
               <span>{{ .LinkTitle }}</span>
             </a>
-            <div class="menu__card-content">
+            <div class="menu-right__card-content">
               {{ .Params.description }}
             </div>
           </li>
         {{- end -}}
       </ul>
     {{- else -}}
-      <strong class="menu__title">Pinned:</strong>
-      <ul class="menu__list">
+      <strong class="menu-right__title">Pinned:</strong>
+      <ul class="menu-right__list">
         {{- range where .Site.RegularPages "Params.pinned" true -}}
-          <li class="menu__item">
-            <a class="menu__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <div class="menu__card-content">
+          <li class="menu-right__item">
+            <a class="menu-right__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <div class="menu-right__card-content">
               {{ .Params.description }}
             </div>
           </li>
@@ -39,7 +39,7 @@
       </ul>
     {{- end -}}
     
-    <div class="menu__table-of-contents" id="tableOfContents">
+    <div class="menu-right__table-of-contents" id="tableOfContents">
       <ul>
         {{ .TableOfContents }}
       </ul>

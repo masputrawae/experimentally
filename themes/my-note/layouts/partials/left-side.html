@@ -20,12 +20,12 @@
     </form>
   </header>
   
-  <nav class="menu">
-    <button class="btn btn--text sidebar__button" id="toggleCollapseAll">
+  <nav class="menu-left">
+    <button class="btn btn--text menu-left__button" id="toggleCollapseAll">
       <i class="bi bi-folder2"></i>
       <span>Root</span>
     </button>
-    <ul class="menu__list">
+    <ul class="menu-left__list">
       {{- template "collapsible_nav" .Site.Home -}}
     </ul>
   </nav>

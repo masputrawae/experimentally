@@ -11,4 +11,9 @@
         font-family: var(--font-nav);
         font-size: var(--fs-base);
     }
+
+    &--collapse {
+        text-align: start;
+        width: 100%;
+    }
 }

@@ -1,5 +1,6 @@
 @use '../abstract/breakpoint' as bp;
 @use '../abstract/mixins' as m;
+@use '../abstract/placeholder';
 
 #leftClose{
     @include bp.min-width(lg){
@@ -80,88 +81,53 @@
 
     &--left {
         border-right: var(--border-1) solid var(--cl-border);
+        transform: translateX(0%)!important; // sementara
     }
 
     &--right {
         overflow: hidden;
-        .menu {
-            height: 100dvh;
-
-            &__list {
-                overflow-y: auto;
-                max-height: 30%;
-                border: var(--border-1) solid var(--cl-border);
-                font-size: var(--fs-sm);
-            }
-
-            &__link {
-                font-family: var(--font-article);
-                font-size: var(--fs-sm);
-            }
-
-            &__table-of-contents {
-                height: 53vh;
-                overflow-y: auto;
-            }
-        }
     }
 }
 
-#tableOfContents {
-    ul {
-        list-style-type: none;
-        padding-left: var(--size-2);
-        position: relative;
+.menu-left {
+    @extend %tree-style-list;
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-5);
+
+    &__button {
+        text-align: start;
+        width: 100%;
     }
 
-    li {
-        position: relative;
-        padding-left: var(--size-5);
-
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: var(--cl-border);
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 15px;
-            width: 10px;
-            height: 1px;
-            background-color: var(--cl-border);
-        }
-
-        &:last-child::before {
-            height: 15px;
-        }
-    }
-    
-    a {
-        font-size: var(--fs-sm);
-        display: block;
-        text-decoration: none;
-        font-family: monospace;
-        transition: color 0.3s ease-in-out;
-
-        &:hover {
-            color: var(--status-success);
-        }
-    }
-}
-.menu {
-    @extend #tableOfContents;
     &__list--collapse {
         display: none;
     
         &.collapsed {
             display: block;
          }
-     }
+    }
+}
+
+.menu-right {
+    height: 100dvh;
+
+    &__list {
+        list-style: none;
+        padding: var(--size-5);
+        overflow-y: auto;
+        max-height: 30%;
+        border: var(--border-1) solid var(--cl-border);
+        font-size: var(--fs-sm);
+    }
+
+    &__link {
+        font-family: var(--font-article);
+        font-size: var(--fs-sm);
+    }
+
+    &__table-of-contents {
+        @extend %tree-style-list;
+        height: 53vh;
+        overflow-y: auto;
+    }
 }
