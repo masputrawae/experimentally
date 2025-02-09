@@ -1,0 +1,95 @@
+<!-- TEMPLATES -->
+{{- define "collapsible_nav" -}}
+  {{- if .Pages -}}
+    {{- range .Pages -}}
+      {{- if .IsSection -}}
+
+        <!-- ==================== -->
+        <li class="menu-left__item menu-left__item--folder" data-id="{{- .RelPermalink | urlize -}}">
+          <button class="btn btn--text btn--collapse">
+            <i class="bi bi-folder2"></i>
+            <span>{{- .LinkTitle -}}</span>
+          </button>
+          <ul class="menu-left__list menu-left__list--collapse">
+            {{- template "collapsible_nav" . -}}
+          </ul>
+        </li>
+        <!-- ==================== -->
+
+      {{- else if .IsPage -}}
+
+        <!-- ==================== -->
+        <li class="menu-left__item menu-left__item--file" data-id="{{- .RelPermalink | urlize -}}">
+          <a href="{{- .RelPermalink -}}">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>{{- .LinkTitle -}}</span>
+          </a>
+        </li>
+        <!-- ==================== -->
+
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<!-- TEMPLATES -->
+
+<!-- TEMPLATES -->
+{{- define "tags-cloud" -}}
+<div class="tag-cloud">
+  <div class="tag-cloud__container">
+    <h3 class="tag-cloud__title">Tags</h3>
+    <ul class="tag-cloud__list">
+      {{- $tags := .Site.Taxonomies.tags -}}
+      {{- $tagCounts := slice -}}
+      {{- range $tag, $pages := $tags -}}
+        {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
+      {{- end -}}
+      {{- $sortedTags := sort $tagCounts "count" "desc" -}}
+      {{- range $sortedTags -}}
+        <li class="tag-cloud__item">
+          <a class="tag-cloud__link" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
+            {{- .name -}} ({{- .count -}})
+          </a>
+        </li>
+      {{- end -}}
+    </ul>
+  </div>
+</div>
+{{- end -}}
+
+{{- define "categories-cloud" -}}
+<div class="tag-cloud">
+  <div class="tag-cloud__container">
+    <h3 class="tag-cloud__title">Categories</h3>
+    <ul class="tag-cloud__list">
+      {{- $categories := .Site.Taxonomies.categories -}}
+      {{- $categoryCounts := slice -}}
+      {{- range $category, $pages := $categories -}}
+        {{- $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) -}}
+      {{- end -}}
+      {{- $sortedCategories := sort $categoryCounts "count" "desc" -}}
+      {{- range $sortedCategories -}}
+        <li class="tag-cloud__item">
+          <a class="tag-cloud__link" href="{{- "categories/" | relURL -}}{{- .name | urlize -}}">
+            {{- .name -}} ({{- .count -}})
+          </a>
+        </li>
+      {{- end -}}
+    </ul>
+  </div>
+</div>
+{{- end -}}
+<!-- TEMPLATES -->
+
+{{- define "archives" -}}
+<ul>
+  {{- range .Site.RegularPages.GroupByDate "2006" -}}
+      <h2>{{- .Key -}}</h2>
+      <ul>
+          {{- range .Pages -}}
+              <li><a href="{{- .RelPermalink -}}">{{- .Title -}}</a> - {{- .Date.Format "Jan 2, 2006" -}}</li>
+          {{- end -}}
+      </ul>
+  {{- end -}}
+</ul>
+{{- end -}}

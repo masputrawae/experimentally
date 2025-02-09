@@ -1,19 +1,21 @@
 {{- define "main" -}}
-<header>
-  <h1>{{- .Title -}}</h1>
-</header>
-
-<article id="contentArticle">
-  {{- .Content -}}
+<article>
+  <header>
+    <h1>{{- .Title -}}</h1>
+  </header>
+  
+  <section id="contentArticle">
+    {{- .Content -}}
+  </section>
+  
+  <nav>
+    <ul>
+      {{- range .Pages -}}
+        <li>
+          <a href="{{- .Permalink -}}">{{- .Title -}}</a>
+        </li>
+      {{- end -}}
+    </ul>
+  </nav>
 </article>
-
-<nav>
-  <ul>
-    {{- range .Pages -}}
-      <li>
-        <a href="{{- .Permalink -}}">{{- .Title -}}</a>
-      </li>
-    {{- end -}}
-  </ul>
-</nav>
 {{- end -}}
