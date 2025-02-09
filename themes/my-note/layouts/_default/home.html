@@ -1,53 +1,61 @@
-{{ define "main" }}
+{{- define "main" -}}
 <main class="article">
   <article class="article__content">
     <header class="article__header">
-      <h1 class="article__title">{{ .Title }}</h1>
+      <h1 class="article__title">{{- .Title -}}</h1>
     </header>
 
+    <section>
+      {{ $pages := where site.RegularPages "Type" "pages" }}
+      {{ range $pages }}
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        <p>{{ .Params.date }}</p>
+      {{ end }}
+    </section>
+
     <section class="article__body" id="contentArticle">
-      {{ .Content | safeHTML }}
+      {{- .Content | safeHTML -}}
     </section>
 
     <section class="taxonomy-cloud">
       <div class="taxonomy-cloud__container">
         <h3 class="taxonomy-cloud__title">Tag Cloud</h3>
         <ul class="taxonomy-cloud__list">
-          {{ $tags := .Site.Taxonomies.tags }}
-          {{ $tagCounts := slice }}
-          {{ range $tag, $pages := $tags }}
-            {{ $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) }}
-          {{ end }}
-          {{ $sortedtags := sort $tagCounts "count" "desc" }}
-          {{ range $sortedtags }}
+          {{- $tags := .Site.Taxonomies.tags -}}
+          {{- $tagCounts := slice -}}
+          {{- range $tag, $pages := $tags -}}
+            {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
+          {{- end -}}
+          {{- $sortedtags := sort $tagCounts "count" "desc" -}}
+          {{- range $sortedtags -}}
             <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{ "tags/" | relURL }}{{ .name | urlize }}">
-                {{ .name }}
-              </a> ({{ .count }})
+              <a class="taxonomy-cloud__link" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
+                {{- .name -}}
+              </a> ({{- .count -}})
             </li>
-          {{ end }}
+          {{- end -}}
         </ul>
       </div>
       
       <div class="taxonomy-cloud__container">
         <h3 class="taxonomy-cloud__title">Categories Cloud</h3>
         <ul class="taxonomy-cloud__list">
-          {{ $categories := .Site.Taxonomies.categories }}
-          {{ $categoryCounts := slice }}
-          {{ range $category, $pages := $categories }}
-            {{ $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) }}
-          {{ end }}
-          {{ $sortedcategories := sort $categoryCounts "count" "desc" }}
-          {{ range $sortedcategories }}
+          {{- $categories := .Site.Taxonomies.categories -}}
+          {{- $categoryCounts := slice -}}
+          {{- range $category, $pages := $categories -}}
+            {{- $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) -}}
+          {{- end -}}
+          {{- $sortedcategories := sort $categoryCounts "count" "desc" -}}
+          {{- range $sortedcategories -}}
             <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{ "categories/" | relURL }}{{ .name | urlize }}">
-                {{ .name }}
-              </a> ({{ .count }})
+              <a class="taxonomy-cloud__link" href="{{- "categories/" | relURL -}}{{- .name | urlize -}}">
+                {{- .name -}}
+              </a> ({{- .count -}})
             </li>
-          {{ end }}
+          {{- end -}}
         </ul>
       </div>
     </section>
   </article>
 </main>
-{{ end }}
+{{- end -}}

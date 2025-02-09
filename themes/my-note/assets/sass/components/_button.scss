@@ -4,7 +4,6 @@
     color: var(--cl-btn);
 
     &--icon {
-        @include m.inset-shadow;
         font-size: var(--fs-7xl);
     }
 

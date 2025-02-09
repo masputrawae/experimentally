@@ -2,7 +2,7 @@
 @use '../abstract/mixins' as m;
 @use '../abstract/placeholder';
 
-#leftClose{
+#leftClose, #rightClose{
     @include bp.min-width(lg){
         display: none;
     }
@@ -16,6 +16,7 @@
     
     &__button {
         @include m.width-height(30px, 30px);
+        @include m.inset-shadow;
         border-radius: var(--size-1);
         font-size: var(--fs-xl);
         border: var(--border-1) solid var(--cl-border);

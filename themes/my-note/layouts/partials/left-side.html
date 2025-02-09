@@ -3,6 +3,9 @@
     <div class="sidebar__header-container">
       <a class="sidebar__title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       <div class="sidebar__actions">
+        <button class="btn btn--icon sidebar__button" aria-label="Go to Home" onclick="window.location.href='{{ .Site.BaseURL }}'">
+          <i class="bi bi-house"></i>
+        </button>        
         <button class="btn btn--icon sidebar__button" id="switchTheme">
           <i class="bi bi-moon"></i>
         </button>
