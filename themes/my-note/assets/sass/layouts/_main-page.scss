@@ -1,0 +1,7 @@
+@use '../abstract/breakpoint' as bp;
+@use '../abstract/mixins' as m;
+
+main {
+    padding: var(--size-2);
+    margin: var(--size-2);
+}

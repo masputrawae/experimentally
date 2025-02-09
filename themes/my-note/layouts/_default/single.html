@@ -1,30 +1,35 @@
 {{- define "main" -}}
-<article class="article">
-  <header class="article__header">
-    <h1 class="article__title">{{ .Title }}</h1>
+<article class="content">
+  <header class="content__header">
+    <h1 class="content__title">{{ .Title }}</h1>
   </header>
 
-  <section class="article__body" id="contentArticle">
+  <section class="content__article" id="contentArticle">
     {{- .Content | safeHTML -}}
   </section>
 
-  <footer class="article__footer">
-    <ul class="article__meta">
-      <li class="article__meta-item"><strong>Tags: </strong>
-        {{- with .Params.tags -}}
-          {{- range . -}}
-          <a class="article__meta-link" href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
-          {{- end -}}
+  <nav class="content__nav">
+    <strong>Tags:</strong>
+    <ul class="content__nav-list">
+      {{- with .Params.tags -}}
+        {{- range . -}}
+          <li class="content__nav-item">
+            <a class="content__nav-link" href="{{- "tags/" | relURL -}}{{- . | urlize -}}">{{- . -}}</a>
+          </li>
         {{- end -}}
-      </li>
-      <li class="article__meta-item"><strong>Categories: </strong>
-        {{- with .Params.categories -}}
-          {{- range . -}}
-          <a class="article__meta-link" href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- . -}}, </a>
-          {{- end -}}
-        {{- end -}}
-      </li>
+      {{- end -}}
     </ul>
-  </footer>
+
+    <strong>Categories:</strong>
+    <ul class="content__nav-list">
+      {{- with .Params.categories -}}
+        {{- range . -}}
+          <li class="content__meta-item">
+            <a class="content__meta-link" href="{{- "categories/" | relURL -}}{{- . | urlize -}}">{{- . -}}</a>
+          </li>
+        {{- end -}}
+      {{- end -}}
+    </ul>
+  </nav>
 </article>
 {{- end -}}

@@ -1,0 +1,14 @@
+@use '../abstract/breakpoint' as bp;
+@use '../abstract/mixins' as m;
+
+.footer {
+    @include m.py(var(--size-5));
+    text-align: center;
+    background-color: var(--bg-secondary);
+    &__nav {
+        @include m.flex-justify(center, center, var(--size-3));
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}

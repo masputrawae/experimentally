@@ -1,23 +1,21 @@
 {{- define "main" -}}
-<main>
-  <article>
-    <header>
-      <h1>Posts with Category: {{- .Title -}}</h1>
-    </header>
-    
-    <section id="contentArticle">
-      {{- .Content -}}
-    </section>
-    
-    <nav>
-      <ul>
-        {{- range .Pages -}}
-          <li>
-            <a href="{{- .Permalink -}}">{{- .Title -}}</a>
-          </li>
-        {{- end -}}
-      </ul>
-    </nav>
-  </article>
-</main>
+<article class="content">
+  <header class="content__header">
+    <h1 class="content__title">Posts with Category: {{- .Title -}}</h1>
+  </header>
+  
+  <section class="content__article" id="contentArticle">
+    {{- .Content -}}
+  </section>
+  
+  <nav class="content__nav">
+    <ul class="content__nav-list">
+      {{- range .Pages -}}
+        <li class="content__nav-item">
+          <a class="content__nav-link" href="{{- .Permalink -}}">{{- .Title -}}</a>
+        </li>
+      {{- end -}}
+    </ul>
+  </nav>
+</article>
 {{- end -}}

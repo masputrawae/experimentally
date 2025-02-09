@@ -3,28 +3,29 @@
     <div class="sidebar__header-container">
       <a class="sidebar__title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       <div class="sidebar__actions">
-        <button class="btn btn--icon sidebar__button" aria-label="Go to Home" onclick="window.location.href='{{ .Site.BaseURL }}'">
+        <button class="sidebar__button" aria-label="Go to Home" onclick="window.location.href='{{ .Site.BaseURL }}'">
           <i class="bi bi-house"></i>
         </button>        
-        <button class="btn btn--icon sidebar__button" id="switchTheme">
+        <button class="sidebar__button" id="switchTheme">
           <i class="bi bi-moon"></i>
         </button>
-        <button class="btn btn--icon sidebar__button" id="leftClose">
+        <button class="sidebar__button" id="leftClose">
           <i class="bi bi-x"></i>
         </button>
       </div>
     </div>
     
-    <form class="sidebar__form">
-      <input class="sidebar__input" type="search" placeholder="Search...?">
-      <button class="btn btn--icon sidebar__button sidebar__button--search" type="submit">
+    <form class="sidebar__form" id="search" onsubmit="handleSearch(event)" method="get">
+      <input class="sidebar__input" type="text" id="search-input" name="query" placeholder="🔍 Type here to search">
+      <button class="sidebar__button sidebar__button--search" type="submit">
         <i class="bi bi-search"></i>
       </button>
     </form>
   </header>
   
   <nav class="menu-left">
-    <button class="btn btn--text menu-left__button" id="toggleCollapseAll">
+    <ul id="results"></ul>
+    <button class="menu-left__button" id="toggleCollapseAll">
       <i class="bi bi-folder2"></i>
       <span>Root</span>
     </button>

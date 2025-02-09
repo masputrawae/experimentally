@@ -1,39 +1,20 @@
 {{- define "main" -}}
-<article class="home">
-  <section class="home__header">
+<article class="content">
+  <section class="content__header">
     <h1>{{ .Title }}</h1>
     <p>{{ .Params.welcome }}</p>
   </section>
-  
-  <section class="home__article" id="contentArticle">
+
+  <section class="content__article" id="contentArticle">
     {{- .Content -}}
   </section>
   
-  <!-- Konten yang di-pin di bagian atas -->
-  <section class="home__pinned-content">
-    {{ range .Site.RegularPages }}
-      {{ if eq .Params.pin "true" }}
-      <div class="card home__card pinned">
-        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
-        <div class="card__body">
-          <h2>{{ .Title }}</h2>
-          <p>{{ .Params.excerpt }}</p>
-          <a href="{{ .RelPermalink }}">Read more</a>
-          <div class="share-buttons">
-            <a href="#" class="share-btn">Share</a>
-          </div>
-        </div>
-      </div>
-      {{ end }}
-    {{ end }}
-  </section>
-  
   <!-- Halaman Konten Utama dengan Pagination -->
-  <section class="home__pagination-card">
+  <section class="content__pagination-card">
     {{ range .Paginator.Pages }}
-    <div class="card home__card">
+    <div class="content__card">
       <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
-      <div class="card__body">
+      <div class="content__card-body">
         <h2>{{ .Title }}</h2>
         <p>{{ .Summary }}</p>
         <a href="{{ .RelPermalink }}">Read more</a>
@@ -46,14 +27,50 @@
   </section>
   
   <!-- Pagination Navigation -->
-  <nav class="home__pagination-nav">
+  <nav class="content__pagination-nav">
     {{ template "_internal/pagination.html" . }}
   </nav>
   
   <!-- Tags & Categories Cloud -->
-  <section class="tags home__tags-cloud">
-    {{ template "categories-cloud" . }}
-    {{ template "tags-cloud" . }}
+  <section class="tag-cloud">
+    <div class="tag-cloud__container">
+      <h3 class="tag-cloud__title">Tags</h3>
+      <ul class="tag-cloud__list">
+        {{- $tags := .Site.Taxonomies.tags -}}
+        {{- $tagCounts := slice -}}
+        {{- range $tag, $pages := $tags -}}
+          {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
+        {{- end -}}
+        {{- $sortedTags := sort $tagCounts "count" "desc" -}}
+        {{- range $sortedTags -}}
+          <li class="tag-cloud__item">
+            <a class="tag-cloud__link" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
+              {{- .name -}} ({{- .count -}})
+            </a>
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
+    
+    <div class="tag-cloud__container">
+      <h3 class="tag-cloud__title">Categories</h3>
+      <ul class="tag-cloud__list">
+        {{- $categories := .Site.Taxonomies.categories -}}
+        {{- $categoryCounts := slice -}}
+        {{- range $category, $pages := $categories -}}
+          {{- $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) -}}
+        {{- end -}}
+        {{- $sortedCategories := sort $categoryCounts "count" "desc" -}}
+        {{- range $sortedCategories -}}
+          <li class="tag-cloud__item">
+            <a class="tag-cloud__link" href="{{- "categories/" | relURL -}}{{- .name | urlize -}}">
+              {{- .name -}} ({{- .count -}})
+            </a>
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
   </section>
+
 </article>
 {{- end -}}

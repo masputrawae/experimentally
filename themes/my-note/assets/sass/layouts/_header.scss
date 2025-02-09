@@ -11,6 +11,10 @@
     background-color: var(--bg-secondary);
     border-bottom: var(--border-1) solid var(--cl-border);
 
+    &__button {
+        @include m.btn-primary();
+    }
+
     &__title {
         font-family: var(--font-title);
         color: var(--cl-primary);

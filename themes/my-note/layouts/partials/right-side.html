@@ -2,7 +2,7 @@
   <header class="sidebar__header">
     <div class="sidebar__header-container">
       <div class="sidebar__title sidebar__title--small">{{ .Title }}</div>
-      <button class="btn btn--icon sidebar__button" id="rightClose">
+      <button class="sidebar__button" id="rightClose">
         <i class="bi bi-x"></i>
       </button>
     </div>
@@ -44,7 +44,7 @@
       </ul>
     {{- end -}}
     
-    <div class="menu-right__table-of-contents" id="tableOfContents">
+    <div class="menu-right__toc" id="tableOfContents">
       <strong class="menu-right__title">On This Page</strong>
       <ul>
         {{ .TableOfContents }}

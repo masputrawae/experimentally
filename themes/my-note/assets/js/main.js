@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     // ========================= COLLAPSE FUNCTIONALITY =========================
-    const collapseButtons = document.querySelectorAll(".btn--collapse");
+    const collapseButtons = document.querySelectorAll(".menu-left__button--collapse");
     const collapseAllButton = document.getElementById("toggleCollapseAll");
     let allCollapsed = false;
   

@@ -8,6 +8,7 @@
     li {
         position: relative;
         padding-left: var(--size-5);
+        padding-top: var(--size-2);
 
         &::before {
             content: "";
@@ -24,7 +25,7 @@
             position: absolute;
             left: 0;
             top: 15px;
-            width: 10px;
+            width: 15px;
             height: 1px;
             background-color: var(--cl-border);
         }
@@ -35,14 +36,15 @@
     }
     
     a {
-        font-size: var(--fs-sm);
+        font-size: var(--fs-body);
+        color: var(--cl-text);
         display: block;
         text-decoration: none;
-        font-family: monospace;
+        font-family: var(--font-nav);
         transition: color 0.3s ease-in-out;
 
         &:hover {
-            color: var(--status-success);
+            color: var(--cl-primary);
         }
     }
 }
