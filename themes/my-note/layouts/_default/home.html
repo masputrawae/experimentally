@@ -1,16 +1,59 @@
 {{- define "main" -}}
 <article class="home">
-  <section>
-    <div class="tag-clouds">
-      {{ template "categories-cloud" . }}
-      {{ template "tags-cloud" . }}
-    </div>
-    <div class="home__pagination">
-      {{ range .Paginator.Pages }}
-        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  <section class="home__header">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.welcome }}</p>
+  </section>
+  
+  <section class="home__article" id="contentArticle">
+    {{- .Content -}}
+  </section>
+  
+  <!-- Konten yang di-pin di bagian atas -->
+  <section class="home__pinned-content">
+    {{ range .Site.RegularPages }}
+      {{ if eq .Params.pin "true" }}
+      <div class="card home__card pinned">
+        <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+        <div class="card__body">
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Params.excerpt }}</p>
+          <a href="{{ .RelPermalink }}">Read more</a>
+          <div class="share-buttons">
+            <a href="#" class="share-btn">Share</a>
+          </div>
+        </div>
+      </div>
       {{ end }}
-      {{ template "_internal/pagination.html" . }}
+    {{ end }}
+  </section>
+  
+  <!-- Halaman Konten Utama dengan Pagination -->
+  <section class="home__pagination-card">
+    {{ range .Paginator.Pages }}
+    <div class="card home__card">
+      <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}">
+      <div class="card__body">
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Summary }}</p>
+        <a href="{{ .RelPermalink }}">Read more</a>
+        <div class="share-buttons">
+          <a href="#" class="share-btn">Share</a>
+        </div>
+      </div>
     </div>
+    {{ end }}
+  </section>
+  
+  <!-- Pagination Navigation -->
+  <nav class="home__pagination-nav">
+    {{ template "_internal/pagination.html" . }}
+  </nav>
+  
+  <!-- Tags & Categories Cloud -->
+  <section class="tags home__tags-cloud">
+    {{ template "categories-cloud" . }}
+    {{ template "tags-cloud" . }}
   </section>
 </article>
 {{- end -}}
