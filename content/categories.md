@@ -1,4 +1,4 @@
 ---
 title: "All Categories"
-type: "page"
+layout: categories
 ---

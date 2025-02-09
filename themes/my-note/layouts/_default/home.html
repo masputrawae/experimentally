@@ -1,61 +1,89 @@
 {{- define "main" -}}
-<main class="article">
-  <article class="article__content">
-    <header class="article__header">
-      <h1 class="article__title">{{- .Title -}}</h1>
-    </header>
+<main class="home">
+  <header class="home__header">
+    <h1 class="home__title">{{- .Title -}}</h1>
+  </header>
 
-    <section>
-      {{ $pages := where site.RegularPages "Type" "pages" }}
-      {{ range $pages }}
-        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-        <p>{{ .Params.date }}</p>
-      {{ end }}
+  <div class="home__tab-button">
+    <button class="btn btn--tab home__btn" data-target="overviewTabs">Overview</button>
+    <button class="btn btn--tab home__btn" data-target="postTabs">Post</button>
+  </div>
+
+  <article class="home__tab-content">
+    <section class="home__tab-content--overview" id="overviewTabs">
+      <div class="about__overview" id="github-overview">Loading profile...</div>
+      <div class="about__calendar" id="github-calendar">Loading GitHub contributions...</div>
+      <div class="about__repo-stats" id="repo-stats"></div>
+      <select class="about__language-filter" id="language-filter" onchange="filterReposByLanguage()"></select>
+      <div class="about__github-repo-cards" id="github-repo-cards"></div>
+      <button class="btn btn--load-more" id="load-more" onclick="loadMoreRepos()" style="display:none;">Tampilkan Lebih Banyak</button>
     </section>
 
-    <section class="article__body" id="contentArticle">
-      {{- .Content | safeHTML -}}
-    </section>
-
-    <section class="taxonomy-cloud">
-      <div class="taxonomy-cloud__container">
-        <h3 class="taxonomy-cloud__title">Tag Cloud</h3>
-        <ul class="taxonomy-cloud__list">
-          {{- $tags := .Site.Taxonomies.tags -}}
-          {{- $tagCounts := slice -}}
-          {{- range $tag, $pages := $tags -}}
-            {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
-          {{- end -}}
-          {{- $sortedtags := sort $tagCounts "count" "desc" -}}
-          {{- range $sortedtags -}}
-            <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
-                {{- .name -}}
-              </a> ({{- .count -}})
-            </li>
-          {{- end -}}
-        </ul>
-      </div>
-      
-      <div class="taxonomy-cloud__container">
-        <h3 class="taxonomy-cloud__title">Categories Cloud</h3>
-        <ul class="taxonomy-cloud__list">
-          {{- $categories := .Site.Taxonomies.categories -}}
-          {{- $categoryCounts := slice -}}
-          {{- range $category, $pages := $categories -}}
-            {{- $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) -}}
-          {{- end -}}
-          {{- $sortedcategories := sort $categoryCounts "count" "desc" -}}
-          {{- range $sortedcategories -}}
-            <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{- "categories/" | relURL -}}{{- .name | urlize -}}">
-                {{- .name -}}
-              </a> ({{- .count -}})
-            </li>
-          {{- end -}}
-        </ul>
-      </div>
+    <section class="home__tab-content--post" id="postTabs">
+        {{ range .Paginator.Pages }}
+          <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        {{ end }}
+        {{ template "_internal/pagination.html" . }}
     </section>
   </article>
+
+  <style>
+    /* CSS Styles */
+.home__tab-button {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.btn--tab {
+  padding: 10px 15px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn--tab.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.home__tab-content section {
+  display: none;
+}
+
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".btn--tab");
+      const tabContents = document.querySelectorAll(".home__tab-content section");
+      const savedTab = sessionStorage.getItem("activeTab");
+  
+      tabButtons.forEach(button => {
+          button.addEventListener("click", function () {
+              const targetId = this.getAttribute("data-target");
+  
+              // Menonaktifkan semua tab
+              tabButtons.forEach(btn => btn.classList.remove("active"));
+              tabContents.forEach(content => content.style.display = "none");
+  
+              // Mengaktifkan tab yang dipilih
+              this.classList.add("active");
+              document.getElementById(targetId).style.display = "block";
+  
+              // Menyimpan tab aktif ke sessionStorage
+              sessionStorage.setItem("activeTab", targetId);
+          });
+      });
+  
+      // Menampilkan tab terakhir yang dipilih atau tab pertama secara default
+      if (savedTab && document.getElementById(savedTab)) {
+          document.getElementById(savedTab).style.display = "block";
+          document.querySelector(`.btn--tab[data-target='${savedTab}']`).classList.add("active");
+      } else if (tabButtons.length > 0) {
+          tabButtons[0].click();
+      }
+  });
+  </script>
 </main>
 {{- end -}}

@@ -1,4 +1,4 @@
 ---
 title: "All Tags"
-type: "page"
+layout: tags
 ---

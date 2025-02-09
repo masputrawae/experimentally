@@ -1,0 +1,24 @@
+{{- define "main" -}}
+<main class="article">
+  <section class="cloud">
+    <div class="cloud__container">
+      <h3 class="cloud__title">Tag Cloud</h3>
+      <ul class="cloud__list">
+        {{- $tags := .Site.Taxonomies.tags -}}
+        {{- $tagCounts := slice -}}
+        {{- range $tag, $pages := $tags -}}
+          {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
+        {{- end -}}
+        {{- $sortedtags := sort $tagCounts "count" "desc" -}}
+        {{- range $sortedtags -}}
+          <li class="cloud__item">
+            <a class="cloud__link" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
+              {{- .name -}}
+            </a> ({{- .count -}})
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
+  </section>
+</main>
+{{- end -}}

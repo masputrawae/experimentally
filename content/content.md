@@ -1,4 +1,0 @@
----
-title: "Content"
-type: "page"
----

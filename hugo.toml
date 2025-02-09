@@ -2,7 +2,8 @@ baseURL = 'https://masputrawae.github.io/experimentally/'
 languageCode = 'id'
 title = 'Testing'
 theme = "my-note"
-usernameGithub = "masputrawae"
+[params]
+  usernameGithub = "masputrawae"
 
 [[params.socialMedia]]
 social = "facebook"
