@@ -21,7 +21,7 @@
           {{ $sortedtags := sort $tagCounts "count" "desc" }}
           {{ range $sortedtags }}
             <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{ "/tags/" | relURL }}{{ .name | urlize }}">
+              <a class="taxonomy-cloud__link" href="{{ "tags/" | relURL }}{{ .name | urlize }}">
                 {{ .name }}
               </a> ({{ .count }})
             </li>
@@ -40,7 +40,7 @@
           {{ $sortedcategories := sort $categoryCounts "count" "desc" }}
           {{ range $sortedcategories }}
             <li class="taxonomy-cloud__item">
-              <a class="taxonomy-cloud__link" href="{{ "/categories/" | relURL }}{{ .name | urlize }}">
+              <a class="taxonomy-cloud__link" href="{{ "categories/" | relURL }}{{ .name | urlize }}">
                 {{ .name }}
               </a> ({{ .count }})
             </li>

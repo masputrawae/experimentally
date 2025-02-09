@@ -15,13 +15,14 @@
       <ul class="menu-right__list">
         {{- range $related -}}
           <li class="menu-right__item">
+
             <a class="menu-right__link" href="{{ .RelPermalink }}">
-              <i class="bi bi-link"></i>
-              <span>{{ .LinkTitle }}</span>
+              <div class="menu-right__card">
+                <i class="bi bi-link"></i>
+                <span>{{ .LinkTitle }}</span>
+              </div>
             </a>
-            <div class="menu-right__card-content">
-              {{ .Params.description }}
-            </div>
+            
           </li>
         {{- end -}}
       </ul>
@@ -30,10 +31,14 @@
       <ul class="menu-right__list">
         {{- range where .Site.RegularPages "Params.pinned" true -}}
           <li class="menu-right__item">
-            <a class="menu-right__link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <div class="menu-right__card-content">
-              {{ .Params.description }}
-            </div>
+
+            <a class="menu-right__link" href="{{ .RelPermalink }}">
+              <div class="menu-right__card">
+                <i class="bi bi-pin"></i>
+                <span>{{ .LinkTitle }}</span>
+              </div>
+            </a>
+
           </li>
         {{- end -}}
       </ul>

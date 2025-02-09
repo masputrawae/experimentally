@@ -58,10 +58,12 @@
 
     &__form {
         @include m.flex-justify();
+        margin-top: var(--size-2);
     }
 
     &__input {
         @include m.width-height(85%, 28px);
+        @include m.inset-shadow;
         background-color: var(--bg-primary);
         border: var(--border-1) solid var(--cl-border);
         padding: var(--size-2);
@@ -81,9 +83,8 @@
 
     &--left {
         border-right: var(--border-1) solid var(--cl-border);
-        transform: translateX(0%)!important; // sementara
     }
-
+    
     &--right {
         overflow: hidden;
     }
@@ -112,22 +113,46 @@
     height: 100dvh;
 
     &__list {
+        @include m.inset-shadow;
         list-style: none;
-        padding: var(--size-5);
+        padding: var(--size-2);
         overflow-y: auto;
-        max-height: 30%;
+        max-height: 40%;
         border: var(--border-1) solid var(--cl-border);
+        border-radius: var(--size-1);
         font-size: var(--fs-sm);
     }
 
     &__link {
-        font-family: var(--font-article);
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__card {
+        @include m.shadow;
+        background-color: var(--bg-card);
+        border: var(--border-1) solid var(--cl-border);
+        width: 100%;
+        border-radius: var(--size-1);
+        display: block;
+        padding: var(--size-2);
+        margin-top: var(--size-2);
+        margin-bottom: var(--size-2);
         font-size: var(--fs-sm);
+
+        i {
+            font-size: var(--fs-2xl);
+        }
+
+        &:hover {
+            background-color: var(--bg-card-hover)
+        }
     }
 
     &__table-of-contents {
         @extend %tree-style-list;
-        height: 53vh;
+        height: 45%;
         overflow-y: auto;
     }
 }

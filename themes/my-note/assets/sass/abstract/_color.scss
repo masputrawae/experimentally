@@ -9,16 +9,16 @@ $themes: (
             btn: #2D2D2D,
         ),
         cl: (
-            primary: #4A90E2,   // Biru soft
-            secondary: #50E3C2, // Hijau toska
-            tertiary: #F5A623,  // Oranye keemasan
-            accent: #D0021B,    // Merah aksen
-            text: #EAEAEA,      // Abu muda
-            heading: #FFFFFF,   // Putih
-            muted: #B0B0B0,     // Abu redup
-            border: #444444,    // Abu tua
-            btn: #4A90E2,       // Biru soft
-            title: #EAEAEA,     // Abu muda
+            primary: #4A90E2,  
+            secondary: #50E3C2, 
+            tertiary: #F5A623, 
+            accent: #D0021B,  
+            text: #EAEAEA,
+            heading: #FFFFFF,
+            muted: #B0B0B0,
+            border: #444444,
+            btn: #4A90E2,
+            title: #EAEAEA,
         ),
         status: (
             plan: #50E3C2,
@@ -36,30 +36,31 @@ $themes: (
             error: #D0021B,
         ),
     ),
+    
     light: (
         bg: (
-            default: #F5F5F5,
+            default: #E5E5E5,
             primary: #FFFFFF,
-            secondary: #EAEAEA,
+            secondary: #CCCCCC,
             card: #FFFFFF,
             card-hover: #F0F0F0,
-            btn: #E0E0E0,
+            btn: #B0B0B0,
         ),
         cl: (
-            primary: #007AFF,   // Biru Apple
-            secondary: #34C759, // Hijau segar
-            tertiary: #FF9500,  // Oranye hangat
-            accent: #FF3B30,    // Merah intens
-            text: #333333,      // Hitam soft
-            heading: #000000,   // Hitam pekat
-            muted: #7F7F7F,     // Abu tua
-            border: #D1D1D1,    // Abu terang
-            btn: #007AFF,       // Biru Apple
-            title: #333333,     // Hitam soft
+            primary: #007AFF,
+            secondary: #34C759,
+            tertiary: #FF9500,  
+            accent: #FF3B30,   
+            text: #222222, 
+            heading: #000000,  
+            muted: #6A6A6A,  
+            border: #8A8A8A,
+            btn: #005BBB,
+            title: #222222,
         ),
         status: (
             plan: #34C759,
-            draft: #A1A1A1,
+            draft: #666666,
             in-progress: #FF9500,
             finished: #28CD41,
             important: #FF3B30,
@@ -67,7 +68,7 @@ $themes: (
             focus: #32D74B,
             success: #28CD41,
             info: #0A84FF,
-            tips: #8E8E93,
+            tips: #505050,
             warning: #FFCC00,
             danger: #FF3B30,
             error: #FF453A,
