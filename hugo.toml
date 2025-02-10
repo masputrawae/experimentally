@@ -17,6 +17,7 @@ theme = "my-note"
     guessSyntax = true
     style = "github-dark"
     noClasses = false
+    lineNumbersInTable = false
 
 [[params.socialMedia]]
 social = "facebook"

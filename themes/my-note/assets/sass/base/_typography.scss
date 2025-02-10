@@ -70,3 +70,22 @@ main {
         }
     }
 }
+
+pre {
+    position: relative;
+    padding-top: 30px;
+}
+
+code[data-lang]::before {
+    content: attr(data-lang);
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--bg-primary);
+    color: var(--status-focus);
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
