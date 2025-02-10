@@ -73,7 +73,7 @@ main {
         font-size: var(--fs-tiny);
         font-weight: bold;
         border-radius: var(--size-1);
-        z-index: 1;
+        z-index: 100;
     }
 
     hr {
@@ -136,7 +136,7 @@ main {
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        
+
         &[type="checkbox"]:hover {
             border-color: var(--link-hover);
         }
