@@ -29,6 +29,19 @@ $themes: (
             danger: #d32f2f,
             error: #f44336,
         ),
+
+        code:(
+            bg: #0d1117,
+            text: #c9d1d9,
+            comment: #6a737d,
+            keywoard: #ff7b72,
+            string: #a5d6ff,
+            function: #d2a8ff,
+            operator: #79c0ff,
+            number: #f2cc60,
+            highlight-bg:#2d2f33,
+            line-number: #6e7681,
+        ),
     ),
     
     light: (
@@ -61,6 +74,19 @@ $themes: (
             warning: #f57c00,
             danger: #c62828,
             error: #d32f2f,
+        ),
+
+        code:(
+            bg: #ffffff,
+            text: #24292f,
+            comment: #6a737d,
+            keywoard: #d73a49,
+            string: #032f62,
+            function: #005cc5,
+            operator: #e0162a,
+            number: #004da4,
+            highlight-bg: #3c3d38,
+            line-number: #7f7f7f,
         ),
     ),
 );
