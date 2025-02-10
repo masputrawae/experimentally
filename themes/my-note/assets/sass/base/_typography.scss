@@ -47,6 +47,7 @@ main {
 
     pre {
         @include m.py(var(--size-5));
+        @include m.px(var(--size-2));
         border-radius: var(--size-1);
         border: var(--border-1) solid var(--cl-border);
         width: 100%;

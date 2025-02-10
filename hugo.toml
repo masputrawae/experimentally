@@ -2,6 +2,7 @@ baseURL = 'https://masputrawae.github.io/experimentally/'
 languageCode = 'id'
 title = 'Testing'
 theme = "my-note"
+
 [params]
   usernameGithub = "masputrawae"
 
@@ -14,8 +15,8 @@ theme = "my-note"
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    style = "github-dark" # Bisa diganti dengan tema lain
-
+    style = "github-dark"
+    noClasses = false
 
 [[params.socialMedia]]
 social = "facebook"
