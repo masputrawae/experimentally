@@ -5,3 +5,33 @@ main {
     padding: var(--size-2);
     margin: var(--size-2);
 }
+
+// SEARCH
+.content {
+    &__button {
+        @include m.btn-secondary();
+    }
+
+    &__form {
+        @include m.flex-justify(space-between, center, var(--size-1));
+        @include m.my(var(--size-3));
+    }
+
+    &__input {
+        @include m.width-height(85%, 2rem);
+        @include m.px(var(--size-2));
+        background-color: var(--bg-secondary);
+        border: var(--border-1) solid var(--cl-border);
+        border-radius: var(--size-1);
+        color: var(--cl-text);
+
+        &:hover {
+            border-color: var(--cl-primary);
+        }
+
+        &:focus {
+            border-color: var(--status-focus);
+            outline: none;
+        }
+    }
+}

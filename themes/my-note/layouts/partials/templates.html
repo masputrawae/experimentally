@@ -17,17 +17,16 @@
         <!-- ==================== -->
 
       {{- else if .IsPage -}}
-
-        <!-- ==================== -->
-        <li class="menu-left__item menu-left__item--file" data-id="{{- .RelPermalink | urlize -}}">
-          <a class="menu-left__link" href="{{- .RelPermalink -}}">
-            <i class="bi bi-file-earmark-text"></i>
-            <span>{{- .LinkTitle -}}</span>
-          </a>
-        </li>
-        <!-- ==================== -->
-
+        {{- if ne .File.BaseFileName "search" -}}
+          <li class="menu-left__item menu-left__item--file" data-id="{{- .RelPermalink | urlize -}}">
+            <a class="menu-left__link" href="{{- .RelPermalink -}}">
+              <i class="bi bi-file-earmark-text"></i>
+              <span>{{- .LinkTitle -}}</span>
+            </a>
+          </li>
+        {{- end -}}
       {{- end -}}
+      
     {{- end -}}
   {{- end -}}
 {{- end -}}

@@ -17,6 +17,11 @@ main {
     h1, h2, h3, h4, h5, h6 {
         @include m.my(var(--size-5));
         color: var(--cl-heading);
+        scroll-margin-top: 4rem;
+
+        @include bp.min-width(lg){
+            scroll-margin-top: 0;
+        }
     }
 
     h1 {font-size: var(--fs-7xl);}

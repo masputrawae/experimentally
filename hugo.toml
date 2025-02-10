@@ -5,6 +5,18 @@ theme = "my-note"
 [params]
   usernameGithub = "masputrawae"
 
+[markup]
+  [markup.tableOfContents]
+    endLevel = 6
+    ordered = false
+    startLevel = 2
+    
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    style = "github-dark" # Bisa diganti dengan tema lain
+
+
 [[params.socialMedia]]
 social = "facebook"
 url = "https://facebook.com/example.com"
