@@ -35,23 +35,45 @@ main {
         font-family: var(--font-article);
     }
 
-    b, strong {
-        color: var(--cl-secondary);
-        font-weight: bold;
-    }
-
     ul, ol {
         padding-left: var(--size-5);
         margin-bottom: var(--size-4);
     }
 
+    pre, code {
+        font-family: var(--font-monospace);
+        font-size: var(--fs-tiny);
+    }
+
     pre {
-        @include m.py(var(--size-5));
-        @include m.px(var(--size-2));
+        @include m.py(2rem);
+        @include m.px(var(--size-5));
+        position: relative;
         border-radius: var(--size-1);
         border: var(--border-1) solid var(--cl-border);
         width: 100%;
         overflow-x: auto;
+    }
+
+    .highlight {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+    .highlight[data-lang]::before {
+        content: attr(data-lang);
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: var(--border-1) solid var(--cl-border);
+        color: var(--code-function);
+        padding: var(--size-1) var(--size-2);
+        font-size: var(--fs-tiny);
+        font-weight: bold;
+        border-radius: var(--size-1);
+        z-index: 1;
     }
 
     hr {
@@ -62,30 +84,61 @@ main {
     }
 
     a {
-        color: var(--cl-primary);
+        color: var(--cl-accent);
         font-family: var(--font-link);
 
         &:hover {
-            color: var(--cl-secondary);
+            color: var(--link-hover);
+            text-decoration: underline;
         }
     }
-}
+    
+    mark {
+        background-color: var(--cl-highlight);
+        color: var(--cl-text-highlight);
+        padding: var(--size-1) var(--size-1);
+        border-radius: var(--size-1);
+        font-weight: bolder;
+    }
 
-pre {
-    position: relative;
-    padding-top: 30px;
-}
+    // CHECK BOX
+    li:has(input[type="checkbox"]) {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: var(--size-2);
+    }
 
-code[data-lang]::before {
-    content: attr(data-lang);
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--bg-primary);
-    color: var(--status-focus);
-    padding: 5px 10px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
+    input{
+        &[type="checkbox"] {
+            appearance: none;
+            width: var(--size-5);
+            height: var(--size-5);
+            border: 2px solid var(--cl-accent);
+            border-radius: var(--border-1);
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        &[type="checkbox"]:checked {
+            background-color: var(--cl-accent);
+            border-color: var(--cl-accent);
+        }
+
+        &[type="checkbox"]:checked::after {
+            content: "✔";
+            color: var(--bg-default);
+            font-size: var(--fs-base);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        &[type="checkbox"]:hover {
+            border-color: var(--link-hover);
+        }
+    }
 }

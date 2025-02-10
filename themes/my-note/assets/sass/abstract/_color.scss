@@ -10,6 +10,7 @@ $themes: (
             accent: #b777ee,
             text: #ffffff,
             highlight: #ffcc00,
+            text-highlight: rgb(0, 0, 0),
             muted: #aaaaaa,
             border: #575757,
         ),
@@ -30,6 +31,7 @@ $themes: (
             error: #f44336,
         ),
 
+        // KHUSUS KODE HIGHLIGHT
         code:(
             bg: #0d1117,
             text: #c9d1d9,
@@ -55,6 +57,7 @@ $themes: (
             accent: #8c50c2,
             text: #333333,
             highlight: #ff8c00,
+            text-highlight: rgb(0, 0, 0),
             muted: #666666,
             border: #cccccc,
             heading: #222222,
@@ -76,6 +79,7 @@ $themes: (
             error: #d32f2f,
         ),
 
+        // KHUSUS KODE HIGHLIGHT
         code:(
             bg: #ffffff,
             text: #24292f,

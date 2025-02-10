@@ -123,3 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.style.setProperty("--fs-html", `${this.value}px`);
     });
   });
+
+  // ============================ COPY DATA-LANG 
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".highlight pre code[data-lang]").forEach(code => {
+        const highlightDiv = code.closest(".highlight"); // Cari div terdekat dengan class "highlight"
+        if (highlightDiv) {
+            highlightDiv.setAttribute("data-lang", code.getAttribute("data-lang"));
+        }
+    });
+});

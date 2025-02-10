@@ -19,6 +19,10 @@ theme = "my-note"
     noClasses = false
     lineNumbersInTable = false
 
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [[params.socialMedia]]
 social = "facebook"
 url = "https://facebook.com/example.com"
