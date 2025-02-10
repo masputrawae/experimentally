@@ -15,8 +15,8 @@
 
     &__header {
         @include m.sticky-top;
-        @include m.px(var(--size-2));
-        @include m.py(var(--size-1));
+        @include m.px(var(--size-4));
+        @include m.py(var(--size-3));
         background-color: var(--bg-default);
         border-bottom: var(--border-1) solid var(--cl-border);
         z-index: 5;
@@ -66,13 +66,14 @@
     @include m.my(var(--size-3));
 
     &__button {
-        color: var(--cl-btn);
+        color: var(--cl-accent);
         text-align: start;
         width: 100%;
         font-size: var(--fs-lg);
         
         .bi {
             font-size: var(--fs-body);
+            color: var(--cl-accent);
         }
     }
 

@@ -100,8 +100,8 @@
     padding: var(--size-2);
     border: var(--border-1) solid var(--cl-border);
     border-radius: var(--size-1);
-    color: var(--cl-btn);
-    background-color: var(--bg-secondary);
+    color: var(--cl-accent);
+    background-color: var(--bg-alt);
 
     .bi {
         @include flex-justify(center, center, 0);
