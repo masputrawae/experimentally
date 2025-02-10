@@ -1,7 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Testing'
-paginate = 6
 
 [module]
   [module.hugoVersion]

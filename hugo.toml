@@ -2,6 +2,7 @@ baseURL = 'https://masputrawae.github.io/experimentally/'
 languageCode = 'id'
 title = 'Testing'
 theme = "my-note"
+paginate = 4
 
 [params]
   usernameGithub = "masputrawae"

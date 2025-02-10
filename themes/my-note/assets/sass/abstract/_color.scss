@@ -1,18 +1,18 @@
 $themes: (
     dark: (
         bg: (
-            default: #121212,
+            default: #181818,
             alt: #282828,
             hover: #3a3a3a,
         ),
         
         cl: (
             accent: #b777ee,
-            text: #ffffff,
+            text: #f0f0f0,
             highlight: #ffcc00,
             text-highlight: rgb(0, 0, 0),
-            muted: #aaaaaa,
-            border: #575757,
+            muted: #bbbbbb,
+            border: #6e6e6e,
         ),
         
         link: (
@@ -35,31 +35,31 @@ $themes: (
         code:(
             bg: #0d1117,
             text: #c9d1d9,
-            comment: #6a737d,
-            keywoard: #ff7b72,
-            string: #a5d6ff,
+            comment: #8b949e,
+            keywoard: #ff6b6b,
+            string: #80bfff,
             function: #d2a8ff,
-            operator: #79c0ff,
+            operator: #62a1ff,
             number: #f2cc60,
             highlight-bg:#2d2f33,
-            line-number: #6e7681,
+            line-number: #9099a1,
         ),
     ),
     
     light: (
         bg: (
-            default: #ffffff,
+            default: #d9d9d9,
             alt: #f0f0f0,
             hover: #e0e0e0,
         ),
         
         cl: (
             accent: #8c50c2,
-            text: #333333,
+            text: #222222,
             highlight: #ff8c00,
             text-highlight: rgb(0, 0, 0),
-            muted: #666666,
-            border: #cccccc,
+            muted: #555555,
+            border: #b3b3b3,
             heading: #222222,
         ),
         
@@ -83,14 +83,14 @@ $themes: (
         code:(
             bg: #ffffff,
             text: #24292f,
-            comment: #6a737d,
-            keywoard: #d73a49,
-            string: #032f62,
+            comment: #8b949e,
+            keywoard: #c72e3e,
+            string: #004080,
             function: #005cc5,
-            operator: #e0162a,
+            operator: #cc0022,
             number: #004da4,
             highlight-bg: #3c3d38,
-            line-number: #7f7f7f,
+            line-number: #636363,
         ),
     ),
 );

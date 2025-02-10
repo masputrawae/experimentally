@@ -2,13 +2,27 @@
 @use '../abstract/mixins' as m;
 
 .footer {
-    @include m.py(var(--size-5));
+    padding: 5rem;
     text-align: center;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-default);
+    border-top: var(--border-1) solid var(--cl-border);
+    
     &__nav {
-        @include m.flex-justify(center, center, var(--size-3));
+        @include m.my(var(--size-5));
+        @include m.flex-justify(center, center, var(--size-5));
         list-style: none;
         padding: 0;
-        margin: 0;
+    }
+
+    &__link {
+        color: var(--cl-text);
+
+        &:hover {
+            color: var(--cl-accent);
+        }
+    }
+
+    .bi {
+        font-size: var(--fs-7xl);
     }
 }
