@@ -1,2 +1,51 @@
 @use '../abstract/mixins' as m;
 @use '../abstract/breakpoint' as bp;
+
+// CARD STATUS
+.card {
+    @include m.shadow;
+    @include m.inset-shadow;
+    border-left: 5px solid;
+    border-radius: var(--size-3);
+    padding: var(--size-3);
+    margin-bottom: var(--size-4);
+    background-color: var(--bg-default);
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        font-size: var(--fs-xl);
+        font-weight: bold;
+    }
+
+    &__header .bi {
+        margin-right: var(--size-3);
+        font-size: var(--fs-5xl);
+    }
+
+    &__content {
+        margin-top: 5px;
+        font-size: var(--fs-tiny);
+        color: var(--cl-text);
+    }
+
+    &--info {border-color: var(--status-info);}
+    &--info &__header {color: var(--status-info);}
+
+    &--tips {border-color: var(--status-tips);}
+    &--tips &__header {color: var(--status-tips);}
+
+    &--warning {border-color: var(--status-warning);}
+    &--warning &__header {color: var(--status-warning);}
+
+    &--danger {border-color: var(--status-danger);}
+    &--danger &__header {color: var(--status-danger);}
+
+    &--error {border-color: var(--status-error);}
+    &--error &__header {color: var(--status-error);}
+}

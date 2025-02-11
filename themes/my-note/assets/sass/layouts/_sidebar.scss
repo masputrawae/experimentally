@@ -99,14 +99,13 @@
         z-index: 5;
     }
     &__list {
-        padding-bottom: var(--size-5);
+        padding-bottom: 3rem;
         height: 30dvb;
         overflow-y: auto;
     }
 
     &__toc {
-        padding-bottom: var(--size-5);
-        height: 60dvb;
+        height: 53dvb;
         overflow-y: auto;
     }
 }
