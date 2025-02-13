@@ -17,6 +17,7 @@ tags:
   - tutorial
 last_modified_at: 2024-11-18
 author: Putra Jaya
+pinned: true
 ---
 # Langkah-langkah Install phpMyAdmin
 phpMyAdmin adalah alat berbasis web yang digunakan untuk mengelola database MySQL secara grafis. Dengan phpMyAdmin, pengguna bisa melakukan berbagai tugas seperti membuat, mengedit, menghapus database, tabel, dan data, serta menjalankan query SQL tanpa perlu menggunakan baris perintah. Alat ini memudahkan pengelolaan database bagi pengembang web, terutama yang baru mengenal MySQL.

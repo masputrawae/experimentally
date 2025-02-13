@@ -20,7 +20,7 @@ tags:
   - web_server
   - server
 thumbnail: https://res.cloudinary.com/dpkqfchhu/image/upload/v1739352343/20ab4327-85ab-4299-bc71-b22976ff6bf1_yo1bqt.png
-pinned: false
+pinned: true
 draft: false
 ---
 

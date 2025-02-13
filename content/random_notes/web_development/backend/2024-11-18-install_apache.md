@@ -16,6 +16,7 @@ tags:
   - tutorial
 last_modified_at: 2024-11-18
 author: Putra Jaya
+pinned: true
 ---
 # Cara Install Apache di Ubuntu
 Apache adalah server web yang paling populer dan digunakan untuk menyajikan konten website di internet. Secara teknis, Apache bekerja dengan menerima permintaan (request) dari pengguna melalui protokol HTTP, lalu mengirimkan halaman web atau file terkait sebagai respons. Apache mendukung berbagai modul, seperti untuk PHP, sehingga kamu bisa menjalankan aplikasi web dinamis di server ini. Apache juga terkenal karena fleksibilitas, keamanannya, dan kemampuannya untuk mengelola banyak situs dalam satu server.

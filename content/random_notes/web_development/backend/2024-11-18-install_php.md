@@ -15,6 +15,7 @@ tags:
   - tutorial
 last_modified_at: 2024-11-18
 author: Putra Jaya
+pinned: true
 ---
 # Langkah-langkah Install PHP di Ubuntu
 PHP (Hypertext Preprocessor) adalah bahasa pemrograman server-side yang digunakan untuk membuat aplikasi web dinamis. PHP memungkinkan pengembang untuk menghasilkan konten web yang interaktif, seperti form, login, dan pengelolaan data dari database (misalnya MySQL). PHP bekerja di sisi server, artinya kode PHP diproses di server sebelum hasilnya dikirimkan ke browser pengguna. PHP sering digunakan bersama HTML dan MySQL untuk membangun aplikasi web yang dinamis dan interaktif.

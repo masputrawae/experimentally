@@ -1,0 +1,92 @@
+@use '../abstract/mixins' as m;
+
+.layout {   // ======================= BODY
+    @include m.width-height(100vw, 100dvb);
+    background-color: var(--bg-base);
+    color: var(--cl-text);
+    max-width: 100vw;
+    overflow: hidden;
+
+    &__main {   // ======================= MAIN AREA
+        height: 100dvb;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    
+    @include m.breakpoint(lg){
+        display: flex;
+        align-items: stretch;
+
+        &__main {
+            flex-basis: 58%;
+            height: 100dvb;
+        }
+    }
+}
+
+#leftClose, #rightClose { // ======================= SIDEBAR BUTTON 
+    @include m.breakpoint(lg){
+        display: none;
+    }
+}
+
+.sidebar {  // ======================= SIDEBAR
+    @include m.width-height(360px, 100dvb);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-base);
+    max-height: 100dvb;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    transition: transform 0.3s ease-in-out;
+
+    &__header {
+        @include m.flex-justify(space-between, center);
+        background-color: var(--bg-base);
+        padding: var(--size-1);
+        border-bottom: var(--border-1) solid var(--cl-border);
+    }
+
+    &__title {
+        font-family: var(--font-title);
+        font-size: var(--fs-7xl);
+    }
+
+    &--left {
+        left: 0;
+        transform: translateX(0%); // SEMENTARA 0
+    }
+
+    &--right {
+        right: 0;
+        transform: translateX(100%); 
+    }
+
+    &.active {transform: translateX(0);}
+
+    @include m.breakpoint(lg){
+        flex-basis: 21%;
+        max-width: 21%;
+        position: relative;
+        transform: translateX(0);
+    }
+}
+
+.site-header { // ======================= SITE HEADER
+    @include m.sticky-top();
+    @include m.flex-justify(space-between, center);
+    z-index: 10;
+    background-color: var(--bg-alt);
+    padding: var(--size-3);
+    border-bottom: var(--border-1) solid var(--cl-border);
+
+    &__title {
+        font-family: var(--font-title);
+        font-size: var(--fs-7xl);
+    }
+
+    @include m.breakpoint(lg){
+        display: none;
+    }
+}
