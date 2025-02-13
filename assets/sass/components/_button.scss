@@ -3,14 +3,15 @@
 .btn {
     color: var(--cl-text);
     font-family: var(--font-title);
+    @include m.shadow();
 
     &--offcanvas {
         font-size: var(--fs-7xl);
+        box-shadow: none;
     }
 
     &--icon {
         @include m.width-height(40px, 40px);
-        @include m.shadow();
         border-radius: var(--size-1);
     }
 
@@ -19,6 +20,9 @@
         text-align: start;
         width: 100%;
         color: var(--cl-active);
+        background-color: var(--bg-alt);
+        margin-top: var(--size-1);
+        border-radius: var(--size-1);
     }
 
     &:hover {

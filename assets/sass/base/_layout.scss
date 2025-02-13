@@ -1,5 +1,19 @@
 @use '../abstract/mixins' as m;
 
+*::-webkit-scrollbar { // Custom scrollbar
+    @include m.width-height(var(--border-1), var(--border-1));
+    background: var(--cl-border);
+}
+  
+*::-webkit-scrollbar-thumb { // Scrollbar thumb
+    border-radius: var(--size-1);
+    background: var(--cl-accent);
+}
+
+*::-webkit-scrollbar-track { // Scrollbar track
+    background: transparent;
+}
+
 .layout {   // ======================= BODY
     @include m.width-height(100vw, 100dvb);
     background-color: var(--bg-base);
@@ -40,12 +54,12 @@
     top: 0;
     z-index: 20;
     transition: transform 0.3s ease-in-out;
+    padding: var(--size-1);
 
     &__header {
         @include m.flex-justify(space-between, center);
         background-color: var(--bg-base);
         padding: var(--size-1);
-        border-bottom: var(--border-1) solid var(--cl-border);
     }
 
     &__title {
@@ -55,7 +69,7 @@
 
     &--left {
         left: 0;
-        transform: translateX(0%); // SEMENTARA 0
+        transform: translateX(-100%);
     }
 
     &--right {
