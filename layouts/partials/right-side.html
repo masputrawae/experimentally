@@ -1,0 +1,53 @@
+<aside class="sidebar sidebar--right">
+  <header class="sidebar__header">
+    <button class="btn btn--icon" id="rightClose">
+      <i class="bi bi-x"></i>
+    </button>
+    <div class="sidebar__title sidebar__title--small">Word Count: {{ .WordCount }}</div>
+  </header>
+  
+  <nav class="nav nav--right-side">
+    {{- if .IsHome -}}
+  <strong class="nav__title">Pinned:</strong>
+  <ul class="nav__list nav__list--overflow">
+    {{- range where .Site.RegularPages "Params.pinned" true -}}
+      <li class="nav__item">
+        <a class="nav__link nav__link--color" href="{{ .RelPermalink }}">
+          <div class="nav__card">
+            <i class="bi bi-pin"></i>
+            <span>{{ .LinkTitle }}</span>
+          </div>
+        </a>
+      </li>
+    {{- end -}}
+  </ul>
+    {{- else if .IsPage -}}
+      {{- $related := .Site.RegularPages.Related . | first 10 -}}
+      {{- if $related -}}
+        <strong class="nav__title">Related:</strong>
+        <ul class="nav__list nav__list--overflow">
+          {{- range $related -}}
+            <li class="nav__item">
+              <a class="nav__link nav__link--color" href="{{ .RelPermalink }}">
+                <div class="nav__card">
+                  <i class="bi bi-link"></i>
+                  <span>{{ .LinkTitle }}</span>
+                </div>
+              </a>
+            </li>
+          {{- end -}}
+        </ul>
+      {{- end -}}
+    {{- end -}}
+    
+    {{ $toc := .TableOfContents }}
+    {{ $toc := replaceRE `<ul>` `<ul class="nav__list">` $toc }}
+    {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
+    {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--color" href=` $toc }}
+
+    <strong class="nav__title">On This Page</strong>
+    <div class="nav__toc nav__list--overflow" id="tableOfContents">
+      {{ $toc | safeHTML }}
+    </div>
+  </nav>
+</aside>

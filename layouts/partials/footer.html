@@ -1,0 +1,24 @@
+<footer class="footer">
+  <nav>
+    <ul class="list list--flex">
+      {{ range .Site.Params.socialMedia }}
+        <li class="list__item">
+          <a 
+          aria-label="Go to {{ .social }}"
+          title="Go to {{ .social }}"
+          class="list__link" 
+          href="{{ .url | relURL }}" 
+          target="_blank" 
+          rel="noopener">
+            <i class="bi {{ .icon }}"></i>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+  
+  <div class="copyright">
+    <p>Made with ♥️ using <a href="https://gohugo.io" class="footer__link" target="_blank" rel="noopener">Hugo</a></p>
+    <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
+  </div>
+</footer>

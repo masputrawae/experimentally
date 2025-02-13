@@ -1,0 +1,31 @@
+@use '../abstract/breakpoints' as bp;
+@use '../abstract/mixins' as m;
+
+.site-header { // SITE HEADER
+    @include m.flex-justify(space-between, center);
+    @include m.sticky-top();
+    padding: var(--size-3);
+    max-height: 4rem;
+    z-index: 5;
+
+    background-color: var(--bg-default);
+    border-bottom: var(--border-1) solid var(--cl-border);
+
+    &__title {
+        font-family: var(--font-title);
+        color: var(--cl-primary);
+        font-size: var(--fs-7xl);
+    }
+
+    @include bp.min-width(lg){
+        display: none;
+    }
+}
+
+.main-header{ // CONTENT HEADER
+    h1 {font-size: var(--fs-7xl);}
+    @include bp.min-width(lg){
+        @include m.flex-justify(center, center);
+        background-color: var(--bg-alt);
+    }
+}

@@ -1,0 +1,60 @@
+@use '../abstract/mixins' as m;
+@use '../abstract/breakpoints' as bp;
+
+.card-container {
+    padding: var(--size-4);
+}
+
+.card {
+    @include m.shadow;
+    text-decoration: none;
+    display: block;
+    background-color: var(--bg-card);
+    border: var(--border-1) solid var(--cl-border);
+    border-radius: var(--size-1);
+    margin-bottom: var(--size-5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+
+    &__img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: var(--size-4);
+    }
+
+    &__title {
+        margin-bottom: var(--size-2);
+    }
+
+    &__excerpt {
+        color: var(--cl-muted);
+        margin-bottom: var(--size-3);
+    }
+    
+    &:hover{
+        transform: translateY(-3px);
+        text-decoration: none;
+    }
+
+    @include bp.min-width(lg){
+        @include m.flex-justify(space-between, start);
+        
+        &__img {
+            width: 30%;
+            height: auto;
+            object-fit: cover;
+        }
+    
+        &__content {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--size-1) var(--size-5);
+        }
+    }
+}
