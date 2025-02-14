@@ -2,7 +2,7 @@ baseURL: "https://masputrawae.github.io/experimentally/"
 languageCode: "id"
 title: "My Notes"
 
-params:
+Params:
   description: "Deskripsi situs Anda untuk mesin pencari."
   keywords: "hugo, markdown, blog, contoh"
   author: "Putra Jaya"

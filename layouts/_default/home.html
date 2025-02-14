@@ -1,8 +1,51 @@
 {{- define "main" -}}
-{{ $githubProfile := getJSON "github-profile.json" }}
+<header class="home-header">
+  <img src="https://placehold.co/150" alt="">
+  <div class="home-header__info">
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.description }}</p>
 
-<h2>{{ $githubProfile.name }}</h2>
-<p>{{ $githubProfile.bio }}</p>
-<img src="{{ $githubProfile.avatar_url }}" width="100">
-<p>Followers: {{ $githubProfile.followers }}</p>
+    <ul class="list list--flex">
+      {{ range .Site.Params.socialMedia }}
+        <li class="list__item">
+          <a 
+          aria-label="Go to {{ .social }}"
+          title="Go to {{ .social }}"
+          class="list__link" 
+          href="{{ .url | relURL }}" 
+          target="_blank" 
+          rel="noopener">
+            <i class="bi {{ .icon }}"></i>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</header>
+{{ $repos := getJSON "data/github-repos.json" }}
+  <h3>Repositories:</h3>
+  <ul>
+    {{ range $repos }}
+      <li><a href="{{ .html_url }}" target="_blank">{{ .name }}</a></li>
+    {{ end }}
+  </ul>
+<style>
+  .home-header {
+    padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  }
+  .home-header img {
+    border-radius: 50%;
+  }
+
+  .home-header ul {
+    list-style: none;
+    display: flex;
+    padding: 10px 0px;
+    justify-content: space-around;
+    align-items: center;
+}
+</style>
 {{- end -}}
