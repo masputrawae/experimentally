@@ -29,19 +29,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Create Data Folder
-        run: mkdir -p data  # Gunakan -p agar tidak error jika folder sudah ada
-
-      - name: Fetch GitHub Repositories with Token
-        run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-          -s https://api.github.com/users/${{ github.actor }}/repos > data/repos.json
-
-      - name: Fetch GitHub Profiles with Token
-        run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-          -s https://api.github.com/users/${{ github.actor }} > data/profile.json
-
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
@@ -56,6 +43,19 @@ jobs:
 
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+      - name: Create Data Folder
+        run: mkdir -p data
+
+      - name: Fetch GitHub Repositories with Token
+        run: |
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          -s https://api.github.com/users/${{ github.actor }}/repos > data/repos.json
+
+      - name: Fetch GitHub Profiles with Token
+        run: |
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          -s https://api.github.com/users/${{ github.actor }} > data/profile.json
 
       - name: Build with Hugo
         env:
