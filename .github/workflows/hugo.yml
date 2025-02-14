@@ -35,7 +35,12 @@ jobs:
       - name: Fetch GitHub Repositories with Token
         run: |
           curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-          -s https://api.github.com/users/masputrawae/repos > data/github-repos.json
+          -s https://api.github.com/users/${{ github.actor }}/repos > data/repos.json
+
+      - name: Fetch GitHub Profiles with Token
+        run: |
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          -s https://api.github.com/users/${{ github.actor }} > data/profile.json
 
       - name: Install Hugo CLI
         run: |
