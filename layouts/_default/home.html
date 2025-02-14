@@ -1,75 +1,8 @@
 {{- define "main" -}}
-<header class="main-header">
-  <h1>{{ .Title }}</h1>
-</header>
+{{ $githubProfile := getJSON "github-profile.json" }}
 
-<article class="main-content">
-  {{- .Content -}}
-</article>
-
-<div class="card-container">
-  {{ range .Paginator.Pages }}
-    <a 
-    href="{{ .RelPermalink }}" 
-    class="card" 
-    aria-label="Read more {{ .Title }}"
-    title="Read more {{ .Title }}">
-      <img 
-      class="card__img" 
-      src="{{ .Params.thumbnail }}" 
-      alt="{{ .Title }}"
-      loading="lazy">
-      <section class="card__content">
-        <h2 class="card__title">{{ .Title }}</h2>
-        <p class="card__excerpt">{{ .Summary | plainify | truncate 250 }}</p>
-      </section>
-    </a>
-  {{ end }}
-</div>
-
-<nav class="main-pagination" aria-label="pagination">
-  {{ template "_internal/pagination.html" . }}
-</nav>
-
-<div class="tag-cloud">
-  <nav class="tag-cloud__container">
-    <h3 class="tag-cloud__title">Categories</h3>
-    <ul class="tag-cloud__list">
-      {{- $categories := .Site.Taxonomies.categories -}}
-      {{- $categoryCounts := slice -}}
-      {{- range $category, $pages := $categories -}}
-        {{- $categoryCounts = $categoryCounts | append (dict "name" $category "count" (len $pages)) -}}
-      {{- end -}}
-      {{- $shuffledCategories := shuffle $categoryCounts -}}
-      {{- range $shuffledCategories }}
-        <li class="tag-cloud__item">
-          <a class="tag-cloud__link" data-weight="{{- .count -}}" href="{{- "categories/" | relURL -}}{{- .name | urlize -}}">
-            <span>{{ .name | title }}</span>
-            <span>({{- .count -}})</span>
-          </a>
-        </li>
-      {{- end }}
-    </ul>
-  </nav>
-  
-  <nav class="tag-cloud__container">
-    <h3 class="tag-cloud__title">Tags</h3>
-    <ul class="tag-cloud__list">
-      {{- $tags := .Site.Taxonomies.tags -}}
-      {{- $tagCounts := slice -}}
-      {{- range $tag, $pages := $tags -}}
-        {{- $tagCounts = $tagCounts | append (dict "name" $tag "count" (len $pages)) -}}
-      {{- end -}}
-      {{- $shuffledTags := shuffle $tagCounts -}}
-      {{- range $shuffledTags }}
-        <li class="tag-cloud__item">
-          <a class="tag-cloud__link" data-weight="{{- .count -}}" href="{{- "tags/" | relURL -}}{{- .name | urlize -}}">
-            <span>{{- .name -}}</span>
-            <span>({{- .count -}})</span>
-          </a>
-        </li>
-      {{- end }}
-    </ul>
-  </nav>
-</div>
+<h2>{{ $githubProfile.name }}</h2>
+<p>{{ $githubProfile.bio }}</p>
+<img src="{{ $githubProfile.avatar_url }}" width="100">
+<p>Followers: {{ $githubProfile.followers }}</p>
 {{- end -}}

@@ -5,11 +5,6 @@
     font-family: var(--font-title);
     @include m.shadow();
 
-    &--offcanvas {
-        font-size: var(--fs-7xl);
-        box-shadow: none;
-    }
-
     &--icon {
         @include m.width-height(40px, 40px);
         border-radius: var(--size-1);
@@ -39,5 +34,14 @@
         background-color: var(--bg-focus);
         color: var(--cl-focus);
         outline: none;
+    }
+
+    &--offcanvas {
+        font-size: var(--fs-7xl);
+        box-shadow: none;
+
+        &:hover, &:focus, &:active{
+            background: none;
+        }
     }
 }
