@@ -1,26 +1,7 @@
 <footer class="footer">
-  {{ if not .IsHome }}
-    <nav>
-      <ul class="list list--flex">
-        {{ range .Site.Params.socialMedia }}
-          <li class="list__item">
-            <a 
-            aria-label="Go to {{ .social }}"
-            title="Go to {{ .social }}"
-            class="list__link" 
-            href="{{ .url | relURL }}" 
-            target="_blank" 
-            rel="noopener">
-              <i class="bi {{ .icon }}"></i>
-            </a>
-          </li>
-        {{ end }}
-      </ul>
-    </nav>
-  {{ end }}
-
-  <div class="copyright">
-    <p>Made with ♥️ using <a href="https://gohugo.io" class="footer__link" target="_blank" rel="noopener">Hugo</a></p>
-    <p>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</p>
-  </div>
+  <p>Made with ♥️ using 
+    <a href="https://gohugo.io" class="footer__link" target="_blank" rel="noopener noreferrer">Hugo</a> & 
+    <a href="https://pages.github.com/" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+  </p>
+  <p>&copy; <span>{{- now.Year | safeHTML -}}</span> <span>{{- .Site.Title -}}</span>. All rights reserved.</p>
 </footer>

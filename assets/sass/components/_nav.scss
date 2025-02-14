@@ -34,6 +34,22 @@
         @include m.ellipsis();
         display: block;
         padding: var(--size-1) var(--size-2);
+        transition: color 0.3s ease;
+        font-size: var(--fs-lg);
+
+        &:hover {
+            color: var(--cl-hover);
+            text-decoration: underline;
+        }
+
+        &:active {
+            color: var(--cl-active);
+        }
+
+        &:focus-visible {
+            color: var(--cl-focus);
+            outline: none;
+        }
     }
 
     &__list--collapse {
@@ -42,5 +58,14 @@
         &.collapsed {
             display: block;
         }
+    }
+
+    &__list--toc {
+        padding-left: var(--size-2);
+    }
+
+    &__list--toc .nav__list--toc {
+        margin-left: var(--size-4);
+        border-left: var(--border-1) solid var(--cl-border);
     }
 }

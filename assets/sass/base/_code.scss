@@ -24,13 +24,17 @@
 .bg, .chroma {
     color: var(--code-text);
     background-color: var(--code-bg);
-    font-family: var(--font-monospace);
-    font-size: var(--fs-sm);
 }
 
 .chroma {
-    padding-top: 2.5rem;
+    font-family: var(--font-monospace);
+    font-size: var(--fs-sm);
+    padding-top: var(--size-7);
+    padding-bottom: var(--size-4);
+    padding-right: var(--size-4);
+    padding-left: var(--size-2);
     border: var(--border-1) solid var(--cl-border);
+    overflow-x: auto;
     .x, .cl { color: var(--code-text); }
     .err { color: #960050; background-color: #1e0010; }
     .lnlinks { outline: none; text-decoration: none; color: inherit; }

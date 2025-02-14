@@ -104,3 +104,23 @@
         display: none;
     }
 }
+
+main { // ======================= MAIN CONTENT
+    padding: var(--size-1);
+    margin: var(--size-1);
+}
+
+.footer { // ======================= FOOTER
+    text-align: center;
+    padding: var(--size-7);
+    background-color: var(--bg-alt);
+
+    a {
+        color: var(--cl-accent);
+
+        &:hover {
+            color: var(-cl-hover);
+            text-decoration: underline;
+        }
+    }
+}

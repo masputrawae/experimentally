@@ -23,19 +23,7 @@ Params:
     - social: "discord"
       url: "https://discord.com/in/example"
       icon: "bi-discord"
-
-    - social: "youtube"
-      url: "https://youtube.com/channel/example"
-      icon: "bi-youtube"
-
+      
     - social: "github"
       url: "https://github.com/example"
       icon: "bi-github"
-
-    - social: "pinterest"
-      url: "https://pinterest.com/example"
-      icon: "bi-pinterest"
-
-    - social: "rss"
-      url: "index.xml"
-      icon: "bi-rss"

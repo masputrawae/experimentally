@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ============================ LANG REPO FILTER ============================
     document.getElementById("language-filter").addEventListener("change", function() {
         let selectedLang = this.value;
-        document.querySelectorAll(".repo-item").forEach(repo => {
+        document.querySelectorAll(".repo__item").forEach(repo => {
             if (selectedLang === "all" || repo.dataset.lang === selectedLang) {
             repo.style.display = "block";
             } else {

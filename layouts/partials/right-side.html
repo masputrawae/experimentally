@@ -3,7 +3,36 @@
     <button class="btn btn--icon" id="rightClose">
       <i class="bi bi-x"></i>
     </button>
+    {{ if .IsHome }}
+      <span id="real-time-clock"></span>
+
+      <script>
+        function updateTime() {
+          const now = new Date();
+      
+          // Format tanggal (contoh: Senin, 12 Februari 2024)
+          const dateString = now.toLocaleDateString('en-EN', {
+            weekday: 'long', 
+            day: 'numeric', 
+            month: 'long', 
+            year: 'numeric'
+          });
+      
+          // Format waktu (contoh: 14:30:45)
+          const timeString = now.toLocaleTimeString('en-EN');
+      
+          // Gabungkan tanggal dan waktu
+          document.getElementById("real-time-clock").textContent = `${dateString} | ${timeString}`;
+      
+          // Panggil ulang updateTime di frame berikutnya
+          requestAnimationFrame(updateTime);
+        }
+      
+        updateTime(); // Jalankan pertama kali
+      </script>
+    {{ else }}
     <div class="sidebar__title sidebar__title--small">Word Count: {{ .WordCount }}</div>
+    {{ end }}
   </header>
   
   <nav class="nav nav--right-side">
@@ -50,9 +79,9 @@
       </div>
     {{- else if .IsPage -}}
       {{ $toc := .TableOfContents }}
-      {{ $toc := replaceRE `<ul>` `<ul class="nav__list">` $toc }}
-      {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-      {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--color" href=` $toc }}
+      {{ $toc := replaceRE `<ul>` `<ul class="nav__list nav__list--toc">` $toc }}
+      {{ $toc := replaceRE `<li>` `<li class="nav__item nav__item--toc">` $toc }}
+      {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
 
       <strong class="nav__title">On This Page</strong>
       <div class="nav__toc nav__list--overflow" id="tableOfContents">
