@@ -1,51 +1,94 @@
 {{- define "main" -}}
-<header class="home-header">
-  <img src="https://placehold.co/150" alt="">
-  <div class="home-header__info">
-    <h1>{{ .Site.Title }}</h1>
-    <p>{{ .Site.Params.description }}</p>
+{{ $profile := site.Data.profile }} <!-- GITHUB PROFILE-->
+{{ $repos := site.Data.repos }} <!-- GITHUB REPOS-->
+<figure class="profile">
+  <img class="profile__avatar" src="{{ $profile.avatar_url }}" alt="{{ $profile.name }}">
 
-    <ul class="list list--flex">
-      {{ range .Site.Params.socialMedia }}
-        <li class="list__item">
-          <a 
-          aria-label="Go to {{ .social }}"
-          title="Go to {{ .social }}"
-          class="list__link" 
-          href="{{ .url | relURL }}" 
-          target="_blank" 
-          rel="noopener">
-            <i class="bi {{ .icon }}"></i>
-          </a>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
-</header>
-{{ $repos := getJSON "data/github-repos.json" }}
-  <h3>Repositories:</h3>
-  <ul>
+  <figcaption class="profile__figcaption">
+    <h1 class="profile__title">{{ $profile.name }}</h1>
+    <p class="profile__bio">{{ $profile.bio }}</p>
+    <a class="profile__btn"
+    href="{{ $profile.html_url }}"
+    target="_blank" 
+    rel="noopener">
+    GitHub Profile</a>
+
+    <div class="profile__details">
+      <p class="profile__follow">
+        <i class="bi bi-people-fill"></i>
+        <span>Followers: {{ $profile.followers }}</span>
+        <span>Following: {{ $profile.following }}</span>
+      </p>
+      <ul class="list list--flex">
+        {{ range .Site.Params.socialMedia }}
+          <li class="list__item">
+            <a 
+            aria-label="Go to {{ .social }}"
+            title="Go to {{ .social }}"
+            class="list__link" 
+            href="{{ .url | relURL }}" 
+            target="_blank" 
+            rel="noopener">
+              <i class="bi {{ .icon }}"></i>
+              <span>{{ .social }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    
+  </figcaption>
+</figure>
+
+<!-- 🔹 Kumpulkan Bahasa Unik -->
+{{ $languages := dict }}
+{{ range $repos }}
+  {{ if .language }}
+    {{ $languages = merge $languages (dict .language true) }}
+  {{ end }}
+{{ end }}
+
+<div class="repo-container">
+  <h3>Repositories ({{ len $repos }})</h3>
+
+  <!-- 🔹 Dropdown untuk Filter Bahasa -->
+  <label for="language-filter"><strong>Filter by Language:</strong></label>
+  <select id="language-filter">
+    <option value="all">All Languages</option>
+    {{ range $lang, $val := $languages }}
+      <option value="{{ $lang }}">{{ $lang }}</option>
+    {{ end }}
+  </select>
+
+  <ul class="repo-list">
     {{ range $repos }}
-      <li><a href="{{ .html_url }}" target="_blank">{{ .name }}</a></li>
+    <li class="repo-item" data-lang="{{ .language }}">
+      <h4><a href="{{ .html_url }}">{{ .name }}</a></h4>
+      <p>{{ .description | default "No description available" }}</p>
+      <p><strong><i class="bi bi-code-slash"></i> Language:</strong> {{ .language | default "Unknown" }}</p>
+
+      <!-- 🔹 Statistik Repository dengan Bootstrap Icons -->
+      <p>
+        <strong><i class="bi bi-star-fill"></i> Stars:</strong> {{ .stargazers_count }} | 
+        <strong><i class="bi bi-git"></i> Forks:</strong> {{ .forks_count }} | 
+        <strong><i class="bi bi-eye"></i> Watchers:</strong> {{ .watchers_count }} |
+        <strong><i class="bi bi-exclamation-circle"></i> Open Issues:</strong> {{ .open_issues_count }}
+      </p>
+
+      <p><strong><i class="bi bi-calendar"></i> Created:</strong> {{ .created_at | dateFormat "Jan 02, 2006" }}</p>
+      <p><strong><i class="bi bi-arrow-repeat"></i> Last Updated:</strong> {{ .updated_at | dateFormat "Jan 02, 2006" }}</p>
+
+      <!-- 🔹 Open Issues & PRs -->
+      <p>
+        <strong><i class="bi bi-bug"></i> Issues:</strong> <a href="{{ .html_url }}/issues">View</a> | 
+        <strong><i class="bi bi-git-pull-request"></i> Pull Requests:</strong> <a href="{{ .html_url }}/pulls">View</a>
+      </p>
+
+      <!-- 🔹 Clone Repo -->
+      <p><strong><i class="bi bi-terminal"></i> Clone Repo:</strong></p>
+      <pre>git clone {{ .html_url }}.git</pre>
+    </li>
     {{ end }}
   </ul>
-<style>
-  .home-header {
-    padding: 2rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: start;
-  }
-  .home-header img {
-    border-radius: 50%;
-  }
-
-  .home-header ul {
-    list-style: none;
-    display: flex;
-    padding: 10px 0px;
-    justify-content: space-around;
-    align-items: center;
-}
-</style>
+</div>
 {{- end -}}

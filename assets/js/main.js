@@ -95,4 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDataLang();
     const observer = new MutationObserver(updateDataLang);
     observer.observe(document.body, { childList: true, subtree: true });
+
+    // ============================ LANG REPO FILTER ============================
+    document.getElementById("language-filter").addEventListener("change", function() {
+        let selectedLang = this.value;
+        document.querySelectorAll(".repo-item").forEach(repo => {
+            if (selectedLang === "all" || repo.dataset.lang === selectedLang) {
+            repo.style.display = "block";
+            } else {
+            repo.style.display = "none";
+            }
+        });
+    });
 });

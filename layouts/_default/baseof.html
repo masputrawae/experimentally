@@ -7,9 +7,7 @@
   {{ partial "left-side.html" . }}
   <div class="layout__main">
     {{ partial "header.html" . }}
-    <main>
-      {{ block "main" . }}{{ end }}
-    </main>
+    {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
   </div>
   {{ partial "right-side.html" . }}
