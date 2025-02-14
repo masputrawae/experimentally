@@ -23,7 +23,12 @@
     &__list {
         list-style: none;
         position: relative;
-        padding-left: var(--size-4);
+        padding-left: var(--size-2);
+    }
+
+    &__list .nav__list {
+        margin-left: var(--size-3);
+        border-left: var(--border-1) solid var(--cl-border);
     }
     
     &__item {
@@ -32,8 +37,9 @@
 
     &__link {
         @include m.ellipsis();
+        font-family: var(--font-heading);
         display: block;
-        padding: var(--size-1) var(--size-2);
+        padding: var(--size-1);
         transition: color 0.3s ease;
         font-size: var(--fs-lg);
 
@@ -58,14 +64,5 @@
         &.collapsed {
             display: block;
         }
-    }
-
-    &__list--toc {
-        padding-left: var(--size-2);
-    }
-
-    &__list--toc .nav__list--toc {
-        margin-left: var(--size-4);
-        border-left: var(--border-1) solid var(--cl-border);
     }
 }

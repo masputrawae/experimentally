@@ -12,14 +12,19 @@ mediaTypes:
     suffixes: ["json"]
 
 outputFormats:
-  JSON:
+  manifest:
     mediaType: "application/json"
     baseName: "manifest"
     isPlainText: true
     notAlternative: true
+  search:
+    mediaType: "application/json"
+    baseName: "search"
+    isPlainText: true
+    notAlternative: true
 
 outputs:
-  home: ["HTML", "JSON"]
+  home: ["HTML", "manifest", "search"]
 
 markup:
   tableOfContents:
