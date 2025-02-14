@@ -1,94 +1,253 @@
 {{- define "main" -}}
-{{ $profile := site.Data.profile }} <!-- GITHUB PROFILE-->
-{{ $repos := site.Data.repos }} <!-- GITHUB REPOS-->
-<figure class="profile">
-  <img class="profile__avatar" src="{{ $profile.avatar_url }}" alt="{{ $profile.name }}">
-
-  <figcaption class="profile__figcaption">
-    <h1 class="profile__title">{{ $profile.name }}</h1>
-    <p class="profile__bio">{{ $profile.bio }}</p>
-    <a class="profile__btn"
-    href="{{ $profile.html_url }}"
-    target="_blank" 
-    rel="noopener">
-    GitHub Profile</a>
-
-    <div class="profile__details">
-      <p class="profile__follow">
-        <i class="bi bi-people-fill"></i>
-        <span>Followers: {{ $profile.followers }}</span>
-        <span>Following: {{ $profile.following }}</span>
-      </p>
-      <ul class="list list--flex">
-        {{ range .Site.Params.socialMedia }}
-          <li class="list__item">
-            <a 
-            aria-label="Go to {{ .social }}"
-            title="Go to {{ .social }}"
-            class="list__link" 
-            href="{{ .url | relURL }}" 
-            target="_blank" 
-            rel="noopener">
-              <i class="bi {{ .icon }}"></i>
-              <span>{{ .social }}</span>
-            </a>
-          </li>
-        {{ end }}
-      </ul>
-    </div>
-    
-  </figcaption>
-</figure>
+{{ $profile := site.Data.profile }} <!-- 🔹 GITHUB PROFILE-->
+{{ $repos := site.Data.repos }} <!-- 🔹 GITHUB REPOS-->
 
 <!-- 🔹 Kumpulkan Bahasa Unik -->
 {{ $languages := dict }}
 {{ range $repos }}
-  {{ if .language }}
-    {{ $languages = merge $languages (dict .language true) }}
-  {{ end }}
+{{ if .language }}
+{{ $languages = merge $languages (dict .language true) }}
 {{ end }}
+{{ end }}
+<figure class="profile">
+  <img
+  class="profile__avatar" 
+  src="{{ $profile.avatar_url }}" 
+  alt="{{ $profile.name }}"
+  >
+  
+  <figcaption class="profile__caption">
+    <h1 class="profile__name">{{ $profile.name }}</h1>
+    <p class="profile__bio">{{ $profile.bio }}</p>
+    <p class="profile__follow">
+      <i class="bi bi-people-fill"></i>
+      <span>Followers: {{ $profile.followers }}</span>
+      <span>Following: {{ $profile.following }}</span>
+    </p>
+    <ul class="profile__social">
+      {{ range .Site.Params.socialMedia }}
+        <li class="list__item">
+          <a 
+          aria-label="Go to {{ .social }}"
+          title="Go to {{ .social }}"
+          class="list__link" 
+          href="{{ .url | relURL }}" 
+          target="_blank" 
+          rel="noopener"
+          >
+          
+            <i class="bi {{ .icon }}"></i>
+            <span>{{ .social }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </figcaption>
+</figure>
 
-<div class="repo-container">
-  <h3>Repositories ({{ len $repos }})</h3>
-
-  <!-- 🔹 Dropdown untuk Filter Bahasa -->
-  <label for="language-filter"><strong>Filter by Language:</strong></label>
-  <select id="language-filter">
-    <option value="all">All Languages</option>
-    {{ range $lang, $val := $languages }}
+<div class="repos">
+  <h2 class="repos__title">Repositories ({{ len $repos }})</h2>
+  <div class="repo__filter">
+    <label for="language-filter">
+      <strong>Filter by Language:</strong>
+    </label>
+    <select id="language-filter">
+      <option value="all">All Languages</option>
+      {{ range $lang, $val := $languages }}
       <option value="{{ $lang }}">{{ $lang }}</option>
-    {{ end }}
-  </select>
-
-  <ul class="repo-list">
+      {{ end }}
+    </select>
+  </div>
+  
+  <!-- 🔹List Repo -->
+  <ul class="repo__list">
     {{ range $repos }}
-    <li class="repo-item" data-lang="{{ .language }}">
-      <h4><a href="{{ .html_url }}">{{ .name }}</a></h4>
-      <p>{{ .description | default "No description available" }}</p>
-      <p><strong><i class="bi bi-code-slash"></i> Language:</strong> {{ .language | default "Unknown" }}</p>
-
-      <!-- 🔹 Statistik Repository dengan Bootstrap Icons -->
-      <p>
-        <strong><i class="bi bi-star-fill"></i> Stars:</strong> {{ .stargazers_count }} | 
-        <strong><i class="bi bi-git"></i> Forks:</strong> {{ .forks_count }} | 
-        <strong><i class="bi bi-eye"></i> Watchers:</strong> {{ .watchers_count }} |
-        <strong><i class="bi bi-exclamation-circle"></i> Open Issues:</strong> {{ .open_issues_count }}
-      </p>
-
-      <p><strong><i class="bi bi-calendar"></i> Created:</strong> {{ .created_at | dateFormat "Jan 02, 2006" }}</p>
-      <p><strong><i class="bi bi-arrow-repeat"></i> Last Updated:</strong> {{ .updated_at | dateFormat "Jan 02, 2006" }}</p>
-
+    <li class="repo__item" data-lang="{{ .language }}">
+      
+      <a class="repo__title" href="{{ .html_url }}">{{ .name }}</a>
+      <div class="repo__description">
+        <p>{{ .description | default "No description available" }}</p>
+        <p><i class="bi bi-code-slash"></i> Language: {{ .language | default "Unknown" }}</p>
+      </div>
+      
+      <!-- 🔹 Date Repo -->
+      <div class="repo__date">
+        <p>
+          <i class="bi bi-calendar"></i>
+          <span>Created: {{ .created_at | dateFormat "Jan 02, 2006" }}</span>
+        </p>
+        
+        <p>
+          <i class="bi bi-arrow-repeat"></i>
+          <span>Last Updated:{{ .updated_at | dateFormat "Jan 02, 2006" }}</span>
+        </p>
+      </div>
+      
       <!-- 🔹 Open Issues & PRs -->
-      <p>
-        <strong><i class="bi bi-bug"></i> Issues:</strong> <a href="{{ .html_url }}/issues">View</a> | 
-        <strong><i class="bi bi-git-pull-request"></i> Pull Requests:</strong> <a href="{{ .html_url }}/pulls">View</a>
-      </p>
-
+      <div class="repo__action">
+        <p><i class="bi bi-bug"></i> Issues: <a href="{{ .html_url }}/issues">View</a></p>
+        <p><i class="bi bi-git-pull-request"></i> Pull Requests: <a href="{{ .html_url }}/pulls">View</a></p>
+      </div>
+      
+      <!-- 🔹 Statistik Repository dengan Bootstrap Icons -->
+      <div class="repo__statistic">
+        <p><i class="bi bi-star-fill"></i> Star: {{ .stargazers_count }}</p>
+        <p><i class="bi bi-git"></i> Forks: {{ .forks_count }}</p>
+        <p><i class="bi bi-eye"></i> Watchers: {{ .watchers_count }}</p>
+        <p><i class="bi bi-exclamation-circle"></i> Open Issues: {{ .open_issues_count }}</p>
+      </div>
+      
       <!-- 🔹 Clone Repo -->
-      <p><strong><i class="bi bi-terminal"></i> Clone Repo:</strong></p>
-      <pre>git clone {{ .html_url }}.git</pre>
+      <div class="repo__clone">
+        <p><i class="bi bi-terminal"></i>Clone Repo:</p>
+        <pre>git clone {{ .html_url }}.git</pre>
+      </div>
     </li>
     {{ end }}
   </ul>
 </div>
+
+<style>
+/* Profile Section */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007bff;
+}
+
+.profile__caption {
+  flex: 1;
+}
+
+.profile__name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.profile__bio {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.profile__follow {
+  font-size: 0.9rem;
+  color: #555;
+  display: flex;
+  gap: 1rem;
+}
+
+.profile__social {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.list__item {
+  display: inline-block;
+}
+
+.list__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.list__link:hover {
+  text-decoration: underline;
+}
+
+/* Repository Section */
+.repos {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.repos__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.repo__filter {
+  margin-bottom: 1.5rem;
+}
+
+.repo__filter select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.repo__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.repo__item {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.repo__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.repo__title:hover {
+  text-decoration: underline;
+}
+
+.repo__description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.repo__date,
+.repo__action,
+.repo__statistic {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.repo__clone pre {
+  background-color: #e9ecef;
+  padding: 0.5rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* Utility Classes */
+strong {
+  color: #333;
+}
+</style>
 {{- end -}}
