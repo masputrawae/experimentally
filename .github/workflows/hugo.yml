@@ -49,12 +49,12 @@ jobs:
 
       - name: Fetch GitHub Repositories with Token
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -s https://api.github.com/users/${{ github.actor }}/repos > data/repos.json
 
       - name: Fetch GitHub Profiles with Token
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -s https://api.github.com/users/${{ github.actor }} > data/profile.json
 
       - name: Build with Hugo
