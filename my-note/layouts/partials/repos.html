@@ -1,0 +1,79 @@
+{{ if .Site.Params.github }}
+  {{ with site.Data.repos }}
+    {{ $repos := . }}
+
+    <!-- 🔹 Kumpulkan Bahasa Unik -->
+    {{ $languages := dict }}
+    {{ range $repos }}
+      {{ if .language }}
+        {{ $languages = merge $languages (dict .language true) }}
+      {{ end }}
+    {{ end }}
+
+    <div class="repo">
+      <h2 class="repo__title">Repositories ({{ len $repos }})</h2>
+      <div class="repo__filter">
+        <label for="language-filter">
+          <strong>Filter by Language:</strong>
+        </label>
+        <select id="language-filter">
+          <option value="all">All Languages</option>
+          {{ range $lang, $val := $languages }}
+            <option value="{{ $lang }}">{{ $lang }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+      <!-- 🔹 List Repo -->
+      <ul class="repo__list">
+        {{ range sort $repos "updated_at" "desc" }}
+          <li class="repo__item" data-lang="{{ .language | default "Unknown" }}">
+            <a class="repo__name" href="{{ .html_url }}" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-github"></i> {{ .name }}
+            </a>
+            <div class="repo__description">
+              <p>{{ .description | default "No description available" }}</p>
+              <p class="repo__lang"><i class="bi bi-code-slash"></i> Language: {{ .language | default "Unknown" }}</p>
+            </div>
+            <div class="repo__date">
+              <p><i class="bi bi-calendar"></i> Created: {{ .created_at | dateFormat "Jan 02, 2006" }}</p>
+              <p><i class="bi bi-arrow-repeat"></i> Last Updated: {{ .updated_at | dateFormat "Jan 02, 2006" }}</p>
+            </div>
+            <div class="repo__action">
+              <p><i class="bi bi-bug"></i> Issues: <a href="{{ .html_url }}/issues" target="_blank" rel="noopener noreferrer">View</a></p>
+              <p><i class="bi bi-download"></i> Pull Requests: <a href="{{ .html_url }}/pulls" target="_blank" rel="noopener noreferrer">View</a></p>
+            </div>
+            <div class="repo__statistic">
+              <p><i class="bi bi-star-fill"></i><span>Star:</span> {{ .stargazers_count | default 0 }}</p>
+              <p><i class="bi bi-git"></i> <span>Forks:</span> {{ .forks_count | default 0 }}</p>
+              <p><i class="bi bi-eye"></i> <span>Watchers:</span> {{ .watchers_count | default 0 }}</p>
+              <p><i class="bi bi-exclamation-circle"></i><span>Open Issues:</span> {{ .open_issues_count | default 0 }}</p>
+            </div>
+            <div class="repo__clone">
+              <p><i class="bi bi-terminal"></i> Clone Repo:</p>
+              <div class="highlight" data-lang="bash">
+                <pre class="chroma">git clone {{ .html_url }}.git</pre>
+              </div>
+            </div>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ else }}
+
+    <article class="markdown">
+      <section>
+        {{- .Content | safeHTML -}}
+      </section>
+    </article>
+  
+  {{ end }}
+{{ else }}
+
+  <article class="markdown">
+    <section>
+      {{- .Content | safeHTML -}}
+    </section>
+  </article>
+  
+{{ end }}

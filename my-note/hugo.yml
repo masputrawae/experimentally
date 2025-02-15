@@ -1,0 +1,33 @@
+baseURL: "https://username.github.io/repo-name/"
+languageCode: "id"
+title: "My Notes"
+
+Params:
+  github: false
+  description: "Deskripsikan tentang dirimu di sini. sesuai keinginanmu!!"
+  bio: "Laboris laborum ullamco ullamco do mollit ad incididunt Lorem qui dolor ipsum Lorem deserunt."
+  keywords: "hugo, markdown, blog, contoh"
+  author: "Humman Here"
+  username: "wongcilik"
+  avatar: "https://placehold.co/200"
+
+  socialMedia:
+    - social: "facebook"
+      url: "https://facebook.com/example.com"
+      icon: "bi-facebook"
+
+    - social: "twitter"
+      url: "https://twitter.com/example"
+      icon: "bi-twitter"
+
+    - social: "instagram"
+      url: "https://instagram.com/example"
+      icon: "bi-instagram"
+
+    - social: "discord"
+      url: "https://discord.com/in/example"
+      icon: "bi-discord"
+
+    - social: "github"
+      url: "https://github.com/example"
+      icon: "bi-github"
