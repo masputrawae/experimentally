@@ -3,10 +3,14 @@ languageCode: "id"
 title: "My Notes"
 
 Params:
-  description: "Deskripsi situs Anda untuk mesin pencari."
+  github: false
+  description: "Deskripsikan tentang dirimu di sini. sesuai keinginanmu!!"
+  bio: "Laboris laborum ullamco ullamco do mollit ad incididunt Lorem qui dolor ipsum Lorem deserunt."
   keywords: "hugo, markdown, blog, contoh"
-  author: "Putra Jaya"
-  thumbnail: "https://example.com/thumbnail-default.png"
+  author: "Humman Here"
+  username: "wongcilik"
+  avatar: "https://placehold.co/200"
+
   socialMedia:
     - social: "facebook"
       url: "https://facebook.com/example.com"
@@ -23,7 +27,7 @@ Params:
     - social: "discord"
       url: "https://discord.com/in/example"
       icon: "bi-discord"
-      
+
     - social: "github"
       url: "https://github.com/example"
       icon: "bi-github"

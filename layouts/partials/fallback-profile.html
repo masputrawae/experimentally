@@ -1,0 +1,34 @@
+<figure class="profile">
+  <img
+    class="profile__avatar" 
+    src="{{ .Site.Params.avatar | default "https://via.placeholder.com/150" | safeURL }}" 
+    alt="Avatar {{ .Site.Params.author | default "Unknown" }}"
+  >
+  
+  <figcaption class="profile__caption">
+    <h1 class="profile__name">{{ .Site.Params.author | default "Anonymous" }}</h1>
+    <p class="profile__username">{{ .Site.Params.username | default "No Username" }}</p>
+    <div class="profile__detail">
+      <p class="profile__bio">{{ .Site.Params.bio | default "No bio available." }}</p>
+      {{ with .Site.Params.keywords }}
+        <p class="profile__follow"><strong>Keywords:</strong> {{ . }}</p>
+      {{ end }}
+    </div>
+    <ul class="profile__social">
+      {{ range .Site.Params.socialMedia }}
+        <li class="profile__social-item">
+          <a 
+          aria-label="Go to {{ .social }}"
+          title="Go to {{ .social }}"
+          class="profile__social-link" 
+          href="{{ .url | relURL }}" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          >
+            <i class="bi {{ .icon }}"></i>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </figcaption>
+</figure>
