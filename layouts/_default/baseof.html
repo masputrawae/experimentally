@@ -4,14 +4,18 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+  <div class="layout">
+    <div class="layout__sidebar layout__sidebar--left">
+      {{ partial "left-side.html" . }}
+    </div>
+    <div class="layout__main">
+      {{ partial "header.html" . }}
+      {{ block "main" . }}{{ end }}
+      {{ partial "footer.html" . }}
+    </div>
+    <div class="layout__sidebar layout__sidebar--right">
+      {{ partial "right-side.html" . }}
+    </div>
+  </div>
 </body>
 </html>
