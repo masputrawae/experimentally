@@ -1,75 +1,35 @@
-baseUrl: 'http://localhost:1313/'
-languageCode: 'en-us'
+baseUrl: 'https://www.example.com/'
+languageCode: 'id'
 title: 'My New Hugo Site'
-menu:
-  main:
-    - identifier: inbox
-      name: Inbox
-      url: /00-inbox/
-      weight: 1
 
-    - identifier: fleeting_notes
-      name: Fleeting Notes
-      url: /01-fleeting_notes/
-      weight: 2
+Params:
+  description: "Deskripsikan tentang dirimu di sini. sesuai keinginanmu!!"
+  bio: "Laboris laborum ullamco ullamco do mollit ad incididunt Lorem qui dolor ipsum Lorem deserunt."
+  keywords: "catatan, belajar, pemrograman, teknologi, website, tutorial, blog"
+  author: "Putra Jaya"
+  username: "masputrawae"
+  avatar: "images/android-chrome-512x512.png"
 
-    - identifier: notes
-      name: Notes
-      url: /02-notes/
-      weight: 3
-      hasChildren: true
+  socialMedia:
+    - social: "facebook"
+      url: "https://www.facebook.com/profile.php?id=61566134978045&mibextid=rS40aB7S9Ucbxw6v"
+      icon: "bi-facebook"
 
-    - identifier: javascript
-      name: JavaScript
-      url: /02-notes/javascript/
-      parent: notes
-      weight: 1
+    - social: "twitter"
+      url: "https://x.com/Masputrawae"
+      icon: "bi-twitter-x"
 
-    - identifier: linux
-      name: Linux
-      url: /02-notes/linux/
-      parent: notes
-      weight: 2
+    - social: "instagram"
+      url: "https://www.instagram.com/masputrawae?igsh=MXZhNHBuY3ByYndjYg=="
+      icon: "bi-instagram"
 
-    - identifier: markdown
-      name: Markdown
-      url: /02-notes/markdown/
-      parent: notes
-      weight: 3
+    - social: "discord"
+      url: "https://discord.gg/nM4EP8DJFZ"
+      icon: "bi-discord"
 
-    - identifier: matematika
-      name: Matematika
-      url: /02-notes/matematika/
-      parent: notes
-      weight: 4
-
-    - identifier: php
-      name: PHP
-      url: /02-notes/php/
-      parent: notes
-      weight: 5
-
-    - identifier: python
-      name: Python
-      url: /02-notes/python/
-      parent: notes
-      weight: 6
-
-    - identifier: random
-      name: Random
-      url: /02-notes/random/
-      parent: notes
-      weight: 7
-
-    - identifier: posts
-      name: Posts
-      url: /posts/
-      weight: 4
-
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 5
+    - social: "github"
+      url: "https://github.com/masputrawae"
+      icon: "bi-github"
 
 markup:
   goldmark:

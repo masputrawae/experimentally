@@ -1,7 +1,16 @@
 @use '../abstracts/mixins' as m;
 
-.container {
-    width: 100%;
-    padding-inline: var(--size-3);
-    margin: 0 auto;
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "left top top"
+        "left main right"
+        "left bottom right";
+
+    &__left {grid-area: left;}
+    &__top {grid-area: top;}
+    &__right{grid-area: right;}
+    &__bottom{grid-area: bottom;}
 }

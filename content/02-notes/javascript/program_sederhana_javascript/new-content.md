@@ -1,6 +1,6 @@
 ---
 title: draft
-draft: true
+draft: false
 ---
 # 1
 ```javascript
