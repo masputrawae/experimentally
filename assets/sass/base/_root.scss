@@ -36,7 +36,7 @@
 //              DARK AND LIGHT THEME
 // ===========================================
 @each $theme, $properties in clr.$themes {
-    [data-theme="#{$theme}"] {
+    [data-theme=#{$theme}] {
         @each $property, $values in $properties {
             @each $value, $color in $values {
                 --#{$property}-#{$value}: #{$color};

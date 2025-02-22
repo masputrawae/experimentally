@@ -13,29 +13,28 @@ body {
     font-size: var(--fs-base);
     padding-inline: var(--size-2);
 }
-.markdown {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: var(--font-heading);
-        margin-top: var(--size-7);
-        margin-bottom: var(--size-7);
-    }
-    h1 {font-size: var(--fs-6xl);}
-    h2 {font-size: var(--fs-5xl);}
-    h3 {font-size: var(--fs-4xl);}
-    h4 {font-size: var(--fs-3xl);}
-    h5 {font-size: var(--fs-2xl);}
-    h6 {font-size: var(--fs-xl);}
 
-    p {
-        line-height: var(--line-height-body);
-        font-family: var(--font-article);
-        line-height: var(--line-height-paragraph);
-    }
-
-    code {font-family: var(--font-monospace);}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    margin-top: var(--size-7);
+    margin-bottom: var(--size-7);
 }
+h1 {font-size: var(--fs-6xl);}
+h2 {font-size: var(--fs-5xl);}
+h3 {font-size: var(--fs-4xl);}
+h4 {font-size: var(--fs-3xl);}
+h5 {font-size: var(--fs-2xl);}
+h6 {font-size: var(--fs-xl);}
+
+p {
+    line-height: var(--line-height-body);
+    font-family: var(--font-article);
+    line-height: var(--line-height-paragraph);
+}
+
+code {font-family: var(--font-monospace);}

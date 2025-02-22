@@ -31,6 +31,71 @@ Params:
       url: "https://github.com/masputrawae"
       icon: "bi-github"
 
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+      params:
+        icon: "bi-house"
+    
+    - identifier: projects
+      name: Projects
+      url: /projects
+      weight: 2
+      params:
+        icon: "bi-puzzle"
+
+    - identifier: about
+      name: About
+      url: /about
+      weight: 3
+      params:
+        icon: "bi-person"
+
+    - identifier: contact
+      name: Contact
+      url: /contact
+      weight: 4
+      params:
+        icon: "bi-envelope"
+    
+    - identifier: content
+      name: Content
+      url: /content
+      weight: 5
+      params:
+        icon: "bi-file-earmark-text"
+
+    - identifier: categories
+      name: Categories
+      url: /categories
+      weight: 6
+      params:
+        icon: "bi-journal"
+
+    - identifier: tags
+      name: Tags
+      url: /tags
+      weight: 7
+      params:
+        icon: "bi-tags"
+
+    - identifier: archives
+      name: Archives
+      url: /archives
+      weight: 8
+      params:
+        icon: "bi-archive"
+
+    - identifier: search
+      name: Search
+      url: /search
+      weight: 9
+      params:
+        icon: "bi-search"
+
 markup:
   goldmark:
     renderer:
