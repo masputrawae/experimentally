@@ -5,17 +5,11 @@
 </head>
 <body>
   <div class="layout">
-    <div class="layout__sidebar layout__sidebar--left">
-      {{ partial "left-side.html" . }}
-    </div>
-    <div class="layout__main">
-      {{ partial "header.html" . }}
-      {{ block "main" . }}{{ end }}
-      {{ partial "footer.html" . }}
-    </div>
-    <div class="layout__sidebar layout__sidebar--right">
-      {{ partial "right-side.html" . }}
-    </div>
+    <div class="layout__top">{{ partial "header.html" . }}</div>
+    <div class="layout__left">{{ partial "left-side.html" . }}</div>
+    <div class="layout__main">{{ block "main" . }}{{ end }}</div>
+    <div class="layout__bottom">{{ partial "footer.html" . }}</div>
+    <div class="layout__right">{{ partial "right-side.html" . }}</div>
   </div>
 </body>
 </html>

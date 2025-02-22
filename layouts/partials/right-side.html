@@ -1,0 +1,21 @@
+<aside class="sidebar sidebar--right">
+  <ul class="header__nav">
+      
+      {{ range .Site.Taxonomies.categories }}
+        <li class="header__nav-item">
+          <a class="header__nav-link" href="{{ .Page.RelPermalink }}">
+            {{ .Page.Title }}
+          </a>
+        </li>
+      {{ end }}
+      
+    </ul>
+    
+    <ul>
+      {{ range .Site.Sections }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+</aside>
