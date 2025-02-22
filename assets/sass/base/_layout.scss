@@ -1,1 +1,7 @@
 @use '../abstracts/mixins' as m;
+
+.container {
+    width: 100%;
+    padding-inline: var(--size-3);
+    margin: 0 auto;
+}
