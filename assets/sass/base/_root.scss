@@ -1,0 +1,45 @@
+@use '../abstracts/colors' as clr;
+@use '../abstracts/variables' as v;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap');
+
+// ===========================================
+//                      ROOT
+// ===========================================
+:root {
+    @each $var, $value in v.$font-family {
+        --font-#{$var}: #{$value};
+    }
+    
+    @each $var, $value in v.$font-size {
+        --#{$var}: #{$value};
+    }
+    @each $var, $value in v.$size {
+        --size-#{$var}: #{$value};
+    }
+    @each $var, $value in v.$line-height {
+        --line-height-#{$var}: #{$value};
+    }
+    @each $var, $value in v.$border{
+        --border-#{$var}: #{$value};
+    }
+
+    @each $category, $map in clr.$colors {
+        @each $color, $value in $map {
+            --#{$category}-#{$color}: #{$value};
+        }
+    }
+}
+
+// ===========================================
+//              DARK AND LIGHT THEME
+// ===========================================
+@each $theme, $properties in clr.$themes {
+    [data-theme="#{$theme}"] {
+        @each $property, $values in $properties {
+            @each $value, $color in $values {
+                --#{$property}-#{$value}: #{$color};
+            }
+        }
+    }
+}

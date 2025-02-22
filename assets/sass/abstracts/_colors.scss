@@ -1,0 +1,101 @@
+$colors:(
+    // ===========================================
+    //                 COLOR STATUS
+    // ===========================================
+    status: (
+        info: rgba(0, 17, 255, 0.3),
+        tips: rgba(9, 255, 0, 0.3),
+        warning: rgba(229, 255, 0, 0.3),
+        danger: rgba(255, 0, 0, 0.3),
+        error: rgba(106, 0, 0, 0.3),
+    ),
+
+    base: (
+        dark: #000000,
+        light: #ffffff,
+    )
+);
+
+$themes: (
+    // ===========================================
+    //                  DARK THEME
+    // ===========================================
+    dark: (
+        bg: (
+            100: #000000,
+            200: #111111,
+            300: #222222,
+            400: #333333,
+            500: #444444,
+
+            gradient: linear-gradient(45deg, var(--bg-100), var(--bg-200), var(--bg-300), var(--bg-400), var(--bg-500))
+        ),
+
+        text: (
+            primary: #ffffff,
+            secondary: #bbbbbb,
+            tertiary: #888888,
+            additional: #666666,
+        ),
+
+        code: (
+            bg: #1E1E1E,
+            text: #DADADA,
+            comment: #757575,
+            keywoard: #ff7979,
+            string: #50FA7B,
+            function: #61AFEF,
+            operator: #F3A712,
+            number: #dd78d8,
+            highlight-bg: #44475A,
+            line-number: #8892BF
+        ),
+
+        shadow: (
+            1: '0px, 4px, 0.3px rgba(0, 0, 0, 0.3)',
+            2: '0px, 4px, 0.3px rgba(0, 0, 0, 0.4)',
+            3: '0px, 4px, 0.3px rgba(0, 0, 0, 0.5)',
+        )
+    ),
+
+    // ===========================================
+    //                  LIGHT THEME
+    // ===========================================
+    light: (
+        bg: (
+            100: #FAFAFA,
+            200: #F5F5F5,
+            300: #EEEEEE,
+            400: #DDDDDD,
+            500: #CCCCCC,
+
+            gradient: linear-gradient(45deg, var(--bg-100), var(--bg-200), var(--bg-300), var(--bg-400), var(--bg-500))
+        ),
+
+        text: (
+            primary: #000000,
+            secondary: #333333,
+            tertiary: #555555,
+            additional: #888888,
+        ),
+
+        code: (
+            bg: #F4F4F4,
+            text: #2C3E50,
+            comment: #95A5A6,
+            keywoard: #d63333,
+            string: #26A269,
+            function: #0066CC,
+            operator: #F39C12,
+            number: #B83280,
+            highlight-bg: #FFF3CD,
+            line-number: #ADB5BD
+        ),
+
+        shadow: (
+            1: '0px, 4px, 0.3px rgba(0, 0, 0, 0.1)',
+            2: '0px, 4px, 0.3px rgba(0, 0, 0, 0.2)',
+            3: '0px, 4px, 0.3px rgba(0, 0, 0, 0.3)',
+        )
+    )
+);

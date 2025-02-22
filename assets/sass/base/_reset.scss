@@ -1,0 +1,23 @@
+// ===========================================
+//                   RESET
+// ===========================================
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+html::after,
+html::before,
+body,
+body::before,
+body::after{
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
