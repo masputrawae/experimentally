@@ -4,17 +4,26 @@
 	{{ partial "head.html" . }}
 
 	<body class="container">
-
-		<div class="layout">
-			{{ partial "sidebar.html" . }}
-
-			<div class="layout__main">
-
-				{{ partial "header.html" . }}
-				{{ block "main" . }}{{ end }}
-				{{ partial "footer.html" . }}
-			</div>
-		</div>
-
+	    
+	    {{ partial "topbar.html" . }}
+	    
+	    <div class="layout">
+	        
+	        <aside class="layout__left">
+	            {{ partial "left-side.html" . }}
+	        </aside>
+	        
+	        <div class="layout__main">
+	            {{ partial "header.html" . }}
+	            {{ block "main" . }}{{ end }}
+	            {{ partial "footer.html" . }}
+	        </div>
+	        
+	        <aside class="layout__right">
+	            {{ partial "right-side.html" . }}
+	        </aside>
+	        
+	    </div>
+	    
 	</body>
 </html>

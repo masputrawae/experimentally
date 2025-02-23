@@ -1,10 +1,48 @@
 <header class="header">
-	<button 
-	class="header__btn"
-	id="leftOpen"
-	title="Click to open the left sidebar"
-	aria-label="Click to open the left sidebar"
-	>
-		<i class="bi bi-list"></i>
-	</button>
+    
+    <nav class="breadcrumb">
+        <ul class="breadcrumb__list">
+            
+            {{ range .Ancestors.Reverse }}
+                <li class="breadcrumb__list">
+                    <a class="breadcrumb__link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                </li>
+            {{ end }}
+            
+            <li class="breadcrumb__list">
+                <a class="breadcrumb__link breadcrumb__link--active" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </li>
+            
+        </ul>
+    </nav>
+    
+    <div class="header__container">
+        
+        <div class="header__wrapper">
+            <h1 class="header__title">{{ .Title }}</h1>
+            <p class="header__subtitle">
+                {{ if .IsHome }}
+                    {{ with .Site.Params.description }}{{ . }}{{ end }}
+                {{ else }}
+                    {{ with .Params.description }}{{ . }}{{ end }}
+                {{ end }}
+            </p>
+        </div>
+        
+        {{ if and .Date .Params.last_modified }}
+            <div class="header__wrapper">
+                {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+                {{ $dateHuman := .Date | time.Format ":date_long" }}
+
+                {{ $lastMod := .Params.last_modified | time }} <!-- Pastikan dikonversi ke objek waktu -->
+                {{ $lastModMachine := $lastMod | time.Format "2006-01-02T15:04:05-07:00" }}
+                {{ $lastModHuman := $lastMod | time.Format ":date_long" }}
+
+                <small class="header__date">Publish on: <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></small>
+                <small class="header__date">Last Modified: <time datetime="{{ $lastModMachine }}">{{ $lastModHuman }}</time></small>
+            </div>
+        {{ end }}
+
+    </div>
+    
 </header>

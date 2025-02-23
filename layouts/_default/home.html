@@ -1,16 +1,9 @@
 {{ define "main" }}
-<main class="content">
-  
-  <header class="content__header">
-    
-    <h1 class="content__title">Welcome To {{ .Site.Title }}!</h1>
-    <div class="content__subtitle">{{ .Site.Params.description }}</div>
-    
-  </header>
-  
-  <article class="content__article markdown">
-    {{ .Content | safeHTML }}
-  </article>
-  
-</main>
+	<main class="content">
+
+		<article class="content__article markdown">
+			{{ .Content | safeHTML }}
+		</article>
+
+	</main>
 {{ end }}
