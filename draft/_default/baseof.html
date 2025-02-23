@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode }}" data-theme="dark">
+
+	{{ partial "head.html" . }}
+
+	<body class="container">
+	    
+	    {{ partial "topbar.html" . }}
+	    
+	    <div class="layout">
+	        
+	        <aside class="layout__left">
+	            {{ partial "left-side.html" . }}
+	        </aside>
+	        
+	        <div class="layout__main">
+	            {{ partial "header.html" . }}
+	            {{ block "main" . }}{{ end }}
+	            {{ partial "footer.html" . }}
+	        </div>
+	        
+	        <aside class="layout__right">
+	            {{ partial "left-side.html" . }}
+	        </aside>
+	        
+	    </div>
+	    
+	</body>
+</html>
