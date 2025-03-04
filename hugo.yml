@@ -1,6 +1,6 @@
 baseURL: "https://example.com"
 languageCode: "en-US"
-title: "Site Name"
+title: "Hello World"
 
 menus:
   main:
@@ -48,6 +48,6 @@ markup:
       unsafe: true
       
 module:
-  hugoVersion
+  hugoVersion:
     extended: false
     min: "0.116.0"

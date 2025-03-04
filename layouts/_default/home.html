@@ -1,7 +1,38 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+<header class="hero">
+  <h1 class="hero__title">{{ .Params.welcome }}</h1>
+  <h2 class="hero__subtitle">{{ .Params.subtitle }}</h2>
+  <em class="hero__tagline" data-role-list='{{ .Params.tagline | jsonify }}'></em>
+  <p class="hero__description">{{ .Content | safeHTML }}</p>
+  <nav class="hero__cta">
+    {{ range .Params.cta }}
+      <a href="{{ .url }}" class="btn {{ if .primary }}btn--primary{{ end }}">{{ .name }}</a>
+    {{ end }}
+  </nav>
+</header>
+
+<section class="section">
+  <h2 class="section__title">Last Projects</h2>
+  <div class="section__grid">
+    {{ range first 2 (where .Site.RegularPages "Section" "projects") }}
+    <article class="project">
+      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="project__img">
+      <div class="project__content">
+        <h3 class="project__title">{{ .Title }}</h3>
+        <p class="project__summary">{{ .Params.summary }}</p>
+        <ul class="project__tech">
+          {{ range .Params.tech }}
+          <li class="btn">{{ . }}</li>
+          {{ end }}
+        </ul>
+        <nav class="project__cta">
+          {{ range .Params.cta }}
+          <a href="{{ .url }}" class="btn {{ if .primary }}btn--primary{{ end }}">{{ .name }}</a>
+          {{ end }}
+        </nav>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
 {{ end }}

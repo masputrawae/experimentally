@@ -1,35 +1,121 @@
 name: "John Doe"
-age: 
-address: ""
+subtitle: "Designer & Developer"
+age: 30
+address: "123 Main St, Anytown, USA"
+logo: "https://picsum.photos/50"
+
 contact:
-  - name: "Phone number"
-    val: +78 1234 567 8901
-    pre: <i class="bi bi-telephone-plus"></i>
+  - name: "Phone Number"
+    val: "+78 1234 567 8901"
+    icon: bi bi-telephone-plus
   - name: "Email"
-    val: example@mail.com
-    pre: <i class="bi bi-envelope-at"></i>
+    val: "example@mail.com"
+    icon: bi bi-envelope-at
+
+#------------------------------------------##------------------------------------------#
+# _!_ id: "true" untuk mengaktifkan atau "false" untuk menonaktifkan
+# _!_ en: "true" to enable or "false" to disable
+#------------------------------------------##------------------------------------------#
+#------------------------------------------##------------------------------------------#
+skillShow: true
+skills:
+  - name: "Web Development"
+    img: "https://picsum.photos/100?1"
+    summary: "Proficient in building responsive and user-friendly websites."
+    level: 85
     
-experience:
-  - name: ""
-    summary: ""
-    date:
-      start: 2023-01-01T08:00:00-07:00
-      end: "Present"
-      
-  - name: ""
-    summary: ""
-    date:
-      start: 2023-01-01T08:00:00-07:00
-      end: 2023-01-01T08:00:00-07:00
-      
-  - name: ""
-    summary: ""
-    date:
-      start: 2023-01-01T08:00:00-07:00
-      end: 2023-01-01T08:00:00-07:00
-      
-  - name: ""
-    summary: ""
-    date:
-      start: 2023-01-01T08:00:00-07:00
-      end: 2023-01-01T08:00:00-07:00
+  - name: "Graphic Design"
+    img: "https://picsum.photos/100?2"
+    summary: "Skilled in creating visually appealing designs and branding."
+    level: 75
+    
+  - name: "UI/UX Design"
+    img: "https://picsum.photos/100?3"
+    summary: "Experienced in designing intuitive user interfaces and experiences."
+    level: 80
+    
+  - name: "SEO Optimization"
+    img: "https://picsum.photos/100?4"
+    summary: "Knowledgeable in optimizing websites for search engines."
+    level: 70
+    
+  - name: "Content Creation"
+    img: "https://picsum.photos/100?5"
+    summary: "Adept at creating engaging content for various platforms."
+    level: 65
+    
+  - name: "Project Management"
+    img: "https://picsum.photos/100?6"
+    summary: "Experienced in managing projects from inception to completion."
+    level: 70
+#------------------------------------------##------------------------------------------#
+#------------------------------------------##------------------------------------------#
+journeyShow: true
+journey:
+  - name: "Started My Career"
+    img: "https://picsum.photos/100?7"
+    summary: "Began my journey in web development and design."
+    date: 2020-01-01T08:00:00-07:00
+    
+  - name: "Freelance Projects"
+    img: "https://picsum.photos/100?8"
+    summary: "Worked on various freelance projects, enhancing my skills."
+    date: 2021-06-01T08:00:00-07:00
+    
+  - name: "Joined XYZ Corp"
+    img: "https://picsum.photos/100?9"
+    summary: "Became a web developer at XYZ Corp, focusing on user experience."
+    date: 2022-01-01T08:00:00-07:00
+    
+  - name: "Launched My Portfolio"
+    img: "https://picsum.photos/100?10"
+    summary: "Created my personal portfolio to showcase my work."
+    date: 2023-01-01T08:00:00-07:00
+    
+  - name: "Continuous Learning"
+    img: "https://picsum.photos/100?11"
+    summary: "Always seeking to learn new technologies and improve my skills."
+    date: 2023-06-01T08:00:00-07:00
+#------------------------------------------##------------------------------------------#
+#------------------------------------------##------------------------------------------#
+serviceShow: true
+service:
+  - name: "Web Development"
+    img: "https://picsum.photos/100?12"
+    summary: "Building responsive and dynamic websites tailored to client needs."
+    
+  - name: "Graphic Design"
+    img: "https://picsum.photos/100?13"
+    summary: "Creating stunning graphics and branding materials."
+    
+  - name: "Consultation"
+    img: "https://picsum.photos/100?14"
+    summary: "Offering expert advice on web design and development strategies."
+#------------------------------------------##------------------------------------------#
+#------------------------------------------##------------------------------------------#
+testimonyShow: true
+testimony:
+  - name: "John Doe"
+    role: "CTO at GlobalTech Corp"
+    quote: "The cloud migration project led by this team was exceptional. They achieved significant cost savings while improving our system reliability. Their expertise in cloud architecture and DevOps practices was invaluable."
+    img: "https://randomuser.me/api/portraits/men/1.jpg"
+
+  - name: "Jane Smith"
+    role: "COO at ManufactureX Inc."
+    quote: "The ERP system implementation transformed our operations. The team's attention to detail and ability to handle complex business processes resulted in measurable efficiency improvements across our organization."
+    img: "https://randomuser.me/api/portraits/women/2.jpg"
+
+  - name: "Michael Brown"
+    role: "CEO at ShopSphere Inc."
+    quote: "Our e-commerce platform exceeded all expectations. The development team delivered a high-performance system that significantly boosted our sales and customer satisfaction. Their technical skills and dedication were outstanding."
+    img: "https://randomuser.me/api/portraits/men/3.jpg"
+
+  - name: "Sarah Johnson"
+    role: "IT Director at TechSolutions Ltd"
+    quote: "Working with this team on our infrastructure optimization was a game-changer. Their innovative approach and technical expertise helped us achieve unprecedented system performance and scalability."
+    img: "https://randomuser.me/api/portraits/women/4.jpg"
+
+  - name: "David Wilson"
+    role: "Product Manager at InnovateX"
+    quote: "The software architecture designed by this team was robust and scalable. Their ability to understand our complex requirements and translate them into an efficient system was truly impressive."
+    img: "https://randomuser.me/api/portraits/men/5.jpg"

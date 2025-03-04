@@ -1,0 +1,19 @@
+{{ $data := .Site.Data.personal }}
+<header class="header header--sidebar">
+  <a href="{{ "/" | relURL }}" class="brand">
+    <img src="{{ $data.logo }}" alt="Logo {{ $data.name }}" class="brand__img">
+    <div class="brand__name">
+      <h1 class="brand__title">{{ $data.name }}</h1>
+      <em class="brand__subtitle">{{ $data.subtitle }}</em>
+    </div>
+  </a>
+
+  <button class="btn btn--icon btn--desktop-none" data-toggle="sidebar">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
+<nav class="menu">
+  {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  {{ partial "menu.html" (dict "menuID" "social" "page" .) }}
+</nav>

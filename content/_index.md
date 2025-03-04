@@ -1,18 +1,19 @@
 ---
 title: "Home"
 date: 2023-01-01T08:00:00-07:00
-welcome: "Hi!...I'm John"
-subtitle: "Laborum voluptate pariatur ex culpa magna"
+welcome: "Hello! I'm John"
+subtitle: "Welcome to my portfolio"
 tagline:
   - "Web Development"
-  - "Designer"
+  - "Design"
   - "UI/UX"
-  - "Programmer"
+  - "Programming"
 cta:
-  - name: "Download CV"
+  - name: "Download My CV"
     url: "https://example.com"
     primary: true
-  - name: "About Me"
+  - name: "Learn More About Me"
     url: "/about"
     primary: false
 ---
+As a dedicated web developer and designer, I strive to craft stunning and user-friendly digital experiences. Dive into my portfolio to discover my projects and gain insight into my professional journey.

@@ -1,2 +1,14 @@
-<h1>{{ site.Title }}</h1>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+{{ $data := .Site.Data.personal }}
+<header class="header header--desktop-none">
+  <a href="{{ "/" | relURL }}" class="brand">
+    <img src="{{ $data.logo }}" alt="Logo {{ $data.name }}">
+    <div class="brand__name">
+      <h1 class="brand__title">{{ $data.name }}</h1>
+      <em class="brand__subtitle">{{ $data.subtitle }}</em>
+    </div>
+  </a>
+
+  <button class="btn btn--icon" data-toggle="sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+</header>
