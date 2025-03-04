@@ -1,0 +1,88 @@
+# _!_ id: "true" untuk mengaktifkan atau "false" untuk menonaktifkan
+# _!_ en: "true" to enable or "false" to disable
+
+#------------------------------------------#
+#------------------------------------------#
+skillShow: true
+skillTitle: "My Skill"
+skillSubtitle: "Write about the skills you want and briefly"
+#------------------------------------------#
+skills:
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+    
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+    
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+    
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+    
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+    
+  - name: "Skill One"
+    img: "https://picsum.photos/100?1"
+    summary: "Skill One is Ok"
+    level: 60
+#------------------------------------------#
+#------------------------------------------#
+journeyShow: true
+journeyTitle: "My Journey"
+journeySubtitle: "Write about your trip briefly"
+#------------------------------------------#
+journey:
+  - name: "Journey One"
+    img: "https://picsum.photos/100?2"
+    summary: "Journey details"
+    date: 2023-01-01T08:00:00-07:00
+    
+  - name: "Journey One"
+    img: "https://picsum.photos/100?2"
+    summary: "Journey details"
+    date: 2023-01-01T08:00:00-07:00
+    
+  - name: "Journey One"
+    img: "https://picsum.photos/100?2"
+    summary: "Journey details"
+    date: 2023-01-01T08:00:00-07:00
+    
+  - name: "Journey One"
+    img: "https://picsum.photos/100?2"
+    summary: "Journey details"
+    date: 2023-01-01T08:00:00-07:00
+    
+  - name: "Journey One"
+    img: "https://picsum.photos/100?2"
+    summary: "Journey details"
+    date: 2023-01-01T08:00:00-07:00
+#------------------------------------------#
+#------------------------------------------#
+serviceShow: true
+serviceTitle: "My Services"
+serviceSubtitle: "Write about your services briefly"
+#------------------------------------------#
+service:
+  - name: "Service One"
+    img: "https://picsum.photos/100?2"
+    summary: "Services details"
+    
+  - name: "Service One"
+    img: "https://picsum.photos/100?2"
+    summary: "Services details"
+    
+  - name: "Service One"
+    img: "https://picsum.photos/100?2"
+    summary: "Services details"

@@ -1,23 +1,53 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-US'
-title = 'My New Hugo Site'
+baseURL: "https://example.com"
+languageCode: "en-US"
+title: "Site Name"
 
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 10
+menus:
+  main:
+    - name: "Home"
+      pageRef: "/"
+      weight: 10
+      pre: <i class="bi bi-houses"></i>
+    - name: "About"
+      pageRef: "/about"
+      weight: 20
+      pre: <i class="bi bi-person-circle"></i>
+    - name: "Projects"
+      pageRef: "/projects"
+      weight: 30
+      pre: <i class="bi bi-briefcase"></i>
+    - name: "Gallery"
+      pageRef: "/gallery"
+      weight: 40
+      pre: <i class="bi bi-images"></i>
+    - name: "Blog"
+      pageRef: "/blog"
+      weight: 50
+      pre: <i class="bi bi-pencil-square"></i>
+      
+  social:
+    - name: "Twitter X"
+      url: "https://X/example"
+      params:
+        rel: external
+      pre: <i class="bi bi-twitter-x"></i>
+    - name: "Facebook"
+      url: "https://facebook.com/example"
+      params:
+        rel: external
+      pre: <i class="bi bi-facebook"></i>
+    - name: "LinkedIn"
+      url: "https://linkedin.com/example"
+      params:
+        rel: external
+      pre: <i class="bi bi-linkedin"></i>
 
-[[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
-weight = 20
-
-[[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
-weight = 30
-
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+      
+module:
+  hugoVersion
+    extended: false
+    min: "0.116.0"
