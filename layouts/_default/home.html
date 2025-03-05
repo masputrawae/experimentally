@@ -1,3 +1,12 @@
 {{ define "main" }}
+<main class="content">
+  <header class="hero">
+    <h1 class="hero__title">{{ .Params.welcome }}</h1>
+    <em class="hero__subtitle">{{ .Params.subtitle }}</em>
+  </header>
 
+  <article class="content__markdown">
+    {{ .Content | safeHTML }}
+  </article>
+</main>
 {{ end }}
