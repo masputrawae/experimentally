@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use "sass:color";
+
+.hero {
+  margin-block: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  &__subtitle {
+    display: block;
+    margin-bottom: v.$space__title;
+    font-weight: v.$font__weight--bold;
+    color: color.adjust(v.$color__accent, $lightness: 10%);
+    font-size: v.$font__size--h6;
+  }
+
+  &__description {
+    margin-block: v.$space__title;
+  }
+}

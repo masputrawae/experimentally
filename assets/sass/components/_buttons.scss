@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use "sass:color";
+
+.btn {
+  @include m.shadow-sm();
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 1rem;
+  color: v.$color__secondary;
+  background-color: v.$color__bg--secondary;
+  border-radius: 0.25rem;
+  font-size: v.$font__size--lg;
+  font-weight: v.$font__weight--medium;
+  display: inline-block;
+  
+  @include m.transition(transform, background-color, color);
+  
+  &:hover, &:focus-visible {
+    @include m.shadow-lg();
+    transform: scale(1.1);
+    background-color: color.adjust(v.$color__accent, $lightness: 15%);
+    color: v.$color__base--black;
+  }
+  
+  &--primary {
+    color: v.$color__base--white;
+    background-color: v.$color__accent;
+    font-weight: v.$font__weight--bold;
+
+    &:hover {
+      background-color: color.adjust(v.$color__accent, $lightness: 15%);
+      color: v.$color__base--black;
+    }
+  }
+  
+  &--icon {
+    width: 45px;
+    height: 45px;
+    margin: auto 0;
+    background-color: transparent;
+
+    .bi {
+      @include m.flex-center();
+      font-size: 2rem;
+      margin: 0 auto;
+    }
+  }
+}

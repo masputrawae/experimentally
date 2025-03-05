@@ -1,36 +1,16 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use "sass:color";
 
-// ----------- BTN
-.btn {
-  padding: 0.25rem 0.5rem;
-  color: v.$color__text--secondary;
-
-  &--icon {
-    width: 45px;
-    height: 45px;
-    margin: auto 0;
-
-    .bi {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-size: 2rem;
-  
-      margin: 0 auto;
-    }
-  }
-}
-
-// ----------- LAYOUT
+// TODO: Consider moving layout styles to a separate file: layout/_base.scss
 .layout {
   max-width: 100vw;
   min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
-
-  background-color: v.$color__bg--primary;
-  color: v.$color__text--primary;
+  background-color: v.$color__bg--body;
+  color: v.$color__primary;
 }
 
 .sidebar {
@@ -39,108 +19,39 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  z-index: 10;
-
+  z-index: 20;
   background-color: v.$color__bg--primary;
-  
   transform: translateX(-100%);
   visibility: hidden;
   opacity: 0;
-
-  transition-duration: 0.3s;
-  transition-property: transform, opacity, visibility;
-  transition-timing-function: ease-in-out;
-
+  
+  @include m.transition(transform, opacity, visibility);
+  
   &--active {
     transform: translateX(0%);
     visibility: visible;
     opacity: 1;
   }
-
 }
 
-.nav {
-  &__list {
-    padding-inline: 1rem;
-  }
-
-  &__item {
-    margin-block: 1rem;
-  }
-
-  &__link {
-    padding: 0.25rem 0.5rem;
-    font-size: v.$font__size--h5;
-    font-weight: v.$font__weight--bold;
-    display: block;
-
-    color: v.$color__text--secondary;
-    border: 1px solid transparent;
-    border-radius: 0.5rem;
-
-    transition-duration: 0.1s;
-    transition-property: color, border-color;
-    transition-timing-function: ease-in-out;
-
-    .bi {
-      margin-inline: 0.5rem;
-    }
-
-    &--active, &:hover, &:focus-visible {
-      border-radius: 0.5rem;
-      border-color:v.$color__border;
-      background-color: v.$color__bg--secondary;
-      color: v.$color__text--primary;
-    }
-  }
-}
-
-// ----------- HEADER
+// TODO: Consider moving header styles to a separate file: layout/_header.scss
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  @include m.flex-between();
+  @include m.shadow-sm();
   position: sticky;
   top: 0;
   max-height: 6rem;
-
   padding: 0.75rem 1rem;
   background-color: v.$color__bg--primary;
   border-bottom: 2px solid v.$color__border;
+  z-index: 10;
 }
 
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-
-  &__img {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    border: 3px solid v.$color__border;
-  }
-
-  &__title, &__subtitle {
-    line-height: v.$line__height--tight;
-  }
+// TODO: Consider moving content styles to a separate file: layout/_content.scss
+.content {
+  padding: 0.5rem;
 
   &__title {
     font-weight: v.$font__weight--bold;
   }
-  &__subtitle {
-    color: v.$color__text--secondary;
-    font-weight: v.$font__weight--medium;
-  }
-}
-
-// ----------- CONTENT
-.content {
-  padding-inline: 1rem;
-}
-
-.hero {
-  margin-block: 1rem;
 }

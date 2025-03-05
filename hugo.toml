@@ -6,7 +6,7 @@ title = 'My New Hugo Site'
   [params.author]
     name = 'John Doe'
     experience = 'Web Development'
-    img = 'https://placehold.co/80'
+    img = 'https://randomuser.me/api/portraits/men/5.jpg'
     
 # MENUS MAIN
 [[menus.main]]

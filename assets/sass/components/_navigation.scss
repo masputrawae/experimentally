@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use "sass:color";
+
+.nav {
+  &__list {
+    padding-inline: 1rem;
+  }
+
+  &__item {
+    margin-block: 1rem;
+  }
+
+  &__link {
+    @include m.shadow-sm();
+    padding: 0.25rem 0.5rem;
+    font-size: v.$font__size--h5;
+    font-weight: v.$font__weight--bold;
+    display: block;
+    color: v.$color__secondary;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    
+    @include m.transition(color, border-color, box-shadow);
+    
+    .bi {
+      margin-inline: 0.5rem;
+    }
+
+    &--active, &:hover, &:focus-visible {
+      @include m.shadow-lg();
+      border-radius: 0.5rem;
+      border-color: v.$color__border;
+      background-color: v.$color__accent;
+      color: v.$color__primary;
+    }
+  }
+}

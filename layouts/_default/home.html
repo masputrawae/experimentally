@@ -1,12 +1,46 @@
 {{ define "main" }}
 <main class="content">
-  <header class="hero">
-    <h1 class="hero__title">{{ .Params.welcome }}</h1>
-    <em class="hero__subtitle">{{ .Params.subtitle }}</em>
-  </header>
+  <section class="hero">
+    <header class="hero__header">
+      <h1 class="hero__title">{{ .Params.welcome }}</h1>
+      <em class="hero__subtitle">{{ .Params.subtitle }}</em>
+    </header>
+    <div class="hero__description">
+      {{ .Content | safeHTML }}
+    </div>
+    <nav class="hero__cta">
+      {{ if .Params.cta }}
+        {{ range .Params.cta }}
+          <a href="{{ .url | relURL }}" class="btn {{ if .primary }}btn--primary{{ end }}">{{ .name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
+  </section>
 
-  <article class="content__markdown">
-    {{ .Content | safeHTML }}
-  </article>
+  <section class="content content--featured">
+    <h2 class="content__title">Proyek Terbaru</h2>
+    <div class="projects">
+      {{ range first 3 (where .Site.RegularPages "Section" "projects") }}
+      <article class="card card--grid">
+        <div class="card__img">
+          <img src="{{ .Params.img }}" alt="{{ .Title }}">
+        </div>
+        <div class="card__content">
+          <h3 class="card__title">{{ .Title }}</h3>
+          <small class="card__date">
+            <i class="bi bi-calendar"></i>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+          </small>
+          <p class="card__description">{{ .Params.description }}</p>
+          <div class="card__cta">
+            {{ range .Params.cta }}
+            <a href="{{ .url }}" class="btn {{ if .primary }}btn--primary{{ else }}btn--secondary{{ end }}">{{ .name }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
 </main>
 {{ end }}
