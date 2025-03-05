@@ -2,6 +2,13 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
+  <header class="header header--sidebar">
+    {{ partial "components/logo.html" . }}
+
+    <button class="btn" data-toggle="sidebar">
+      <i class="bi bi-x"></i>
+    </button>
+  </header>
   <nav class="nav">
     <ul class="nav__list">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}

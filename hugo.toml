@@ -2,6 +2,12 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+[params]
+  [params.author]
+    name = 'John Doe'
+    experience = 'Web Development'
+    img = 'https://placehold.co/80'
+    
 # MENUS MAIN
 [[menus.main]]
   name = 'Home'
