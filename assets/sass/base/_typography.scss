@@ -1,0 +1,150 @@
+@use '../abstracts/variables' as v;
+
+// Variabel
+// $font__size--base
+// $font__family--base
+// $font__weight--light
+// $line__height--normal
+// $space__paragraph
+// $space__title
+// $font__size--h1
+// $line__height--loosest
+
+// Base typography with improved readability
+body {
+  font: {
+    size: v.$font__size--base;
+    family: v.$font__family--base;
+    weight: v.$font__weight--light;
+  }
+  line-height: v.$line__height--normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Improved vertical rhythm with better spacing hierarchy
+:is(p, h1, h2, h3, h4, h5, h6) {
+  max-width: 768px;
+  margin: 0;
+  
+  + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: v.$space__paragraph;
+  }
+  
+  + p {
+    margin-top: v.$space__title;
+  }
+}
+
+// Enhanced heading styles with better hierarchy
+h1, h2, h3, h4, h5, h6 {
+  font: {
+    style: normal;
+    weight: v.$font__weight--light;
+    variant: normal;
+  }
+  text-transform: none;
+  color: inherit;
+  
+  + p {
+    margin-bottom: v.$space__paragraph;
+  }
+}
+
+// More refined heading sizes with better typographic scale
+h1 {
+  font: {
+    size: v.$font__size--h1;
+    weight: v.$font__weight--light;
+  }
+  line-height: v.$line__height--loosest;
+  letter-spacing: -0.005em;
+}
+
+h2 {
+  font-size: v.$font__size--h2;
+  line-height: v.$line__height--looser;
+  letter-spacing: -0.004em;
+  margin-top: v.$space__paragraph;
+}
+
+h3 {
+  font: {
+    size: v.$font__size--h3;
+    weight: v.$font__weight--regular;
+  }
+  line-height: v.$line__height--looser;
+  letter-spacing: -0.002em;
+}
+
+h4 {
+  font: {
+    size: v.$font__size--h4;
+    weight: v.$font__weight--medium;
+  }
+  line-height: v.$line__height--loose;
+  letter-spacing: -0.001em;
+}
+
+h5 {
+  font: {
+    size: v.$font__size--h5;
+    weight: v.$font__weight--semibold;
+  }
+  line-height: v.$line__height--loose;
+  letter-spacing: 0em;
+}
+
+h6 {
+  font: {
+    size: v.$font__size--h6;
+    weight: v.$font__weight--bold;
+  }
+  line-height: v.$line__height--loose;
+  letter-spacing: 0.001em;
+}
+
+// Enhanced paragraph and button styles
+p, button {
+  font: {
+    size: v.$font__size--base;
+    weight: v.$font__weight--regular;
+  }
+  line-height: v.$line__height--normal;
+  letter-spacing: 0.001em;
+  margin-bottom: v.$space__paragraph;
+}
+
+// Improved strong and bold text handling
+:is(p, span) {
+  strong, b {
+    font-weight: v.$font__weight--bold;
+    letter-spacing: 0.001em;
+  }
+}
+
+// More refined form and caption elements
+label, figcaption, input {
+  font: {
+    size: v.$font__size--tiny;
+    weight: v.$font__weight--medium;
+  }
+  line-height: v.$line__height--tight;
+  letter-spacing: 0.043em;
+  margin-bottom: 0.5rem;
+}
+
+// Additional typographic enhancements
+blockquote {
+  font-style: italic;
+  margin: v.$space__paragraph 0;
+  padding-left: 1rem;
+  border-left: 2px solid currentColor;
+}
+
+code {
+  font-family: v.$font__family--mono;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}

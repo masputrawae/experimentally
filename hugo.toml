@@ -1,0 +1,35 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'My New Hugo Site'
+
+# MENUS MAIN
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  pre = '<i class="bi bi-house-door"></i>'
+  weight = 10
+[[menus.main]]
+  name = 'Article'
+  pageRef = '/article'
+  pre = '<i class="bi bi-journal-text"></i>'
+  weight = 20
+[[menus.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  pre = '<i class="bi bi-folder"></i>'
+  weight = 30
+[[menus.main]]
+  name = 'Services'
+  pageRef = '/services'
+  pre = '<i class="bi bi-tools"></i>'
+  weight = 40
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  pre = '<i class="bi bi-person"></i>'
+  weight = 50
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
