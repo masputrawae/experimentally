@@ -5,8 +5,8 @@
 
 .btn {
   @include m.shadow-sm();
+  margin-inline: 0.25rem;
   padding: 0.5rem 1rem;
-  margin: 0.5rem 1rem;
   color: v.$color__secondary;
   background-color: v.$color__bg--secondary;
   border-radius: 0.25rem;
@@ -19,7 +19,7 @@
   &:hover, &:focus-visible {
     @include m.shadow-lg();
     transform: scale(1.1);
-    background-color: color.adjust(v.$color__accent, $lightness: 15%);
+    background-color: color.adjust(v.$color__accent, $lightness: 20%);
     color: v.$color__base--black;
   }
   
