@@ -1,0 +1,27 @@
+<nav>
+  <ul>
+    {{- template "collapsible_nav" .Site.Home -}}
+  </ul>
+</nav>
+
+{{- define "collapsible_nav" -}}
+  {{- range .Sections -}} <!-- Loop Section (Folder) -->
+    <li class="nav__item nav__item--folder" data-id="{{ .RelPermalink | urlize }}">
+      <button class="btn btn--nav btn--collapse" aria-expanded="false" aria-controls="nav-{{ .RelPermalink | urlize }}">
+        <i class="bi bi-folder2" aria-hidden="true"></i>
+        <span>{{ .LinkTitle }}</span>
+      </button>
+      <ul class="nav__list nav__list--collapse" id="nav-{{ .RelPermalink | urlize }}">
+        {{- template "collapsible_nav" . -}} <!-- Panggil diri sendiri untuk rekursi -->
+      </ul>
+    </li>
+  {{- end -}}
+  {{- range .RegularPages -}} <!-- Loop Artikel di Folder Ini -->
+    <li class="nav__item nav__item--file" data-id="{{ .RelPermalink | urlize }}">
+      <a class="nav__link" href="{{ .RelPermalink }}" aria-label="{{ .LinkTitle }}">
+        <i class="bi bi-file-earmark" aria-hidden="true"></i>
+        <span>{{ .LinkTitle }}</span>
+      </a>
+    </li>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,33 @@
+//=======================// ROOT.SASS //=======================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+//=======================// COLORS //=======================//
+
+:root {
+  --color-bg: #fafafa;
+  --color-bg-second: #e5e5e5;
+  --color-bg-third: #d4d4d4;
+
+  --color-border: #8a8a8a;
+
+  --color-text: #0a0a0a;
+  --color-text-second: #171717;
+  --color-text-third: #262626;
+
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+}
+:root[data-theme=dark]{
+  --color-bg: #171717;
+  --color-bg-second: #262626;
+  --color-bg-third: #404040;
+
+  --color-border: #888888;
+
+  --color-text: #fafafa;
+  --color-text-second: #e5e5e5;
+  --color-text-third: #d4d4d4;
+
+  --color-accent: #0891b2;
+  --color-accent-hover: #0e7490;
+}
