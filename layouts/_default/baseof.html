@@ -7,7 +7,6 @@
   <div class="layout">
     <aside class="layout__sidebar" id="sidebar">
       {{ partial "header.html" (dict "type" "sidebar") }}
-      {{ partial "tree.html" . }}
       {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
     </aside>
     <div class="layout__main">

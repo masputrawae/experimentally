@@ -11,6 +11,15 @@ tags:
   - visual-hierarchy
 draft: false
 ---
+✅ **Umumnya didukung di semua sistem:**  
+😀 😍 🎉 🚀 🔥 ✅  
+
+⚠️ **Mungkin tidak didukung di beberapa sistem lama:**  
+🫠 🫡 🫨 🫶 🪿 🩷 🏴‍☠️  
+
+🚨 **Hampir pasti tidak didukung di sistem atau browser yang sangat lama:**  
+🩻 🪷 🪩 🛞 🏴‍☠️  
+
 # Heading 1
 ## Heading 2
 ### Heading 3

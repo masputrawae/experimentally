@@ -1,0 +1,26 @@
+//=======================// BUTTON.SASS //=======================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.btn {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-second);
+  color: var(--color-text);
+  transition: 0.3s ease-in-out background-color;
+
+  &:is(:hover, :active, :focus-visible){
+    background-color: var(--color-bg-third);
+  }
+
+  &--icon {
+    .bi {@include m.flex-center}
+  }
+
+  &--search {
+    span {
+      display: none;
+    }
+  }
+}

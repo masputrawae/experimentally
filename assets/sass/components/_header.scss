@@ -1,0 +1,91 @@
+//=======================// HEADER.SASS //=======================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+//=======================// BUTTON DISPLAY //=======================//
+#sidebarClose, #sidebarToggle {
+  display: none;
+  
+  @include m.max(lg){
+    display: block;
+  }
+}
+
+//=======================// FLEX SETTING //=======================//
+.header,
+.header__button,
+.brand {
+  @include m.flex-between;
+  gap: 0.5rem;
+}
+
+//=======================// HEADER //=======================//
+.header {
+  max-height: 4.5rem;
+  height: 4.5rem;
+  width: 100%;
+  padding-inline: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+//=======================// HEADER SIDEBAR //=======================//
+  &--sidebar {
+    max-height: 6rem;
+    height: 6rem;
+    background-color: var(--color-bg-second);
+  }
+  
+//=======================// HEADER TOPBAR //=======================//
+  &--topbar {
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-bg-second);
+    @include m.min(lg) {
+      border: none;
+      background: none;
+    }
+
+    .brand {
+      visibility: hidden;
+
+      @include m.max(lg){
+        visibility: visible;
+      }
+    }
+  }
+}
+
+//=======================// BRAND //=======================//
+.brand {
+  color: var(--color-text);
+
+  &__logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid var(--color-border);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__caption {
+    line-height: 0.5;
+    margin-bottom: auto;
+  }
+
+  &__subtitle {
+    font-style: normal;
+    font-size: v.$font__size--sm;
+    font-weight: v.$font__weight--medium;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--color-text-second);
+  }
+}

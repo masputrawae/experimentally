@@ -26,7 +26,7 @@ $breakpoints: (
   @return math.div(math.div(math.round($font__size--default * pow($scale-ratio, $step) * 100), 100), 16px) * 1rem;
 }
 
-$font__family--first: 'Inter', system-ui, -apple-system, sans-serif;            // BODY FONT
+$font__family--first: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 $font__family--second: 'Poppins', 'Inter', system-ui, sans-serif;               // TITLE, HEADING, AND OTHER
 $font__family--monospace: 'JetBrains Mono', 'Fira Code', monospace;             // CODE
 

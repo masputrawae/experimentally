@@ -1,0 +1,44 @@
+//=======================// HEADER.SASS //=======================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.nav {
+  padding: 1rem;
+  &__list {
+    list-style: none;
+    padding-inline: 1rem;
+
+    &--social {
+      @include m.flex-center;
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    margin-block: 1rem;
+  }
+
+  &__link {
+    display: block;
+    font-weight: v.$font__weight--bold;
+    letter-spacing: 0.01em;
+    
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+
+    @include m.transition(0.3s, ease-in-out, color, border-color);
+
+    &--active, &:is(:hover, :active, :focus-visible) {
+      color: var(--color-accent-hover);
+      text-decoration: none;
+      border-color: var(--color-accent-hover);
+    }
+
+    &--active, &--ancestor {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+  }
+}

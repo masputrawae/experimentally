@@ -67,3 +67,10 @@ a {
     text-decoration: underline;
   }
 }
+
+hr {
+  margin-block: 2rem;
+  border-width: 1px;
+  border-color: var(--color-border);
+  width: 100%;
+}

@@ -10,13 +10,12 @@
 </nav>
 
 <nav class="nav">
-  <ul class="nav__list nav__list--row">
+  <ul class="nav__list nav__list--social">
     {{- with site.Params.social }}
       {{- range $key, $value := . }}
         <li class="nav__item">
           <a href="{{ $value.url }}" class="nav__link nav__link--social">
             <i class="nav__icon bi {{ $value.icon }}"></i>
-            <span class="nav__tooltip">{{ $value.name }}</span>
           </a>
         </li>
       {{- end }}
