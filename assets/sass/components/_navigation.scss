@@ -1,44 +1,63 @@
-//=======================// HEADER.SASS //=======================//
+//=======================// NAVIGATION.SASS //=======================//
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
+//=======================// NAVIGATION //=======================//
 .nav {
   padding: 1rem;
+
+  //=======================// NAV LIST //=======================//
   &__list {
     list-style: none;
     padding-inline: 1rem;
 
+    //=======================// SOCIAL LIST //=======================//
     &--social {
       @include m.flex-center;
       gap: 1rem;
+
+      .nav__link {
+        border-color: var(--color-border);
+
+        .bi {@include m.flex-center}
+      }
     }
   }
 
+  //=======================// NAV ITEM //=======================//
   &__item {
-    margin-block: 1rem;
+    margin-block: 0.5rem;
   }
 
+  //=======================// NAV LINK //=======================//
   &__link {
     display: block;
-    font-weight: v.$font__weight--bold;
+    font-weight: v.$font__weight--semi-bold;
     letter-spacing: 0.01em;
     
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text-third);
+    border: 1px solid transparent;
     border-radius: 0.25rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem;
 
-    @include m.transition(0.3s, ease-in-out, color, border-color);
+    @include m.text-shadow(sm);
+    @include m.transition(0.3s, ease-in-out, color, border-color, box-shadow);
 
-    &--active, &:is(:hover, :active, :focus-visible) {
-      color: var(--color-accent-hover);
+    //=======================// ACTIVE STATES //=======================//
+    &--active, 
+    &--ancestor, 
+    &:is(:hover, :active, :focus-visible) {
+      @include m.shadow(md);
+      color: var(--color-text);
+      border-color: var(--color-text);
+      background-color: var(--color-bg-second);
+
       text-decoration: none;
-      border-color: var(--color-accent-hover);
     }
 
-    &--active, &--ancestor {
-      color: var(--color-accent);
-      border-color: var(--color-accent);
+    span {
+      margin-left: 0.5rem;
     }
   }
 }

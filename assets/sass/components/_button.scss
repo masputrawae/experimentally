@@ -2,25 +2,46 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
+//=======================// BASE BUTTON //=======================//
 .btn {
+  @include m.shadow(sm);
+  @include m.transition(0.3s, ease-in-out, background-color, color, box-shadow, border-color);
+
   padding: 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: 0.25rem;
   background-color: var(--color-bg-second);
-  color: var(--color-text);
-  transition: 0.3s ease-in-out background-color;
+  color: var(--color-text-third);
+  font-weight: v.$font__weight--semi-bold;
 
-  &:is(:hover, :active, :focus-visible){
+  //=======================// HOVER STATES //=======================//
+  &:is(:hover, :active, :focus-visible) {
     background-color: var(--color-bg-third);
+    color: var(--color-text);
+    border-color: var(--color-text);
+    text-decoration: none;
+    @include m.shadow(md);
   }
 
+  //=======================// ICON BUTTON //=======================//
   &--icon {
-    .bi {@include m.flex-center}
+    .bi {
+      @include m.flex-center;
+    }
   }
 
+  //=======================// SEARCH BUTTON //=======================//
   &--search {
-    span {
-      display: none;
+    @include m.min(lg) {
+      display: flex;
+      gap: 1rem;
+      padding: 0.25rem 0.5rem;
+    }
+
+    @include m.max(lg) {
+      span {
+        display: none;
+      }
     }
   }
 }

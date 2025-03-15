@@ -7,11 +7,11 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 body {
-	font-size: v.$font__size--default;
+  font-size: v.$font__size--default;
   font-family: v.$font__family--first;
-	--paragraph-space: 2rem;
-	--title-space: 1.5rem;
-	font-weight: v.$font__weight--normal;
+  --paragraph-space: 2rem;
+  --title-space: 1.5rem;
+  font-weight: v.$font__weight--normal;
 }
 
 :is(p + :is(h1, h2, h3, h4, h5, h6), :is(h1, h2, h3, h4, h5) + :is(h2, h3, h4, h5, h6)) {
@@ -19,12 +19,15 @@ body {
 }
 
 :is(h1, h2, h3, h4, h5, h6) + p {
-	margin-top: var(--title-space);
+  margin-top: var(--title-space);
   margin-bottom: var(--paragraph-space);
 }
 
-p + p { margin-top: var(--title-space);}
-p { 
+p + p {
+  margin-top: var(--title-space);
+}
+
+p {
   max-width: 768px;
   font-size: v.$font__size--md;
   line-height: 1.6;
@@ -40,7 +43,7 @@ strong {
   font-weight: v.$font__weight--bold;
 }
 
-:is(h1, h2, h3, h4, h5, h6)  {
+:is(h1, h2, h3, h4, h5, h6) {
   font-style: normal;
   text-transform: none;
   max-width: 768px;
@@ -50,18 +53,19 @@ strong {
   font-weight: v.$font__weight--bold;
 }
 
-h1 {font-size: v.$font__size--6xl;}
-h2 {font-size: v.$font__size--5xl;}
-h3 {font-size: v.$font__size--4xl;}
-h4 {font-size: v.$font__size--3xl;}
-h5 {font-size: v.$font__size--2xl;}
-h6 {font-size: v.$font__size--xl;}
+h1 { font-size: v.$font__size--6xl; }
+h2 { font-size: v.$font__size--5xl; }
+h3 { font-size: v.$font__size--4xl; }
+h4 { font-size: v.$font__size--3xl; }
+h5 { font-size: v.$font__size--2xl; }
+h6 { font-size: v.$font__size--xl; }
 
 a {
   font-family: v.$font__family--second;
   color: var(--color-accent);
   text-decoration: none;
   transition: color 0.5s ease-in-out;
+  
   &:hover {
     color: var(--color-accent-hover);
     text-decoration: underline;

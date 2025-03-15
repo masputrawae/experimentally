@@ -51,7 +51,7 @@
         {{- with .Pre }}
           {{ . | safeHTML }}
         {{- end }}
-        {{ $name }}
+        <span>{{ $name }}</span>
       </a>
       {{- with .Children }}
         <ul class="nav__list">

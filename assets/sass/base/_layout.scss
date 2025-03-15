@@ -67,6 +67,7 @@ body {
     height: 100dvb;
 
     border-right: 1px solid var(--color-border);
+    
 
 //=======================// MAX WIDTH LG //=======================//
     @include m.max(lg){
@@ -76,7 +77,7 @@ body {
       top: 0;
       left: 0;
       transform: translateX(-100%);
-      background-color: var(--color-bg-second);
+      background-color: var(--color-bg);
 
       transition: transform 0.3s ease-in-out;
       &.active {

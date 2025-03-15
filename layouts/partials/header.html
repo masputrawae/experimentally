@@ -1,10 +1,10 @@
 <header class="header header--{{ .type }}">
-  <a href="{{ "/" | relURL }}" class="brand">
+  <a href="{{ site.BaseURL | relURL }}" class="brand">
     <div class="brand__logo">
       <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
     </div>
     <div class="brand__caption">
-      <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+      <div class="brand__title">{{ site.Params.author.name }}</div>
       <em class="brand__subtitle">{{ site.Params.author.subtitle }}</em>
     </div>
   </a>
