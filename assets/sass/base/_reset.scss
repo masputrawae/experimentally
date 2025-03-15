@@ -1,4 +1,7 @@
 //=======================// RESET.SASS //=======================//
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
 *,
 *::before,
 *::after {
@@ -40,4 +43,34 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+
+// Firefox scrollbar styling
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-bg-second);
+
+  &:hover {
+    scrollbar-color: var(--color-accent) var(--color-bg-second);
+  }
+}
+
+// Custom scrollbar styling
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-second);
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 1px;
+  &:hover {
+    background: var(--color-accent);
+  }
 }

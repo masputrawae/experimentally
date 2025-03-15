@@ -1,0 +1,54 @@
+//=======================// HEADER.SASS //=======================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.card {
+  @include m.shadow(lg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: var(--color-bg);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    @include m.shadow(xl);
+    border-color: var(--color-accent);
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__body {
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.card-list {
+  list-style:square;
+
+  &__item {
+    transition: scale 0.3s ease-in-out;
+
+    &:hover {
+      scale: 1.03;
+    }
+  }
+  &__link {
+    @include m.flex-between();
+    border-bottom: 1px solid var(--color-accent);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

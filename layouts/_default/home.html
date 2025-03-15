@@ -1,7 +1,59 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+<main class="main">
+  {{ $pages := where .Site.RegularPages "Params.status" "!=" nil }}
+  {{ $grouped := $pages.GroupByParam "status" }}
+
+  <div class="main__section main__section--header">
+    <h1>{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+  </div>
+
+  {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
+  {{ if $pinned }}
+  <hr>
+  <h3><i class="bi bi-pin-angle-fill"></i> Pinned</h3>
+    <div class="main__section main__section--grid">
+      {{ range $pinned }}
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">{{ .Title }}</h3>
+          </header>
+          <section class="card__body">
+            <p>{{ .Params.Description }}</p>
+            <a href="{{ .RelPermalink }}" class="card-list__link">
+              Read more <time datetime="{{ .Date.Format "2006-01-02" }}"> + {{ .Date.Format "January 2, 2006" }}</time>
+            </a>
+          </section>
+        </article>
+      {{ end }}
+    </div>
   {{ end }}
+  
+  {{ if $grouped }}
+  <hr>
+  <h3><i class="bi bi-check-circle-fill"></i> Status</h3>
+    <div class="main__section main__section--grid">
+      {{ range $grouped }}
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">{{ .Key }}</h3>
+          </header>
+          <section class="card__body">
+            <ul class="card-list">
+              {{ range .Pages }}
+                <li class="card-list__item">
+                  <a href="{{ .RelPermalink }}" class="card-list__link">
+                    <span>{{ .Title }}</span><time datetime="{{ .Date.Format "2006-01-02" }}"> + {{ .Date.Format "January 2, 2006" }}</time>
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </section>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  
+</main>
 {{ end }}

@@ -1,10 +1,23 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format ":date_long" }}
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+<main class="main main--single">
+  <div class="card">
+    <header class="card__header">
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="card__body">
+      <p><strong>Date: </strong><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></p>
+      <p><strong>Description: </strong>{{ .Description }}</p>
+      <p><strong>Status: </strong>{{ .Params.Status }}</p>
+    </div>
+  </div>
+  <article>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </article>
+</main>
 {{ end }}

@@ -42,7 +42,7 @@ title = 'My Notes'
       name = "Youtube"
       url  = "https://youtube.com/johndoe"
       icon = "bi-youtube"
-  
+
 [[menus.main]]
   name = 'Home'
   pageRef = '/'
