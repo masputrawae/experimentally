@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main class="main">
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Params.description }}</p>
+  <ul class="card-list">
+    {{ range .Pages }}
+      <li class="card-list__item">
+        <a href="{{ .RelPermalink }}" class="card-list__link">{{ .LinkTitle }} <time datetime="{{ .Date.Format "2006-01-02" }}"> + {{ .Date.Format "January 2, 2006" }}</time></a>
+      </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

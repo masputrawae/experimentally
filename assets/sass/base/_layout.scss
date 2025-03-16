@@ -28,6 +28,11 @@ body {
   &__sidebar, &__main {
     overflow-y: auto;
     width: 100%;
+    scroll-padding-top: 1rem;
+
+    @include m.max(lg){
+      scroll-padding-top: 5rem;
+    }
   }
 
 //=======================// SIDEBAR //=======================//
@@ -63,6 +68,7 @@ body {
   &__main {
     width: 100%;
     margin: 0 auto;
+    scroll-behavior: smooth;
   }
 
 //=======================// MAX WIDTH LG //=======================//
@@ -89,7 +95,9 @@ body {
 //=======================// MAIN SECTION //=======================//
 .main {
   &__section {
-
+    @include m.max(lg){
+      margin-top: 4rem;
+    }
     &--grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -104,7 +112,7 @@ body {
 
 //=======================// FOOTER //=======================//
 .footer {
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
   margin-top: 4rem;
   border-top: 1px solid var(--color-border);
   text-align: center;

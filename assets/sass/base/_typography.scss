@@ -19,12 +19,13 @@ body {
 }
 
 :is(h1, h2, h3, h4, h5, h6) + p {
-  margin-top: var(--paragraph-space);
-  margin-bottom: var(--paragraph-space);
+  margin-top: var(--title-space);
+  margin-bottom: var(--title-space);
 }
 
 p + p {
-  margin-top: var(--title-space);
+  margin-top: var(--paragraph-space);
+  margin-bottom: var(--paragraph-space);
 }
 
 p {
@@ -80,7 +81,24 @@ hr {
 }
 ul, ol {
   padding-left: 2rem;
+  padding-block: 0.5rem;
 }
-li {
-  margin-block: 0.2rem;
+
+.toc-summary {
+  margin-block: 1rem;
+  summary {
+    font-weight: v.$font__weight--semi-bold;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background-color: var(--color-bg-second);
+    cursor: pointer;
+    color: var(--color-text);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--color-bg);
+      color: var(--color-accent);
+    }
+  }
 }

@@ -90,8 +90,33 @@ const SidebarManager = (() => {
     };
 })();
 
+// Back to Top Module
+const BackToTop = (() => {
+    const backToTop = document.getElementById("backToTop");
+    if (!backToTop) return;
+
+    const scrollable = document.querySelector(".layout__main") || document.documentElement;
+    
+    const toggleVisibility = () => {
+        backToTop.style.opacity = scrollable.scrollTop > 300 ? "1" : "0";
+        backToTop.style.visibility = scrollable.scrollTop > 300 ? "visible" : "hidden";
+    };
+
+    return {
+        init: () => {
+            backToTop.style.transition = "opacity 0.3s ease-in-out";
+            backToTop.style.opacity = "0";
+            backToTop.style.visibility = "hidden";
+            
+            scrollable.addEventListener("scroll", toggleVisibility);
+            backToTop.addEventListener("click", () => scrollable.scrollTo({ top: 0, behavior: "smooth" }));
+        }
+    };
+})();
+
 // Initialize Modules
 document.addEventListener('DOMContentLoaded', () => {
     ThemeManager.init();
     SidebarManager.init();
+    BackToTop.init();
 });

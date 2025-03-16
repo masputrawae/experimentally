@@ -44,4 +44,13 @@
       }
     }
   }
+
+  &--backtotop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+  }
 }

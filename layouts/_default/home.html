@@ -21,7 +21,8 @@
           <section class="card__body">
             <p>{{ .Params.Description }}</p>
             <a href="{{ .RelPermalink }}" class="card-list__link">
-              Read more <time datetime="{{ .Date.Format "2006-01-02" }}"> + {{ .Date.Format "January 2, 2006" }}</time>
+              <span>{{ .Title }}</span>
+              <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
             </a>
           </section>
         </article>
@@ -43,7 +44,8 @@
               {{ range .Pages }}
                 <li class="card-list__item">
                   <a href="{{ .RelPermalink }}" class="card-list__link">
-                    <span>{{ .Title }}</span><time datetime="{{ .Date.Format "2006-01-02" }}"> + {{ .Date.Format "January 2, 2006" }}</time>
+                    <span>{{ .Title }}</span>
+                    <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
                   </a>
                 </li>
               {{ end }}
@@ -54,6 +56,5 @@
     </div>
   {{ end }}
 
-  
 </main>
 {{ end }}

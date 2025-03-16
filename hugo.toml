@@ -6,7 +6,7 @@ title = 'My Notes'
   [params.author]
     name        = "John Doe"
     subtitle    = "Designer"
-    logo        = "https://thispersondoesnotexist.com/"
+    logo        = "https://randomuser.me/api/portraits/men/75.jpg"
     tagline     = "Pariatur duis esse sunt pariatur adipisicing."
     email       = "john.doe@example.com"
     phone       = "+1-234-567-8901"

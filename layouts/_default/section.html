@@ -1,0 +1,63 @@
+{{ define "main" }}
+<main class="main">
+  <div class="main__section main__section--header">
+    <h1>{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+  </div>
+  {{ if .Sections }}
+    <div class="main__section main__section--grid">
+      {{ range .Sections }}
+        <article class="card">
+          <header class="card__header">
+            <h2>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+          </header>
+          
+          <section class="card__body">
+            {{ if .Params.description }}
+              <p>{{ .Params.description }}</p>
+            {{ else }}
+              {{ .Content }}
+            {{ end }}
+            
+            {{ if .RegularPages }}
+              <ul class="card-list">
+                {{ range .RegularPages }}
+                  <li class="card-list__item">
+                    <a href="{{ .RelPermalink }}" class="card-list__link">
+                      <span>{{ .Title }}</span>
+                      <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ else }}
+              <p>Belum ada artikel dalam kategori ini.</p>
+            {{ end }}
+          </section>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{ if .RegularPages }}
+    <article class="card">
+      <h2>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      
+      <ul class="card-list">
+        {{ range .RegularPages }}
+          <li class="card-list__item">
+            <a href="{{ .RelPermalink }}" class="card-list__link">
+              <span>{{ .Title }}</span>
+              <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </article>
+  {{ end }}
+</main>
+{{ end }}

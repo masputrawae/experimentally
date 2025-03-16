@@ -1,23 +1,82 @@
 {{ define "main" }}
-{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-{{ $dateHuman := .Date | time.Format ":date_long" }}
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
 
-<main class="main main--single">
-  <div class="card">
-    <header class="card__header">
-      <h1>{{ .Title }}</h1>
-    </header>
-    <div class="card__body">
-      <p><strong>Date: </strong><time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></p>
-      <p><strong>Description: </strong>{{ .Description }}</p>
-      <p><strong>Status: </strong>{{ .Params.Status }}</p>
+  <main class="main main--single">
+    <div class="card">
+      <header class="card__header">
+        <h1>{{ .Title }}</h1>
+      </header>
+      <div class="card__body">
+        <ul>
+          <li>
+            <strong>Date: </strong>
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          </li>
+          
+          {{ $lastmod := .Params.lastModified | default .Lastmod }}
+          {{ if $lastmod }}
+            {{ $lastmodMachine := $lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+            {{ $lastmodHuman := $lastmod | time.Format ":date_long" }}
+            <li>
+              <strong>Last Modified: </strong>
+              <time datetime="{{ $lastmodMachine }}">{{ $lastmodHuman }}</time>
+            </li>
+          {{ end }}
+          
+          <li>
+            <strong>Description: </strong>
+            {{ .Description }}
+          </li>
+          
+          {{ if .Params.status }}
+            <li>
+              <strong>Status: </strong>
+              {{ .Params.Status }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
     </div>
-  </div>
-  <article>
 
+    <article>
+      <details class="toc-summary">
+        <summary>Table of Contents</summary>
+        <div class="TableOfContents">
+          {{ .TableOfContents }}
+        </div>
+      </details>
+      {{ .Content }}
+    </article>
 
-    {{ .Content }}
-    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-  </article>
-</main>
+    <footer>
+      {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+      {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+    </footer>
+  </main>
+  {{ if .Params.mathjax }}
+  <style>
+    mjx-container.MathJax {
+      padding: 1rem;
+      overflow-x: auto; 
+      white-space: nowrap; 
+      max-width: 100%;
+    }  
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],  // Inline math
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],  // Block math
+      },
+      svg: {
+        fontCache: 'global' // Menggunakan cache untuk mempercepat rendering
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'], // Mencegah konflik dengan tag lain
+      }
+    };
+  </script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  {{ end }}
 {{ end }}

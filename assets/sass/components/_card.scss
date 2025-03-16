@@ -46,6 +46,7 @@
   &__link {
     @include m.flex-between();
     border-bottom: 1px solid var(--color-accent);
+    width: 100%;
 
     &:hover {
       text-decoration: none;
