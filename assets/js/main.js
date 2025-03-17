@@ -51,41 +51,70 @@ const ThemeManager = (() => {
 
 // Sidebar Manager Module
 const SidebarManager = (() => {
-    // DOM Elements
-    const sidebar = document.querySelector('.layout__sidebar');
-    const sidebarCloseBtn = document.getElementById('sidebarClose');
-    const sidebarToggleBtn = document.getElementById('sidebarToggle');
-
-    // Event Handlers
-    const handleClose = () => {
-        sidebar?.classList.remove('active');
+    // Cache DOM elements
+    const elements = {
+        leftSidebar: document.getElementById('leftSidebar'),
+        rightSidebar: document.getElementById('rightSidebar'),
+        leftCloseBtn: document.getElementById('leftClose'),
+        rightCloseBtn: document.getElementById('rightClose'),
+        leftSideToggleBtn: document.getElementById('leftSideToggle'),
+        rightSideToggleBtn: document.getElementById('rightSideToggle')
     };
 
-    const handleToggle = () => {
+    // Sidebar state management
+    const toggleSidebar = (sidebar, otherSidebar) => {
         sidebar?.classList.toggle('active');
+        if (otherSidebar?.classList.contains('active')) {
+            otherSidebar.classList.remove('active');
+        }
     };
+
+    // Event handlers
+    const handleClose = () => {
+        elements.leftSidebar?.classList.remove('active');
+        elements.rightSidebar?.classList.remove('active');
+    };
+
+    const handleLeftToggle = () => toggleSidebar(elements.leftSidebar, elements.rightSidebar);
+    const handleRightToggle = () => toggleSidebar(elements.rightSidebar, elements.leftSidebar);
 
     const handleOutsideClick = (e) => {
-        if (sidebar && 
-            !sidebar.contains(e.target) && 
-            !e.target.closest('#sidebarToggle') && 
-            sidebar.classList.contains('active')) {
+        const { leftSidebar, rightSidebar } = elements;
+        const isClickOutside = 
+            (leftSidebar || rightSidebar) &&
+            !leftSidebar?.contains(e.target) &&
+            !rightSidebar?.contains(e.target) &&
+            !e.target.closest('#leftSideToggle') &&
+            !e.target.closest('#rightSideToggle');
+
+        if (isClickOutside && 
+            (leftSidebar?.classList.contains('active') || rightSidebar?.classList.contains('active'))) {
             handleClose();
         }
+    };
+
+    // Initialize event listeners
+    const initEventListeners = () => {
+        if (elements.leftCloseBtn) {
+            elements.leftCloseBtn.addEventListener('click', handleClose);
+        }
+        if (elements.rightCloseBtn) {
+            elements.rightCloseBtn.addEventListener('click', handleClose);
+        }
+        if (elements.leftSideToggleBtn) {
+            elements.leftSideToggleBtn.addEventListener('click', handleLeftToggle);
+        }
+        if (elements.rightSideToggleBtn) {
+            elements.rightSideToggleBtn.addEventListener('click', handleRightToggle);
+        }
+        document.addEventListener('click', handleOutsideClick);
     };
 
     // Public API
     return {
         init: () => {
-            if (!sidebar) return;
-            
-            if (sidebarCloseBtn) {
-                sidebarCloseBtn.addEventListener('click', handleClose);
-            }
-            if (sidebarToggleBtn) {
-                sidebarToggleBtn.addEventListener('click', handleToggle);
-            }
-            document.addEventListener('click', handleOutsideClick);
+            if (!elements.leftSidebar && !elements.rightSidebar) return;
+            initEventListeners();
         }
     };
 })();

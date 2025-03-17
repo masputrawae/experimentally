@@ -2,112 +2,101 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
-//=======================// BUTTON DISPLAY //=======================//
-#sidebarClose,
-#sidebarToggle {
-  display: none;
-
-  @include m.max(lg) {
-    display: block;
-  }
-}
-
-//=======================// FLEX SETTING //=======================//
-.header,
-.header__button,
-.brand {
-  @include m.flex-between;
-  gap: 0.75rem;
-}
-
 //=======================// HEADER //=======================//
 .header {
-  max-height: 4.5rem;
-  height: 4.5rem;
-  width: 100%;
-  padding-inline: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 0.25rem 1rem;
+  max-height: 5rem;
+  height: 5rem;
 
-  //=======================// HEADER SIDEBAR //=======================//
   &--sidebar {
-    max-height: 6rem;
-    height: 6rem;
-    background-color: var(--color-bg);
-  }
-
-  //=======================// HEADER TOPBAR //=======================//
-  &--topbar {
-    border-bottom: 1px solid var(--color-border);
+    @include m.shadow(sm);
     background-color: var(--color-bg-second);
-
-    @include m.min(lg) {
-      border: none;
-      background: none;
-    }
-
-    .brand {
-      visibility: hidden;
-
-      @include m.max(lg) {
-        visibility: visible;
-      }
-    }
   }
+}
+
+.header,
+.brand {
+  @include m.flex-between();
+  gap: 0.5rem;
 }
 
 //=======================// BRAND //=======================//
 .brand {
-  color: var(--color-text);
-
+  
   &__logo {
     width: 55px;
     height: 55px;
-    border-radius: 50%;
-    border: 2px solid var(--color-border);
     overflow: hidden;
-    transition: box-shadow, border-color, 0.3s ease-in-out;
-
-    @include m.shadow(md);
+    border-radius: 50%;
+    border: 3px solid var(--color-border);
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: contain;
-      transition: 0.3s ease-in-out scale;
 
+      transition: 0.75s ease-in-out scale;
       &:hover {
-        scale: 1.3;
+        scale: 1.5;
       }
-    }
-
-    &:hover {
-      @include m.shadow(lg);
-      border-color: var(--color-text);
     }
   }
 
-  &__caption {
-    line-height: 1;
+  &__text {
+    line-height: 1.05;
   }
 
   &__title {
-    font-size: v.$font__size--2xl;
-    font-weight: v.$font__weight--bold;
-    @include m.text-shadow(sm);
+    font-size: v.$font__size--6xl;
+    color: var(--color-text-second);
   }
 
   &__subtitle {
     font-style: normal;
-    font-size: v.$font__size--xs;
-    font-weight: v.$font__weight--medium;
-    color: var(--color-text-third);
-    @include m.text-shadow(sm);
+    font-size: v.$font__size--sm;
+    color: var(--color-accent);
   }
+}
 
-  &:hover {
-    text-decoration: none;
-    color: var(--color-text-second);
+//=======================// BREADCRUMBS //=======================//
+.breadcrumb {
+  @include m.max(xl){
+    display: none;
+  }
+  &__list {
+    list-style: none;
+    @include m.flex-center();
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__item {
+    @include m.flex-center();
+    
+    &:not(:last-child)::after {
+      content: "/";
+      color: var(--color-text-second);
+      margin-inline: 0.5rem;
+      opacity: 0.5;
+    }
+  }
+  
+  &__link {
+    display: block;
+    font-weight: v.$font__weight--normal;
+    font-size: v.$font__size--xs;
+    color: var(--color-text);
+    @include m.transition(background-color, color);
+    
+    &:hover {
+      color: var(--color-text);
+      text-decoration: underline;
+      color: var(--color-accent);
+    }
+    
+    &--active {
+      color: var(--color-text-second);
+      pointer-events: none;
+    }
   }
 }

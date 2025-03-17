@@ -3,6 +3,26 @@
 
 {{- with index site.Menus $menuID }}
 <!-- ---------- -->
+<header class="header header--sidebar">
+  <a href="{{ site.BaseURL | relURL }}" class="brand">
+    <section class="brand__logo">
+      <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
+    </section>
+    <section class="brand__text">
+      <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+      <em class="brand__subtitle">{{ site.Params.author.subtitle }}</em>
+    </section>
+  </a>
+
+  <button 
+  class="btn btn--icon" 
+  id="leftClose"
+  title="Close Sidebar"
+  aria-label="Button to close the Sidebar">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
 <nav class="nav">
   <ul class="nav__list">
     {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
@@ -20,6 +40,15 @@
         </li>
       {{- end }}
     {{- end }}
+    <li class="nav__item">
+      <button 
+      class="btn btn--icon" 
+      id="switchTheme" 
+      title="Switch Theme"
+      aria-label="Switch Theme">
+        <i class="bi bi-moon-stars"></i>
+      </button>
+    </li>
   </ul>
 </nav>
 <!-- ---------- -->

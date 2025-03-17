@@ -6,18 +6,13 @@ data-theme="dark">
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="layout">
-  <aside class="layout__sidebar">
-    {{ partial "header.html" (dict "type" "sidebar") }}
-    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-  </aside>
-  <div class="layout__main">
-    {{ partial "header.html" (dict "type" "topbar") }}
-    <main class="main">
-      {{ partial "breadcrumbs.html" . }}
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ partial "footer.html" . }}
+<body>
+  <div class="layout">
+    <aside class="layout__left" id="leftSidebar">{{ partial "menu.html" (dict "menuID" "main" "page" .) }}</aside>
+    <div class="layout__top">{{ partial "header.html" . }}</div>
+    <main class="layout__main">{{ block "main" . }}{{ end }}</main>
+    <footer class="layout__bottom">{{ partial "footer.html" . }}</footer>
+    <aside class="layout__right" id="rightSidebar">{{ partial "right-side.html" . }}</aside>
   </div>
 </body>
 </html>

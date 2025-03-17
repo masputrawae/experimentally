@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
 }
 
@@ -45,6 +45,10 @@ h6 {
   overflow-wrap: break-word;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 // Firefox scrollbar styling
 * {

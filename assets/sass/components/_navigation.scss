@@ -2,62 +2,41 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
-//=======================// NAVIGATION //=======================//
 .nav {
-  padding: 1rem;
+  margin-block: 1rem;
 
-  //=======================// NAV LIST //=======================//
   &__list {
-    list-style: none;
     padding-inline: 1rem;
+    list-style: none;
 
-    //=======================// SOCIAL LIST //=======================//
-    &--social {
-      @include m.flex-center;
-      gap: 1rem;
-
-      .nav__link {
-        border-color: var(--color-border);
-
-        .bi {@include m.flex-center}
-      }
+    &--row {
+      @include m.flex-center();
+      gap: 0.5rem;
     }
   }
 
-  //=======================// NAV ITEM //=======================//
   &__item {
     margin-block: 0.5rem;
   }
 
-  //=======================// NAV LINK //=======================//
   &__link {
     display: block;
-    font-weight: v.$font__weight--semi-bold;
-    letter-spacing: 0.01em;
-    
-    background-color: var(--color-bg);
-    color: var(--color-text-third);
+    padding-inline: 0.75rem;
+    padding-block: 0.25rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    padding: 0.5rem;
 
-    @include m.text-shadow(sm);
-    @include m.transition(0.3s, ease-in-out, color, border-color, box-shadow);
+    @include m.transition(box-shadow, border-color, color);
 
-    //=======================// ACTIVE STATES //=======================//
-    &--active, 
-    &--ancestor, 
-    &:is(:hover, :active, :focus-visible) {
+    &--active, &--ancestor, &:is(:hover, :active, :focus-visible) {
       @include m.shadow(md);
-      color: var(--color-text);
-      border-color: var(--color-text);
+      border-color: var(--color-border);
+      color: var(--color-text-second);
       background-color: var(--color-bg-second);
-
-      text-decoration: none;
     }
 
-    span {
-      margin-left: 0.5rem;
+    &--active, &--ancestor {
+      color: var(--color-accent);
     }
   }
 }

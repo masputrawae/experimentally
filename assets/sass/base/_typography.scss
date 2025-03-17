@@ -15,7 +15,7 @@ body {
 }
 
 //=======================// BASE //=======================//
-:is (h1, h2, h3, h4, h5, h6, a){
+:is(h1, h2, h3, h4, h5, h6, a){
   font-family: v.$font__family--second;
   font-weight: v.$font__weight--semi-bold;
 }
@@ -28,6 +28,6 @@ h5 { font-size: v.$font__size--2xl; }
 h6 { font-size: v.$font__size--xl; }
 
 p {font-size: v.$font__size--default;}
-small {font-size: v.$font__size-xs;}
+small {font-size: v.$font__size--xs;}
 
 //=======================// Markdown Style //=======================//

@@ -1,52 +1,48 @@
-<header class="header header--{{ .type }}">
+<header class="header header--topbar">
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <ul class="breadcrumb__list">
+      {{ range .Ancestors.Reverse }}
+        <li class="breadcrumb__item">
+          <a 
+          href="{{ .RelPermalink }}"
+          class="breadcrumb__link">
+            <span>{{ .LinkTitle }}</span>
+          </a>
+        </li>
+      {{ end }}
+      <li class="breadcrumb__item">
+        <a 
+        aria-current="page" 
+        href="{{ .RelPermalink }}"
+        class="breadcrumb__link breadcrumb__link--active">
+          <span>{{ .LinkTitle }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
   
-  <!-- BRAND -->
-  <a href="{{ site.BaseURL | relURL }}" class="brand">
-    <section class="brand__logo">
-      <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
-    </section>
-    <section class="brand__text">
-      <h1 class="brand__title">{{ site.Params.author.name }}</h1>
-      <em class="brand__subtitle">{{ site.Params.author.subtitle }}</em>
-    </section>
+  <button 
+  class="btn btn--icon" 
+  id="leftSideToggle"
+  title="Open Left Sidebar"
+  aria-label="Button to open Left Sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+  
+  <a 
+  href="{{ "search.html" | relURL }}" 
+  class="btn btn--icon btn--search"
+  title="Search"
+  aria-label="Search button">
+    <span>Tap to search</span>
+    <i class="bi bi-search"></i>
   </a>
   
-  <!-- TOPBAR -->
-  {{ if eq .type "topbar" }}
-    <div class="header__button">
-      <a 
-      href="{{ "search.html" | relURL }}" 
-      class="btn btn--icon btn--search"
-      title="Search"
-      aria-label="Search button">
-        <span>Tap to search</span>
-        <i class="bi bi-search"></i>
-      </a>
-      <button 
-      class="btn btn--icon" 
-      id="switchTheme" 
-      title="Switch Theme"
-      aria-label="Switch Theme">
-        <i class="bi bi-moon-stars"></i>
-      </button>
-      <button 
-      class="btn btn--icon" 
-      id="sidebarToggle"
-      title="Open Sidebar"
-      aria-label="Button to open Sidebar">
-        <i class="bi bi-list"></i>
-      </button>
-    </div>
-  {{ end }}
-  
-  <!-- SIDEBAR -->
-  {{ if eq .type "sidebar" }}
-    <button 
-    class="btn btn--icon" 
-    id="sidebarClose"
-    title="Close Sidebar"
-    aria-label="Button to close the Sidebar">
-      <i class="bi bi-x"></i>
-    </button>
-  {{ end }}
+  <button 
+  class="btn btn--icon"
+  id="rightSideToggle"
+  title="Open Right Sidebar"
+  aria-label="Button to open Right Sidebar">
+    <i class="bi bi-book"></i>
+  </button>
 </header>

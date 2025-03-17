@@ -38,10 +38,6 @@ title = 'My Notes'
       name = "Github"
       url  = "https://github.com/johndoe"
       icon = "bi-github"
-    [params.social.youtube]
-      name = "Youtube"
-      url  = "https://youtube.com/johndoe"
-      icon = "bi-youtube"
 
 [[menus.main]]
   name = 'Home'
@@ -66,7 +62,7 @@ title = 'My Notes'
 [[menus.main]]
   name = 'Categories'
   pageRef = '/categories'
-  pre = "<i class='bi bi-tags'></i>"
+  pre = "<i class='bi bi-grid'></i>"
   weight = 50
 [[menus.main]]
   name = 'Tags'

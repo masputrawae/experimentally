@@ -16,10 +16,8 @@
 }
 
 //=======================// TRANSITION //=======================//
-@mixin transition($duration: 0.3s, $timing: ease-in-out, $properties...) {
-  transition-duration: $duration;
-  transition-timing-function: $timing;
-  transition-property: $properties;
+@mixin transition($properties...) {
+  transition: $properties, 0.3s ease-in-out;
 }
 
 //=======================// TEXT ELLIPSIS //=======================//
