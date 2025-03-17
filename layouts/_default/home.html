@@ -1,59 +1,95 @@
 {{ define "main" }}
 <main class="main">
-  {{ $pages := where .Site.RegularPages "Params.status" "!=" nil }}
-  {{ $grouped := $pages.GroupByParam "status" }}
-
-  <div class="main__section main__section--header">
-    <h1>{{ .Title }}</h1>
-    {{ .Content | safeHTML }}
-  </div>
+  <section class="section">
+    <h1 class="section__title">{{ .Title }}</h1>
+    <article class="markdown">
+      {{ .Content | safeHTML }}
+    </article>
+  </section>
 
   {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
   {{ if $pinned }}
-  <hr>
-  <h3><i class="bi bi-pin-angle-fill"></i> Pinned</h3>
-    <div class="main__section main__section--grid">
+  <section class="section">
+    <h2 class="section__title">
+      <i class="bi bi-pin-angle-fill"></i>
+      <span>Pinned</span>
+    </h2>
+    
+    <div class="section__grid">
       {{ range $pinned }}
-        <article class="card">
-          <header class="card__header">
-            <h3 class="card__title">{{ .Title }}</h3>
-          </header>
-          <section class="card__body">
-            <p>{{ .Params.Description }}</p>
-            <a href="{{ .RelPermalink }}" class="card-list__link">
-              <span>{{ .Title }}</span>
-              <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
-            </a>
-          </section>
-        </article>
+      
+      <article class="card">
+        <header class="card__header">
+          <h3>
+            <i class="bi bi-pin-angle-fill"></i>
+            <span>{{ .Title }}</span>
+          </h3>
+          <small>
+            <span><i class="bi bi-calendar4-week"></i>Date: </span>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ .Date.Format "02 Jan 2006" }}
+            </time>
+          </small>
+        </header>
+        
+        <div class="card__body">
+          <p class="card__paragraph">{{ .Params.Description }}</p>
+          <a 
+          href="{{ .RelPermalink }}"
+          class="btn btn--text"
+          aria-label="{{ .Title }}"
+          title="{{ .Title }}">
+            Read More
+          </a>
+        </div>
+      </article>
+      
       {{ end }}
     </div>
+  </section>
   {{ end }}
   
+  {{ $pages := where .Site.RegularPages "Params.status" "!=" nil }}
+  {{ $grouped := $pages.GroupByParam "status" }}
   {{ if $grouped }}
-  <hr>
-  <h3><i class="bi bi-check-circle-fill"></i> Status</h3>
-    <div class="main__section main__section--grid">
+  <section class="section">
+    <h2 class="section__title">
+      <i class="bi bi-check-circle-fill"></i>
+      <span>Status</span>
+    </h2>
+    
+    <div class="section__grid">
       {{ range $grouped }}
-        <article class="card">
-          <header class="card__header">
-            <h3 class="card__title">{{ .Key }}</h3>
-          </header>
-          <section class="card__body">
-            <ul class="card-list">
-              {{ range .Pages }}
-                <li class="card-list__item">
-                  <a href="{{ .RelPermalink }}" class="card-list__link">
-                    <span>{{ .Title }}</span>
-                    <span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time></span>
-                  </a>
-                </li>
-              {{ end }}
-            </ul>
-          </section>
-        </article>
+    
+      <article class="card">
+        <header class="card__header">
+          <h3 class="card__title">{{ .Key }}</h3>
+        </header>
+        
+        <div class="card__body">
+          <ul class="list">
+            
+            {{ range .Pages }}
+              <li class="list__item">
+                <a href="{{ .RelPermalink }}" class="list__link">
+                  <span>{{ .Title }}</span>
+                  <small>
+                    <i class="bi bi-calendar4-week"></i>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">
+                      {{ .Date.Format "02 Jan 2006" }}
+                    </time>
+                  </small>
+                </a>
+              </li>
+            {{ end }}
+            
+          </ul>
+        </div>
+      </article>
+    
       {{ end }}
     </div>
+  </section>
   {{ end }}
 
 </main>

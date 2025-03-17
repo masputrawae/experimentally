@@ -1,34 +1,52 @@
 <header class="header header--{{ .type }}">
+  
+  <!-- BRAND -->
   <a href="{{ site.BaseURL | relURL }}" class="brand">
-    <div class="brand__logo">
+    <section class="brand__logo">
       <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
-    </div>
-    <div class="brand__caption">
-      <div class="brand__title">{{ site.Params.author.name }}</div>
+    </section>
+    <section class="brand__text">
+      <h1 class="brand__title">{{ site.Params.author.name }}</h1>
       <em class="brand__subtitle">{{ site.Params.author.subtitle }}</em>
-    </div>
+    </section>
   </a>
-
+  
+  <!-- TOPBAR -->
   {{ if eq .type "topbar" }}
     <div class="header__button">
-      <a href="{{ "search.html" | relURL }}" class="btn btn--icon btn--search">
+      <a 
+      href="{{ "search.html" | relURL }}" 
+      class="btn btn--icon btn--search"
+      title="Search"
+      aria-label="Search button">
         <span>Tap to search</span>
         <i class="bi bi-search"></i>
       </a>
-      <button class="btn btn--icon" id="sidebarToggle">
+      <button 
+      class="btn btn--icon" 
+      id="switchTheme" 
+      title="Switch Theme"
+      aria-label="Switch Theme">
+        <i class="bi bi-moon-stars"></i>
+      </button>
+      <button 
+      class="btn btn--icon" 
+      id="sidebarToggle"
+      title="Open Sidebar"
+      aria-label="Button to open Sidebar">
         <i class="bi bi-list"></i>
       </button>
     </div>
   {{ end }}
-
+  
+  <!-- SIDEBAR -->
   {{ if eq .type "sidebar" }}
-    <div class="header__button">
-      <button class="btn btn--icon" id="switchTheme" data-title="Switch Theme">
-        <i class="bi bi-moon-stars"></i>
-      </button>
-      <button class="btn btn--icon" id="sidebarClose">
-        <i class="bi bi-x"></i>
-      </button>
-    </div>
+    <button 
+    class="btn btn--icon" 
+    id="sidebarClose"
+    title="Close Sidebar"
+    aria-label="Button to close the Sidebar">
+      <i class="bi bi-x"></i>
+    </button>
   {{ end }}
 </header>

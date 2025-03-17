@@ -2,56 +2,22 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
+//=======================// GOOGLE FONT //=======================//
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
+//=======================// BODY //=======================//
 body {
   font-size: v.$font__size--default;
   font-family: v.$font__family--first;
-  --paragraph-space: 2rem;
-  --title-space: 1.5rem;
   font-weight: v.$font__weight--normal;
 }
 
-:is(p + :is(h1, h2, h3, h4, h5, h6), :is(h1, h2, h3, h4, h5) + :is(h2, h3, h4, h5, h6)) {
-  margin-top: var(--paragraph-space);
-}
-
-:is(h1, h2, h3, h4, h5, h6) + p {
-  margin-top: var(--title-space);
-  margin-bottom: var(--title-space);
-}
-
-p + p {
-  margin-top: var(--paragraph-space);
-  margin-bottom: var(--paragraph-space);
-}
-
-p {
-  max-width: 768px;
-  font-size: v.$font__size--md;
-  line-height: 1.6;
-  font-weight: v.$font__weight--normal;
-  letter-spacing: 0.001em;
-}
-
-p b,
-span b,
-p strong,
-span strong,
-strong {
-  font-weight: v.$font__weight--bold;
-}
-
-:is(h1, h2, h3, h4, h5, h6) {
-  font-style: normal;
-  text-transform: none;
-  max-width: 768px;
-  line-height: 1.5;
-  letter-spacing: 0.002em;
+//=======================// BASE //=======================//
+:is (h1, h2, h3, h4, h5, h6, a){
   font-family: v.$font__family--second;
-  font-weight: v.$font__weight--bold;
+  font-weight: v.$font__weight--semi-bold;
 }
 
 h1 { font-size: v.$font__size--6xl; }
@@ -61,44 +27,7 @@ h4 { font-size: v.$font__size--3xl; }
 h5 { font-size: v.$font__size--2xl; }
 h6 { font-size: v.$font__size--xl; }
 
-a {
-  font-family: v.$font__family--second;
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color 0.5s ease-in-out;
-  
-  &:hover {
-    color: var(--color-accent-hover);
-    text-decoration: underline;
-  }
-}
+p {font-size: v.$font__size--default;}
+small {font-size: v.$font__size-xs;}
 
-hr {
-  margin-block: 2rem;
-  border-width: 1px;
-  border-color: var(--color-border);
-  width: 100%;
-}
-ul, ol {
-  padding-left: 2rem;
-  padding-block: 0.5rem;
-}
-
-.toc-summary {
-  margin-block: 1rem;
-  summary {
-    font-weight: v.$font__weight--semi-bold;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background-color: var(--color-bg-second);
-    cursor: pointer;
-    color: var(--color-text);
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: var(--color-bg);
-      color: var(--color-accent);
-    }
-  }
-}
+//=======================// Markdown Style //=======================//

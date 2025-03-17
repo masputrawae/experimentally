@@ -10,12 +10,12 @@
 </nav>
 
 <nav class="nav">
-  <ul class="nav__list nav__list--social">
+  <ul class="nav__list nav__list--row">
     {{- with site.Params.social }}
       {{- range $key, $value := . }}
         <li class="nav__item">
-          <a href="{{ $value.url }}" class="nav__link nav__link--social">
-            <i class="nav__icon bi {{ $value.icon }}"></i>
+          <a href="{{ $value.url }}" class="btn btn--icon">
+            <i class="bi {{ $value.icon }}"></i>
           </a>
         </li>
       {{- end }}
