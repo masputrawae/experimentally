@@ -28,6 +28,22 @@
 
     @include m.transition(box-shadow, border-color, color);
 
+    &--pinned {
+      font-size: v.$font__size--xs;
+      font-weight: v.$font__weight--normal;
+      @include m.text-ellipsis;
+      border: none;
+    }
+
+    &--toc {
+      
+      &.active {
+        font-weight: v.$font__weight--bold;
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
+    }
+
     &--active, &--ancestor, &:is(:hover, :active, :focus-visible) {
       @include m.shadow(md);
       border-color: var(--color-border);

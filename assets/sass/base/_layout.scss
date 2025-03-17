@@ -19,7 +19,7 @@ body {
   grid-template: 
     "left top top" auto
     "left main right" 1fr
-    "left bottom right" auto / 1fr 3fr 1fr;
+    "left bottom right" auto / 280px auto 280px;
 
   //=======================// SIDEBAR STYLES //=======================//
   &__left, &__right {
@@ -30,6 +30,7 @@ body {
     max-width: 100%;
 
     background-color: var(--color-bg);
+    @include m.transition(transform);
   }
 
   //=======================// GRID AREA //=======================//
@@ -44,15 +45,21 @@ body {
 
   &__top {grid-area: top;}
   &__right { grid-area: right; }
-  &__main { grid-area: main; }
-  &__bottom { grid-area: bottom; }
+  &__main { 
+    grid-area: main; 
+    overflow-x: hidden;
+  }
+  &__bottom { 
+    grid-area: bottom; 
+    padding-block: 4rem;
+  }
 
   //=======================// XL BREAKPOINT (1200px) //=======================//
   @include m.max(xl) {
     grid-template: 
       "left top" auto
       "left main" 1fr
-      "left bottom" auto / 1fr 3fr;
+      "left bottom" auto / 280px 3fr;
 
     //=======================// RIGHT SIDEBAR TRANSITION //=======================//
     &__right {
@@ -61,6 +68,8 @@ body {
       right: 0;
       transform: translateX(100%);
       width: 320px;
+      border-left: 1px solid var(--color-border);
+      padding: 1rem;
       
       //=======================// ACTIVE STATE //=======================//
       &.active {

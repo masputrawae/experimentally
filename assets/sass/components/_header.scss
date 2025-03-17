@@ -5,12 +5,15 @@
 //=======================// HEADER //=======================//
 .header {
   padding: 0.25rem 1rem;
-  max-height: 5rem;
-  height: 5rem;
-
+  &--topbar {
+    max-height: 4rem;
+    height: 4rem;
+  }
   &--sidebar {
     @include m.shadow(sm);
     background-color: var(--color-bg-second);
+    max-height: 5rem;
+    height: 5rem;
   }
 }
 

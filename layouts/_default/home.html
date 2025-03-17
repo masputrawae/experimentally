@@ -5,49 +5,7 @@
       {{ .Content | safeHTML }}
     </article>
   </section>
-
-  {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
-  {{ if $pinned }}
-    <section class="section">
-      <h2 class="section__title">
-        <i class="bi bi-pin-angle-fill"></i>
-        <span>Pinned</span>
-      </h2>
-      
-      <div class="section__grid">
-        {{ range $pinned }}
-        
-        <article class="card">
-          <header class="card__header">
-            <h3>
-              <i class="bi bi-pin-angle-fill"></i>
-              <span>{{ .Title }}</span>
-            </h3>
-            <small>
-              <span><i class="bi bi-calendar4-week"></i>Date: </span>
-              <time datetime="{{ .Date.Format "2006-01-02" }}">
-                {{ .Date.Format "02 Jan 2006" }}
-              </time>
-            </small>
-          </header>
-          
-          <div class="card__body">
-            <p class="card__paragraph">{{ .Params.Description }}</p>
-            <a 
-            href="{{ .RelPermalink }}"
-            class="btn btn--text"
-            aria-label="{{ .Title }}"
-            title="{{ .Title }}">
-              Read More
-            </a>
-          </div>
-        </article>
-        
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
+  
   {{ $pages := where .Site.RegularPages "Params.status" "!=" nil }}
   {{ $grouped := $pages.GroupByParam "status" }}
   {{ if $grouped }}

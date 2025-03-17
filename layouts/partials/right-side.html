@@ -5,5 +5,62 @@ title="Close Sidebar"
 aria-label="Button to close the Sidebar">
   <i class="bi bi-x"></i>
 </button>
+{{ if .IsPage }}
+  <nav class="nav nav--toc">
+    <h6 class="nav__label">
+      <i class="bi bi-list-task"></i>
+      <span>Table of Contents</span>
+    </h6>
+    {{ $toc := .TableOfContents }}
+    {{ $toc := replaceRE `<ul>` `<ul class="nav__list nav__list--toc">` $toc }}
+    {{ $toc := replaceRE `<li>` `<li class="nav__item nav__item--toc">` $toc }}
+    {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--pinned nav__link--toc" href=` $toc }}
+    <div class="nav__toc" id="tableOfContents">
+      {{ $toc | safeHTML }}
+    </div>
+  </nav>
+{{ else }}
+  {{ $pinned := where .Site.RegularPages "Params.pinned" true | first 5 }}
+  {{ if $pinned }}
+    <nav class="nav">
+      <h6 class="nav__label">
+        <i class="bi bi-pin-angle-fill"></i>
+        <span>Pinned</span>
+      </h6>
 
-{{ .TableOfContents }}
+      <ul class="nav__list">
+        {{ range $pinned }}
+        <li class="nav__item">
+          <a 
+            href="{{ .RelPermalink }}"
+            class="nav__link nav__link--pinned">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+
+  {{ $recent := .Site.RegularPages | first 5 }}
+  {{ if $recent }}
+    <nav class="nav">
+      <h6 class="nav__label">
+        <i class="bi bi-clock-history"></i>
+        <span>Recent Changes</span>
+      </h6>
+
+      <ul class="nav__list">
+        {{ range $recent }}
+        <li class="nav__item">
+          <a 
+            href="{{ .RelPermalink }}"
+            class="nav__link nav__link--pinned">
+            {{ .Title }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+{{ end }}
