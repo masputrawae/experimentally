@@ -87,3 +87,9 @@ title = 'My Notes'
       endLevel = 6
       ordered = false
       startLevel = 2
+  [markup.highlight]
+      codeFences = true
+      guessSyntax = true
+      style = "github-dark"
+      noClasses = false
+      lineNumbersInTable = true

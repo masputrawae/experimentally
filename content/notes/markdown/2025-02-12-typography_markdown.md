@@ -191,3 +191,41 @@ Orange
 ## Kesimpulan
 
 Dengan menggunakan artikel ini, Anda dapat menguji berbagai sintaks Markdown yang didukung oleh Hugo.
+
+## JavaScript Example
+```javascript
+// Contoh kode JavaScript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const user = "John";
+console.log(greet(user));
+```
+
+## Python Example
+```python
+# Contoh kode Python
+def greet(name):
+    return f"Hello, {name}!"
+
+user = "John"
+print(greet(user))
+```
+
+## HTML Example
+```html
+<!-- Contoh kode HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a test page for syntax highlighting.</p>
+</body>
+</html>
+```

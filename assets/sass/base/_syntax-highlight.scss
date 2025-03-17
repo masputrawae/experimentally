@@ -1,0 +1,71 @@
+//=======================// SYNTAX HIGHLIGHT //=======================//
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Syntax highlighting
+.highlight {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+.highlight[data-lang] {
+  &::before, &::after {
+    display: block;
+    background-color: var(--color-bg-third);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-second);
+    font-family: bootstrap-icons;
+    position: absolute;
+    padding: 0.25rem;
+    z-index: 1;
+    top: 0;
+    font-size: v.$font__size--md;
+    font-weight: v.$font__weight--medium;
+  }
+
+  &::before {
+    border-radius: 0.5rem 0.5rem 0 0;
+    content: "\F2C6" " " attr(data-lang);
+    left: 0;
+    width: 100%;
+  }
+
+  &::after {
+    border-radius: 0 0.5rem 0 0;
+    content: "\F759" " " "Copy";
+    cursor: pointer;
+    right: 0;
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+.bg, .chroma { 
+  color: var(--color-text-second); 
+  background-color: var(--color-bg-second); 
+
+  font-family: v.$font__family--monospace;
+  font-size: v.$font__size--xs;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+.chroma .x, .chroma .cl, .chroma .n, .chroma .nb, .chroma .bp, .chroma .ni, .chroma .nl, .chroma .nn, .chroma .py, .chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm, .chroma .p, .chroma .g, .chroma .gr, .chroma .gh, .chroma .go, .chroma .gp, .chroma .gt, .chroma .gl, .chroma .w { color: var(--color-text-second); }
+.chroma .err { color: var(--code-error); background-color: var(--code-error-bg); }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
+.chroma .lntd, .chroma .lntable { vertical-align: top; padding: 0; margin: 0; border: 0; }
+.chroma .hl { background-color: var(--code-highlight); }
+.chroma .lnt, .chroma .ln { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: var(--code-line-number); }
+.chroma .line { display: flex; }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kp, .chroma .kr, .chroma .kt { color: var(--code-keyword); }
+.chroma .kn, .chroma .nt, .chroma .o, .chroma .ow { color: var(--code-tag); }
+.chroma .na, .chroma .nc, .chroma .nd, .chroma .ne, .chroma .nf, .chroma .nx, .chroma .gi { color: var(--code-name); }
+.chroma .l, .chroma .ld, .chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo, .chroma .se { color: var(--code-literal); }
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--code-string); }
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf, .chroma .gu { color: var(--code-comment); }
+.chroma .ge { font-style: italic; }
+.chroma .gs { font-weight: bold; }
