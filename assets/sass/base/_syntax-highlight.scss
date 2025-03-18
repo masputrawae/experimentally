@@ -54,18 +54,70 @@
   border-radius: 0.5rem;
   overflow-x: auto;
 }
-.chroma .x, .chroma .cl, .chroma .n, .chroma .nb, .chroma .bp, .chroma .ni, .chroma .nl, .chroma .nn, .chroma .py, .chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm, .chroma .p, .chroma .g, .chroma .gr, .chroma .gh, .chroma .go, .chroma .gp, .chroma .gt, .chroma .gl, .chroma .w { color: var(--color-text-second); }
-.chroma .err { color: var(--code-error); background-color: var(--code-error-bg); }
-.chroma .lnlinks { outline: none; text-decoration: none; color: inherit; }
-.chroma .lntd, .chroma .lntable { vertical-align: top; padding: 0; margin: 0; border: 0; }
-.chroma .hl { background-color: var(--code-highlight); }
-.chroma .lnt, .chroma .ln { white-space: pre; -webkit-user-select: none; user-select: none; margin-right: 0.4em; padding: 0 0.4em 0 0.4em; color: var(--code-line-number); }
-.chroma .line { display: flex; }
-.chroma .k, .chroma .kc, .chroma .kd, .chroma .kp, .chroma .kr, .chroma .kt { color: var(--code-keyword); }
-.chroma .kn, .chroma .nt, .chroma .o, .chroma .ow { color: var(--code-tag); }
-.chroma .na, .chroma .nc, .chroma .nd, .chroma .ne, .chroma .nf, .chroma .nx, .chroma .gi { color: var(--code-name); }
-.chroma .l, .chroma .ld, .chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo, .chroma .se { color: var(--code-literal); }
-.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--code-string); }
-.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf, .chroma .gu { color: var(--code-comment); }
-.chroma .ge { font-style: italic; }
-.chroma .gs { font-weight: bold; }
+
+.chroma {
+  .x, .cl, .n, .nb, .bp, .ni, .nl, .nn, .py, .nv, .vc, .vg, .vi, .vm, .p, .g, .gr, .gh, .go, .gp, .gt, .gl, .w { 
+    color: var(--color-text-second); 
+  }
+  
+  .err { 
+    color: var(--code-error); 
+    background-color: var(--code-error-bg); 
+  }
+
+  .lnlinks { 
+    outline: none; 
+    text-decoration: none; 
+    color: inherit; 
+  }
+
+  .lntd, .lntable { 
+    vertical-align: top; 
+    padding: 0; 
+    margin: 0; 
+    border: 0; 
+  }
+
+  .hl { 
+    background-color: var(--code-highlight); 
+  }
+
+  .lnt, .ln { 
+    white-space: pre; 
+    -webkit-user-select: none; 
+    user-select: none; 
+    margin-right: 0.4em; 
+    padding: 0 0.4em 0 0.4em; 
+    color: var(--code-line-number); 
+  }
+
+  .line { 
+    display: flex; 
+  }
+
+  .k, .kc, .kd, .kp, .kr, .kt { 
+    color: var(--code-keyword); 
+  }
+  .kn, .nt, .o, .ow { 
+    color: var(--code-tag); 
+  }
+
+  .na, .nc, .nd, .ne, .nf, .nx, .gi { 
+    color: var(--code-name); 
+  }
+
+  .l, .ld, .m, .mb, .mf, .mh, .mi, .il, .mo, .se { 
+    color: var(--code-literal); 
+  }
+  
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .sh, .si, .sx, .sr, .s1, .ss { 
+    color: var(--code-string); 
+  }
+
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf, .gu { 
+    color: var(--code-comment); 
+  }
+
+  .ge { font-style: italic; }
+  .gs { font-weight: bold; }
+}

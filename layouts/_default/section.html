@@ -11,7 +11,7 @@
   
   <div class="section__grid">
     {{ range .Sections }}
-    <article class="card">
+    <article class="markdown card">
       <header class="card__header">
         <h2>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -52,7 +52,7 @@
 
 {{ if .RegularPages }}
 <section class="section">
-  <article class="card">
+  <article class="markdown card">
     <header class="card__header">
       <h2>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
