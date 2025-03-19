@@ -1,59 +1,38 @@
-//=======================// ROOT.SASS //=======================//
-@use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
-//=======================// COLORS //=======================//
+@use '../abstracts/mixins' as m;
 
 :root {
-  --color-bg: #fafafa;
-  --color-bg-second: #e5e5e5;
-  --color-bg-third: #d4d4d4;
+  // Light theme colors
+  --color-bg-body: #f9fafb;
+  --color-bg-first: #f3f4f6;
+  --color-bg-second: #e5e7eb;
+  --color-bg-third: #d1d5db;
 
-  --color-border: #b0b0b0;
+  --color-text-first: #111827;
+  --color-text-second: #374151;
+  --color-text-third: #4b5563;
 
-  --color-text: #3a3a3a;
-  --color-text-second: #0a0a0a;
-  --color-text-third: #404040;
+  --color-accent-first: #1d4ed8;
+  --color-accent-second: #2563eb;
+  --color-accent-third: #3b82f6;
 
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
+  --color-border: #e5e7eb;
 
-  // CODE COLOR
-  --code-error: #e53e3e;
-  --code-error-bg: #ffe5e5;
-  --code-highlight: #f0f0f0;
-  --code-line-number: #7a7a7a;
-  --code-keyword: #6a0dad;
-  --code-name: #c65d30;
-  --code-tag: var(--color-accent);
-  --code-literal: #b77c1f;
-  --code-string: #2e8b57;
-  --code-operator: #4a4a4a;
-  --code-comment: #4a4a4a;
-}
-:root[data-theme=dark]{
-  --color-bg: #171717;
-  --color-bg-second: #262626;
-  --color-bg-third: #404040;
+  &[data-theme=dark] {
+    // Dark theme colors
+    --color-bg-body: #030712;
+    --color-bg-first: #111827;
+    --color-bg-second: #1f2937;
+    --color-bg-third: #374151;
 
-  --color-border: #666666;
+    --color-text-first: #f9fafb;
+    --color-text-second: #d1d5db;
+    --color-text-third: #9ca3af;
 
-  --color-text: #d4d4d4;
-  --color-text-second: #fafafa;
-  --color-text-third: #a3a3a3;
+    --color-accent-first: #9333ea;
+    --color-accent-second: #a855f7;
+    --color-accent-third: #c084fc;
 
-  --color-accent: #4a90e2;
-  --color-accent-hover: #357ab8;
-
-  // CODE COLOR
-  --code-error: #ff4d4d;
-  --code-error-bg: #3b1a1a;
-  --code-highlight: #3a3f44;
-  --code-line-number: #a0e1e1;
-  --code-keyword: #a77bff;
-  --code-name: #ffb84d;
-  --code-tag: var(--color-accent);
-  --code-literal: #f6e05e;
-  --code-string: #7ed957;
-  --code-operator: #d0d5d5;
-  --code-comment: #b0b0b0;
+    --color-border: #374151;
+  }
 }

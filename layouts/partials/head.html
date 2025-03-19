@@ -1,18 +1,8 @@
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-<!-- |====| CSS |====| -->
-{{- with resources.Get "css/bootstrap-icon.css" }}
-  {{- if eq hugo.Environment "development" }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{- else }}
-    {{- with . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{- end }}
-  {{- end }}
-{{- end }}
 
-<!-- |====| SCSS |====| -->
+<!-- |===========| START: SCSS |===========| -->
 {{- with resources.Get "sass/main.scss" }}
   {{- $opts := dict
     "enableSourceMap" (not hugo.IsProduction)
@@ -30,9 +20,9 @@
     {{- end }}
   {{- end }}
 {{- end }}
-<!-- |====| END: SCSS |====| -->                                                                                                                                               
+<!-- |===========| END: SCSS |===========| -->                                                                                                                                             
 
-<!-- |====| START: JAVASCRIPT |====| -->   
+<!-- |===========| START: JAVASCRIPT |===========| -->
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
@@ -45,4 +35,94 @@
     {{- end }}
   {{- end }}
 {{- end }}
-<!-- |====| END: JAVASCRIPT |====| -->
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script>
+<script defer>
+  document.addEventListener("DOMContentLoaded", async function () {
+    try {
+      let response = await fetch("{{ "search.json" | relURL }}");
+      let store = await response.json();
+
+      let idx = lunr(function () {
+        this.ref('id');
+        this.field('title', { boost: 40 }); // Boost tinggi untuk title
+        this.field('tags', { boost: 30 });  // Boost tinggi untuk tags
+        this.field('description', { boost: 10 });
+        this.field('excerpt', { boost: 10 });
+        this.field('category', { boost: 10 }); // Tambahkan kategori
+        this.field('content', { boost: 10 });
+
+        store.forEach((doc) => {
+          this.add(doc);
+        });
+      });
+
+      function displayResults(results, query) {
+        const searchResults = document.getElementById('results');
+        const resultsLabel = document.querySelector('label[for="results"]');
+        
+        if (query) {
+          resultsLabel.style.display = 'block';
+          searchResults.innerHTML = results.length
+            ? results.map(result => {
+                const item = store.find(doc => doc.id === result.ref);
+                return `
+                  <li class="nav__item">
+                    <a class="nav__link" href="${item.url}">
+                      <i class="bi bi-folder-symlink"></i>
+                      <span>${item.title}</span>
+                    </a>
+                  </li>`;
+              }).join('')
+            : '<li>No results found.</li>';
+        } else {
+          resultsLabel.style.display = 'none';
+          searchResults.innerHTML = "";
+        }
+      }
+
+      function handleSearch(event) {
+        if (event) event.preventDefault();
+        const query = document.getElementById('search-input').value.trim();
+        if (query) {
+          const results = idx.search(`*${query}*` + " " + `${query}~1`);
+          displayResults(results, query);
+        } else {
+          const resultsLabel = document.querySelector('label[for="results"]');
+          resultsLabel.style.display = 'none';
+          document.getElementById('results').innerHTML = "";
+        }
+      }      
+
+      function debounce(func, wait = 1000) {
+        let timeout;
+        return function (...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
+
+      function highlightText(text, query) {
+        const regex = new RegExp(`(${query})`, "gi");
+        return text.replace(regex, `<mark>$1</mark>`);
+      }
+
+      document.getElementById('search-input').addEventListener('input', debounce(() => {
+        handleSearch(new Event('submit'));
+      }, 300));
+
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('query');
+      if (query) {
+        document.getElementById('search-input').setAttribute('value', query);
+        setTimeout(() => handleSearch(new Event('submit')), 100);
+      } else {
+        const resultsLabel = document.querySelector('label[for="results"]');
+        resultsLabel.style.display = 'none';
+      }
+    } catch (error) {
+      console.error("Gagal memuat data pencarian:", error);
+    }
+  });
+</script>
+<!-- |===========| END: JAVASCRIPT |===========| -->

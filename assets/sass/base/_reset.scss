@@ -1,4 +1,3 @@
-//=======================// RESET.SASS //=======================//
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
 
@@ -12,6 +11,7 @@
 
 html, body {
   scroll-behavior: smooth;
+  @include m.transition(color, background-color);
 }
 
 body {
@@ -48,33 +48,5 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-// Firefox scrollbar styling
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) var(--color-bg-second);
-
-  &:hover {
-    scrollbar-color: var(--color-accent) var(--color-bg-second);
-  }
-}
-
-// Custom scrollbar styling
-::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-second);
-  border-radius: 1px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 1px;
-  &:hover {
-    background: var(--color-accent);
-  }
+  color: var(--color-accent-first);
 }

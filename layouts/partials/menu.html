@@ -2,56 +2,56 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-<!-- ---------- -->
-<header class="header header--sidebar">
-  <a href="{{ site.BaseURL | relURL }}" class="brand">
-    <section class="brand__logo">
-      <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
-    </section>
-    <section class="brand__text">
+  <!-- |===========| START: Brand Section |===========| -->
+  <header class="header header--left-side">
+    <a href="{{ site.BaseURL | relURL }}" class="brand">
+      <img class="brand__logo" src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
       <h1 class="brand__title">{{ site.Params.author.name }}</h1>
-      <em class="brand__subtitle">{{ site.Params.author.subtitle }}</em>
-    </section>
-  </a>
+    </a>
 
-  <button 
-  class="btn btn--icon" 
-  id="leftClose"
-  title="Close Sidebar"
-  aria-label="Button to close the Sidebar">
-    <i class="bi bi-x"></i>
-  </button>
-</header>
-
-<nav class="nav">
-  <ul class="nav__list">
-    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-  </ul>
-</nav>
-
-<nav class="nav">
-  <ul class="nav__list nav__list--row">
-    {{- with site.Params.social }}
-      {{- range $key, $value := . }}
-        <li class="nav__item">
-          <a href="{{ $value.url }}" class="btn btn--icon">
-            <i class="bi {{ $value.icon }}"></i>
-          </a>
-        </li>
-      {{- end }}
-    {{- end }}
-    <li class="nav__item">
-      <button 
-      class="btn btn--icon" 
-      id="switchTheme" 
-      title="Switch Theme"
-      aria-label="Switch Theme">
-        <i class="bi bi-moon-stars"></i>
+    <div class="header__button">
+      <button class="btn btn--icon" data-offcanvas-toggle="leftSide"title="Close Sidebar"aria-label="Button to close the Sidebar">
+          <i class="bi bi-x"></i>
       </button>
-    </li>
-  </ul>
-</nav>
-<!-- ---------- -->
+    </div>
+  </header>
+  <!-- |===========| END: Brand Section |===========| -->
+
+  <!-- |===========| START: Navigation Menu Section |===========| -->
+  <nav class="nav">
+    <label class="nav__label" for="mainMenu">
+      <i class="bi bi-menu-button-wide"></i>
+      <span>Main Menu</span>
+    </label>
+    <ul class="nav__list" id="mainMenu">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+
+    <label class="nav__label" for="mediaSocial">
+      <i class="bi bi-globe2"></i>
+      <span>Social Media</span>
+    </label>
+    <ul class="nav__list" id="mediaSocial">
+      {{- with site.Params.social }}
+        {{- range $key, $value := . }}
+          <li class="nav__item">
+            <a href="{{ $value.url }}" class="nav__link" title="{{ $value.name }}" aria-label="Go to {{ $value.name }}" rel="noopener noreferrer" target="_blank">
+                <i class="bi {{ $value.icon }}"></i>
+                <span>{{ $value.name }}</span>
+            </a>
+          </li>
+        {{- end }}
+      {{- end }}
+
+      <li class="nav__item">
+        <a href="javascript:void(0);" role="button" class="nav__link"  id="switchTheme" title="Switch Theme" aria-label="Switch Theme" onclick="event.preventDefault();">
+            <i class="bi bi-moon-stars"></i>
+            <span>Switch Themes</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- |===========| END: Navigation Menu Section |===========| -->
 {{- end }}
 
 {{- define "partials/inline/menu/walk.html" }}

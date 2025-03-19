@@ -1,0 +1,24 @@
+<header class="header header--topbar">
+  <a href="{{ site.BaseURL | relURL }}" class="brand">
+    <img class="brand__logo" src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
+    <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+  </a>
+  
+  <div class="header__button">
+    <button 
+      class="btn btn--icon" 
+      data-offcanvas-toggle="leftSide"
+      title="Open Left Sidebar"
+      aria-label="Button to open Left Sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <button 
+      class="btn btn--icon" 
+      data-offcanvas-toggle="rightSide"
+      title="Open Right Sidebar"
+      aria-label="Button to open Right Sidebar">
+        <i class="bi bi-list"></i>
+    </button>
+  </div>
+</header>

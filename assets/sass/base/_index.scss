@@ -1,7 +1,5 @@
-//=======================// BASE //=======================//
-@use './_root.scss';
-@use './_reset.scss';
-@use './_display.scss';
-@use './_typography.scss';
-@use './_syntax-highlight.scss';
-@use './_layout.scss';
+@use 'root';
+@use 'reset';
+@use 'icons';
+@use 'typography';
+@use 'layout';

@@ -1,0 +1,59 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.nav {
+
+  &__label {
+    border: 1px solid var(--color-border);
+    border-left: none;
+    border-right: none;
+    display: block;
+
+    font-size: v.$font__size--lg;
+    font-weight: v.$font__weight--semi-bold;
+
+    background-color: var(--color-bg-second);
+    margin-block: 0.5rem;
+    padding: 0.5rem;
+
+    @include m.shadow(md);
+    @include m.text-shadow(lg);
+  }
+
+  &__list {
+    list-style: none;
+    padding-inline: 1rem;
+  }
+
+  &__item {
+    margin-block: 0.25rem;
+  }
+
+  &__link {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--color-accent-first);
+    padding: 0.25rem 1rem;
+
+    font-weight: v.$font__weight--semi-bold;
+    font-size: v.$font__size--sm;
+
+    border: 1px solid var(--color-border);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+
+    cursor: pointer;
+
+    @include m.text-ellipsis();
+    @include m.transition(background-color, border-radius, color, box-shadow, text-shadow);
+    &--active, &--ancestor, &:is(:hover, :active, :focus-visible) {
+      border-top-color: var(--color-border);
+      border-bottom-color: var(--color-border);
+      color:var(--color-text-first);
+
+      @include m.shadow(md);
+      @include m.text-shadow(lg);
+    }
+  }
+}

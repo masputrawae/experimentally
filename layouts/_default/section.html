@@ -1,87 +1,12 @@
 {{ define "main" }}
-<section class="section">
-  <h1 class="section__title">{{ .Title }}</h1>
-  <article class="markdown">
-    {{ .Content | safeHTML }}
-  </article>
-</section>
-
-{{ if .Sections }}
-<section class="section">
-  
-  <div class="section__grid">
-    {{ range .Sections }}
-    <article class="markdown card">
-      <header class="card__header">
-        <h2>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </h2>
-      </header>
-      <section class="card__body">
-        {{ if .Params.description }}
-          <p>{{ .Params.description }}</p>
-        {{ else }}
-          {{ .Content }}
-        {{ end }}
-        
-        {{ if .RegularPages }}
-        <ul class="list">
-          {{ range .RegularPages }}
-          <li class="list__item">
-            <a href="{{ .RelPermalink }}" class="list__link">
-              <span>{{ .Title }}</span>
-              <small>
-                <i class="bi bi-calendar4-week"></i>
-                <time datetime="{{ .Date.Format "2006-01-02" }}">
-                  {{ .Date.Format "02 Jan 2006" }}
-                </time>
-              </small>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-        {{ else }}
-          <p>There are no contents in this category yet.</p>
-        {{ end }}
-      </section>
-    </article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+      </li>
     {{ end }}
-  </div>
-</section>
-{{ end }}
-
-{{ if .RegularPages }}
-<section class="section">
-  <article class="markdown card">
-    <header class="card__header">
-      <h2>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </h2>
-      <small>
-        <span><i class="bi bi-calendar4-week"></i>Date: </span>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">
-          {{ .Date.Format "02 Jan 2006" }}
-        </time>
-      </small>
-    </header>
-    <section class="card__body">
-      <ul class="list">
-        {{ range .RegularPages }}
-        <li class="list__item">
-          <a href="{{ .RelPermalink }}" class="list__link">
-            <span>{{ .Title }}</span>
-            <small>
-              <i class="bi bi-calendar4-week"></i>
-              <time datetime="{{ .Date.Format "2006-01-02" }}">
-                {{ .Date.Format "02 Jan 2006" }}
-              </time>
-            </small>
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
-  </article>
-</section>
-{{ end }}
+  </ul>
 {{ end }}

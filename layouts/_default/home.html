@@ -1,8 +1,3 @@
 {{ define "main" }}
-  <section class="section">
-    <h1 class="section__title">{{ .Title }}</h1>
-    <article class="markdown">
-      {{ .Content | safeHTML }}
-    </article>
-  </section>
+{{ .Content }}
 {{ end }}

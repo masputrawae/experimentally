@@ -1,144 +1,151 @@
-<button 
-class="btn btn--icon" 
-id="rightClose"
-title="Close Sidebar"
-aria-label="Button to close the Sidebar">
-  <i class="bi bi-x"></i>
-</button>
-{{ if .IsPage }}
-  <nav class="nav nav--toc">
-    <h4 class="nav__label">
+<header class="header header--right-side">
+  <form class="search" id="search" onsubmit="handleSearch(event)" method="get">
+    <input class="search__input" type="search" id="search-input" name="query" placeholder="🔍 Type here to search">
+  </form>
+
+  <div class="header__button">
+    <button class="btn btn--icon" data-offcanvas-toggle="rightSide" title="Close Sidebar" aria-label="Button to close the Sidebar">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+</header>
+
+<nav class="nav">
+  {{/* Search Results Section */}}
+  <label class="nav__label" for="results">
+    <i class="bi bi-search"></i>
+    <span>Results</span>
+  </label>
+  <ul class="nav__list" id="results"></ul>
+
+  {{ if .IsPage }}
+    {{/* Table of Contents Section */}}
+
+    <label for="toc" class="nav__label">
       <i class="bi bi-list-task"></i>
       <span>Table of Contents</span>
-    </h4>
+    </label>
     {{ $toc := .TableOfContents }}
-    {{ $toc := replaceRE `<ul>` `<ul class="nav__list nav__list--toc">` $toc }}
-    {{ $toc := replaceRE `<li>` `<li class="nav__item nav__item--toc">` $toc }}
-    {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--pinned nav__link--toc" href=` $toc }}
-    <div class="nav__toc" id="tableOfContents">
-      {{ $toc | safeHTML }}
-    </div>
-  </nav>
-{{ else }}
-  {{ $pinned := where .Site.RegularPages "Params.pinned" true | first 5 }}
-  {{ if $pinned }}
-    <nav class="nav">
-      <h4 class="nav__label">
+    {{ $toc := replaceRE `<ul>` `<ul class="nav__list nav__list--toc" id="toc">` $toc }}
+    {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
+    {{ $toc := replaceRE `<a href=` `<a class="nav__link" href=` $toc }}
+    <div id="tableOfContents">{{ $toc | safeHTML }}</div>
+
+    {{/* Related Content Section */}}
+
+    <label class="nav__label" for="relatedContent">
+      <i class="bi bi-folder-symlink"></i> Related Content
+    </label>
+
+    <ul class="nav__list" id="relatedContent">
+      {{ $related := .Site.RegularPages.Related . | first 5 }}
+      {{ if $related }}
+        {{ range $related }}
+          <li class="nav__item">
+            <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      {{ else }}
+        <li class="nav__item">No related content found.</li>
+      {{ end }}
+    </ul>
+
+    {{/* Tags Section */}}
+    {{ if .Params.tags }}
+      <label for="tagList" class="nav__label">
+        <i class="bi bi-tags"></i>
+        <span>Tags</span>
+      </label>
+      <ul class="nav__list" id="tagList">
+        {{ range .Params.tags }}
+          <li class="nav__item">
+            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="nav__link">{{ . }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+    {{/* Categories Section */}}
+    {{ if .Params.categories }}
+      <label for="categoriesList" class="nav__label">
+        <i class="bi bi-grid"></i>
+        <span>Categories</span>
+      </label>
+      <ul class="nav__list" id="categoriesList">
+        {{ range .Params.categories }}
+          <li class="nav__item">
+            <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}" class="nav__link">{{ . }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+  {{ else }}
+    {{/* Pinned Section */}}
+    {{ $pinned := where .Site.RegularPages "Params.pinned" true | first 5 }}
+    {{ if $pinned }}
+      <label for="pinned" class="nav__label">
         <i class="bi bi-pin-angle-fill"></i>
         <span>Pinned</span>
-      </h4>
-
-      <ul class="nav__list">
+      </label>
+      <ul class="nav__list" id="pinned">
         {{ range $pinned }}
-        <li class="nav__item">
-          <a 
-            href="{{ .RelPermalink }}"
-            class="nav__link nav__link--pinned">
-            {{ .Title }}
-          </a>
-        </li>
+          <li class="nav__item">
+            <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+          </li>
         {{ end }}
       </ul>
-    </nav>
-  {{ end }}
+    {{ end }}
 
-  {{ $recent := .Site.RegularPages | first 5 }}
-  {{ if $recent }}
-    <nav class="nav">
-      <h4 class="nav__label">
+    {{/* Recent Changes Section */}}
+    {{ $recent := .Site.RegularPages | first 5 }}
+    {{ if $recent }}
+      <label for="recentChange" class="nav__label">
         <i class="bi bi-clock-history"></i>
         <span>Recent Changes</span>
-      </h4>
-
-      <ul class="nav__list">
+      </label>
+      <ul class="nav__list" id="recentChange">
         {{ range $recent }}
-        <li class="nav__item">
-          <a 
-            href="{{ .RelPermalink }}"
-            class="nav__link nav__link--pinned">
-            {{ .Title }}
-          </a>
-        </li>
+          <li class="nav__item">
+            <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+          </li>
         {{ end }}
       </ul>
-    </nav>
-  {{ end }}
-{{ end }}
+    {{ end }}
 
-<!-- Start of Selection -->
-{{ if .IsPage }}
-  {{ if .Params.tags }}
-  <nav class="nav">
-    <h4 class="nav__label">
-      <i class="bi bi-tags"></i>
-      <span>Tags</span>
-    </h4>
-    <ul class="nav__list">
-      {{ range .Params.tags }}
-      <li class="nav__item">
-        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="nav__link nav__link--pinned">
-          {{ . }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
-  </nav>
-  {{ end }}
-
-  {{ if .Params.categories }}
-  <nav class="nav">
-    <h4 class="nav__label">
-      <i class="bi bi-grid"></i>
-      <span>Categories</span>
-    </h4>
-    <ul class="nav__list">
-      {{ range .Params.categories }}
-      <li class="nav__item">
-        <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}" class="nav__link nav__link--pinned">
-          {{ . }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
-  </nav>
-  {{ end }}
-{{ else }}
+  {{/* Top Tags Section */}}
   {{ $tags := .Site.Taxonomies.tags }}
-  {{ $categories := .Site.Taxonomies.categories }}
-
   {{ $topTags := $tags.ByCount | first 5 }}
-  {{ $topCategories := $categories.ByCount | first 5 }}
-
-  <nav class="nav">
-    <h4 class="nav__label">
+    <label for="topTags" class="nav__label">
       <i class="bi bi-tags"></i>
       <span>Top Tags</span>
-    </h4>
-    <ul class="nav__list">
+    </label>
+    <ul class="nav__list" id="topTags">
       {{ range $topTags }}
-      <li class="nav__item">
-        <a href="{{ .Page.Permalink }}" class="nav__link nav__link--pinned">
-          {{ .Term }} ({{ .Count }})
-        </a>
-      </li>
+        <li class="nav__item">
+          <a href="{{ .Page.Permalink }}" class="nav__link nav__link--flex">
+            <span>{{ .Term }}</span>
+            <span>({{ .Count }})</span>
+          </a>
+        </li>
       {{ end }}
     </ul>
-  </nav>
-
-  <nav class="nav">
-    <h4 class="nav__label">
+  {{/* Top Categories Section */}}
+  {{ $categories := .Site.Taxonomies.categories }}
+  {{ $topCategories := $categories.ByCount | first 5 }}
+    <label for="topCategories" class="nav__label">
       <i class="bi bi-grid"></i>
       <span>Top Categories</span>
-    </h4>
-    <ul class="nav__list">
+    </label>
+    <ul class="nav__list" id="topCategories">
       {{ range $topCategories }}
-      <li class="nav__item">
-        <a href="{{ .Page.Permalink }}" class="nav__link nav__link--pinned">
-          {{ .Term }} ({{ .Count }})
-        </a>
-      </li>
+        <li class="nav__item">
+          <a href="{{ .Page.Permalink }}" class="nav__link nav__link--flex">
+            <span>{{ .Term }}</span>
+            <span>({{ .Count }})</span>
+          </a>
+        </li>
       {{ end }}
     </ul>
-  </nav>
-{{ end }}
-<!-- End of Selection -->
+  {{ end }}
+</nav>
