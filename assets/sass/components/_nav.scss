@@ -33,7 +33,7 @@
     display: block;
     background: none;
     border: none;
-    color: var(--color-accent-first);
+    color:var(--color-text-first);
     padding: 0.25rem 1rem;
 
     font-weight: v.$font__weight--semi-bold;
@@ -51,6 +51,7 @@
       border-top-color: var(--color-border);
       border-bottom-color: var(--color-border);
       color:var(--color-text-first);
+      background-color: var(--color-accent-first);
 
       @include m.shadow(md);
       @include m.text-shadow(lg);

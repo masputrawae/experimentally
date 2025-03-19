@@ -30,17 +30,32 @@
 //=======================// SHADOW & TEXT SHADOW//=======================//
 @mixin shadow($size: 'sm') {
   @if $size == 'sm' {
-    box-shadow: inset 0 1px 1px 0 v.$shadow__color--sm, 0 1px 1px 0 v.$shadow__color--sm;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   } @else if $size == 'md' {
-    box-shadow: inset 0 1px 2px 0 v.$shadow__color--md, 0 2px 3px -1px v.$shadow__color--md, 0 1px 2px -1px v.$shadow__color--md;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   } @else if $size == 'lg' {
-    box-shadow: inset 0 2px 3px 0 v.$shadow__color--lg, 0 4px 6px -2px v.$shadow__color--lg, 0 2px 3px -1px v.$shadow__color--lg;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   } @else if $size == 'xl' {
-    box-shadow: inset 0 3px 4px 0 v.$shadow__color--xl, 0 6px 8px -2px v.$shadow__color--xl, 0 3px 4px -1px v.$shadow__color--xl;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   } @else if $size == 'xxl' {
-    box-shadow: inset 0 4px 6px 0 v.$shadow__color--2xl, 0 8px 12px -3px v.$shadow__color--2xl;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
   }
 }
+
+@mixin inset-shadow($size: 'sm') {
+  @if $size == 'sm' {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  } @else if $size == 'md' {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  } @else if $size == 'lg' {
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+  } @else if $size == 'xl' {
+    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.25);
+  } @else if $size == 'xxl' {
+    box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
 @mixin text-shadow($size: 'sm') {
   @if $size == 'sm' {
     text-shadow: 0 1px 2px v.$shadow__color--sm;
