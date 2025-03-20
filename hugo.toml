@@ -52,15 +52,21 @@ title        = 'My Notes'
 
 [[menus.main]]
   name    = 'About'
-  pageRef = '/About'
+  pageRef = '/about'
   pre     = "<i class='bi bi-person'></i>"
   weight  = 20
 
 [[menus.main]]
   name    = 'Projects'
-  pageRef = '/Projects'
+  pageRef = '/projects'
   pre     = "<i class='bi bi-folder'></i>"
   weight  = 30
+
+[[menus.main]]
+  name    = 'Content'
+  pageRef = '/notes'
+  pre     = "<i class='bi bi-journal-bookmark-fill'></i>"
+  weight  = 40
 
 [[menus.main]]
   name    = 'Categories'
@@ -119,3 +125,7 @@ title        = 'My Notes'
 
 [outputs]
   home = ["HTML", "search"]
+
+[pagination]
+  disableAliases = false
+  pagerSize = 6

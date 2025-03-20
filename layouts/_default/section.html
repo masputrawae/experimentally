@@ -1,12 +1,53 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  <ul>
-    {{ range .Pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
-      </li>
-    {{ end }}
-  </ul>
+<main class="main">
+  {{ $pages := where site.RegularPages "Type" "notes" }}
+  {{ $paginator := .Paginate $pages }}
+  <section class="u-container">
+    <h1 class="main__title">{{ .Title }}</h1>
+
+    <div class="featured-list">
+      {{ range $paginator.Pages }}
+        <article class="featured">
+          <a href="{{ .RelPermalink }}">
+            <div class="featured__header">
+              <img src="{{ .Params.image | default "https://picsum.photos/1080/720" | relURL }}" alt="{{ .LinkTitle }}" loading="lazy">
+            </div>
+            <div class="featured__body">
+              <h2>{{ .LinkTitle }}</h2>
+              <p>{{ .Params.description }}</p>
+              <div class="featured__meta">
+                {{ if .Params.date }}
+                  <small>
+                    <i class="bi bi-calendar4"></i>
+                    <span>{{ .Params.date.Format "02 Jan 2006" }}</span>
+                  </small>
+                {{ end }}
+                {{ if .Params.pinned }}
+                  <small>
+                    <i class="bi bi-pin"></i>
+                    <span>Pinned</span>
+                  </small>
+                {{ end }}
+                {{ if .Params.status }}
+                  <small>
+                    <i class="bi bi-kanban"></i>
+                    <span>{{ .Params.status }}</span>
+                  </small>
+                {{ end }}
+                {{ if .Params.last_modified }}
+                  <small>
+                    <i class="bi bi-clock"></i>
+                    <span>{{ time.Format "02 Jan 2006" .Params.last_modified }}</span>
+                  </small>
+                {{ end }}
+              </div>
+            </div>
+          </a>
+        </article>
+      {{ end }}
+    </div>
+
+    {{ template "_internal/pagination.html" . }}
+  </section>
+</main>
 {{ end }}
