@@ -1,60 +1,97 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
 
+// Navigation container
 .nav {
-
+  
+  // Label styling
   &__label {
+    display: block;
+    padding: 0.5rem;
+    font-size: v.$font__size--xs;
     border: 1px solid var(--color-border);
     border-left: none;
     border-right: none;
-    display: block;
-
-    font-size: v.$font__size--lg;
-    font-weight: v.$font__weight--semi-bold;
-
     background-color: var(--color-bg-second);
-    margin-block: 0.5rem;
-    padding: 0.5rem;
-
-    @include m.shadow(md);
-    @include m.text-shadow(lg);
   }
 
+  // List container
   &__list {
     list-style: none;
-    padding-inline: 1rem;
+    padding-block: 1rem;
+
+    &--toc {
+      padding: 0 0 0 0.75rem;
+      margin: 0 0 0 0.5rem;
+      border-left: 1px solid var(--color-border);
+
+      .nav__item {
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav__link {
+        font-weight: v.$font__weight--normal;
+        padding: 0.25rem;
+        @include m.text-ellipsis();
+      }
+    }
   }
 
+  // Individual list item
   &__item {
-    margin-block: 0.25rem;
+    padding-block: 0.2rem;
   }
 
+  // Navigation link
   &__link {
-    display: block;
-    background: none;
-    border: none;
-    color:var(--color-text-first);
-    padding: 0.25rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-second);
+    font-weight: v.$font__weight--medium;
+    font-size: v.$font__size--xs;
+    padding: 0.5rem 1rem;
+    @include m.transition(color, background-color);
 
-    font-weight: v.$font__weight--semi-bold;
-    font-size: v.$font__size--sm;
+    // Menu link variant
+    &--menu {
+      gap: 1.5rem;
+      text-transform: uppercase;
+    }
 
-    border: 1px solid var(--color-border);
-    border-top-color: transparent;
-    border-bottom-color: transparent;
+    &--between {
+      justify-content: space-between;
+    }
 
-    cursor: pointer;
+    // Text span
+    span {
+      @include m.text-ellipsis();
+    }
 
-    @include m.text-ellipsis();
-    @include m.transition(background-color, border-radius, color, box-shadow, text-shadow);
-    &--active, &--ancestor, &:is(:hover, :active, :focus-visible) {
-      border-top-color: var(--color-border);
-      border-bottom-color: var(--color-border);
-      color:var(--color-text-first);
-      background-color: var(--color-accent-first);
+    // Icon styling
+    .bi {
+      @include m.flex-center();
+      background-color: var(--color-bg-second);
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--color-border);
+      font-size: v.$font__size--lg;
+      @include m.transition(color, background-color);
+    }
 
-      @include m.shadow(md);
-      @include m.text-shadow(lg);
+    // Hover, active, and focus states
+    &:is(:hover, :active, :focus-visible),
+    &--active,
+    &--ancestor {
+      background-color: var(--color-bg-third);
+      color: var(--color-text-first);
+
+      .bi {
+        background-color: var(--color-accent-first);
+        border-color: var(--color-text-first);
+        color: #fff;
+      }
     }
   }
 }

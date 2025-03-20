@@ -1,4 +1,22 @@
 <footer class="footer">
+  <nav class="nav nav--footer">
+    <label class="nav__label" for="mediaSocial">
+      <i class="bi bi-globe2"></i>
+      <span>Social Media</span>
+    </label>
+    <ul class="nav__list" id="mediaSocial">
+      {{- with site.Params.social }}
+        {{- range $key, $value := . }}
+          <li class="nav__item">
+            <a href="{{ $value.url }}" class="nav__link" title="{{ $value.name }}" aria-label="Go to {{ $value.name }}" rel="noopener noreferrer" target="_blank">
+                <i class="bi {{ $value.icon }}"></i>
+                <span>{{ $value.name }}</span>
+            </a>
+          </li>
+        {{- end }}
+      {{- end }}
+    </ul>
+  </nav>
   <p class="footer__content">
     <span>Made with ♥️ using </span>
     <a 

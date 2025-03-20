@@ -1,3 +1,9 @@
 {{ define "main" }}
-{{ .Content }}
+<main class="main">
+  <section class="u-container">
+    <article class="main__content markdown">
+      {{ .Content | safeHTML }}
+    </article>
+  </section>
+</main>
 {{ end }}

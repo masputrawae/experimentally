@@ -6,12 +6,12 @@ title        = 'My Notes'
 #===================# PARAMETERS #===================#
 [params]
   [params.author]
-    name     = "John Doe"
-    subtitle = "Designer"
-    logo     = "https://randomuser.me/api/portraits/men/75.jpg"
-    tagline  = "Pariatur duis esse sunt pariatur adipisicing."
-    email    = "john.doe@example.com"
-    phone    = "+1-234-567-8901"
+    name          = "John Doe"
+    tagline       = "Designer"
+    logo          = "https://randomuser.me/api/portraits/men/75.jpg"
+    description   = "Pariatur duis esse sunt pariatur adipisicing."
+    email         = "john.doe@example.com"
+    phone         = "+1-234-567-8901"
 
   [params.cta]
     [[params.cta.buttons]]
@@ -61,12 +61,6 @@ title        = 'My Notes'
   pageRef = '/Projects'
   pre     = "<i class='bi bi-folder'></i>"
   weight  = 30
-
-[[menus.main]]
-  name    = 'Notes'
-  pageRef = '/notes'
-  pre     = "<i class='bi bi-journal-text'></i>"
-  weight  = 40
 
 [[menus.main]]
   name    = 'Categories'

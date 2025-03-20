@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 body {
   color: var(--color-text-second);
@@ -8,14 +9,18 @@ body {
   font-family: v.$font__family;
   font-size: v.$font__size--default;
   font-weight: v.$font__weight--light;
+  @include m.max(md){
+    font-size: v.$font__size--xs;
+  }
 }
 
 :is(h1, h2, h3, h4, h5, h6){
   font-weight: v.$font__weight--medium;
   color: var(--color-text-first);
+  letter-spacing: 0.02em;
 }
 
-:is(strong, b) {
+:is(strong, b, label) {
   font-weight: v.$font__weight--bold;
   color: var(--color-text-first);
 }
@@ -26,3 +31,131 @@ h3 {font-size: v.$font__size--3xl;}
 h4 {font-size: v.$font__size--2xl;}
 h5 {font-size: v.$font__size--xl;}
 h6 {font-size: v.$font__size--lg;}
+
+.markdown{
+  line-height: 1.6;
+
+  // |===========| Spacing & Layout |===========| //
+  :is(p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {margin-block: 2rem;}
+  :is(h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p) {margin-block: 1rem;}
+  :is(h1, h2, h3, h4, h5, h6) + p { margin-block: 2rem;}
+  p + p {margin-block: 1rem;}  
+
+  // |===========| Text Formatting |===========| //
+  :is(p, span) :is(strong, b) { font-weight: v.$font__weight--bold; }
+  p {
+    max-width: 70ch;
+    letter-spacing: 0.001em;
+  }
+
+  // |===========| Headings |===========| //
+  :is(h1, h2, h3, h4, h5, h6){
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    margin-block: 1rem;
+    border:1px solid transparent;
+
+    @include m.transition(background-color, border-color, padding);
+
+    &:hover {
+      background-color: var(--color-bg-second);
+      border-color: var(--color-border);
+      padding: 0.5rem;
+    }
+  }
+
+  h1{ line-height: 28px; letter-spacing: 0em; }
+  h2{ line-height: 28px; letter-spacing: 0em; }
+  h3{ line-height: 28px; letter-spacing: 0.001em; }
+  h4{ line-height: 28px; letter-spacing: 0.001em; }
+  h5{ line-height: 28px; letter-spacing: 0.002em; }
+  h6{ line-height: 32px; letter-spacing: 0.002em; }
+
+  // |===========| Form Elements |===========| //
+  label, figcaption, input {
+    font-size: v.$font__size--xs;
+    line-height: 20px;
+    font-weight: v.$font__weight--medium;
+    letter-spacing: 0.086em;
+  }
+
+  // |===========| Dividers |===========| //
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-border);
+    margin-block: 2rem;
+  }
+
+  // |===========| Lists |===========| //
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+
+  // |===========| Links |===========| //
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-accent-second);
+    }
+
+    &:active {
+      color: var(--color-accent-third);
+    }
+  }
+
+  // |===========| Tables |===========| //
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    border: 1px solid var(--color-border);
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid var(--color-border);
+    }
+
+    th {
+      background-color: var(--color-bg-second);
+      font-weight: v.$font__weight--medium;
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: var(--color-bg-first);
+      }
+
+      &:hover {
+        background-color: var(--color-bg-second);
+        color: var(--color-text-first);
+      }
+    }
+  }
+
+  // |===========| Definition Lists |===========| //
+  dl {
+    margin-block: 1rem;
+
+    dt {
+      font-weight: v.$font__weight--medium;
+      margin-top: 0.5rem;
+    }
+
+    dd {
+      margin-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-first);
+    }
+  }
+}

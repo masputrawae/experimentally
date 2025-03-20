@@ -7,9 +7,13 @@
     <a href="{{ site.BaseURL | relURL }}" class="brand">
       <img class="brand__logo" src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
       <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+      <p class="brand__description">{{ site.Params.author.description }}</p>
     </a>
 
     <div class="header__button">
+      <button class="btn btn--icon" id="switchTheme" title="Switch Theme" aria-label="Switch Theme">
+        <i class="bi bi-moon-stars"></i>
+      </button>
       <button class="btn btn--icon" data-offcanvas-toggle="leftSide"title="Close Sidebar"aria-label="Button to close the Sidebar">
           <i class="bi bi-x"></i>
       </button>
@@ -19,36 +23,8 @@
 
   <!-- |===========| START: Navigation Menu Section |===========| -->
   <nav class="nav">
-    <label class="nav__label" for="mainMenu">
-      <i class="bi bi-menu-button-wide"></i>
-      <span>Main Menu</span>
-    </label>
     <ul class="nav__list" id="mainMenu">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-
-    <label class="nav__label" for="mediaSocial">
-      <i class="bi bi-globe2"></i>
-      <span>Social Media</span>
-    </label>
-    <ul class="nav__list" id="mediaSocial">
-      {{- with site.Params.social }}
-        {{- range $key, $value := . }}
-          <li class="nav__item">
-            <a href="{{ $value.url }}" class="nav__link" title="{{ $value.name }}" aria-label="Go to {{ $value.name }}" rel="noopener noreferrer" target="_blank">
-                <i class="bi {{ $value.icon }}"></i>
-                <span>{{ $value.name }}</span>
-            </a>
-          </li>
-        {{- end }}
-      {{- end }}
-
-      <li class="nav__item">
-        <a href="javascript:void(0);" role="button" class="nav__link"  id="switchTheme" title="Switch Theme" aria-label="Switch Theme" onclick="event.preventDefault();">
-            <i class="bi bi-moon-stars"></i>
-            <span>Switch Themes</span>
-        </a>
-      </li>
     </ul>
   </nav>
   <!-- |===========| END: Navigation Menu Section |===========| -->
@@ -57,11 +33,11 @@
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL "class" "nav__link" }}
+    {{- $attrs := dict "href" .URL "class" "nav__link nav__link--flex nav__link--menu" }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--active nav__link--flex nav__link--menu" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--ancestor nav__link--flex nav__link--menu" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}

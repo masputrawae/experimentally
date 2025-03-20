@@ -1,2 +1,23 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+
+@include m.min(lg){
+  .btn[data-offcanvas-toggle]{
+    display: none;
+  }
+}
+
+.btn {
+  display: block;
+  padding: 0.5rem;
+  background-color: var(--color-bg-second);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  color: var(--color-text-frist);
+
+  &--icon {
+    .bi {
+      @include m.flex-center();
+    }
+  }
+}
