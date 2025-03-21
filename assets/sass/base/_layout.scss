@@ -22,30 +22,36 @@ body {
   min-height: 100dvh;
   position: relative;
   @include m.transition(color, background-color);
-  
-  &::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100dvh;
-    z-index: -1;
-    background-image: var(--bg-img);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    @include m.transition(background-image);
-  }
+  background-color: var(--color-bg-first);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+
+// |===========| Background |===========| //
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: -1;
+  background-image: var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include m.transition(background-image);
+  filter: brightness(90%);
+}
+
 // |===========| LAYOUTS GRID |======= ====| //
 .layout {
+  height: 100dvh;
   display: grid;
   grid:
     "left top top" auto
     "left center right" 1fr
     "left bottom right" auto / 
-    250px 1fr 250px;
+    280px 1fr 280px;
 
   &__left,
   &__right { 
@@ -61,4 +67,32 @@ body {
   &__center { grid-area: center; }
   &__bottom { grid-area: bottom; }
   &__right { grid-area: right; }
+
+  @include m.max(lg){
+    grid:
+    "top" auto
+    "center" 1fr
+    "bottom" auto / 
+    1fr;
+
+    &__left,
+    &__right {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      max-width: 100%;
+
+      scale: 0;
+      opacity: 0;
+      visibility: hidden;
+
+      &.is-open {
+        scale: 1;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 }

@@ -15,8 +15,8 @@
   <nav class="panel__content">
 
     <!-- |===========| START: RESULTS |===========| -->
-    <div class="panel__nav">
-      <label class="panel__label" for="results" style="display: none;">
+    <div class="panel__nav" id="resultsPanel" style="display: none;">
+      <label class="panel__label" for="results">
         <i class="bi bi-search"></i>
         <span>Results</span>
       </label>
@@ -32,7 +32,7 @@
         <span>Table of Contents</span>
       </label>
       {{ $toc := .TableOfContents }}
-      {{ $toc := replaceRE `<ul>` `<ul class="panel__list" id="toc">` $toc }}
+      {{ $toc := replaceRE `<ul>` `<ul class="panel__list panel__list--toc" id="toc">` $toc }}
       {{ $toc := replaceRE `<li>` `<li class="panel__item">` $toc }}
       {{ $toc := replaceRE `<a href=` `<a class="panel__link" href=` $toc }}
       {{ $toc | safeHTML }}

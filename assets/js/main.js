@@ -78,22 +78,23 @@ const Theme = (() => {
 // TOC Module
 const TOC = (() => {
     const init = () => {
-        const toc = document.querySelector('.nav__list--toc');
+        const toc = document.querySelector('.panel__list--toc');
         if (toc) highlightTOC();
     };
 
     const highlightTOC = () => {
-        const tocLinks = document.querySelectorAll('.nav__list--toc .nav__link');
-        const mainContent = document.querySelector('.layout__main');
-        const headings = Array.from(tocLinks).map(link => 
-            document.getElementById(link.getAttribute('href').substring(1))
-        );
+        const tocLinks = document.querySelectorAll('.panel__list--toc .panel__link');
+        const mainContent = document.documentElement; // Changed from body to documentElement
+        const headings = Array.from(tocLinks).map(link => {
+            const href = link.getAttribute('href');
+            return href ? document.getElementById(href.substring(1)) : null;
+        }).filter(Boolean); // Filter out null values
 
         const updateActiveLink = () => {
-            const scrollPosition = mainContent.scrollTop + 100;
+            const scrollPosition = window.scrollY + 100; // Use window.scrollY instead of mainContent.scrollTop
             const activeIndex = findActiveHeadingIndex(headings, scrollPosition);
             tocLinks.forEach((link, index) => 
-                link.classList.toggle('nav__link--active', index === activeIndex)
+                link.classList.toggle('panel__link--active', index === activeIndex)
             );
         };
 
@@ -101,24 +102,48 @@ const TOC = (() => {
             for (let i = headings.length - 1; i >= 0; i--) {
                 if (headings[i]?.offsetTop <= scrollPosition) return i;
             }
-            return 0;
+            return -1; // Return -1 if no heading is active
         };
 
         const handleTOCClick = (e) => {
             e.preventDefault();
-            const targetId = e.currentTarget.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const offset = 10;
-                mainContent.scrollTo({
-                    top: targetElement.offsetTop - offset,
-                    behavior: 'smooth'
-                });
+            const targetId = e.currentTarget.getAttribute('href')?.substring(1);
+            if (targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offset = 100; // Increased offset for better visibility
+                    window.scrollTo({
+                        top: targetElement.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
             }
         };
 
+        // Add throttling to scroll event
+        const throttle = (func, limit) => {
+            let lastFunc;
+            let lastRan;
+            return function() {
+                const context = this;
+                const args = arguments;
+                if (!lastRan) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                } else {
+                    clearTimeout(lastFunc);
+                    lastFunc = setTimeout(function() {
+                        if ((Date.now() - lastRan) >= limit) {
+                            func.apply(context, args);
+                            lastRan = Date.now();
+                        }
+                    }, limit - (Date.now() - lastRan));
+                }
+            };
+        };
+
         updateActiveLink();
-        mainContent.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('scroll', throttle(updateActiveLink, 100)); // Throttled scroll event
         tocLinks.forEach(link => link.addEventListener('click', handleTOCClick));
     };
 

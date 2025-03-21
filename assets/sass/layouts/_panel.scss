@@ -1,2 +1,92 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+
+.panel,
+.panel__content {
+  display: grid;
+  gap: 1rem;
+} 
+
+.panel {
+  border-radius: 0.5rem;
+  &__nav, &__header {
+    @include m.shadow(xl);
+    background-color: var(--color-bg-second);
+    border: 3px solid var(--color-bg-first);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+  }
+
+  &__header {
+    @include m.flex-center();
+    gap: 1rem;
+    overflow: hidden;
+
+    .search {
+      @include m.flex-center();
+      gap: 0.5rem;
+      border: 1px solid var(--color-accent-first);
+      border-radius: 0.25rem;
+      padding: 0.25rem 1rem;
+
+      &__input {
+        width: 100%;
+        border: none;
+        color: var(--color-accent-first);
+        outline: none;
+      }
+    }
+
+    .btn[data-offcanvas-toggle]{
+      display: none;
+      @include m.max(lg){
+        display: block;
+      }
+    }
+  }
+
+  &__label {
+    font-size: v.$font__size--lg;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0.75rem 0rem;
+  }
+
+  &__item {
+    padding-block: 0.25rem;
+  }
+
+  &__link {
+    @include m.text-ellipsis();
+    @include m.shadow-glow(sm);
+    @include m.text-shadow(md);
+    @include m.transition(color, border-color, box-shadow, text-shadow, background-color);
+
+    display: block;
+    font-size: v.$font__size--xxs;
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    color: var(--color-text-first);
+    cursor: pointer;
+    font-weight: v.$font__weight--medium;
+    padding: 0.25rem 1rem;
+    
+    &--active,
+    &:is(:hover, :active, :focus-visible) {
+      @include m.text-shadow(xl);
+      @include m.shadow-glow(md);
+
+      border-color: var(--color-accent-second);
+      color: var(--color-accent-second);
+      outline: none;
+    }
+  }
+
+  @include m.max(lg){
+    background-color: var(--color-bg-second);
+  }
+}

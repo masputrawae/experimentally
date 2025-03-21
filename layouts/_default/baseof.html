@@ -4,8 +4,11 @@
     {{ partial "head.html" . }}
   </head>
   <body>
+    
+    <div class="bg"></div>
+
     <div class="layout">
-      <div class="layout__left">
+      <div class="layout__left" id="leftSide">
         {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
       </div>
       <div class="layout__top">
@@ -17,7 +20,7 @@
       <div class="layout__bottom">
         {{ partial "footer.html" . }}
       </div>
-      <div class="layout__right">
+      <div class="layout__right" id="rightSide">
         {{ partial "right-side.html" . }}
       </div>
     </div>

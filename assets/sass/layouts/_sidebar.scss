@@ -14,9 +14,18 @@
   &__header { padding-top: 1.5rem }
 
   .btn[data-offcanvas-toggle] {
-    position: absolute;
-    right: 0;
-    top: 0;
+    visibility: hidden;
+
+    @include m.max(lg){
+      visibility: visible;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  @include m.max(lg){
+    background-color: var(--color-bg-third);
   }
 }
 
@@ -73,7 +82,7 @@
 
     &--active,
     &--ancestor,
-    &:is(:hover, :active, &:focus-visible) {
+    &:is(:hover, :active, :focus-visible) {
       @include m.text-shadow(xl);
       background-color: var(--color-bg-first);
     }

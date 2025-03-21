@@ -1,2 +1,30 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+
+.btn {
+  @include m.shadow-glow(sm);
+  @include m.transition(background-color, border-color, box-shadow, color);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  background-color: var(--color-bg-first);
+  padding: 0.5rem;
+  color: var(--color-text-first);
+  cursor: pointer;
+  
+  &:is(:hover, :active, :focus-visible) {
+    @include m.shadow-glow(lg);
+    background-color: var(--color-bg-second);
+    border-color: var(--color-accent-first);
+    color: var(--color-accent-first);
+    outline: none;
+  }
+  
+  &--icon {
+    @include m.flex-center;
+    gap: 0.5rem;
+    
+    .bi {
+      @include m.flex-center;
+    }
+  }
+}

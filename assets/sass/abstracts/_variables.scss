@@ -32,6 +32,7 @@ $font__family--monospace: 'JetBrains Mono', 'Fira Code', monospace;
 $font__size--default          : 16px;       // Basic size
 $scale-ratio                  : 1.067;      // Minor Second
 
+$font__size--xxs              : scale(-3);
 $font__size--xs               : scale(-2);
 $font__size--sm               : scale(-1);
 $font__size--md               : scale(0);   // ~16px (default)

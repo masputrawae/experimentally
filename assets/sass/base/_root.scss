@@ -5,8 +5,8 @@
   // Light theme colors
   --bg-img: url("../background/bg-light.svg");
   --color-bg-first: rgba(255, 255, 255, 0.5);
-  --color-bg-second: #e5e7eb;
-  --color-bg-third: #d1d5db;
+  --color-bg-second: rgba(255, 255, 255, 0.8);
+  --color-bg-third: rgba(209, 213, 219, 0.9);
 
   --color-text-first: #111827;
   --color-text-second: #374151;
@@ -22,8 +22,8 @@
     // Dark theme colors
     --bg-img: url("../background/bg-dark.svg");
     --color-bg-first: rgba(17, 24, 39, 0.5);
-    --color-bg-second: #1f2937;
-    --color-bg-third: #374151;
+    --color-bg-second: rgba(17, 24, 39, 0.8);
+    --color-bg-third: rgba(17, 24, 39, 0.95);
 
     --color-text-first: #f9fafb;
     --color-text-second: #d1d5db;
