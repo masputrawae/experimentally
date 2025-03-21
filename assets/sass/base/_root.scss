@@ -3,8 +3,8 @@
 
 :root {
   // Light theme colors
-  --color-bg-body: #f9fafb;
-  --color-bg-first: #f3f4f6;
+  --bg-img: url("../background/bg-light.svg");
+  --color-bg-first: rgba(255, 255, 255, 0.5);
   --color-bg-second: #e5e7eb;
   --color-bg-third: #d1d5db;
 
@@ -12,16 +12,16 @@
   --color-text-second: #374151;
   --color-text-third: #4b5563;
 
-  --color-accent-first: #1d4ed8;
-  --color-accent-second: #2563eb;
-  --color-accent-third: #3b82f6;
+  --color-accent-first: #1e90ff;
+  --color-accent-second: #0077ff;
+  --color-accent-third: #0057b8;
 
   --color-border: #e5e7eb;
 
   &[data-theme=dark] {
     // Dark theme colors
-    --color-bg-body: #030712;
-    --color-bg-first: #111827;
+    --bg-img: url("../background/bg-dark.svg");
+    --color-bg-first: rgba(17, 24, 39, 0.5);
     --color-bg-second: #1f2937;
     --color-bg-third: #374151;
 
@@ -29,9 +29,9 @@
     --color-text-second: #d1d5db;
     --color-text-third: #9ca3af;
 
-    --color-accent-first: #9333ea;
-    --color-accent-second: #a855f7;
-    --color-accent-third: #c084fc; 
+    --color-accent-first: #60a5fa;
+    --color-accent-second: #3b82f6;
+    --color-accent-third: #2563eb;
     
     --color-border: #374151;
   }

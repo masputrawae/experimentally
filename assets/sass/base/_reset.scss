@@ -11,7 +11,6 @@
 
 html, body {
   scroll-behavior: smooth;
-  @include m.transition(color, background-color);
 }
 
 body {

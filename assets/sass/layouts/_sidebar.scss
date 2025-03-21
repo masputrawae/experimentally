@@ -1,0 +1,94 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.sidebar {
+  @include m.shadow(xl);
+  background-color: var(--color-bg-first);
+  border: 3px solid var(--color-bg-first);
+  border-radius: 0.25rem;
+  height: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+
+  &__header { padding-top: 1.5rem }
+
+  .btn[data-offcanvas-toggle] {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.brand {
+  @include m.flex-center;
+  flex-direction: column;
+  text-align: center;
+
+  &__logo {
+    @include m.shadow(md);
+    @include m.transition(box-shadow);
+    border: 3px solid var(--color-accent-first);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+
+    &:hover { @include m.shadow-glow(md) }
+  }
+
+  &__title {
+    @include m.text-shadow(md);
+    font-size: v.$font__size--7xl;
+    font-weight: v.$font__weight--bold;
+  }
+
+  &__description {
+    @include m.text-shadow(md);
+    color: var(--color-text-second);
+    font-size: v.$font__size--xs;
+  }
+}
+
+.menu {
+  &__list {
+    list-style: none;
+    padding: 2rem 1rem;
+  }
+
+  &__item { padding-block: 0.25rem }
+
+  &__link {
+    @include m.shadow-glow(sm);
+    @include m.text-shadow(md);
+    @include m.transition(color, border-color, box-shadow, text-shadow, background-color);
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    color: var(--color-text-first);
+    cursor: pointer;
+    display: flex;
+    font-weight: v.$font__weight--semi-bold;
+    gap: 0.5rem;
+    padding: 0.25rem 1rem;
+
+    &--active,
+    &--ancestor,
+    &:is(:hover, :active, &:focus-visible) {
+      @include m.text-shadow(xl);
+      background-color: var(--color-bg-first);
+    }
+
+    &--active,
+    &--ancestor {
+      border-color: var(--color-accent-first);
+      color: var(--color-accent-first);
+    }
+
+    &:is(:hover, :active, &:focus-visible) {
+      @include m.shadow-glow(md);
+      border-color: var(--color-accent-second);
+      color: var(--color-accent-second);
+      outline: none;
+    }
+  }
+}

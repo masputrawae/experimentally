@@ -5,15 +5,19 @@
   </head>
   <body>
     <div class="layout">
-      <div class="layout__left" id="leftSide">
+      <div class="layout__left">
         {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
       </div>
-      <div class="layout__main">
+      <div class="layout__top">
         {{ partial "topbar.html" . }}
+      </div>
+      <div class="layout__center">
         {{ block "main" . }}{{ end }}
+      </div>
+      <div class="layout__bottom">
         {{ partial "footer.html" . }}
       </div>
-      <div class="layout__right" id="rightSide">
+      <div class="layout__right">
         {{ partial "right-side.html" . }}
       </div>
     </div>

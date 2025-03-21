@@ -1,136 +1,102 @@
-<header class="header header--right-side">
-  <form class="search" id="search" onsubmit="handleSearch(event)" method="get">
-    <i class="bi bi-search"></i>
-    <input class="search__input" type="search" id="search-input" name="query" placeholder="Search..." autocomplete="off" autocorrect="off" spellcheck="false" style="background: transparent;">
-  </form>
-
-  <div class="header__button">
+<aside class="panel">
+  <!-- |===========| START: HEADER PANEL |===========| -->
+  <header class="panel__header">
+    <form class="search" id="search" onsubmit="handleSearch(event)" method="get">
+      <i class="bi bi-search"></i>
+      <input class="search__input" type="search" id="search-input" name="query" placeholder="Search..." autocomplete="off" autocorrect="off" spellcheck="false" style="background: transparent;">
+    </form>
+  
     <button class="btn btn--icon" data-offcanvas-toggle="rightSide" title="Close Sidebar" aria-label="Button to close the Sidebar">
       <i class="bi bi-x"></i>
     </button>
-  </div>
-</header>
+  </header>
+  <!-- |===========| END: HEADER PANEL |===========| -->
+  <!-- |===========| START: CONTENT PANEL |===========| -->
+  <nav class="panel__content">
 
-<nav class="nav">
-  {{/* Search Results Section */}}
-  <label class="nav__label" for="results" style="display: none;">
-    <i class="bi bi-search"></i>
-    <span>Results</span>
-  </label>
-  <ul class="nav__list" id="results"></ul>
-
-  {{ if .IsPage }}
-    {{/* Table of Contents Section */}}
-
-    <label for="toc" class="nav__label">
-      <i class="bi bi-list-task"></i>
-      <span>Table of Contents</span>
-    </label>
-    {{ $toc := .TableOfContents }}
-    {{ $toc := replaceRE `<ul>` `<ul class="nav__list nav__list--toc" id="toc">` $toc }}
-    {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-    {{ $toc := replaceRE `<a href=` `<a class="nav__link" href=` $toc }}
-    <div id="tableOfContents">{{ $toc | safeHTML }}</div>
-
-    {{/* Related Content Section */}}
-
-    <label class="nav__label" for="relatedContent">
-      <i class="bi bi-folder-symlink"></i> Related Content
-    </label>
-
-    <ul class="nav__list" id="relatedContent">
-      {{ $related := .Site.RegularPages.Related . | first 5 }}
-      {{ if $related }}
-        {{ range $related }}
-          <li class="nav__item">
-            <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
-          </li>
-        {{ end }}
-      {{ else }}
-        <li class="nav__item">No related content found.</li>
-      {{ end }}
-    </ul>
-
-    {{/* Tags Section */}}
-    {{ if .Params.tags }}
-      <label for="tagList" class="nav__label">
-        <i class="bi bi-tags"></i>
-        <span>Tags</span>
+    <!-- |===========| START: RESULTS |===========| -->
+    <div class="panel__nav">
+      <label class="panel__label" for="results" style="display: none;">
+        <i class="bi bi-search"></i>
+        <span>Results</span>
       </label>
-      <ul class="nav__list" id="tagList">
-        {{ range .Params.tags }}
-          <li class="nav__item">
-            <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="nav__link">{{ . }}</a>
-          </li>
+      <ul class="panel__list" id="results"></ul>
+    </div>
+    <!-- |===========| END: RESULTS |===========| -->
+
+    {{ if .IsPage }}
+    <!-- |===========| START: TABLE OF CONTENT |===========| -->
+    <div class="panel__nav">
+      <label for="panel__label" class="nav__label">
+        <i class="bi bi-list-task"></i>
+        <span>Table of Contents</span>
+      </label>
+      {{ $toc := .TableOfContents }}
+      {{ $toc := replaceRE `<ul>` `<ul class="panel__list" id="toc">` $toc }}
+      {{ $toc := replaceRE `<li>` `<li class="panel__item">` $toc }}
+      {{ $toc := replaceRE `<a href=` `<a class="panel__link" href=` $toc }}
+      {{ $toc | safeHTML }}
+    </div>
+    <!-- |===========| END: TABLE OF CONTENT |===========| -->
+    <!-- |===========| START: RELATED POSTS |===========| -->
+    <div class="panel__nav">
+      <label class="panel__label" for="relatedContent">
+        <i class="bi bi-folder-symlink"></i>
+        <span>Related Content</span>
+      </label>
+      <ul class="panel__list" id="relatedContent">
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ if $related }}
+          {{ range $related }}
+            <li class="panel__item">
+              <a href="{{ .RelPermalink }}" class="panel__link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        {{ else }}
+          <li class="panel__item">No related content found.</li>
         {{ end }}
       </ul>
-    {{ end }}
-
-    {{/* Categories Section */}}
-    {{ if .Params.categories }}
-      <label for="categoriesList" class="nav__label">
-        <i class="bi bi-grid"></i>
-        <span>Categories</span>
-      </label>
-      <ul class="nav__list" id="categoriesList">
-        {{ range .Params.categories }}
-          <li class="nav__item">
-            <a href="{{ "categories/" | relLangURL }}{{ . | urlize }}" class="nav__link">{{ . }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    {{ end }}
-
-  {{ else }}
-    {{/* Recent Changes Section */}}
-    {{ $recent := .Site.RegularPages | first 5 }}
-    {{ if $recent }}
-      <label for="recentChange" class="nav__label">
+    </div>
+    <!-- |===========| END: RELATED POSTS |===========| -->
+    {{ else }}
+    <!-- |===========| START: RECENT CHANGE |===========| -->
+    <div class="panel__nav">
+      <label for="recentChange" class="panel__label">
         <i class="bi bi-clock-history"></i>
         <span>Recent Changes</span>
       </label>
-      <ul class="nav__list" id="recentChange">
-        {{ range $recent }}
-          <li class="nav__item">
-            <a href="{{ .RelPermalink }}" class="nav__link">{{ .Title }}</a>
+      {{ $recent := .Site.RegularPages | first 5 }}
+      {{ if $recent }}
+        <ul class="panel__list" id="recentChange">
+          {{ range $recent }}
+            <li class="panel__item">
+              <a href="{{ .RelPermalink }}" class="panel__link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+    <!-- |===========| END: RECENT CHANGE |===========| -->
+    <!-- |===========| START: TOP TAGS |===========| -->
+    <div class="panel__nav">
+      <label for="topTags" class="panel__label">
+        <i class="bi bi-tags"></i>
+        <span>Top 5 Tags</span>
+      </label>
+      {{ $tags := .Site.Taxonomies.tags }}
+      {{ $topTags := $tags.ByCount | first 5 }}
+      <ul class="panel__list panel__list--top-tags" id="topTags">
+        {{ range $topTags }}
+          <li class="panel__item">
+            <a href="{{ .Page.Permalink }}" class="panel__link">
+              <span>{{ .Term }}</span>
+            </a>
           </li>
         {{ end }}
       </ul>
+    </div>
+    <!-- |===========| END: TOP TAGS |===========| -->
     {{ end }}
-
-  {{/* Top Tags Section */}}
-  {{ $tags := .Site.Taxonomies.tags }}
-  {{ $topTags := $tags.ByCount | first 5 }}
-    <label for="topTags" class="nav__label">
-      <i class="bi bi-tags"></i>
-      <span>Top Tags</span>
-    </label>
-    <ul class="nav__list" id="topTags">
-      {{ range $topTags }}
-        <li class="nav__item">
-          <a href="{{ .Page.Permalink }}" class="nav__link nav__link--between">
-            <span>{{ .Term }}</span>
-            <span>({{ .Count }})</span>
-          </a>
-        </li>
-      {{ end }}
-    </ul>
-  {{/* Top Categories Section */}}
-  {{ $categories := .Site.Taxonomies.categories }}
-  {{ $topCategories := $categories.ByCount | first 5 }}
-    <label for="topCategories" class="nav__label">
-      <i class="bi bi-grid"></i>
-      <span>Top Categories</span>
-    </label>
-    <ul class="nav__list" id="topCategories">
-      {{ range $topCategories }}
-        <li class="nav__item">
-          <a href="{{ .Page.Permalink }}" class="nav__link nav__link--between">
-            <span>{{ .Term | title }}</span>
-            <span>({{ .Count }})</span>
-          </a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ end }}
-</nav>
+  </nav>
+  <!-- |===========| END: CONTENT PANEL |===========| -->
+</aside>
