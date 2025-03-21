@@ -156,3 +156,17 @@ document.addEventListener('DOMContentLoaded', () => {
     Theme.init();
     TOC.init();
 });
+
+// ============================ COPY DATA-LANG ============================
+const updateDataLang = () => {
+    document.querySelectorAll(".highlight pre code[data-lang]").forEach(code => {
+        const highlightDiv = code.closest(".highlight");
+        if (highlightDiv && !highlightDiv.hasAttribute("data-lang")) {
+            highlightDiv.setAttribute("data-lang", code.getAttribute("data-lang"));
+        }
+    });
+};
+
+updateDataLang();
+const observer = new MutationObserver(updateDataLang);
+observer.observe(document.body, { childList: true, subtree: true });

@@ -48,19 +48,8 @@ h6 {font-size: v.$font__size--lg;}
 
   // |===========| Headings |===========| //
   :is(h1, h2, h3, h4, h5, h6){
-    display: flex;
-    justify-content: space-between;
     padding: 0.5rem 0;
     margin-block: 1rem;
-    border:1px solid transparent;
-
-    @include m.transition(background-color, border-color, padding);
-
-    &:hover {
-      background-color: var(--color-bg-second);
-      border-color: var(--color-border);
-      padding: 0.5rem;
-    }
   }
 
   h1{ line-height: 28px; letter-spacing: 0em; }

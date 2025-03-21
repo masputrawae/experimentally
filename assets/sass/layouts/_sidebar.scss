@@ -26,6 +26,7 @@
 
   @include m.max(lg){
     background-color: var(--color-bg-third);
+    overflow-y: auto;
   }
 }
 

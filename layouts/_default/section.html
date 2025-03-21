@@ -1,4 +1,52 @@
 {{ define "main" }}
 <main class="main">
+  <section class="u-container">
+    {{ partial "breadcrumbs.html" . }}
+  </section>
+  <section class="u-container">
+    <h1 class="main__title">{{ .Title }}</h1>
+    <article class="main__content markdown">{{ .Content | safeHTML }}</article>
+  </section>
+  <section class="u-container">
+    <div class="featured featured--home">
+      {{ $paginator := .Paginate .Pages }}
+      {{ range $paginator.Pages }}
+        <a href="{{ .RelPermalink }}" class="featured__content">
+          <div class="featured__image">
+            <img src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" alt="">
+          </div>
+          <div class="featured__body">
+            <h3 class="featured__title">{{ .Title }}</h3>
+            {{ if .Params.description }}
+              <p class="featured__description">{{ .Params.description }}</p>
+            {{ end }}
+            <div class="featured__meta">
+              <small>
+                <i class="bi bi-calendar"></i>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+              </small>
+              {{ if .Params.categories }}
+                <small>
+                  <i class="bi bi-grid"></i>
+                  <span>{{ index .Params.categories 0 }}</span>
+                </small>
+              {{ end }}
+              {{ if .Params.lastmodified }}
+              <small>
+                <i class="bi bi-clock"></i>
+                <time datetime="{{ .Params.lastmodified | time.Format "2006-01-02" }}">{{ .Params.lastmodified | time.Format "02 Jan 2006" }}</time>
+              </small>
+              {{ end }}
+              {{ if .Params.status }}
+                <i class="bi bi-check2-circle"></i>
+                <span>{{ .Params.status }}</span>
+              {{ end }}
+            </div>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+  </section>
 </main>
 {{ end }}

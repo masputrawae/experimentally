@@ -128,4 +128,4 @@ title        = 'My Notes'
 
 [pagination]
   disableAliases = false
-  pagerSize = 6
+  pagerSize = 4

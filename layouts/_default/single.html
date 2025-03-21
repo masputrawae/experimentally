@@ -1,6 +1,9 @@
 {{ define "main" }}
 <main class="main">
   <section class="u-container">
+    {{ partial "breadcrumbs.html" . }}
+  </section>
+  <section class="u-container">
     <article class="main__content markdown">
       {{ .Content | safeHTML }}
     </article>

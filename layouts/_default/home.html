@@ -1,8 +1,50 @@
 {{ define "main" }}
 <main class="main">
   <section class="u-container">
+    {{ partial "breadcrumbs.html" . }}
+  </section>
+  <section class="u-container">
     <h1 class="main__title">{{ .Title }}</h1>
     <article class="main__content markdown">{{ .Content | safeHTML }}</article>
+  </section>
+  <section class="u-container">
+    <h2 class="main__title">
+      <i class="bi bi-pin"></i>
+      <span>Pinned</span>  
+    </h2>
+    <div class="featured featured--home">
+      {{ range where .Site.Pages "Params.pinned" true }}
+      <a href="{{ .RelPermalink }}" class="featured__content">
+        <div class="featured__image">
+          <img src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" alt="">
+        </div>
+        <div class="featured__body">
+          <h3 class="featured__title">{{ .Title }}</h3>
+          <p class="featured__description">{{ .Params.description }}</p>
+          <div class="featured__meta">
+            <small>
+              <i class="bi bi-calendar"></i>
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+            </small>
+            <small>
+              <i class="bi bi-pin"></i>
+              <span>Pinned</span>
+            </small>
+            <small>
+              <i class="bi bi-grid"></i>
+              <span>{{ index .Params.categories 0 }}</span>
+            </small>
+            {{ if .Params.lastmodified }}
+            <small>
+              <i class="bi bi-clock"></i>
+              <time datetime="{{ .Params.lastmodified | time.Format "2006-01-02" }}">{{ .Params.lastmodified | time.Format "02 Jan 2006" }}</time>
+            </small>
+            {{ end }}
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
   </section>
 </main>
 {{ end }}

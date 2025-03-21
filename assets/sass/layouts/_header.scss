@@ -8,12 +8,13 @@
     position: sticky;
     top: 0;
 
-    @include m.flex-between();
-    background-color: var(--color-bg-first);
-    border-bottom: 1px solid var(--color-border);
-
-    max-height: 4rem;
+    @include m.shadow(xl);
+    background-color: var(--color-bg-second);
+    border: 3px solid var(--color-bg-first);
+    border-radius: 0.25rem;
     padding: 1rem;
+
+    @include m.flex-between();
 
     &__title {
       font-size: v.$font__size--7xl;

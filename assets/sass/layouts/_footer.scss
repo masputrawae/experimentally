@@ -1,2 +1,80 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+.footer {
+  @include m.flex-center;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  background-color: var(--color-bg-second);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  color: var(--color-text-second);
+  font-size: 0.9rem;
+
+  &__content {
+    @include m.flex-center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  &__link {
+    color: var(--color-text-first);
+    text-decoration: none;
+    font-weight: v.$font__weight--medium;
+
+    &:hover {
+      color: var(--color-accent-first);
+      text-decoration: underline;
+    }
+  }
+}
+
+.nav--footer {
+  @include m.flex-center;
+  flex-direction: column;
+  gap: 1rem;
+
+  .nav__label {
+    @include m.flex-center;
+    gap: 0.5rem;
+    font-weight: v.$font__weight--medium;
+    color: var(--color-text-first);
+  }
+
+  .nav__list {
+    @include m.flex-center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav__item {
+    @include m.transition(color);
+  }
+
+  .nav__link {
+    @include m.flex-center;
+    gap: 0.5rem;
+    color: var(--color-text-second);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-accent-first);
+    }
+  }
+}
+
+.btn--icon {
+  @include m.transition(color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-second);
+  padding: 0.5rem;
+
+  &:hover {
+    color: var(--color-accent-first);
+  }
+}
