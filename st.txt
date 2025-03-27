@@ -1,0 +1,31 @@
+partials
+    ├── breadcrumb.html
+    ├── content
+    │   ├── content-list.html
+    │   ├── giscus.html
+    │   ├── mathjax.html
+    │   ├── pagination.html
+    │   ├── taxonomy-cloud.html
+    │   └── taxonomy-list.html
+    ├── footer.html
+    ├── head
+    │   ├── css.html
+    │   ├── default.html
+    │   ├── facebook.html
+    │   ├── favicons.html
+    │   ├── js.html
+    │   └── twitter.html
+    ├── header.html
+    ├── sidebar
+    │   ├── left.html
+    │   ├── menu.html
+    │   ├── offcanvas.html
+    │   └── right.html
+    ├── terms.html
+    └── widget
+        ├── pinned.html
+        ├── recent-change.html
+        ├── related.html
+        ├── toc.html
+        ├── top-categories.html
+        └── top-tags.html
