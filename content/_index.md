@@ -26,5 +26,3 @@ categories:
 ---
 ## Hi welcome 👋
 Selamat datang di ruang digital saya! Ini adalah tempat saya mencatat, berbagi, dan mengorganisir berbagai pemikiran, proyek, dan pengetahuan. Di sini Anda akan menemukan kumpulan catatan, artikel, dan dokumentasi yang saya tulis seputar teknologi, pengembangan pribadi, dan topik menarik lainnya.
-
-Jangan ragu untuk menjelajahi dan semoga Anda menemukan sesuatu yang bermanfaat. Selamat membaca! 🤓

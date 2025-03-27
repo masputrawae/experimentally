@@ -200,7 +200,7 @@ const initSearch = async () => {
                         const item = store.find(doc => doc.id === result.ref);
                         return `
                             <li class="nav__item">
-                                <a class="nav__link" href="${item.url}">
+                                <a class="btn btn--link btn--sm" href="${item.url}">
                                     <span>${item.title}</span>
                                 </a>
                             </li>`;
@@ -249,6 +249,34 @@ const initSearch = async () => {
 // Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
     init();
-    new MutationObserver(updateDataLang).observe(document.body, { childList: true, subtree: true });
     initSearch();
 });
+
+const manageNavbarWrapper = () => {
+    $$(".navbar__wrapper").forEach(wrapper => {
+        const taxonomy = wrapper.dataset.taxonomy;
+        const groups = [...wrapper.querySelectorAll('[data-group]')];
+        let currentIndex = 0;
+
+        const prevBtn = $(`.btn--prev[data-taxonomy="${taxonomy}"]`);
+        const nextBtn = $(`.btn--next[data-taxonomy="${taxonomy}"]`);
+
+        const updateVisibility = () => {
+            groups.forEach((group, index) => group.style.display = index === currentIndex ? "block" : "none");
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === groups.length - 1;
+        };
+
+        [prevBtn, nextBtn].forEach((btn, isNext) => {
+            btn.addEventListener("click", () => {
+                currentIndex += isNext ? 1 : -1;
+                updateVisibility();
+            });
+        });
+
+        updateVisibility();
+    });
+};
+
+// Initialize Navbar Wrapper functionality
+manageNavbarWrapper();

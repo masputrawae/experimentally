@@ -6,7 +6,7 @@
     {{ if $related }}
       {{ range $related }}
         <li class="nav__item">
-          <a href="{{ .RelPermalink }}" class="btn btn--link">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" class="btn btn--link btn--text-sm btn--widget">{{ .Title }}</a>
         </li>
       {{ end }}
     {{ else }}

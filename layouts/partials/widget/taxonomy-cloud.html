@@ -5,7 +5,7 @@
 
   {{ range $term, $pages := $terms }}
     {{ $size := div (len $pages) $max | mul 2 | add 1 }}
-    <a href="{{ .Page.RelPermalink }}" class="btn btn--text" style="font-size: {{ $size }}rem;">
+    <a href="{{ .Page.RelPermalink }}" class="btn btn--text btn--text-sm btn--widget" style="font-size: {{ $size }}rem;">
       {{ .Page.Title }} ({{ len $pages }})
     </a>
   {{ end }}

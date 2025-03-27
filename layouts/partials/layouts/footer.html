@@ -5,12 +5,12 @@
   <nav class="navbar navbar--footer">
     {{- with site.Params.social }}
       {{- range $key, $value := . }}
-        <a href="{{ $value.url }}" class="btn btn--icon btn--footer" id="{{ $value.name }}"title="{{ $value.name }}" aria-label="Go to {{ $value.name }}" rel="noopener noreferrer" target="_blank">
+        <a href="{{ $value.url }}" class="btn btn--icon btn--circle btn--footer" id="{{ $value.name }}"title="{{ $value.name }}" aria-label="Go to {{ $value.name }}" rel="noopener noreferrer" target="_blank">
           <i class="bi {{ $value.icon }}"></i>
         </a>
       {{- end }}
     {{- end }}
-    <button class="btn btn--icon btn--footer" data-theme-toggle="switchTheme" title="Switch Theme" aria-label="Switch Theme">
+    <button class="btn btn--icon btn--circle btn--footer" data-theme-toggle="switchTheme" title="Switch Theme" aria-label="Switch Theme">
       <i class="bi bi-moon-stars"></i>
     </button>
   </nav>

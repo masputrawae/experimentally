@@ -2,16 +2,33 @@
 {{ range $taxonomy, $terms := site.Taxonomies }}
   {{ if not (in $excluded $taxonomy) }}
     <nav class="navbar navbar--widget">
-      <div class="navbar__label">{{ $taxonomy | humanize | title }}</div>
-      <ul class="nav nav--widget">
-        {{ range $terms }}
-          {{ with .Page }}
-            <li class="nav__item">
-              <a href="{{ .RelPermalink }}" class="btn btn--link">{{ .Title }}</a>
-            </li>
+      <div class="navbar__header">
+        <div class="navbar__label">{{ $taxonomy | humanize | title }}</div>
+        <div class="navbar__button pagination-controls">
+          <button class="btn btn--icon btn--circle btn--prev" data-taxonomy="{{- $taxonomy | humanize | title -}}"><i class="bi bi-arrow-left-circle-fill"></i></button>
+          <button class="btn btn--icon btn--circle btn--next" data-taxonomy="{{- $taxonomy | humanize | title -}}"><i class="bi bi-arrow-right-circle-fill"></i></button>
+        </div>
+      </div>
+      <div class="navbar__wrapper" data-taxonomy="{{- $taxonomy | humanize | title -}}">
+        {{ $count := 0 }}
+        {{ $groupIndex := 0 }}
+        <ul class="nav nav--widget" data-group="{{- $groupIndex -}}">
+          {{ range $terms }}
+            {{ with .Page }}
+              {{ if eq $count 5 }}
+                </ul>
+                {{ $groupIndex = add $groupIndex 1 }}
+                <ul class="nav nav--widget" data-group="{{ $groupIndex }}" class="hidden" style="display: none;">
+                {{ $count = 0 }}
+              {{ end }}
+              <li class="nav__item">
+                <a href="{{ .RelPermalink }}" class="btn btn--link btn--text-sm btn--widget">{{ .Title }}</a>
+              </li>
+              {{ $count = add $count 1 }}
+            {{ end }}
           {{ end }}
-        {{ end }}
-      </ul>
+        </ul>
+      </div>
     </nav>
   {{ end }}
 {{ end }}

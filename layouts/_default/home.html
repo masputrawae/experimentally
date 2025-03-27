@@ -1,5 +1,12 @@
 {{ define "main" }}
 <main class="main markdown">
-  {{ .Content }}
+  <article class="main__layout markdown">
+    {{ .Content }}
+  </article>
+  <div class="main__layout main__layout--grid">
+    {{ partial "widget/pinned.html" . }}
+    {{ partial "widget/recent-post.html" . }}
+    {{ partial "widget/taxonomy-list.html" . }}
+  </div>
 </main>
 {{ end }}

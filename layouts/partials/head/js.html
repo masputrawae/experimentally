@@ -1,7 +1,6 @@
 <!-- |===========| START: JAVASCRIPT |===========| -->
 <script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
 <script src="{{ "js/anchor.min.js" | relURL }}" defer></script>
-
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}

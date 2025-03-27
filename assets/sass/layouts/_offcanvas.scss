@@ -63,6 +63,7 @@
 
     &--right {
       transform: translateX(100%);
+      width: 320px;
 
       // BUTTON SHOW
       .btn[data-toggle-offcanvas=rightOffcanvas]{
@@ -74,6 +75,7 @@
   @include m.max(lg){
     &--left {
       transform: translateX(-100%);
+      width: 320px;
 
       // BUTTON SHOW
       .btn[data-toggle-offcanvas=leftOffcanvas]{
@@ -107,5 +109,33 @@
         color: var(--text-third);
       }
     }
+  }
+}
+
+.brand { //============ BRAND =============//
+  display: block;
+  text-decoration: none;
+  &__logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 0.5rem;
+    border: 3px solid var(--border-first);
+    box-shadow: var(--shadow-md);
+    @include m.transition(border-color, box-shadow);
+
+    &:hover {
+      border-color: var(--accent-first);
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  &__title {
+    color: var(--accent-first);
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: var(--text-second);
+    font-size: v.$font__size--sm;
   }
 }

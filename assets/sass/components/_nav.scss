@@ -2,13 +2,31 @@
 @use '../abstracts/variables' as v;
 
 .navbar {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  &__header, &__button {
+    @include m.flex-between;
+    gap: 0.75rem;
+  }
+
+  &__label {
+    font-size: v.$font__size--xl;
+    padding: 1rem;
+    font-weight: 700;
+    font-family: v.$font__family--serif;
+    color: var(--text-first);
+  }
+  &--footer {
+    @include m.flex-center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+
   &--widget {
     background-color: var(--bg-second);
-    margin: 1.5rem 1rem;
+    margin: 1.5rem 0.5rem;
   }
 }
-
 .nav {
   list-style: none;
   padding: 0;
@@ -20,8 +38,12 @@
 
   &--tree &--tree,
   &--toc &--toc {
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     border-left: 1px dashed var(--border-first);
+
+    &:hover {
+      border-color: var(--accent-first);
+    }
   }
 
   &--tree {

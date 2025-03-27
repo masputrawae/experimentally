@@ -6,6 +6,7 @@
   gap: 8px;
   padding: 0.5rem;
   font-weight: 500;
+  font-size: v.$font__size--lg;
 
   background-color: transparent;
   border: 1px solid var(--border-first);
@@ -33,30 +34,25 @@
     border-right: 5px solid;
     border-left: 5px solid;
     border-color: var(--border-first);
+    font-family: v.$font__family--serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 
-  &--toc {
-    font-size: v.$font__size--xs;
+  &--text-sm {font-size: v.$font__size--sm;}
+  &--text-xs {font-size: v.$font__size--xs;}
+  &--breadcrumb {padding-block: 0px;}
 
-    &.btn--active {
-      color: var(--text-first);
-    }
-  }
-
-  &--breadcrumb {
-    padding-block: 0px;
+  &--circle {
+    border-radius: 50%;
   }
 
   &--footer {
-    border-radius: 50%;
     border-color: var(--border-first);
-    width: 50px;
-    height: 50px;
 
     &:hover {
       scale: 1.1;
       background-color: var(--bg-second);
-      color: var(--accent-first);
     }
   }
 
@@ -65,7 +61,7 @@
     background-color: var(--bg-second);
     border-color: var(--accent-first);
     box-shadow: var(--shadow-lg);
-    color: var(--text-first);
+    color: var(--accent-first);
 
     .bi {
       color: var(--accent-first);
