@@ -1,0 +1,38 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.navbar {
+  padding: 0.5rem;
+  &--widget {
+    background-color: var(--bg-second);
+    margin: 1.5rem 1rem;
+  }
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    margin-block: 0.5rem;
+  }
+
+  &--tree &--tree,
+  &--toc &--toc {
+    padding-left: 1.5rem;
+    border-left: 1px dashed var(--border-first);
+  }
+
+  &--tree {
+
+    &.collapsed {
+      display: none;
+    }
+  }
+
+  &--breadcrumb {
+    display: flex;
+    gap: 1rem;
+  }
+}

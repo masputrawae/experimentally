@@ -1,2 +1,12 @@
-<h1>{{ site.Title }}</h1>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<header class="header header--mobile">
+
+  {{ partial "layouts/breadcrumb.html" . }}
+
+  <button class="btn btn--icon" data-toggle-offcanvas="leftOffcanvas" title="Open Left Sidebar" aria-label="Button to open left sidebar">
+    <i class="bi bi-list"></i>
+  </button>
+  <a class="header__title" href="{{ site.BaseURL | absURL }}">{{ site.Title }}</a>
+  <button class="btn btn--icon" data-toggle-offcanvas="rightOffcanvas" title="Open Right Sidebar" aria-label="Button to open right sidebar">
+    <i class="bi bi-book"></i>
+  </button>
+</header>

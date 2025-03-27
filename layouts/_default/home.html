@@ -1,7 +1,5 @@
 {{ define "main" }}
+<main class="main markdown">
   {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+</main>
 {{ end }}

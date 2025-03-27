@@ -1,0 +1,17 @@
+{{ $excluded := slice "tags" "categories" }}
+{{ range $taxonomy, $terms := site.Taxonomies }}
+  {{ if not (in $excluded $taxonomy) }}
+    <nav class="navbar navbar--widget">
+      <div class="navbar__label">{{ $taxonomy | humanize | title }}</div>
+      <ul class="nav nav--widget">
+        {{ range $terms }}
+          {{ with .Page }}
+            <li class="nav__item">
+              <a href="{{ .RelPermalink }}" class="btn btn--link">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,52 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+html {
+  font-family: v.$font__family;
+}
+
+body {
+  background-color: var(--bg-first);
+  color: var(--text-second);
+  font-size: v.$font__size--default;
+  font-weight: 300;
+
+  @include m.transition(background-color, color);
+
+  line-height: 1.6;
+  color: var(--text-second);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  word-wrap: break-word;
+
+  @include m.max(md){
+    font-size: v.$font__size--sm;
+  }
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 600;
+  color: var(--text-first);
+  margin-block: 1rem;
+  font-family: v.$font__family--serif;
+  letter-spacing: 0.02em;
+}
+
+:is(b, strong){
+  color: var(--text-first);
+  font-weight: 700;
+}
+
+h1 {font-size: v.$font__size--5xl;}
+h2 {font-size: v.$font__size--4xl;}
+h3 {font-size: v.$font__size--3xl;}
+h4 {font-size: v.$font__size--2xl;}
+h5 {font-size: v.$font__size--xl;}
+h6 {font-size: v.$font__size--lg;}
+
+p {
+  letter-spacing: 0.03em;
+}

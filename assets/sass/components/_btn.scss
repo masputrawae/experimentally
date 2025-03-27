@@ -1,0 +1,85 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.btn {
+  @include m.flex-center;
+  gap: 8px;
+  padding: 0.5rem;
+  font-weight: 500;
+
+  background-color: transparent;
+  border: 1px solid var(--border-first);
+  border-radius: 0.1rem;
+  color: var(--text-second);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+
+  @include m.transition(scale, background-color, border-color, box-shadow, color);
+  @include m.text-ellipsis;
+
+  // MODIFIER
+  &--icon {
+    font-size: v.$font__size--3xl;
+    width: 40px;
+    height: 40px;
+  }
+
+  &--link,
+  &--collapse {
+    width: 100%;
+    justify-content: start;
+    border-top: none;
+    border-bottom: none;
+    border-right: 5px solid;
+    border-left: 5px solid;
+    border-color: var(--border-first);
+  }
+
+  &--toc {
+    font-size: v.$font__size--xs;
+
+    &.btn--active {
+      color: var(--text-first);
+    }
+  }
+
+  &--breadcrumb {
+    padding-block: 0px;
+  }
+
+  &--footer {
+    border-radius: 50%;
+    border-color: var(--border-first);
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      scale: 1.1;
+      background-color: var(--bg-second);
+      color: var(--accent-first);
+    }
+  }
+
+  &:hover, 
+  &--active {
+    background-color: var(--bg-second);
+    border-color: var(--accent-first);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-first);
+
+    .bi {
+      color: var(--accent-first);
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+    background-color: var(--bg-third);
+    border-color: var(--accent-third);
+  }
+
+  &:active {
+    border-color: var(--accent-second);
+  }
+}

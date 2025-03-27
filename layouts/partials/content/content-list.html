@@ -1,0 +1,24 @@
+{{ range (.Paginate .Pages).Pages }}
+  <div class="card" tabindex="0">
+    <img src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" alt="{{ .Title }}" class="card__image">
+    <div class="card__body">
+      <h3 class="card__title">{{ .Title }}</h3>
+      {{ with .Params.description }}
+        <p class="card__description">{{ . }}</p>
+      {{ end }}
+      <div class="card__meta">
+        <small>
+          <i class="bi bi-calendar"></i>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        </small>
+        {{ with .Params.categories }}
+          <small><i class="bi bi-grid"></i> {{ index . 0 }}</small>
+        {{ end }}
+        {{ with .Params.tags }}
+          <small><i class="bi bi-tag"></i> {{ index . 0 }}</small>
+        {{ end }}
+      </div>
+    </div>
+    <a href="{{ .RelPermalink }}" aria-label="{{ $.Title }}" title="{{ $.Title }}" class="btn btn--text btn--card">{{ .Title }}</a>
+  </div>
+{{ end }}
