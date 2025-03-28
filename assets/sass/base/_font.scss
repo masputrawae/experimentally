@@ -48,20 +48,18 @@
   src: url('../fonts/noto-sans-v39-latin/noto-sans-v39-latin-700.woff2') format('woff2');
 }
 
-/* noto-serif-600 - latin */
 @font-face {
-  font-display: swap;
-  font-family: 'Noto Serif';
+  font-display: swap; 
+  font-family: 'Noto Sans Display';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/noto-serif-v28-latin/noto-serif-v28-latin-600.woff2') format('woff2');
+  src: url('../fonts/noto-sans-display-v27-latin/noto-sans-display-v27-latin-600.woff2') format('woff2');
 }
 
-/* noto-serif-700 - latin */
 @font-face {
-  font-display: swap;
-  font-family: 'Noto Serif';
+  font-display: swap; 
+  font-family: 'Noto Sans Display';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/noto-serif-v28-latin/noto-serif-v28-latin-700.woff2') format('woff2');
+  src: url('../fonts/noto-sans-display-v27-latin/noto-sans-display-v27-latin-700.woff2') format('woff2');
 }

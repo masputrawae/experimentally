@@ -4,9 +4,7 @@
     {{ .Content }}
   </article>
   <div class="main__layout main__layout--grid">
-    {{ partial "widget/pinned.html" . }}
-    {{ partial "widget/recent-post.html" . }}
-    {{ partial "widget/taxonomy-list.html" . }}
+    {{ partial "content/taxonomy-list.html" . }}
   </div>
 </main>
 {{ end }}

@@ -2,54 +2,68 @@ $colors: (
   //============ DARK =============//
   "dark": (
     "bg": (
-      "first": #0d1117,
-      "second": #161b22,
-      "third": #21262d,
+      "first": #0a0f1a,
+      "second": #121a28,
+      "third": #1a2436,
     ),
     "text": (
-      "first": #f0f6fc,
-      "second": #c9d1d9,
-      "third": #8b949e,
+      "white": #ffffff,
+      "first": #e0f2ff,
+      "second": #a0c4ff,
+      "third": #7a8ca8, 
     ),
     "accent": (
-      "first": #00d8ff,
-      "second": #0ea5e9,
-      "third": #14b8a6,
+      "first": #00f0ff,
+      "second": #0077ff,
+      "third": #a100ff, 
     ),
     "border": (
-      "first": #30363d,
+      "first": #2a3a4a,
+      "second": rgba(0, 240, 255, 0.3)
     ),
     "shadow": (
-      "sm": 0 1px 2px 0 rgba(0, 0, 0, 0.5),
-      "md": 0 4px 6px -1px rgba(0, 0, 0, 0.5),
-      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.5),
-    )
+      "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.4),
+      "md": 0 4px 8px -1px rgba(0, 0, 0, 0.5),
+      "lg": 0 10px 25px -5px rgba(0, 0, 0, 0.6),
+    ),
+    "shadow-glow": (
+      "sm": 0 0 6px rgba(0, 240, 255, 0.7),
+      "md": 0 0 12px rgba(0, 240, 255, 0.7), 
+      "lg": 0 0 20px rgba(0, 240, 255, 0.7)
+    ),
   ),
   //============ LIGHT =============//
   "light": (
     "bg": (
-      "first": #f8fafc,
-      "second": #e2e8f0,
-      "third": #cbd5e1,
+      "first": #f0f8ff,
+      "second": #e0f0ff,
+      "third": #c0e0ff,
     ),
     "text": (
-      "first": #1e293b, 
-      "second": #334155,
-      "third": #475569,
+      "white": #ffffff,
+      "first": #001a3f,
+      "second": #003a7f,
+      "third": #2a4a6a,
     ),
     "accent": (
-      "first": #0054db, 
-      "second": #1662d4,
-      "third": #17a1a8,
+      "first": #0066ff,
+      "second": #00a0ff,
+      "third": #8000ff,
     ),
     "border": (
-      "first": #94a3b8
+      "first": #a0c0e0,
+      "second": rgba(0, 102, 255, 0.3)
     ),
     "shadow": (
-      "sm": 0 1px 2px 0 rgba(0, 0, 0, 0.1),
-      "md": 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    )
+      "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.15),
+      "md": 0 4px 8px -1px rgba(0, 0, 0, 0.2),
+      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.25),
+    ),
+    "shadow-glow": (
+      "sm": 0 0 6px rgba(0, 102, 255, 0.4),
+      "md": 0 0 12px rgba(0, 102, 255, 0.4), 
+      "lg": 0 0 20px rgba(0, 102, 255, 0.4)
+    ),
   )
 );
 
