@@ -93,7 +93,7 @@ const manageCollapse = () => {
 // Active link highlighting
 const highlightActiveLink = () => {
     const currentPath = window.location.pathname.replace(/\/$/, "");
-    $$(".nav--tree .btn--link").forEach(link => {
+    $$(".nav--tree .btn--file").forEach(link => {
         if (link.pathname.replace(/\/$/, "") === currentPath) {
             link.classList.add("btn--active");
             link.closest(".nav__item--folder")?.classList.add("nav__item--open");

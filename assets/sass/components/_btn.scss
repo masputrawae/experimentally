@@ -21,6 +21,7 @@
   text-decoration: none;
 
   @include m.transition(box-shadow, color, background-color);
+  
   .bi {
     @include m.flex-center;
     font-size: v.$font__size--xl;
@@ -31,62 +32,37 @@
     justify-content: center;
     .bi{font-size: v.$font__size--6xl;}
   }
-
-  // MODIFIER btn--menu
-  &--menu {
-    background-color: var(--bg-first);
+  
+  // MODIFIER btn--text-xs
+  &--text-xs {
+    font-size: v.$font__size--xs;
   }
 
   // MODIFIER btn--folder
   &--folder {
     width: 100%;
-    border: 1px solid var(--border-first);
     font-size: v.$font__size--sm;
-
-    &:hover {
-      border-color: var(--accent-first);
-    }
-  }
-
-  // MODIFIER btn--file
-  &--file {
-    font-size: v.$font__size--xs;
-  }
-
-  // MODIFIER btn--toc
-  &--toc {
-    font-size: v.$font__size--xs;
-
-    &.btn--active{color: var(--accent-first);}
   }
 
   // MODIFIER btn--breadcrumb
-  &--breadcrumb {
-    font-size: v.$font__size--xs;
-    padding: 0 0.5rem;
-  }
-
-  // MODIFIER btn--widget
-  &--widget {
-    font-size: v.$font__size--xs;
-  }
+  &--breadcrumb {padding: 0 .5rem;}
 
   // MODIFIER btn--circle
   &--circle {
     border-radius: 50%;
   }
 
+  // MODIFIER btn--pagination
   &--pagination {
     width: 40px;
     height: 40px;
-    display: flex;
     justify-content: center;
-    align-items: center;
   }
 
+  // MODIFIER btn--cloud
   &--cloud {
     border-radius: 10rem;
-    padding: 1rem;
+    padding: 1rem; 
   }
 
   &::before {
@@ -103,24 +79,24 @@
     
     @include m.transition(box-shadow, width);
   }
-  
-  &:hover::before {
-    width: 90%;
-    box-shadow: var(--shadow-glow-md);
-  }
 
   &:hover {
     color: var(--accent-first);
     background-color: var(--bg-second);
     box-shadow: var(--shadow-md);
     border-color: var(--accent-first);
+    
+    &::before {
+      width: 90%;
+      box-shadow: var(--shadow-glow-md);
+    }
   }
   
   &:focus-visible,
   &:active, 
   &--active {
     background-color: var(--bg-third);
-    color: var(--text-first);
+    color: var(--accent-first);
     border-color: var(--accent-first);
     outline: none;
     
@@ -130,11 +106,13 @@
     }
   }
 
+  // MODIFIER btn--disabled
   &--disabled {
     cursor:not-allowed;
+    color: var(--text-third);
+     
     &:hover {
       color: var(--text-third);
-      background-color: var(--bg-second);
       box-shadow: none;
       border-color: var(--text-third);
     }

@@ -39,7 +39,7 @@
       {{- if .IsPage -}}
         {{- if .File.BaseFileName -}}
           <li class="nav__item nav__item--file" id="{{- .RelPermalink | urlize -}}">
-            <a class="btn btn--file" href="{{- .RelPermalink -}}"><i class="bi bi-file-earmark-text"></i> {{- .LinkTitle -}}</a>
+            <a class="btn btn--text-xs btn--file" href="{{- .RelPermalink -}}"><i class="bi bi-file-earmark-text"></i> {{- .LinkTitle -}}</a>
           </li>
         {{- end -}}
       {{- end -}}
