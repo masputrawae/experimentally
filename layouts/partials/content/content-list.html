@@ -1,7 +1,14 @@
 {{ range (.Paginate .Pages).Pages }}
-  <div class="card" tabindex="0">
-    <img src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" alt="{{ .Title }}" class="card__image">
-    <div class="card__body">
+  <article class="card">
+    <header class="card__header">
+      <img 
+        src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" 
+        alt="{{ .Title }}" 
+        class="card__image"        
+        loading="lazy"
+        >
+    </header>
+    <section class="card__body">
       <h3 class="card__title">{{ .Title }}</h3>
       {{ with .Params.description }}
         <p class="card__description">{{ . }}</p>
@@ -18,7 +25,15 @@
           <small><i class="bi bi-tag"></i> {{ index . 0 }}</small>
         {{ end }}
       </div>
-    </div>
-    <a href="{{ .RelPermalink }}" aria-label="{{ $.Title }}" title="{{ $.Title }}" class="btn btn--primary">{{ .Title }}</a>
-  </div>
+    </section>
+    <footer class="card__footer">
+      <a 
+        href="{{ .RelPermalink }}" 
+        aria-label="{{ $.Title }}" 
+        title="{{ $.Title }}" 
+        class="btn btn--primary">
+          Read More
+      </a>
+    </footer>
+  </article>
 {{ end }}
