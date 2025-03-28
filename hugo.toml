@@ -3,9 +3,9 @@
 baseURL      = 'https://masputrawae.github.io/big_brain/'
 languageCode = 'en-US'
 title        = 'My Notes'
-enableEmoji  = true
-capitalizeListTitles = false
 
+#====================================#
+#=========== TAXONOMIES =============#
 [taxonomies]
   category  = "categories"
   tag       = "tags"
@@ -18,23 +18,11 @@ capitalizeListTitles = false
   [params.author]
     name          = "John Doe"
     subtitle      = "Pariatur duis esse sunt pariatur adipisicing."
-    tagline       = "Designer"
     logo          = "logo/logo.png"
     email         = "john.doe@example.com"
     phone         = "+1-234-567-8901"
-#====================================#
-#=============== CTA ================#
-  [params.cta]
-    [[params.cta.buttons]]
-      name    = "About"
-      url     = "about"
-      icon    = "bi-person"
-      primary = false
-    [[params.cta.buttons]]
-      name    = "Download CV"
-      url     = "https://download.cv/"
-      icon    = "bi-download"
-      primary = true
+    twitter       = "@johndoe"
+    
 #====================================#
 #============= GISCUS ===============#
   [params.giscus]
@@ -56,62 +44,92 @@ capitalizeListTitles = false
 #====================================#
 #=========== SOCIAL LINK ============#
   [params.social]
+#====================================#
+#============ FACEBOOK ==============#
     [params.social.facebook]
       name = "Facebook"
       url  = "https://facebook.com/johndoe"
       icon = "bi-facebook"
+#====================================#
+#============ TWITTER X =============#
     [params.social.twitter]
       name = "TwitterX"
       url  = "https://x.com/johndoe"
       icon = "bi-twitter-x"
+#====================================#
+#============ INSTAGRAM =============#
     [params.social.instagram]
       name = "Instagram"
       url  = "https://instagram.com/johndoe"
       icon = "bi-instagram"
+#====================================#
+#============= GITHUB ===============#
     [params.social.github]
       name = "Github"
       url  = "https://github.com/johndoe"
       icon = "bi-github"
+#====================================#
+#============ LINKEDIN ==============#
     [params.social.linkedin]
       name = "LinkedIn"
       url  = "https://linkedin.com/in/johndoe"
       icon = "bi-linkedin"
+#====================================#
+#============= YOUTUBE ==============#
     [params.social.youtube]
       name = "YouTube"
       url  = "https://youtube.com/c/johndoe"
       icon = "bi-youtube"
+#====================================#
+#============= TIK TOK ==============#
     [params.social.tiktok]
       name = "TikTok"
       url  = "https://tiktok.com/@johndoe"
       icon = "bi-tiktok"
+#====================================#
+#============ PINTEREST =============#
     [params.social.pinterest]
       name = "Pinterest"
       url  = "https://pinterest.com/johndoe"
       icon = "bi-pinterest"
+#====================================#
+#============= REDDIT ===============#
     [params.social.reddit]
       name = "Reddit"
       url  = "https://reddit.com/user/johndoe"
       icon = "bi-reddit"
+#====================================#
+#============ SNAPCHAT ==============#
     [params.social.snapchat]
       name = "Snapchat"
       url  = "https://snapchat.com/add/johndoe"
       icon = "bi-snapchat"
+#====================================#
+#============= DISCORD ==============#
     [params.social.discord]
       name = "Discord"
       url  = "https://discord.com/users/johndoe"
       icon = "bi-discord"
+#====================================#
+#============= MEDIUM ===============#
     [params.social.medium]
       name = "Medium"
       url  = "https://medium.com/@johndoe"
       icon = "bi-medium"
+#====================================#
+#============ DRIBBBLE ==============#
     [params.social.dribbble]
       name = "Dribbble"
       url  = "https://dribbble.com/johndoe"
       icon = "bi-dribbble"
+#====================================#
+#============= BEHANCE ==============#
     [params.social.behance]
       name = "Behance"
       url  = "https://behance.net/johndoe"
       icon = "bi-behance"
+#====================================#
+#============== VIMEO ===============#
     [params.social.vimeo]
       name = "Vimeo"
       url  = "https://vimeo.com/johndoe"
@@ -154,13 +172,6 @@ capitalizeListTitles = false
   pageRef = '/tags'
   pre     = "<i class='bi bi-tag'></i>"
   weight  = 60
-  
-#====================================#
-#============== MODULE ==============#
-[module]
-  [module.hugoVersion]
-    extended = false
-    min      = "0.116.0"
 
 #====================================#
 #============== MARKUP ==============#
@@ -194,11 +205,13 @@ capitalizeListTitles = false
     suffixes = ["json"]
 
 [outputFormats]
+
   [outputFormats.search]
     mediaType       = "application/json"
     baseName        = "search"
     isPlainText     = true
     notAlternative  = true
+    
   [outputFormats.manifest]
     mediaType       = "application/json"
     baseName        = "manifest"
@@ -208,6 +221,7 @@ capitalizeListTitles = false
 [outputs]
   home = ["HTML", "search", "manifest", 'rss']
   section = ['html', 'rss']
+  
 [services]
   [services.rss]
     limit = 42
@@ -217,3 +231,13 @@ capitalizeListTitles = false
 [pagination]
   disableAliases = false
   pagerSize = 6
+
+#====================================#
+#============== MODULE ==============#
+[module]
+  [module.hugoVersion]
+    extended = false
+    min      = "0.116.0"
+
+enableEmoji  = true
+capitalizeListTitles = false

@@ -5,8 +5,22 @@
       <div class="navbar__header">
         <div class="navbar__label">{{ $taxonomy | humanize | title }}</div>
         <div class="navbar__button pagination-controls">
-          <button class="btn btn--icon btn--circle btn--prev" data-taxonomy="{{- $taxonomy | humanize | title -}}"><i class="bi bi-arrow-left-circle-fill"></i></button>
-          <button class="btn btn--icon btn--circle btn--next" data-taxonomy="{{- $taxonomy | humanize | title -}}"><i class="bi bi-arrow-right-circle-fill"></i></button>
+          <button 
+            class="btn btn--icon btn--circle btn--prev" 
+            data-taxonomy="{{- $taxonomy | humanize | title -}}"
+            aria-label="See Previous"
+            title="See Previous"
+            >
+              <i class="bi bi-arrow-left-circle-fill"></i>
+          </button>
+          <button 
+            class="btn btn--icon btn--circle btn--next" 
+            data-taxonomy="{{- $taxonomy | humanize | title -}}"
+            aria-label="See Next"
+            title="See Next"
+            >
+              <i class="bi bi-arrow-right-circle-fill"></i>
+          </button>
         </div>
       </div>
       <div class="navbar__wrapper" data-taxonomy="{{- $taxonomy | humanize | title -}}">
