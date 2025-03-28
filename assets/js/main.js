@@ -63,11 +63,11 @@ const manageCollapse = () => {
         if (sublist) {
             sublist.classList.toggle("collapsed", isCollapsed);
             sessionStorage.setItem(`collapsed_${folder.id}`, isCollapsed);
-            toggleIcon(folder.querySelector(".btn--collapse i"), isCollapsed);
+            toggleIcon(folder.querySelector(".btn--folder i"), isCollapsed);
         }
     };
 
-    $$(".btn--collapse").forEach(button => {
+    $$(".btn--folder").forEach(button => {
         button.addEventListener("click", function () {
             const parentItem = this.closest(".nav__item--folder");
             if (parentItem) {

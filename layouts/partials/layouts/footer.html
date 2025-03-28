@@ -7,7 +7,7 @@
       {{- range $key, $value := . }}
         <a 
           href="{{ $value.url }}" 
-          class="btn btn--icon btn--social"
+          class="btn btn--icon btn--circle btn--social"
           id="{{ $value.name }}"
           title="{{ $value.name }}" 
           aria-label="Go to {{ $value.name }}"
@@ -19,7 +19,7 @@
       {{- end }}
     {{- end }}
     <button 
-      class="btn btn--icon btn--social" 
+      class="btn btn--icon btn--circle btn--social" 
       data-theme-toggle="switchTheme" 
       title="Switch Theme" 
       aria-label="Switch Theme"

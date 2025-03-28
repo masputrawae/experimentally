@@ -3,29 +3,31 @@
 
 .navbar {
   padding: 0.5rem 1rem;
-  &__header, &__button {
+  
+  &__header, 
+  &__button {
     @include m.flex-between;
     gap: 0.75rem;
   }
 
   &__label {
     font-size: v.$font__size--xl;
-    padding: 1rem;
+    padding-block: 0.5rem;
     font-weight: 700;
     font-family: v.$font__family--title;
     color: var(--text-first);
   }
+
+  &--widget {
+    margin-block: 1rem;
+  }
+
   &--footer {
     @include m.flex-center;
     flex-wrap: wrap;
     gap: 1rem;
   }
-
-
-  &--widget {
-    background-color: var(--bg-second);
-    margin: 1.5rem 0.5rem;
-  }
+  
 }
 .nav {
   list-style: none;
@@ -34,6 +36,12 @@
 
   &__item {
     margin-block: 0.5rem;
+  }
+
+  &--menu {
+    .nav__item {
+      margin-block: 1rem;
+    }
   }
 
   &--tree &--tree,
@@ -55,6 +63,11 @@
 
   &--breadcrumb {
     display: flex;
+    gap: 1rem;
+  }
+
+  &--row {
+    @include m.flex-center;
     gap: 1rem;
   }
 }
