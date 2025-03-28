@@ -27,7 +27,6 @@
     flex-wrap: wrap;
     gap: 1rem;
   }
-  
 }
 .nav {
   list-style: none;
@@ -68,6 +67,11 @@
 
   &--row {
     @include m.flex-center;
+    gap: 1rem;
+  }
+  &--cloud {
+    @include m.flex-center;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }

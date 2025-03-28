@@ -84,6 +84,11 @@
     align-items: center;
   }
 
+  &--cloud {
+    border-radius: 10rem;
+    padding: 1rem;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -133,7 +138,7 @@
       box-shadow: none;
       border-color: var(--text-third);
     }
-    
+
     &:hover::before {
       width: 0%;
       box-shadow: none;

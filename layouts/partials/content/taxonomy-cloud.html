@@ -1,4 +1,4 @@
-<div class="taxonomy-cloud">
+<div class="nav nav--cloud">
   {{ $taxonomy := .Data.Plural }}
   {{ $terms := index .Site.Taxonomies $taxonomy }}
   {{ $max := math.Max (len $terms) 1 }}
