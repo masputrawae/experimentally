@@ -1,17 +1,21 @@
 <!-- |===========| START: RELATED POSTS |===========| -->
 <nav class="navbar navbar--widget">
   <div class="navbar__label">Related Content</div>
+  
   <ul class="nav nav--widget">
     {{ $related := .Site.RegularPages.Related . | first 5 }}
     {{ if $related }}
       {{ range $related }}
         <li class="nav__item">
-          <a href="{{ .RelPermalink }}" class="btn btn--link btn--text-sm btn--widget">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" class="btn btn--widget">
+            {{ .Title }}
+          </a>
         </li>
       {{ end }}
     {{ else }}
       <li class="nav__item">No related content found.</li>
     {{ end }}
   </ul>
+  
 </nav>
 <!-- |===========| END: RELATED POSTS |===========| -->

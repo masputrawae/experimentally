@@ -6,7 +6,9 @@
   <ul class="nav nav--widget">
     {{ range $topItems }}
       <li class="nav__item">
-        <a href="{{ .Page.Permalink }}" class="btn btn--link btn--text-sm btn--widget">{{ .Term }}</a>
+        <a href="{{ .Page.Permalink }}" class="btn btn--widget">
+          {{ .Term }}
+        </a>
       </li>
     {{ end }}
   </ul>

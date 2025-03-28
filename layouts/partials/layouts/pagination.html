@@ -40,7 +40,7 @@
       </li>
       {{- else }}
       <li class="nav__item">
-        <a aria-disabled="true" aria-label="First" class="btn btn--disabled btn--pagination" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        <a aria-disabled="true" aria-label="First" class="btn btn--pagination btn--disabled" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
       </li>
       {{- end }}
     {{- end }}
@@ -51,7 +51,7 @@
       </li>
     {{- else }}
       <li class="nav__item">
-        <a aria-disabled="true" aria-label="Previous" class="btn btn--disabled btn--pagination" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+        <a aria-disabled="true" aria-label="Previous" class="btn btn--pagination btn--disabled" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
       </li>
     {{- end }}
 
@@ -65,7 +65,7 @@
     {{- range $k := seq $start $end }}
       {{- if eq $.Paginator.PageNumber $k }}
       <li class="nav__item">
-        <a aria-current="page" aria-label="Page {{ $k }}" class="btn btn--active btn--pagination" role="button">{{ $k }}</a>
+        <a aria-current="page" aria-label="Page {{ $k }}" class="btn btn--pagination btn--active" role="button">{{ $k }}</a>
       </li>
       {{- else }}
       <li class="nav__item">
@@ -80,7 +80,7 @@
       </li>
     {{- else }}
       <li class="nav__item">
-        <a aria-disabled="true" aria-label="Next" class="btn btn--disabled btn--pagination" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Next" class="btn btn--pagination btn--disabled" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
       </li>
     {{- end }}
 
@@ -91,7 +91,7 @@
       </li>
       {{- else }}
       <li class="nav__item">
-        <a aria-disabled="true" aria-label="Last" class="btn btn--disabled btn--pagination" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        <a aria-disabled="true" aria-label="Last" class="btn btn--pagination btn--disabled" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
       {{- end }}
     {{- end }}

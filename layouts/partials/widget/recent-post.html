@@ -2,12 +2,16 @@
 {{ if $recent }}
   <nav class="navbar navbar--widget">
     <div class="navbar__label">Recent Post</div>
+    
     <ul class="nav nav--widget">
       {{ range $recent }}
         <li class="nav__item">
-          <a href="{{ .RelPermalink }}" class="btn btn--link btn--text-sm btn--widget">{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" class="btn btn--widget">
+            {{ .Title }}
+          </a>
         </li>
       {{ end }}
     </ul>
+    
   </nav>
 {{ end }}

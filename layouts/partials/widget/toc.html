@@ -4,7 +4,7 @@
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav nav--toc">` $toc }}
   {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-  {{ $toc := replaceRE `<a href=` `<a class="btn btn--link btn--toc btn--text-xs" href=` $toc }}
+  {{ $toc := replaceRE `<a href=` `<a class="btn btn--toc" href=` $toc }}
   {{ $toc | safeHTML }}
 </nav>
 <!-- |===========| END: TABLE OF CONTENT |===========| -->

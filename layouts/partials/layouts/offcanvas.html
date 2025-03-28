@@ -12,7 +12,7 @@
     </div>
   </header>
   
-  <nav class="navbar">
+  <nav class="navbar navbar--tree">
     <ul class="nav nav--tree">
       {{- template "tree_view" .Site.Home -}}
     </ul>
@@ -26,7 +26,7 @@
     {{- range .Pages -}}
       {{- if .IsSection -}}
         <li class="nav__item nav__item--folder" id="{{- .RelPermalink | urlize -}}">
-          <button class="btn btn--collapse btn--text-sm" data-toggle-tree="{{- .RelPermalink | urlize -}}"><i class="bi bi-folder2"></i> {{- .LinkTitle -}}</button>
+          <button class="btn btn--folder" data-toggle-tree="{{- .RelPermalink | urlize -}}"><i class="bi bi-folder2"></i> {{- .LinkTitle -}}</button>
           <ul class="nav nav--tree">
             {{- template "tree_view" . -}}
           </ul>
@@ -39,7 +39,7 @@
       {{- if .IsPage -}}
         {{- if .File.BaseFileName -}}
           <li class="nav__item nav__item--file" id="{{- .RelPermalink | urlize -}}">
-            <a class="btn btn--link btn--text-sm" href="{{- .RelPermalink -}}"><i class="bi bi-file-earmark-text"></i> {{- .LinkTitle -}}</a>
+            <a class="btn btn--file" href="{{- .RelPermalink -}}"><i class="bi bi-file-earmark-text"></i> {{- .LinkTitle -}}</a>
           </li>
         {{- end -}}
       {{- end -}}

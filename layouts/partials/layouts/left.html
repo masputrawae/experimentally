@@ -32,11 +32,11 @@
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL "class" "btn btn--link" }}
+    {{- $attrs := dict "href" .URL "class" "btn btn--menu" }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "btn btn--link btn--active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "btn btn--menu btn--active" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "btn btn--link btn--ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "btn btn--menu btn--ancestor" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
