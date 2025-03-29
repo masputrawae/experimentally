@@ -4,7 +4,21 @@ const $$ = selector => document.querySelectorAll(selector);
 
 // Offcanvas functionality
 const toggleOffcanvas = offcanvasId => {
-    $(`#${offcanvasId}`)?.classList.toggle('offcanvas--is-open');
+    const offcanvas = $(`#${offcanvasId}`);
+    offcanvas?.classList.toggle('offcanvas--is-open');
+
+    if (offcanvas?.classList.contains('offcanvas--is-open')) {
+        document.addEventListener('click', handleOutsideClick);
+    } else {
+        document.removeEventListener('click', handleOutsideClick);
+    }
+
+    function handleOutsideClick(event) {
+        if (!offcanvas.contains(event.target) && !event.target.closest(`[data-toggle-offcanvas="${offcanvasId}"]`)) {
+            offcanvas.classList.remove('offcanvas--is-open');
+            document.removeEventListener('click', handleOutsideClick);
+        }
+    }
 };
 
 // 🔄 Kirim pesan ke Giscus untuk mengubah tema

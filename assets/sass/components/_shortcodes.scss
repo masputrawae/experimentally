@@ -2,7 +2,7 @@
 //========================== IMAGE FLOAT
 .image {
   margin: 1rem 0;
-
+  position: relative;
   &--full img {
     width: 100%;
     padding: 1rem;
@@ -65,6 +65,7 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    box-shadow: var(--shadow-lg);
   }
 
   &::after {

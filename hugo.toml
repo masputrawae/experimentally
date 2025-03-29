@@ -165,6 +165,12 @@ capitalizeListTitles = false
   weight  = 30
 
 [[menus.main]]
+  name    = 'Content'
+  pageRef = '/posts'
+  pre     = "<i class='bi bi-journal-text'></i>"
+  weight  = 40
+
+[[menus.main]]
   name    = 'Categories'
   pageRef = '/categories'
   pre     = "<i class='bi bi-grid'></i>"

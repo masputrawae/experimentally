@@ -8,7 +8,9 @@ tags:
 categories:
   - Pages
 ---
-Halo, saya **John Doe**. Saya memiliki ketertarikan yang luas dalam berbagai bidang, terutama teknologi, pemrograman, jaringan dan keamanan, serta Internet of Things (IoT). Selain itu, saya juga mendalami ilmu komputer, astronomi, filsafat, dan sejarah. Saya selalu terdorong untuk mengeksplorasi hal-hal baru, termasuk konsep unik, hingga teori konspirasi.
+{{< image src="https://picsum.photos/1080/520" alt="Gambar" align="center" >}}{{< /image >}}
+## Halo saya **John Doe**
+Saya memiliki ketertarikan yang luas dalam berbagai bidang, terutama teknologi, pemrograman, jaringan dan keamanan, serta Internet of Things (IoT). Selain itu, saya juga mendalami ilmu komputer, astronomi, filsafat, dan sejarah. Saya selalu terdorong untuk mengeksplorasi hal-hal baru, termasuk konsep unik, hingga teori konspirasi.
 
 Saat ini, saya sedang dalam proses menemukan dan mengembangkan keahlian saya. Saya percaya bahwa pembelajaran adalah perjalanan yang tidak pernah berhenti, dan saya berusaha untuk terus memperdalam wawasan saya dalam bidang yang saya minati.
 
