@@ -1,9 +1,15 @@
 {{ define "main" }}
-<main class="main markdown">
-  {{ .Content }}
-
-  {{ if .Params.mathjax }}
-    {{ partial "content/mathjax.html" . }}
-  {{ end }}
+<main class="main">
+  <article class="main__layout markdown">
+    <h1>{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+  </article>
+  <div class="main__layout main__layout--grid">
+    {{ partial "content/terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ partial "content/terms.html" (dict "taxonomy" "categories" "page" .) }}
+  </div>
 </main>
+{{ if .Params.mathjax }}
+  {{ partial "content/mathjax.html" . }}
+{{ end }}
 {{ end }}

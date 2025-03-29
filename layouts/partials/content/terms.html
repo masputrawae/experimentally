@@ -12,7 +12,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <div class="navbar navbar--trems">
+  <nav class="navbar navbar--trems">
     <div class="navbar__label">{{ $label }}:</div>
     <ul class="nav nav--trems">
       {{- range . }}
@@ -23,5 +23,5 @@ For a given taxonomy, renders a list of terms assigned to the page.
         </li>
       {{- end }}
     </ul>
-  </div>
+  </nav>
 {{- end }}

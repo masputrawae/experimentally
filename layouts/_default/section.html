@@ -1,15 +1,19 @@
 {{ define "main" }}
 <main class="main">
+  
   <div class="main__layout">
+    
     <article class="markdown">
       <h1>{{ .Title }}</h1>
       {{ .Content | safeHTML }}
     </article>
+    
   </div>
 
   <div class="main__layout main__layout--grid">
     {{ partial "content/content-list.html" . }}
   </div>
+  
   <div class="main__layout">
     <nav class="navbar navbar--pagination">
       <ul class="nav nav--row">
@@ -17,5 +21,6 @@
       </ul>
     </nav>
   </div>
+  
 </main>
 {{ end }}

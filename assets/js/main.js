@@ -200,7 +200,7 @@ const initSearch = async () => {
                         const item = store.find(doc => doc.id === result.ref);
                         return `
                             <li class="nav__item">
-                                <a class="btn btn--link btn--sm" href="${item.url}">
+                                <a class="btn btn--text-xs" href="${item.url}">
                                     <span>${item.title}</span>
                                 </a>
                             </li>`;
