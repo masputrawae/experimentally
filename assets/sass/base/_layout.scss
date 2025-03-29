@@ -4,10 +4,32 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--text-third) var(--bg-second);
+  scrollbar-color: var(--bg-third) var(--bg-second);
   
   &:hover {
     scrollbar-color: var(--accent-third) var(--bg-second);
+  }
+}
+
+.u-container {
+  width: 100%;
+  padding-right: calc(1rem * 0.5);
+  padding-left: calc(1rem * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+
+  $container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+  );
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include m.min($breakpoint) {
+      max-width: $max-width;
+    }
   }
 }
 

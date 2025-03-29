@@ -34,9 +34,17 @@
     {{ partial "widget/toc.html" . }}
     {{ partial "widget/related.html" . }}
   {{ else }}
-    {{ partial "widget/pinned.html" . }}
-    {{ partial "widget/recent-post.html" . }}
-    {{ partial "widget/taxonomy-featured.html" (dict "taxonomy" "tags" "context" .) }}
-    {{ partial "widget/taxonomy-featured.html" (dict "taxonomy" "categories" "context" .) }}  
+    {{ if site.Params.widget.pinned }}
+      {{ partial "widget/pinned.html" . }}
+    {{ end }}
+    {{ if site.Params.widget.recent_post }}
+      {{ partial "widget/recent-post.html" . }}
+    {{ end }}
+    {{ if site.Params.widget.top_tags }}
+      {{ partial "widget/taxonomy-featured.html" (dict "taxonomy" "tags" "context" .) }}
+    {{ end }}
+    {{ if site.Params.widget.top_categories }}
+      {{ partial "widget/taxonomy-featured.html" (dict "taxonomy" "categories" "context" .) }}  
+    {{ end }}
   {{ end }}
 </aside>

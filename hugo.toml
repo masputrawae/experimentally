@@ -3,6 +3,8 @@
 baseURL      = 'https://masputrawae.github.io/big_brain/'
 languageCode = 'en-US'
 title        = 'My Notes'
+enableEmoji  = true
+capitalizeListTitles = false
 
 #====================================#
 #=========== TAXONOMIES =============#
@@ -22,7 +24,14 @@ title        = 'My Notes'
     email         = "john.doe@example.com"
     phone         = "+1-234-567-8901"
     twitter       = "@johndoe"
-    
+#====================================#
+#========== PARAMS SETTING ==========#
+  [params.widget]
+    pinned        = true
+    recent_post   = true
+    top_tags      = false
+    top_categories= false
+
 #====================================#
 #============= GISCUS ===============#
   [params.giscus]
@@ -231,7 +240,4 @@ title        = 'My Notes'
 [module]
   [module.hugoVersion]
     extended = false
-    min      = "0.116.0"
-
-enableEmoji  = true
-capitalizeListTitles = false
+    min = "0.116.0"

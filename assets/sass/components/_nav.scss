@@ -18,8 +18,20 @@
     color: var(--text-first);
   }
 
-  &--widget {
+  &--widget,
+  &--taxonomy {
     margin-block: 1rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-first);
+    border-radius: 0.25rem;
+  }
+
+  &--taxonomy {
+    padding-block: 0.75rem;
+  }
+
+  &--trems {
+    text-align: center;
   }
 
   &--footer {
@@ -61,18 +73,22 @@
     }
   }
 
+  
+  &--row {
+    @include m.flex-center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  
   &--breadcrumb {
-    display: flex;
     gap: 1rem;
   }
 
-  &--row {
-    @include m.flex-center;
+  &--cloud {
     gap: 1rem;
   }
-  &--cloud {
-    @include m.flex-center;
-    flex-wrap: wrap;
-    gap: 1rem;
+
+  &--taxonomy {
+    padding-block: 0.75rem;
   }
 }

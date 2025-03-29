@@ -81,14 +81,15 @@
   }
 
   &:hover {
-    color: var(--accent-first);
-    background-color: var(--bg-second);
+    color: var(--accent-third);
     box-shadow: var(--shadow-md);
-    border-color: var(--accent-first);
+    border-color: var(--accent-third);
+    background-color: var(--bg-first);
     
     &::before {
       width: 90%;
-      box-shadow: var(--shadow-glow-md);
+      box-shadow: var(--shadow-ac-third);
+      background-color: var(--accent-third);
     }
   }
   
@@ -96,14 +97,14 @@
   &:active, 
   &--active {
     background-color: var(--bg-third);
-    color: var(--accent-third);
-    border-color: var(--accent-third);
+    color: var(--accent-first);
+    border-color: var(--accent-first);
     outline: none;
     
     &::before {
       width: 90%;
-      box-shadow: var(--shadow-glow-md);
-      background-color: var(--accent-third);
+      box-shadow: var(--shadow-ac-first);
+      background-color: var(--accent-first);
     }
   }
 

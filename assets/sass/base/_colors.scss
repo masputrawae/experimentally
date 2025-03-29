@@ -25,11 +25,9 @@ $colors: (
       "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.4),
       "md": 0 4px 8px -1px rgba(0, 0, 0, 0.5),
       "lg": 0 10px 25px -5px rgba(0, 0, 0, 0.6),
-    ),
-    "shadow-glow": (
-      "sm": 0 0 6px rgba(0, 240, 255, 0.7),
-      "md": 0 0 12px rgba(0, 240, 255, 0.7), 
-      "lg": 0 0 20px rgba(0, 240, 255, 0.7)
+      "ac-first": 0 0 12px rgba(0, 240, 255, 0.7),
+      "ac-second": 0 0 12px rgba(0, 119, 255, 0.7), 
+      "ac-third": 0 0 12px rgba(161, 0, 255, 0.7)
     ),
   ),
   //============ LIGHT =============//
@@ -58,11 +56,9 @@ $colors: (
       "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.15),
       "md": 0 4px 8px -1px rgba(0, 0, 0, 0.2),
       "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.25),
-    ),
-    "shadow-glow": (
-      "sm": 0 0 6px rgba(0, 102, 255, 0.4),
-      "md": 0 0 12px rgba(0, 102, 255, 0.4), 
-      "lg": 0 0 20px rgba(0, 102, 255, 0.4)
+      "ac-first": 0 0 12px rgba(0, 102, 255, 0.4),
+      "ac-second": 0 0 12px rgba(0, 160, 255, 0.4), 
+      "ac-third": 0 0 12px rgba(128, 0, 255, 0.4)
     ),
   )
 );
