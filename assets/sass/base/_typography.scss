@@ -51,14 +51,6 @@ p {letter-spacing: 0.03em;}
 small {font-size: 80%;}
 
 .markdown {
-  
-  :is(h1, h2) {
-    border-bottom: 1px solid var(--border-first);
-    display: block;
-    width: 100%;
-    margin-block: 1.5rem;
-  }
-
   hr {
     box-sizing: content-box;
     overflow: hidden;

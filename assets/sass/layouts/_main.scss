@@ -9,14 +9,24 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       padding: 1rem 0;
-
-      @include m.min(md) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @include m.min(lg) {
-        gap: 2rem;
-      }
     }
+  }
+}
+
+.hero {
+  h1 {font-size: v.$font__size--8xl!important;}
+  text-align: center;
+  border-bottom: 1px solid var(--border-first);
+  @include m.min(md){
+    min-height: 100vh;
+  }
+}
+.post-meta {
+  display: none;
+  @include m.min(md){
+    @include m.flex-center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
   }
 }

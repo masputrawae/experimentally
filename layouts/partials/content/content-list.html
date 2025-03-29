@@ -1,8 +1,8 @@
 {{ range (.Paginate .Pages).Pages }}
-  <article class="card">
+  <article class="card" tabindex="0">
     <header class="card__header">
       <img 
-        src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" 
+        src="{{ .Params.image | default "https://picsum.photos/1090/720" | relURL }}" 
         alt="{{ .Title }}" 
         class="card__image"        
         loading="lazy"
@@ -19,18 +19,8 @@
         href="{{ .RelPermalink }}" 
         aria-label="{{ $.Title }}" 
         title="{{ $.Title }}" 
-        class="btn btn--cloud">
+        class="btn card__btn">
           Read More
-      </a>
-      <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .RelPermalink }}" target="_blank" class="btn btn--icon btn--circle">
-        <i class="bi bi-twitter-x"></i>
-      </a>
-      
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ .RelPermalink }}" target="_blank" class="btn btn--icon btn--circle">
-        <i class="bi bi-facebook"></i>
-      </a>
-      <a href="https://wa.me/?text={{ .Title }}%20{{ .RelPermalink }}" target="_blank" class="btn btn--icon btn--circle">
-        <i class="bi bi-whatsapp"></i>
       </a>
     </footer>
   </article>

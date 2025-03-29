@@ -1,6 +1,6 @@
 ---
 title: About Me
-image: https://placehold.co/720x1080
+image: https://picsum.photos/1080/520
 description: Write a description here
 date: 2025-03-26T13:38:00+07:00
 tags:
@@ -8,7 +8,6 @@ tags:
 categories:
   - Pages
 ---
-{{< image src="https://picsum.photos/1080/520" alt="Gambar" align="center" >}}{{< /image >}}
 ## Halo saya **John Doe**
 Saya memiliki ketertarikan yang luas dalam berbagai bidang, terutama teknologi, pemrograman, jaringan dan keamanan, serta Internet of Things (IoT). Selain itu, saya juga mendalami ilmu komputer, astronomi, filsafat, dan sejarah. Saya selalu terdorong untuk mengeksplorasi hal-hal baru, termasuk konsep unik, hingga teori konspirasi.
 
