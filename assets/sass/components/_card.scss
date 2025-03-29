@@ -33,4 +33,9 @@
   &__footer {
     padding: 0.75rem;
   }
+
+  &__meta {
+    @include m.flex-center;
+    gap: 1rem;
+  }
 }

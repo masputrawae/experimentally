@@ -19,63 +19,246 @@ pinned: true
 mathjax: true 
 draft: false
 ---
-## ✍️ Hello Notes
-
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-
-Ini adalah paragraf contoh. Markdown memungkinkan kita untuk menulis teks dengan format sederhana.
-
-**Teks Tebal**  
-*Tulisan Miring*  
-~~Coret~~
-
-> Ini adalah blockquote. Bisa digunakan untuk kutipan atau highlight informasi.
+Artikel ini dirancang untuk menguji semua sintaks Markdown yang mungkin didukung oleh Hugo. Dengan menggunakan artikel ini, Anda dapat memastikan bahwa semua elemen Markdown, termasuk perhitungan matematis, checkbox, dan lainnya, ditampilkan dengan benar di situs Hugo Anda.
 
 ---
 
-### Daftar Tidak Berurut
-- Item pertama
-- Item kedua
-  - Sub-item pertama
-  - Sub-item kedua
-- Item ketiga
+## Heading Level 2
 
-### Daftar Berurut
-1. Langkah pertama
-2. Langkah kedua
-   1. Sub-langkah pertama
-   2. Sub-langkah kedua
-3. Langkah ketiga
+### Heading Level 3
+
+#### Heading Level 4
+
+##### Heading Level 5
+
+###### Heading Level 6
 
 ---
 
-### Kode Program
+## Paragraf dan Format Teks
+
+Ini adalah paragraf biasa. Anda dapat menulis teks biasa di sini. **Ini adalah teks tebal** dan *ini adalah teks miring*. Anda juga bisa menggunakan ~~teks coret~~.
+
+Anda juga bisa menggabungkan **teks tebal** dengan *teks miring* seperti ini: ***teks tebal dan miring***.
+
+---
+
+## Daftar (List)
+
+### Daftar Tidak Berurutan (Unordered List)
+
+- Item 1
+- Item 2
+  - Sub-item 2.1
+  - Sub-item 2.2
+- Item 3
+
+### Daftar Berurutan (Ordered List)
+
+1. Item pertama
+2. Item kedua
+   1. Sub-item 2.1
+   2. Sub-item 2.2
+3. Item ketiga
+
+---
+
+## Tautan (Link) dan Gambar (Image)
+
+Ini adalah contoh [tautan ke Google](https://www.google.com).
+
+Ini adalah contoh gambar:
+
+![Alt text untuk gambar](https://picsum.photos/150 "Judul gambar opsional")
+
+### Gambar dengan Align
+Reprehenderit qui ea nostrud nostrud dolore qui dolor deserunt et irure fugiat. Culpa proident ex id aute et. Non magna excepteur excepteur non consectetur irure sit officia. Ad ullamco aute ad elit ipsum nostrud aute commodo ea ullamco.
+
+{{< image src="https://placehold.co/200" alt="Gambar" align="center" >}}
+Ini adalah caption gambar.
+{{< /image >}}
+
+Id nostrud qui non veniam incididunt consectetur ex irure elit et proident tempor magna. Nisi culpa consequat exercitation commodo ipsum. Eu ex dolor aliquip anim excepteur sunt laborum consequat aliquip do incididunt aliquip voluptate adipisicing. Voluptate elit nulla laborum ad id enim tempor aliquip Lorem sint. Eiusmod esse proident ex mollit ipsum nostrud non cupidatat qui esse. Labore consectetur consequat laboris mollit minim nulla deserunt anim commodo qui elit eu nulla fugiat.
+
+{{< image src="https://placehold.co/200" alt="Gambar" align="left" >}}
+Ini adalah caption gambar.
+{{< /image >}}
+
+
+Sit commodo mollit ullamco qui fugiat ipsum exercitation fugiat in. Consectetur laborum adipisicing quis ad ipsum nisi enim aute nulla qui cupidatat irure voluptate. Nostrud sit ad esse deserunt velit cupidatat ex. Nostrud sint nisi et amet exercitation dolor officia quis consequat elit ea. Duis proident dolore dolor ex minim exercitation excepteur adipisicing aliqua.
+
+{{< image src="https://placehold.co/200" alt="Gambar" align="right" >}}
+Ini adalah caption gambar.
+{{< /image >}}
+
+
+Amet et nisi sit nostrud aliquip. Est sit id ullamco aute ad mollit veniam reprehenderit aute labore. Officia ea incididunt elit consequat tempor enim. Magna labore mollit minim in officia aliquip nostrud deserunt proident ut aute consectetur veniam culpa. Minim irure nostrud nisi sunt cupidatat quis elit. Incididunt veniam dolor occaecat fugiat.
+
+{{< image src="https://placehold.co/200" alt="Gambar" align="full" >}}
+Ini adalah caption gambar.
+{{< /image >}}
+
+---
+
+## Blockquote
+
+> Ini adalah contoh blockquote. Anda dapat menggunakannya untuk menonjolkan kutipan atau teks penting.
+
+---
+
+## Kode (Code)
+
+### Inline Code
+
+Anda dapat menulis `inline code` dengan menggunakan backtick.
+
+### Block Code
+
 ```python
-def hello():
-    print("Hello, world!")
-hello()
+def hello_world():
+    print("Hello, World!")
+```
+
+```javascript
+function helloWorld() {
+    console.log("Hello, World!");
+}
 ```
 
 ---
 
-### Tabel
-| Nama  | Umur | Kota      |
-|-------|------|----------|
-| Ali   | 25   | Jakarta  |
-| Budi  | 30   | Bandung  |
-| Siti  | 27   | Surabaya |
+## Tabel (Table)
+
+| No  | Nama       | Usia | Kota      |
+| --- | ---------- | ---- | --------- |
+| 1   | John Doe   | 28   | New York  |
+| 2   | Jane Smith | 34   | London    |
+| 3   | Sam Brown  | 22   | Sydney    |
 
 ---
 
-### Gambar
-![Contoh Gambar](https://placehold.co/300 "Gambar Dummy")
+## Garis Horizontal (Horizontal Rule)
 
 ---
+
+## Catatan Kaki (Footnote)
+
+Ini adalah contoh teks dengan catatan kaki[^1].
+
+[^1]: Ini adalah catatan kaki.
+
+---
+
+## Emoji
+
+Anda juga bisa menggunakan emoji di Markdown! 😊🎉🚀
+
+---
+
+## Checkbox (Task List)
+
+- [x] Task 1 (Selesai)
+- [ ] Task 2 (Belum selesai)
+- [ ] Task 3 (Belum selesai)
+
+---
+
+## Perhitungan Matematis (LaTeX)
+
+Hugo mendukung rendering persamaan matematis menggunakan LaTeX. Berikut beberapa contoh:
+
+### Inline Math
+
+Contoh persamaan inline: \( E = mc^2 \).
+
+### Block Math
+
+Contoh persamaan dalam blok:
+
+$$
+\int_{a}^{b} x^2 \, dx
+$$
+
+Atau persamaan yang lebih kompleks:
+
+$$
+\frac{\partial u}{\partial t} + \nabla \cdot (\mathbf{u} \otimes \mathbf{u}) = -\nabla p + \nu \nabla^2 \mathbf{u}
+$$
+
+---
+
+## HTML (Jika Diperlukan)
+
+Jika Anda perlu menggunakan HTML, Anda bisa melakukannya seperti ini:
+
+<p style="color:red;">Ini adalah teks berwarna merah menggunakan HTML.</p>
+
+---
+
+## Video dan Embed
+
+Anda dapat menyematkan video atau konten lain menggunakan HTML:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+
+Atau Shortcodes hugo
+{{< youtube id="dQw4w9WgXcQ">}}
+
+---
+
+## Definition List
+
+Markdown ekstensi seperti Hugo mungkin mendukung daftar definisi:
+
+Apple
+: Pomaceous fruit of plants of the genus Malus in the family Rosaceae.
+
+Orange
+: The fruit of an evergreen tree of the genus Citrus.
+
+---
+
+## Kesimpulan
+
+Dengan menggunakan artikel ini, Anda dapat menguji berbagai sintaks Markdown yang didukung oleh Hugo.
+
+## JavaScript Example
+```javascript
+// Contoh kode JavaScript
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+const user = "John";
+console.log(greet(user));
+```
+
+## Python Example
+```python
+# Contoh kode Python
+def greet(name):
+    return f"Hello, {name}!"
+
+user = "John"
+print(greet(user))
+```
+
+## HTML Example
+```html
+<!-- Contoh kode HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a test page for syntax highlighting.</p>
+</body>
+</html>
+```
 
 ### Link
 [Kunjungi Hugo](https://gohugo.io)
@@ -158,8 +341,8 @@ flowchart TD
                               |
                               v
 +---------------------+       +---------------------+       +---------------------+
-|   Inverted Index   | <----> |  Tokenizer/         | <---- |   Processed Text    |
-|   (Database)       |        |  Stemmer            |       |   (Keywords, Meta)  |
+|   Inverted Index    | <---> |  Tokenizer/         | <---- |   Processed Text    |
+|   (Database)        |       |  Stemmer            |       |   (Keywords, Meta)  |
 +---------------------+       +---------------------+       +---------------------+
                               |
                               v

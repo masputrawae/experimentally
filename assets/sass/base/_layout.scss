@@ -11,8 +11,12 @@
   }
 }
 
-.u-container {
+.u-container,
+.header,
+.main,
+.footer {
   width: 100%;
+  max-width: 100vw;
   padding-right: calc(1rem * 0.5);
   padding-left: calc(1rem * 0.5);
   margin-right: auto;

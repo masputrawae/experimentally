@@ -30,6 +30,8 @@
   // MODIFIER btn--icon
   &--icon {
     justify-content: center;
+    width: 40px;
+    height: 40px;
     .bi{font-size: v.$font__size--6xl;}
   }
   
@@ -37,6 +39,8 @@
   &--text-xs {
     font-size: v.$font__size--xs;
   }
+
+  &--text-ellipsis{@include m.text-ellipsis;}
 
   // MODIFIER btn--folder
   &--folder {
@@ -50,13 +54,6 @@
   // MODIFIER btn--circle
   &--circle {
     border-radius: 50%;
-  }
-
-  // MODIFIER btn--pagination
-  &--pagination {
-    width: 40px;
-    height: 40px;
-    justify-content: center;
   }
 
   // MODIFIER btn--cloud

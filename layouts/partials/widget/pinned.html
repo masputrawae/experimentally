@@ -4,10 +4,10 @@
   <div class="navbar__label">Pinned</div>
   
   <ul class="nav nav--widget">
-    {{ range $pinned }}
+    {{ range $pinned | first 5 }}
       <li class="nav__item">
         <a href="{{ .RelPermalink }}" class="btn btn--text-xs btn--widget">
-          {{ .Title }}
+          <span class="btn--text-ellipsis">{{ .Title }}</span>
         </a>
       </li>
     {{ end }}

@@ -1,10 +1,8 @@
-<!-- |===========| START: TABLE OF CONTENT |===========| -->
 <nav class="navbar navbar--widget">
   <div class="navbar__label">Table of Contents</div>
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav nav--toc">` $toc }}
   {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-  {{ $toc := replaceRE `<a href=` `<a class="btn btn--text-xs btn--toc" href=` $toc }}
+  {{ $toc := replaceRE `<a href="([^"]+)">([^<]+)</a>` `<a class="btn btn--text-xs btn--toc" href="$1"><span class="btn--text-ellipsis">$2</span></a>` $toc }}
   {{ $toc | safeHTML }}
 </nav>
-<!-- |===========| END: TABLE OF CONTENT |===========| -->

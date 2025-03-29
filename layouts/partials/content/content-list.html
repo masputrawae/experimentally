@@ -13,25 +13,13 @@
       {{ with .Params.description }}
         <p class="card__description">{{ . }}</p>
       {{ end }}
-      <div class="card__meta">
-        <small>
-          <i class="bi bi-calendar"></i>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
-        </small>
-        {{ with .Params.categories }}
-          <small><i class="bi bi-grid"></i> {{ index . 0 }}</small>
-        {{ end }}
-        {{ with .Params.tags }}
-          <small><i class="bi bi-tag"></i> {{ index . 0 }}</small>
-        {{ end }}
-      </div>
     </section>
     <footer class="card__footer">
       <a 
         href="{{ .RelPermalink }}" 
         aria-label="{{ $.Title }}" 
         title="{{ $.Title }}" 
-        class="btn btn--primary">
+        class="btn btn--cloud">
           Read More
       </a>
     </footer>

@@ -9,7 +9,7 @@ body {
   background-color: var(--bg-first);
   color: var(--text-second);
   font-size: v.$font__size--default;
-  font-weight: 300;
+  font-weight: 400;
 
   @include m.transition(background-color, color);
 
@@ -46,7 +46,90 @@ h3 {font-size: v.$font__size--3xl;}
 h4 {font-size: v.$font__size--2xl;}
 h5 {font-size: v.$font__size--xl;}
 h6 {font-size: v.$font__size--lg;}
+p {letter-spacing: 0.03em;}
 
-p {
-  letter-spacing: 0.03em;
+small {font-size: 80%;}
+
+.markdown {
+  
+  :is(h1, h2) {
+    border-bottom: 1px solid var(--border-first);
+    display: block;
+    width: 100%;
+    margin-block: 1.5rem;
+  }
+
+  hr {
+    box-sizing: content-box;
+    overflow: hidden;
+    background: transparent;
+    height: 1px;
+    background-color: var(--border-first);
+    margin: 1.5rem 0;
+    border: 0;
+  }
+
+  tt,
+  code:not(pre code),
+  samp {
+    font-family: v.$font__family--mono;
+    font-size: v.$font__size--3xs;
+    background-color: var(--bg-second);
+    color: var(--text-first);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--accent-second);
+    padding-left: 1rem;
+    color: var(--text-first);
+    margin: 1.5rem 0;
+    font-style: italic;
+  }
+
+  del {
+    color: var(--text-third);
+    text-decoration: line-through;
+  }
+
+  a {
+    color: var(--accent-first);
+    
+    &:hover {
+      color: var(--accent-second);
+    }
+  }
+
+  ul,
+    ol {
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+
+  li {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+
+  th,
+  td {
+    border: 1px solid var(--border-first);
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--bg-second);
+    color: var(--text-first);
+    }
+  }
 }
