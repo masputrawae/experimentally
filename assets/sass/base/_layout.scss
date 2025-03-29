@@ -49,6 +49,12 @@ body { //============ GRID SETTING =============//
   grid-template-columns: 280px 1fr 280px;
   grid-template-rows: auto 1fr auto;
   gap: 1rem;
+  
+  .header,
+  .main,
+  .footer {
+    overflow-x: hidden;
+  }
 
   .offcanvas--left {grid-area: left;}
   .header {grid-area: top;}
