@@ -1,0 +1,15 @@
+{{ $recent := site.RegularPages }}
+{{ if $recent }}
+  <nav class="navbar">
+    <div class="navbar__label">Recent Posts</div>
+    <ul class="nav nav--menu">
+      {{ range $recent | first 10 }}
+        <li class="nav__item">
+          <a href="{{ .RelPermalink }}" class="nav__link">
+            <span class="btn--text-ellipsis">{{ .Title }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}

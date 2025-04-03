@@ -1,0 +1,25 @@
+<form 
+  class="search" 
+  id="search" 
+  onsubmit="handleSearch(event)" 
+  method="get" 
+  id="search" 
+  data-search-url="{{ "search.json" | relURL }}"
+  >
+    <i class="bi bi-search"></i>
+    <input 
+      class="search__input" 
+      type="search" 
+      id="search-input" 
+      name="query" 
+      placeholder="{{ i18n "search" }}" 
+      autocomplete="off" 
+      autocorrect="off" 
+      spellcheck="false" 
+      >
+</form>
+
+<nav class="navbar" id="resultsPanel" style="display: none;">
+  <div class="navbar__label">{{ i18n "result" }}</div>
+  <ul class="nav nav--widget" id="results"></ul>
+</nav>

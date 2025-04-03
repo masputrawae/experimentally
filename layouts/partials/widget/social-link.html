@@ -1,0 +1,15 @@
+{{- with site.Params.social }}
+<nav class="navbar">
+  <div class="navbar__label">Social Media</div>
+  <ul class="nav">
+    {{- range $key, $value := . }}
+      <li class="nav__item">
+        <a href="{{ $value.url }}" class="nav__link" rel="noopener noreferrer nofollow" target="_blank">
+          <i class="bi {{ $value.icon }}"></i>
+          <span>{{ $value.name }}</span>
+        </a>
+      </li>
+    {{- end }}
+  </ul>
+</nav>
+{{- end }}

@@ -1,0 +1,16 @@
+<header class="header">
+  {{ partial "layouts/breadcrumb.html" . }}
+
+  <div class="header__button-wrapper">
+    <button class="btn btn--icon" data-toggle-offcanvas="leftOffcanvas" title="{{ i18n "sidebar_left_open" }}" aria-label="{{ i18n "sidebar_left_open" }}">
+      <i class="bi bi-list"></i>
+    </button>
+    <button class="btn btn--icon" data-toggle-offcanvas="globalOffcanvas" title="{{ i18n "directory_open" }}" aria-label="{{ i18n "directory_open" }}">
+      <i class="bi bi-folder2"></i>
+    </button>
+  </div>
+
+  <button class="btn btn--icon" data-toggle-offcanvas="rightOffcanvas" title="{{ i18n "sidebar_right_open" }}" aria-label="{{ i18n "sidebar_right_open" }}">
+    <i class="bi bi-book"></i>
+  </button>
+</header>

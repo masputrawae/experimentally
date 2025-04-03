@@ -1,0 +1,108 @@
+$colors: (
+  //============ DARK =============//
+  "dark": (
+    "bg": (
+      "first": #0a0c12,
+      "second": #12141c,
+      "third": #1a1c24,
+    ),
+    
+    "text": (
+      "white": #f0f2f5,
+      "first": #e4e6eb,
+      "second": #c8cbd1,
+      "third": #65676b, 
+    ),
+
+    "accent": (
+      "first": #00f2fe,
+      "second": #4facfe,
+      "third": #a18cd1, 
+    ),
+
+    "border": (
+      "first": #2a2d35,
+      "second": rgba(0, 242, 254, 0.2)
+    ),
+
+    "shadow": (
+      "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.4),
+      "md": 0 4px 8px -1px rgba(0, 0, 0, 0.5),
+      "lg": 0 10px 25px -5px rgba(0, 0, 0, 0.6),
+      "ac-first": 0 0 10px rgba(0, 242, 254, 0.6),
+      "ac-second": 0 0 10px rgba(79, 172, 254, 0.6), 
+      "ac-third": 0 0 10px rgba(161, 140, 209, 0.6)
+    ),
+    "code": (
+      "bg": #0a0c12,
+      "text": #e4e6eb,
+      "function": #4facfe,
+      "highlight-bg": #12141c,
+      "keyword": #ff6b6b,
+      "string": #00f2fe,
+      "comment": #65676b,
+      "number": #a18cd1,
+      "line-number": #2a2d35,
+      "operator": #ffab70,
+      "class": #ff8c42,
+    ),
+  ),
+  //============ LIGHT =============//
+  "light": (
+    "bg": (
+      "first": #f8fafc,
+      "second": #f1f5f9,
+      "third": #e2e8f0,
+    ),
+
+    "text": (
+      "white": #ffffff,
+      "first": #1e293b,
+      "second": #141a22,
+      "third": #64748b,
+    ),
+
+    "accent": (
+      "first": #0ea5e9,
+      "second": #3b82f6,
+      "third": #8b5cf6,
+    ),
+
+    "border": (
+      "first": #e2e8f0,
+      "second": rgba(14, 165, 233, 0.2)
+    ),
+
+    "shadow": (
+      "sm": 0 1px 4px 0 rgba(0, 0, 0, 0.05),
+      "md": 0 4px 8px -1px rgba(0, 0, 0, 0.1),
+      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      "ac-first": 0 0 9px rgba(14, 165, 233, 0.3),
+      "ac-second": 0 0 9px rgba(59, 130, 246, 0.3), 
+      "ac-third": 0 0 9px rgba(139, 92, 246, 0.3)
+    ),
+    "code": (
+      "bg": #ffffff,
+      "text": #1e293b,
+      "function": #3b82f6,
+      "highlight-bg": #f1f5f9,
+      "keyword": #ef4444,
+      "string": #0ea5e9,
+      "comment": #64748b,
+      "number": #8b5cf6,
+      "line-number": #94a3b8,
+      "operator": #f97316,
+      "class": #f97316,
+    ),
+  )
+);
+
+@each $theme, $categories in $colors {
+  [data-theme="#{$theme}"] {
+    @each $category, $shades in $categories {
+      @each $shade, $value in $shades {
+        --#{$category}-#{$shade}: #{$value};
+      }
+    }
+  }
+}

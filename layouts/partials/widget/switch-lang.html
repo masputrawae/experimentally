@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <div class="nav__label">Language</div>
+  <ul>
+    {{ range $.Site.Home.AllTranslations }}
+    <li>
+      <input type="checkbox" id="lang-{{ .Language.Lang }}" value="{{ .RelPermalink }}" name="lang-{{ .Language.Lang }}">
+      <label for="lang-{{ .Language.Lang }}">{{ .Language.LanguageName }}</label>
+    </li>
+    {{ end }}
+  </ul>
+</nav>

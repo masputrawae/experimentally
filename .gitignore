@@ -1,0 +1,25 @@
+# Hugo build and output directories
+/public/
+/resources/
+.hugo_build.lock
+
+# Hugo temporary files
+.hugo_build.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.tmp
+*.old
+
+# Logs
+*.log

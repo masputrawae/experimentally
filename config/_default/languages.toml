@@ -1,0 +1,29 @@
+#=================================================#
+#=================== INDONESIA ===================#
+[id]
+title           = "Nama Situs Kamu"
+languageCode    = "id"
+languageName    = "Indonesia"
+weight          = 1
+contentDir      = "content/id"
+rtl             = false
+
+[id.params]
+i18nDir             = "i18n"
+dateFormat          = "Senin, 2 Januari 2006"
+subtitle            = "Tulis Subjudul Menarik Anda di Sini!"
+
+#=================================================#
+#==================== ENGLISH ====================#
+[en]
+title           = "Your Site Name"
+languageCode    = "en"
+languageName    = "English"
+weight          = 2
+contentDir      = "content/en"
+rtl             = false
+
+[en.params]
+i18nDir             = "i18n"
+dateFormat          = "Monday, January 2, 2006"
+subtitle            = "Write Your Catchy Subtitle Here!"
