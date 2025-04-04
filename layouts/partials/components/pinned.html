@@ -1,15 +1,15 @@
 {{ $pinned := where site.RegularPages "Params.pinned" true }}
 {{ if $pinned }}
-<nav class="navbar">
-  <div class="navbar__label">Pinned</div>
-  <ul class="nav">
-    {{ range $pinned | first 5 }}
-      <li class="nav__item">
-        <a href="{{ .RelPermalink }}" class="nav__link">
-          {{ .Title }}
-        </a>
-      </li>
-    {{ end }}
-  </ul>
-</nav>
+  <nav class="navbar">
+    <div class="navbar__label">Pinned</div>
+    <ul class="nav">
+      {{ range $pinned | first 5 }}
+        <li class="nav__item">
+          <a href="{{ .RelPermalink }}" class="nav__link">
+            {{ .Title }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
 {{ end }}

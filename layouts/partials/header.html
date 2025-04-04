@@ -9,9 +9,10 @@
     aria-label="Button to open the left sidebar">
       <i class="bi bi-list"></i>
     </button>
+
     <button 
     class="btn btn--icon" 
-    data-toggle-offcanvas="globalOffcanvas" 
+    data-toggle-offcanvas="globalOffcanvasLeft" 
     title="Open directory" 
     aria-label="Button to open the directory bar">
       <i class="bi bi-folder2"></i>
@@ -27,12 +28,12 @@
   </a>
   
   <div class="header__wrapper header__wrapper--right">
-    <button 
+    <button
     class="btn btn--icon"
-    id="switchTheme"
-    title="Switch Theme"
-    aria-label="Button to switch themes">
-      <i class="bi bi-sun"></i>
+    data-toggle-offcanvas="globalOffcanvasRight"
+    title="Open Discussion"
+    aria-label="Button to Open Discussion">
+      <i class="bi bi-chat-right-dots-fill"></i>
     </button>
     
     <button

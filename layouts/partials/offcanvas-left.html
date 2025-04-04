@@ -1,12 +1,12 @@
-<aside class="offcanvas offcanvas--global offcanvas--left" id="globalOffcanvas" aria-label="{{ i18n "directory" }}">
+<aside class="offcanvas offcanvas--global offcanvas--global-left" id="globalOffcanvasLeft" aria-label="{{ i18n "directory" }}">
   <header class="offcanvas__header">
-    <h3 class="offcanvas__title">{{ i18n "folder" }}</h3>
+    <h3 class="offcanvas__title">Folder</h3>
   
     <div class="offcanvas__button-wrapper">
-      <button class="btn btn--icon" id="toggleCollapseAll" title="{{ i18n "folder_control" }}" aria-label="{{ i18n "folder_control" }}">
+      <button class="btn btn--icon" id="toggleCollapseAll" title="Close or Open All Folder" aria-label="Close or Open All Folder">
         <i class="bi bi-folder2"></i>
       </button>
-      <button class="btn btn--icon" data-toggle-offcanvas="globalOffcanvas" title="{{ i18n "directory_close" }}" aria-label="{{ i18n "directory_close" }}">
+      <button class="btn btn--icon" data-toggle-offcanvas="globalOffcanvasLeft" title="Close Directory" aria-label="Button to Close Directory">
         <i class="bi bi-x"></i>
       </button>
     </div>
@@ -27,7 +27,7 @@
       {{- if .IsSection -}}
         <li class="nav__item nav__item--folder" id="{{- .RelPermalink | urlize -}}">
           <button class="btn btn--text-xs btn--folder" data-toggle-tree="{{- .RelPermalink | urlize -}}">
-            <i class="bi bi-folder2"></i>
+            <i class="bi bi-chevron-left"></i>
             <a href="{{- .RelPermalink -}}">{{- .LinkTitle -}}</a>
           </button>
           <ul class="nav nav--tree">
@@ -42,7 +42,9 @@
       {{- if .IsPage -}}
         {{- if .File.BaseFileName -}}
           <li class="nav__item nav__item--file" id="{{- .RelPermalink | urlize -}}">
-            <a class="btn btn--text-xs btn--file" href="{{- .RelPermalink -}}"><i class="bi bi-file-earmark-text"></i><span class="btn--text-ellipsis">{{- .LinkTitle -}}</span></a>
+            <a class="btn btn--text-xs btn--file" href="{{- .RelPermalink -}}">
+              {{- .LinkTitle -}}
+            </a>
           </li>
         {{- end -}}
       {{- end -}}

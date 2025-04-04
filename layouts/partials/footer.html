@@ -1,0 +1,21 @@
+<footer>
+  <section class="footer__copyright">
+    <p class="footer__content">
+      <span>{{ T "footer_made_with" }}</span>
+      <a 
+        href="https://gohugo.io" 
+        class="footer__link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        Hugo
+      </a>
+    </p>
+    <p>
+      &copy; 
+      <span>{{ now.Year | safeHTML }}</span> - 
+      <span>{{ .Site.Title }}</span>. 
+      {{ i18n "footer_all_rights" }}
+    </p>
+  </section>  
+</footer>

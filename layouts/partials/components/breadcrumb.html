@@ -1,5 +1,5 @@
-<nav class="navbar navbar--breadcrumb" aria-label="Breadcrumb">
-  <ul class="nav nav--row nav--breadcrumb">
+<nav class="navbar" aria-label="Breadcrumb">
+  <ul class="nav">
     {{ range .Ancestors.Reverse }}
       <li class="nav__item">
         <a class="nav__link nav__link--breadcrumb" href="{{ .RelPermalink }}">{{ .Title }}</a>

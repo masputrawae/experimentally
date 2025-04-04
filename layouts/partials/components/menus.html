@@ -4,7 +4,7 @@
 {{- with index site.Menus $menuID }}
   <nav class="navbar">
     <div class="navbar__label">Main Menu</div>
-    <ul class="nav nav--menu">
+    <ul class="nav">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
   </nav>

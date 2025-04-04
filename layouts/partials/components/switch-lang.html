@@ -1,11 +1,81 @@
-<nav class="navbar">
-  <div class="nav__label">Language</div>
-  <ul>
-    {{ range $.Site.Home.AllTranslations }}
-    <li>
-      <input type="checkbox" id="lang-{{ .Language.Lang }}" value="{{ .RelPermalink }}" name="lang-{{ .Language.Lang }}">
-      <label for="lang-{{ .Language.Lang }}">{{ .Language.LanguageName }}</label>
+<button class="btn btn--icon btn--lang" id="switchLanguage" title="Switch Language" aria-label="Button to Switch Language">
+  <i class="bi bi-translate"></i>
+</button>
+
+<ul class="lang__list" id="languageList">
+  {{ range $.Site.Home.AllTranslations }}
+    <li class="lang__item">
+      <label class="lang__label" for="lang-{{ .Language.Lang }}">
+        <input type="checkbox"
+               value="{{ .RelPermalink }}"
+               name="lang"
+               id="lang-{{ .Language.Lang }}"
+               onchange="changeLanguage(this)"
+               {{ if eq .Language.Lang $.Site.Language.Lang }}checked{{ end }}>
+        {{ .Language.LanguageName }}
+      </label>
     </li>
-    {{ end }}
-  </ul>
-</nav>
+  {{ end }}
+</ul>
+
+<style>
+  .lang__list {
+    display: none;
+    position: absolute;
+    background: white;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .lang__list.show {
+    display: block;
+  }
+
+  .lang__item {
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  .lang__item input {
+    margin-right: 8px;
+  }
+
+  .lang__item label {
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  document.getElementById("switchLanguage").addEventListener("click", function() {
+    document.getElementById("languageList").classList.toggle("show");
+  });
+
+  function changeLanguage(checkbox) {
+    if (checkbox.checked) {
+      window.location.href = checkbox.value; // Pindah ke bahasa yang dipilih
+    }
+  }
+
+  // Pastikan hanya satu checkbox yang bisa aktif
+  document.querySelectorAll('input[name="lang"]').forEach(input => {
+    input.addEventListener("change", function() {
+      document.querySelectorAll('input[name="lang"]').forEach(el => {
+        if (el !== this) el.checked = false; // Matikan yang lain
+      });
+    });
+  });
+
+  // Tutup saat klik di luar
+  document.addEventListener("click", function(event) {
+    let langList = document.getElementById("languageList");
+    let button = document.getElementById("switchLanguage");
+
+    if (!langList.contains(event.target) && !button.contains(event.target)) {
+      langList.classList.remove("show");
+    }
+  });
+</script>

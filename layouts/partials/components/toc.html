@@ -1,5 +1,5 @@
 <!-- |===========| START: TABLE OF CONTENT |===========| -->
-<nav class="navbar navbar--widget">
+<nav class="navbar">
   <div class="navbar__label">{{ i18n "toc"}}</div>
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav nav--toc">` $toc }}

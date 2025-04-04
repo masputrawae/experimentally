@@ -2,12 +2,14 @@
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="dark">
 {{ partial "head/main.html" . }}
 <body class="layout">
-  {{ partial "layouts/left.html" . }}
-  {{ partial "layouts/header.html" . }}
+  {{ partial "left-sidebar.html" . }}
+  {{ partial "header.html" . }}
   {{ block "main" . }}{{ end }}
-  {{ partial "layouts/footer.html" . }}
-  {{ partial "layouts/right.html" . }}
-  {{ partial "layouts/offcanvas.html" . }}
+  {{ partial "footer.html" . }}
+  {{ partial "right-sidebar.html" . }}
+
+  {{ partial "offcanvas-left.html" . }}
+  {{ partial "offcanvas-right.html" . }}
   
   {{ if .Store.Get "hasMermaid" }}
     <script type="module">

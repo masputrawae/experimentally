@@ -2,46 +2,12 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
 
-html[lang="ar"] {
-  direction: rtl;
-
-  .offcanvas__button-wrapper.offcanvas__button-wrapper--p-absolute {
-    right: 70%!important;
-  }
-}
-
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--bg-third) var(--bg-second);
   
   &:hover {
     scrollbar-color: var(--accent-third) var(--bg-second);
-  }
-}
-
-.u-container,
-.header,
-.main,
-.footer {
-  width: 100%;
-  max-width: 100vw;
-  padding-right: calc(1rem * 0.5);
-  padding-left: calc(1rem * 0.5);
-  margin-right: auto;
-  margin-left: auto;
-
-  $container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px,
-    xxl: 1320px
-  );
-
-  @each $breakpoint, $max-width in $container-max-widths {
-    @include m.min($breakpoint) {
-      max-width: $max-width;
-    }
   }
 }
 

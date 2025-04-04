@@ -67,8 +67,8 @@ const manageTheme = () => {
 const manageCollapse = () => {
     const toggleIcon = (icon, isCollapsed) => {
         icon?.classList.replace(
-            isCollapsed ? "bi-folder2-open" : "bi-folder2",
-            isCollapsed ? "bi-folder2" : "bi-folder2-open"
+            isCollapsed ? "bi-chevron-down" : "bi-chevron-left",
+            isCollapsed ? "bi-chevron-left" : "bi-chevron-down"
         );
     };
 
