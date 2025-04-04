@@ -17,3 +17,46 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
+
+/* Ubah warna background editor */
+.CodeMirror {
+  background-color: var(--bg-first) !important; /* dark mode imut */
+  color: var(--text-first) !important;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+/* Style toolbar */
+.editor-toolbar {
+  background-color: var(--bg-second);
+  border: none;
+}
+
+.editor-toolbar button {
+  color: var(--accent-first)!important;
+  background: none !important;
+}
+
+.editor-toolbar button:hover {
+  background-color: var(--bg-second) !important;
+}
+
+/* Placeholder style */
+.CodeMirror-placeholder {
+  color: var(--text-third) !important;
+  font-style: italic;
+}
+
+/* Preview area (kalau live preview diaktifkan) */
+.editor-preview {
+  background-color: var(--bg-first);
+  color: var(--text-first);
+  padding: 1rem;
+}
+
+/* Fullscreen */
+.editor-preview-side,
+.CodeMirror-fullscreen {
+  z-index: 9999;
+}

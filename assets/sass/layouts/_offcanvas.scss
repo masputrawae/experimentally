@@ -12,6 +12,8 @@
   position: sticky;
   top: 0;
 
+  @include m.transition(transform, visibility, opacity);
+
   &__header {
     @include m.flex-between;
     padding: 0.25rem 1rem;
@@ -53,7 +55,7 @@
 
     &-right {
       right: 0;
-      width: 400px;
+      width: 100%;
       transform: translateX(100%);
       border-left: 1px solid var(--border-first);
     }

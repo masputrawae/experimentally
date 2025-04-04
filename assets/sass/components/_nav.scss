@@ -42,45 +42,15 @@
     gap: 0.5rem;
     font-weight: 600;
 
-    &:hover {
+    @include m.transition(transform, color, background-color);
+
+    &:hover,
+    &--active,
+    &--ancestor {
       text-decoration: none;
       background-color: var(--bg-second);
-    }
-
-    &--active {
+      transform: translateY(-1px);
       color: var(--accent-second);
-      background-color: var(--bg-third);
     }
   }
-}
-
-.lang__list {
-  display: none;
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  background: var(--bg-second);
-  list-style: none;
-  padding: 10px;
-  border: 1px solid var(--border-first);
-  box-shadow: var(--shadow-md);
-}
-
-.lang__list.show {
-  display: block;
-}
-
-.lang__item {
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.lang__item input {
-  margin-right: 8px;
-}
-
-.lang__item label {
-  cursor: pointer;
 }

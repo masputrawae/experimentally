@@ -9,6 +9,18 @@
   border: 1px solid transparent;
   padding: 0.5rem;
   border-radius: 0.25rem;
+  box-shadow: var(--shadow-sm);
+
+  @include m.transition(box-shadow, color, background-color, border-color, transform);
+
+  &:is(:hover, :active, :focus-visible) {
+    box-shadow: var(--shadow-md);
+    background-color: var(--bg-third);
+    color: var(--text-first);
+    outline: none;
+    border-color: var(--border-second);
+    transform: translateY(-1px);
+  }
 
   &--icon {
     font-size: v.$font__size--xl;

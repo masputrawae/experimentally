@@ -129,11 +129,6 @@ const highlightActiveLink = () => {
 
 // Initialize all functionality
 const init = () => {
-  $$("[data-toggle-offcanvas]").forEach((button) => {
-    button.addEventListener("click", () =>
-      toggleOffcanvas(button.getAttribute("data-toggle-offcanvas"))
-    );
-  });
   manageTheme();
   manageCollapse();
   highlightActiveLink();
@@ -286,6 +281,13 @@ document.addEventListener("DOMContentLoaded", () => {
   initSearch();
 });
 
+document.addEventListener("click", (event) => {
+  const toggleButton = event.target.closest("[data-toggle-offcanvas]");
+  if (toggleButton) {
+    toggleOffcanvas(toggleButton.getAttribute("data-toggle-offcanvas"));
+  }
+});
+
 const manageNavbarWrapper = () => {
   $$(".navbar__wrapper").forEach((wrapper) => {
     const taxonomy = wrapper.dataset.taxonomy;
@@ -318,16 +320,73 @@ const manageNavbarWrapper = () => {
 // Initialize Navbar Wrapper functionality
 manageNavbarWrapper();
 const manageLanguageList = () => {
-    const languageList = $("#languageList");
+  const languageList = $("#languageList");
 
-    if (!languageList) return;
+  if (!languageList) return;
 
-    languageList.addEventListener("change", (event) => {
-        if (event.target.name === "lang" && event.target.checked) {
-            window.location.href = event.target.value;
-        }
-    });
+  languageList.addEventListener("change", (event) => {
+    if (event.target.name === "lang" && event.target.checked) {
+      window.location.href = event.target.value;
+    }
+  });
 };
 
 // Initialize Language List functionality
 manageLanguageList();
+
+const manageFontSize = () => {
+  const fontSizeOptions = {
+    fontSizeSmall: "12px",
+    fontSizeDefault: "14px",
+    fontSizeMedium: "16px",
+    fontSizeLarge: "18px",
+  };
+
+  const setFontSize = (fontSizeKey) => {
+    const fontSize =
+      fontSizeOptions[fontSizeKey] || fontSizeOptions.fontSizeDefault;
+    document.documentElement.style.fontSize = fontSize;
+    localStorage.setItem("fontSize", fontSizeKey);
+
+    Object.keys(fontSizeOptions).forEach((key) => {
+      $(`#${key}`).checked = key === fontSizeKey;
+    });
+  };
+
+  const savedFontSize = localStorage.getItem("fontSize") || "fontSizeDefault";
+  setFontSize(savedFontSize);
+
+  $("#fontAdjustment").addEventListener("change", (event) => {
+    if (event.target.name && fontSizeOptions[event.target.name]) {
+      setFontSize(event.target.name);
+    }
+  });
+};
+
+// Initialize Font Size functionality
+manageFontSize();
+const editor = new EasyMDE({
+  element: document.getElementById("editor"),
+  placeholder: "Tulis kontenmu di sini yaa~ 🌸",
+  spellChecker: false,
+});
+const config = document.getElementById("config-data");
+const githubRepo = config.dataset.githubRepo;
+const branch = config.dataset.branch;
+const folder = config.dataset.folder;
+document.getElementById("uploadForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const filename = document.getElementById("filename").value.trim();
+  const content = editor.value();
+  if (!filename || !content) {
+    alert("Isi semua dulu yaa~ 🥺");
+    return;
+  }
+  const baseUrl = `https://github.com/${githubRepo}/new/${branch}/${folder}`;
+  const params = new URLSearchParams({
+    filename: filename,
+    value: content,
+  });
+  const finalUrl = `${baseUrl}?${params.toString()}`;
+  window.open(finalUrl, "_blank");
+});

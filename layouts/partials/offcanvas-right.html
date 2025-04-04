@@ -8,22 +8,15 @@
       <i class="bi bi-x"></i>
     </button>
   </header>
-  <div class="discussion">
-    <script src="https://giscus.app/client.js"
-      data-repo="wumbojb/my-notes-demo"
-      data-repo-id="R_kgDOORBoTw"
-      data-category="General"
-      data-category-id="DIC_kwDOORBoT84CoraK"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="1"
-      data-input-position="top"
-      data-theme="preferred_color_scheme"
-      data-lang="en"
-      data-loading="lazy"
-      crossorigin="anonymous"
-      async>
-    </script>
+  <div class="editor" id="config-data" data-github-repo="{{- site.Params.github_repo -}}" data-branch="main" data-folder="content">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"/>
+    <script src="{{ "js/easymde.min.js" | relURL }}"></script>
+    <form id="uploadForm">
+      <label for="filename">Nama File (contoh: catatan.md, atau folder/file.md):</label><br />
+      <input type="text" id="filename" required /><br /><br />
+      <label for="editor">Isi Konten:</label><br/>
+      <textarea id="editor"></textarea><br/><br/>
+      <button class="btn" type="submit" id="btnNew">🚀 Buat Baru</button>
+    </form>
   </div>
 </aside>

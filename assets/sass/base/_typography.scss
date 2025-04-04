@@ -7,6 +7,7 @@
 html {
   font-family: v.$font__family;
   font-size: v.$font__size--default;
+  @include m.transition(font-size);
 }
 
 body {

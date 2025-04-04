@@ -1,54 +1,54 @@
 $colors: (
   "dark": (
     "bg": (
-      "first": #121212,
-      "second": #1e1e1e,
-      "third": #2d2d2d,
+      "first": #0d1117,
+      "second": #161b22,
+      "third": #21262d,
     ),
     "text": (
-      "first": #f5f5f5,
-      "second": #ffffff,
-      "third": #b0b0b0,
+      "first": #c9d1d9,
+      "second": #f0f6fc,
+      "third": #8b949e,
     ),
     "accent": (
-      "first": #4dabf7,
-      "second": #74c0fc,
+      "first": #418dff,
+      "second": #58a6ff,
     ),
     "border": (
-      "first": #343a40,
-      "second": #495057,
+      "first": #30363d,
+      "second": #21262d,
     ),
     "shadow": (
-      "sm": "0 1px 2px rgba(0, 0, 0, 0.25)",
-      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+      "sm": "0 1px 2px rgba(0, 0, 0, 0.3)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.2)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.3)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.4)"
     )
   ),
   "light": (
     "bg": (
       "first": #ffffff,
-      "second": #f8f9fa,
-      "third": #e9ecef,
+      "second": #f6f8fa,
+      "third": #eaeef2,
     ),
     "text": (
-      "first": #212529,
+      "first": #24292f,
       "second": #000000,
-      "third": #6c757d,
+      "third": #57606a,
     ),
     "accent": (
-      "first": #228be6,
-      "second": #1c7ed6,
+      "first": #0969da,
+      "second": #0550ae,
     ),
     "border": (
-      "first": #dee2e6,
-      "second": #ced4da,
+      "first": #d0d7de,
+      "second": #afb8c1,
     ),
     "shadow": (
       "sm": "0 1px 2px rgba(0, 0, 0, 0.1)",
-      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.08)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.15)"
     )
   ),
 );
