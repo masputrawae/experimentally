@@ -1,0 +1,46 @@
+<header class="header">
+  {{ partial "components/breadcrumb.html" . }}
+
+  <div class="header__wrapper header__wrapper--left">
+    <button 
+    class="btn btn--icon" 
+    data-toggle-offcanvas="leftOffcanvas" 
+    title="Open the left sidebar"
+    aria-label="Button to open the left sidebar">
+      <i class="bi bi-list"></i>
+    </button>
+    <button 
+    class="btn btn--icon" 
+    data-toggle-offcanvas="globalOffcanvas" 
+    title="Open directory" 
+    aria-label="Button to open the directory bar">
+      <i class="bi bi-folder2"></i>
+    </button>
+  </div>
+  
+  <a 
+  href="{{ site.BaseURL | absURL }}" 
+  class="btn btn--icon"
+  title="Home"
+  aria-label="Go to Home">
+    <i class="bi bi-house"></i>
+  </a>
+  
+  <div class="header__wrapper header__wrapper--right">
+    <button 
+    class="btn btn--icon"
+    id="switchTheme"
+    title="Switch Theme"
+    aria-label="Button to switch themes">
+      <i class="bi bi-sun"></i>
+    </button>
+    
+    <button
+    class="btn btn--icon"
+    data-toggle-offcanvas="rightOffcanvas" 
+    title="open directory" 
+    aria-label="Button to open the right sidebar">
+      <i class="bi bi-book"></i>
+    </button>
+  </div>
+</header>
