@@ -1,0 +1,12 @@
+{{ range $taxonomy, $terms := .Site.Taxonomies }}
+<nav class="navbar">
+  <div class="navbar__label">{{ $taxonomy | title }}</div>
+  <ul class="nav">
+    {{ range first 10 (sort $terms "Count" "desc") }}
+      <li class="nav__item">
+        <a href="{{ .Page.RelPermalink }}" class="nav__link">{{ .Page.Title }} ({{ .Count }})</a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
+{{ end }}

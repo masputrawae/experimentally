@@ -4,10 +4,10 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--bg-third) var(--bg-second);
+  scrollbar-color: var(--bg-first) var(--bg-first);
   
   &:hover {
-    scrollbar-color: var(--accent-third) var(--bg-second);
+    scrollbar-color: var(--border-second) var(--bg-first);
   }
 }
 
@@ -15,35 +15,43 @@ body { //============ GRID SETTING =============//
   max-width: 100vw;
   min-height: 100dvh;
   overflow-x: hidden;
-  display: grid;
-  grid-template-areas:
-    "left top right"
-    "left main right"
-    "left bottom right";
-  grid-template-columns: 250px 1fr 250px;
-  grid-template-rows: auto 1fr auto;
-  gap: 1rem;
-  
-  .header,
-  .main,
-  .footer {
+
+  display: flex;
+  align-items: stretch;
+  justify-content: start;
+
+  .offcanvas--left {
+    flex-basis: 280px;
+  }
+
+  .main-area {
+    flex-basis: 1;
+    flex: 1;
+    flex-basis: 0;
     overflow-x: hidden;
-  }
 
-  .offcanvas--left {grid-area: left;}
-  .header {grid-area: top;}
-  .main {grid-area: main;}
-  .footer {grid-area: bottom;}
-  .offcanvas--right {grid-area: right;}
+    width: 100%;
+    max-width: 100vw;
+    padding-right: calc(1rem * 0.5);
+    padding-left: calc(1rem * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+    
+    $container-max-widths: (
+      md:   48em,
+      lg:   62em,
+      xl:   75em,
+      xxl:  87.5em
+    );
 
-  @include m.max(xl){
-    grid-template-areas: "left top" "left main" "left bottom";
-    grid-template-columns: 250px 1fr;
-  }
+    @each $breakpoint, $max-width in $container-max-widths {
+      @include m.min($breakpoint) {
+        max-width: $max-width;
+      }
+    }
 
-  @include m.max(lg){
-    grid-template-areas: "top" "main" "bottom";
-    grid-template-columns: 1fr;
-    gap: 0;
+    @include m.max(lg){
+      margin-bottom: 4.5rem;
+    }
   }
 }

@@ -1,47 +1,41 @@
 <header class="header">
-  {{ partial "components/breadcrumb.html" . }}
+  <button 
+  class="btn btn--icon" 
+  data-toggle-offcanvas="leftOffcanvas" 
+  title="Open the left sidebar"
+  aria-label="Button to open the left sidebar">
+    <i class="bi bi-list"></i>
+  </button>
 
-  <div class="header__wrapper header__wrapper--left">
-    <button 
-    class="btn btn--icon" 
-    data-toggle-offcanvas="leftOffcanvas" 
-    title="Open the left sidebar"
-    aria-label="Button to open the left sidebar">
-      <i class="bi bi-list"></i>
-    </button>
-
-    <button 
-    class="btn btn--icon" 
-    data-toggle-offcanvas="globalOffcanvasLeft" 
-    title="Open directory" 
-    aria-label="Button to open the directory bar">
-      <i class="bi bi-folder2"></i>
-    </button>
-  </div>
+  <button 
+  class="btn btn--icon" 
+  data-toggle-offcanvas="globalOffcanvasLeft" 
+  title="Open directory" 
+  aria-label="Button to open the directory bar">
+    <i class="bi bi-folder2"></i>
+  </button>
   
   <a 
   href="{{ site.BaseURL | absURL }}" 
-  class="btn btn--icon"
+  class="btn btn--icon header__title"
   title="Home"
   aria-label="Go to Home">
     <i class="bi bi-house"></i>
   </a>
   
-  <div class="header__wrapper header__wrapper--right">
-    <button
-    class="btn btn--icon"
-    data-toggle-offcanvas="globalOffcanvasRight"
-    title="Open Discussion"
-    aria-label="Button to Open Discussion">
-      <i class="bi bi-chat-right-dots-fill"></i>
-    </button>
-    
-    <button
-    class="btn btn--icon"
-    data-toggle-offcanvas="rightOffcanvas" 
-    title="open directory" 
-    aria-label="Button to open the right sidebar">
-      <i class="bi bi-book"></i>
-    </button>
-  </div>
+  <button 
+  class="btn btn--icon"
+  data-theme-toggle="switchTheme"
+  title="Switch Themes" 
+  aria-label="Button to Switch Themes">
+    <i class="bi bi-moon-stars"></i>
+  </button>
+  
+  <button
+  class="btn btn--icon"
+  data-toggle-offcanvas="globalOffcanvasRight"
+  title="Open Discussion"
+  aria-label="Button to Open Discussion">
+    <i class="bi bi-chat-right-dots-fill"></i>
+  </button>
 </header>

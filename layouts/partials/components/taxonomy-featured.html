@@ -1,13 +1,13 @@
 {{ $taxonomy := index .context.Site.Taxonomies .taxonomy }}
-{{ $topItems := $taxonomy.ByCount | first 5 }}
+{{ $topItems := $taxonomy.ByCount | first 10 }}
 
 <nav class="navbar">
-  <div class="navbar__label">{{ i18n "top_five" }} {{ .taxonomy | title }}</div>
+  <div class="navbar__label">Top 10 In {{ .taxonomy | title }}</div>
   <ul class="nav">
     {{ range $topItems }}
       <li class="nav__item">
         <a href="{{ .Page.Permalink }}" class="nav__link">
-          {{ .Term }}
+          {{ .Term }} ({{ .Count }})
         </a>
       </li>
     {{ end }}

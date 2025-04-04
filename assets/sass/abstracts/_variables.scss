@@ -27,9 +27,8 @@ $breakpoints: (
   @return math.div(math.div(math.round($font__size--default * pow($scale-ratio, $step) * 100), 100), 14px) * 1rem;
 }
 
-$font__family: 'Noto Sans', "Noto Color Emoji", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, "Ubuntu", "Cantarell", "Helvetica Neue", 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
-$font__family--bs-icon: 'bootstrap-icons';
-$font__family--mono: 'Noto Sans Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font__family: "Noto Sans" system-ui, sans-serif -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Ubuntu", "Cantarell", "Helvetica Neue", 'Apple Color Emoji', 'Segoe UI Emoji';
+$font__family--mono: 'Noto Sans Mono', Monaco, 'Courier New', ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 
 $font__size--default          : 14px;
 $scale-ratio                  : 1.067;

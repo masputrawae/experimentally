@@ -3,11 +3,12 @@
 {{ partial "head/main.html" . }}
 <body class="layout">
   {{ partial "left-sidebar.html" . }}
-  {{ partial "header.html" . }}
-  {{ block "main" . }}{{ end }}
-  {{ partial "footer.html" . }}
-  {{ partial "right-sidebar.html" . }}
-
+  <div class="main-area">
+    {{ partial "header.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+  
   {{ partial "offcanvas-left.html" . }}
   {{ partial "offcanvas-right.html" . }}
   

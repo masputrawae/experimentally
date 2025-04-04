@@ -1,2 +1,106 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
+
+.offcanvas {
+  width: 250px;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--bg-first);
+  z-index: 100;
+
+  position: sticky;
+  top: 0;
+
+  &__header {
+    @include m.flex-between;
+    padding: 0.25rem 1rem;
+    height: 4.5rem;
+    .btn[data-toggle-offcanvas=leftOffcanvas]{
+      display: none;
+      @include m.max(lg){
+        display: flex;
+      }
+    }
+  }
+
+  &__button-wrapper {
+    @include m.flex-between;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-size: v.$font__size--xl;
+    font-weight: 600;
+  }
+
+  &--left,
+  &--global-left {
+    border-right: 1px solid var(--border-first);
+  }
+  
+  // OFFCANVAS GLOBAL
+  &--global {
+    position: fixed;
+    width: 320px;
+
+    &-left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &-right {
+      right: 0;
+      width: 400px;
+      transform: translateX(100%);
+      border-left: 1px solid var(--border-first);
+    }
+
+    @include m.max(sm){
+      width: 100%;
+    }
+  }
+
+  @include m.max(lg) {
+    &--left {
+      position: fixed;
+      width: 320px;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  // OFFCANVAS STATE ACTIVE
+  &--is-open {
+    transform: translateX(0%);
+  }
+}
+
+.search {
+  @include m.flex-center;
+  gap: 1rem;
+  background-color: var(--bg-second);
+  color: var(--text-third);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border-first);
+  width: 100%;
+  height: 40px;
+
+  &__input {
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-third);
+    &::placeholder {
+      color: var(--text-third);
+    }
+  }
+}
+
+.discussion {
+  padding: 1rem;
+}

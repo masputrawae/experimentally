@@ -1,7 +1,15 @@
 {{ define "main" }}
-<main class="u-container main">
+<main class="main">
   <article class="main__layout markdown">
     {{ .Content | safeHTML }}
+  </article>
+
+  <article class="grid grid--medium">
+    {{ partial "components/recent-post.html" . }}
+    {{ partial "components/pinned.html" . }}
+    {{ range site.Params.taxonomies_featured }}
+      {{ partial "components/taxonomy-featured.html" (dict "taxonomy" . "context" $) }}
+    {{ end }}
   </article>
 </main>
 {{ end }}

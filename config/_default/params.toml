@@ -4,6 +4,10 @@ name          = "Putra Jaya"
 subtitle      = "Write Your Catchy Subtitle Here!"
 logo          = "logo/logo.webp"
 twitter       = "@johndoe"
+github_repo   = "masputrawae/official"
+
+
+taxonomies_featured = ["tags", "categories", "status", "grouping"]
 
 #====================================#
 #============= GISCUS ===============#

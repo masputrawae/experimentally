@@ -1,18 +1,25 @@
 <aside class="offcanvas offcanvas--responsive offcanvas--left" id="leftOffcanvas">
   <header class="offcanvas__header">
-    <a href="{{ site.BaseURL | relURL }}" class="brand">{{ site.Params.name }}</a>
-
-    <button 
-    class="btn btn--icon" 
-    data-toggle-offcanvas="leftOffcanvas" 
-    title="Close Left Sidebar" 
-    aria-label="Button to close left sidebar">
-      <i class="bi bi-x"></i>
-    </button>
+    {{ partial "components/search-form.html" . }}
+    <div class="offcanvas__wrapper-button">
+      <button 
+      class="btn btn--icon" 
+      data-toggle-offcanvas="leftOffcanvas" 
+      title="Close Left Sidebar" 
+      aria-label="Button to close left sidebar">
+        <i class="bi bi-x"></i>
+      </button>
+      
+    </div>
   </header>
   
   {{ partial "components/search.html" . }}
   {{ partial "components/menus.html" (dict "menuID" "main" "page" .) }}
-  {{ partial "components/recent-post.html" . }}
+  {{ partial "components/improvement.html" . }}
+  {{ partial "components/switch-lang.html" . }}
+  {{ if .IsPage }}
+    {{ partial "components/toc.html" . }}
+    {{ partial "components/related.html" . }}
+  {{ end }}
   {{ partial "components/social-link.html" . }}
 </aside>

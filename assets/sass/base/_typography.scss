@@ -11,8 +11,7 @@ html {
 
 body {
   background-color: var(--bg-first);
-  color: var(--text-second);
-  font-size: v.$font__size--3xs;
+  color: var(--text-first);
   font-weight: 400;
 
   @include m.transition(background-color, color);
@@ -35,7 +34,6 @@ body {
 ============================ */
 :is(h1, h2, h3, h4, h5, h6) {
   font-weight: 600;
-  color: var(--text-first);
   margin-block: 1rem;
   letter-spacing: 0.02em;
 }
@@ -56,4 +54,14 @@ small {font-size: 80%;}
 del {
   color: var(--text-third);
   text-decoration: line-through;
+}
+
+a {
+  color: var(--accent-first);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--accent-second);
+  }
 }

@@ -26,8 +26,8 @@
     {{- range .Pages -}}
       {{- if .IsSection -}}
         <li class="nav__item nav__item--folder" id="{{- .RelPermalink | urlize -}}">
-          <button class="btn btn--text-xs btn--folder" data-toggle-tree="{{- .RelPermalink | urlize -}}">
-            <i class="bi bi-chevron-left"></i>
+          <button class="btn btn--folder" data-toggle-tree="{{- .RelPermalink | urlize -}}">
+            <i class="bi bi-chevron-right"></i>
             <a href="{{- .RelPermalink -}}">{{- .LinkTitle -}}</a>
           </button>
           <ul class="nav nav--tree">
@@ -42,7 +42,7 @@
       {{- if .IsPage -}}
         {{- if .File.BaseFileName -}}
           <li class="nav__item nav__item--file" id="{{- .RelPermalink | urlize -}}">
-            <a class="btn btn--text-xs btn--file" href="{{- .RelPermalink -}}">
+            <a class="nav__link nav__link--file" href="{{- .RelPermalink -}}">
               {{- .LinkTitle -}}
             </a>
           </li>

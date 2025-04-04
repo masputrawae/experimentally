@@ -1,2 +1,86 @@
-@use '../abstracts/mixins' as m;
-@use '../abstracts/variables' as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.navbar {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin: 1rem;
+  display: block;
+
+  &__label {
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-first);
+    display: block;
+    font-size: v.$font__size--lg;
+  }
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+
+  &--tree &--tree,
+  &--toc &--toc {
+    margin-left: 1rem;
+    border-left: 1px dashed var(--border-first);
+  }
+  &--tree {
+    display: block;
+
+    &.collapsed {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: var(--accent-first);
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 1rem;
+    gap: 0.5rem;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: none;
+      background-color: var(--bg-second);
+    }
+
+    &--active {
+      color: var(--accent-second);
+      background-color: var(--bg-third);
+    }
+  }
+}
+
+.lang__list {
+  display: none;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background: var(--bg-second);
+  list-style: none;
+  padding: 10px;
+  border: 1px solid var(--border-first);
+  box-shadow: var(--shadow-md);
+}
+
+.lang__list.show {
+  display: block;
+}
+
+.lang__item {
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.lang__item input {
+  margin-right: 8px;
+}
+
+.lang__item label {
+  cursor: pointer;
+}
