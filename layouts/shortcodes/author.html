@@ -1,0 +1,13 @@
+{{ $img := .Get "img" }}
+{{ $name := .Get "name" }}
+
+
+<figure class="author">
+  <picture class="author__picture">
+    <img src="{{ $img }}" alt="{{ $name }}">
+  </picture>
+  <figcaption class="author__caption">
+    <strong class="author__name">{{ $name }}</strong>
+    <div class="author__text">{{ .Inner | safeHTML }}</div>
+  </figcaption>
+</figure>

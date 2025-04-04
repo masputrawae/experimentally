@@ -43,6 +43,8 @@
   &--global {
     position: fixed;
     width: 320px;
+    visibility: hidden;
+    opacity: 0;
 
     &-left {
       left: 0;
@@ -68,12 +70,16 @@
       top: 0;
       left: 0;
       transform: translateX(-100%);
+      visibility: hidden;
+      opacity: 0;
     }
   }
 
   // OFFCANVAS STATE ACTIVE
   &--is-open {
     transform: translateX(0%);
+    visibility: visible;
+    opacity: 1;
   }
 }
 

@@ -1,4 +1,4 @@
-<aside class="offcanvas offcanvas--responsive offcanvas--left" id="leftOffcanvas">
+<aside class="offcanvas offcanvas--left" id="leftOffcanvas">
   <header class="offcanvas__header">
     {{ partial "components/search-form.html" . }}
     <div class="offcanvas__wrapper-button">
@@ -12,11 +12,13 @@
       
     </div>
   </header>
-  
   {{ partial "components/search.html" . }}
   {{ partial "components/menus.html" (dict "menuID" "main" "page" .) }}
-  {{ partial "components/improvement.html" . }}
+  {{ if site.Params.navigation.improvement }}
+    {{ partial "components/improvement.html" . }}
+  {{ end }}
   {{ partial "components/switch-lang.html" . }}
+  {{ partial "components/font-adjustment.html" . }}
   {{ if .IsPage }}
     {{ partial "components/toc.html" . }}
     {{ partial "components/related.html" . }}

@@ -9,6 +9,9 @@ github_repo   = "masputrawae/official"
 
 taxonomies_featured = ["tags", "categories", "status", "grouping"]
 
+[navigation]
+  improvement       = true
+  
 #====================================#
 #============= GISCUS ===============#
 [giscus]

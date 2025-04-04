@@ -47,12 +47,4 @@
     display: table;
     clear: both;
   }
-
-  @include m.max(md){
-    &--left, 
-    &--right {
-      float: none;
-      display: block;
-    }
-  }
 }

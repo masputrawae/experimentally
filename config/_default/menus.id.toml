@@ -1,37 +1,37 @@
 #=================================================#
 #===================== MENUS =====================#
 [[main]]
-name    = "Home"
+name    = "Beranda"
 pageRef = "/"
 pre     = "<i class='bi bi-house'></i>"
 weight  = 10
 
 [[main]]
-name    = "About"
-pageRef = "/documents/about"
-pre     = "<i class='bi bi-person'></i>"
+name    = "Proyek"
+pageRef = "/projects"
+pre     = "<i class='bi bi-folder'></i>"
 weight  = 20
 
 [[main]]
-name    = "Projects"
-pageRef = "/projects"
-pre     = "<i class='bi bi-folder'></i>"
+name    = "Konten"
+pageRef = "/posts"
+pre     = "<i class='bi bi-journal-text'></i>"
 weight  = 30
 
 [[main]]
-name    = "Content"
-pageRef = "/posts"
-pre     = "<i class='bi bi-journal-text'></i>"
+name    = "Kategori"
+pageRef = "/categories"
+pre     = "<i class='bi bi-grid'></i>"
 weight  = 40
 
 [[main]]
-name    = "Categories"
-pageRef = "/categories"
-pre     = "<i class='bi bi-grid'></i>"
+name    = "Tag"
+pageRef = "/tags"
+pre     = "<i class='bi bi-tag'></i>"
 weight  = 50
 
 [[main]]
-name    = "Tags"
-pageRef = "/tags"
-pre     = "<i class='bi bi-tag'></i>"
+name    = "Tentang"
+pageRef = "/documents/about"
+pre     = "<i class='bi bi-person'></i>"
 weight  = 60
