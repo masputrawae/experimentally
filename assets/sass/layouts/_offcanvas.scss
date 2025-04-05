@@ -2,7 +2,7 @@
 @use '../abstracts/variables' as v;
 
 .offcanvas {
-  width: 250px;
+  width: 220px;
   height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -44,7 +44,8 @@
   // OFFCANVAS GLOBAL
   &--global {
     position: fixed;
-    width: 320px;
+    width: 360px;
+    max-width: 100%;
     visibility: hidden;
     opacity: 0;
 
@@ -55,7 +56,6 @@
 
     &-right {
       right: 0;
-      width: 100%;
       transform: translateX(100%);
       border-left: 1px solid var(--border-first);
     }

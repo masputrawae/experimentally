@@ -16,7 +16,7 @@
   </button>
   
   <a 
-  href="{{ site.BaseURL | absURL }}" 
+  href="{{ if hugo.IsMultilingual }}{{ absLangURL "" }}{{ else }}{{ absURL "" }}{{ end }}" 
   class="btn btn--icon header__title"
   title="Home"
   aria-label="Go to Home">
@@ -34,8 +34,8 @@
   <button
   class="btn btn--icon"
   data-toggle-offcanvas="globalOffcanvasRight"
-  title="Open Editor"
-  aria-label="Button to Open Editor">
-    <i class="bi bi-pen"></i>
+  title="Right Sidebar"
+  aria-label="Button to Right Sidebar">
+    <i class="bi bi-book"></i>
   </button>
 </header>

@@ -365,28 +365,3 @@ const manageFontSize = () => {
 
 // Initialize Font Size functionality
 manageFontSize();
-const editor = new EasyMDE({
-  element: document.getElementById("editor"),
-  placeholder: "Tulis kontenmu di sini yaa~ 🌸",
-  spellChecker: false,
-});
-const config = document.getElementById("config-data");
-const githubRepo = config.dataset.githubRepo;
-const branch = config.dataset.branch;
-const folder = config.dataset.folder;
-document.getElementById("uploadForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const filename = document.getElementById("filename").value.trim();
-  const content = editor.value();
-  if (!filename || !content) {
-    alert("Isi semua dulu yaa~ 🥺");
-    return;
-  }
-  const baseUrl = `https://github.com/${githubRepo}/new/${branch}/${folder}`;
-  const params = new URLSearchParams({
-    filename: filename,
-    value: content,
-  });
-  const finalUrl = `${baseUrl}?${params.toString()}`;
-  window.open(finalUrl, "_blank");
-});

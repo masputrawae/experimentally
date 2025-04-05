@@ -1,2 +1,13 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
+
+.card {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+
+  &__title {
+    font-size: v.$font__size--xl;
+  }
+}

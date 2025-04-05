@@ -1,15 +1,57 @@
 {{ define "main" }}
 <main class="main">
-  <article class="main__layout markdown">
-    {{ .Content | safeHTML }}
-  </article>
+  <div class="main__layout">
+    <article class="markdown hero">
+      {{ .Content | safeHTML }}
 
-  <article class="grid grid--medium">
-    {{ partial "components/recent-post.html" . }}
-    {{ partial "components/pinned.html" . }}
-    {{ range site.Params.taxonomies_featured }}
-      {{ partial "components/taxonomy-featured.html" (dict "taxonomy" . "context" $) }}
-    {{ end }}
-  </article>
+      <strong>Social Media: </strong>
+      <nav class="hero__social-link">
+        {{- with site.Params.social }}
+          {{- range $key, $value := . }}
+            <a href="{{ $value.url }}" rel="noopener noreferrer nofollow" target="_blank">
+              <i class="bi {{ $value.icon }}"></i>
+              <span>{{ $value.name }}</span>
+            </a>
+          {{- end }}
+        {{- end }}
+      </nav>
+    </article>
+  </div>
+
+  <div class="main__layout main__layout--grid">
+
+    <article class="markdown">
+      <strong class="main__title">
+        <i class="bi bi-newspaper"></i>
+        <span>Terbaru</span>
+      </strong>
+      {{ $recent := site.RegularPages }}
+      {{ if $recent }}
+        {{ range $recent | first 2 }}
+          <div class="card">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ .Content | truncate 500 | safeHTML }} 
+            <a href="{{ .Permalink }}">Baca Selengkapnya...</a>
+          </div>
+        {{ end }}
+      {{ end }}
+    </article>
+
+    <article class="markdown">
+      <i class="bi bi-pinned"></i>
+      <strong class="main__title">
+        <i class="bi bi-pin-angle-fill"></i>
+        <span>Disematkan</span>
+      </strong>
+      {{ range where .Site.Pages "Params.pinned" true | first 2 }}
+        <div class="card">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ .Content | truncate 500 | safeHTML }} 
+          <a href="{{ .Permalink }}">Baca Selengkapnya...</a>
+        </div>
+      {{ end }}
+    </article>
+
+  </div>
 </main>
 {{ end }}

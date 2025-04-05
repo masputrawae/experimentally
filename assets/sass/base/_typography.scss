@@ -62,3 +62,15 @@ a {
     color: var(--accent-second);
   }
 }
+
+.heading {
+  display: block;
+  
+  &__anchor {
+    opacity: 0;
+  }
+  &:hover &__anchor {
+
+    opacity: 1;
+  }
+}

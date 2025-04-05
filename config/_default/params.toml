@@ -4,8 +4,8 @@ name          = "Putra Jaya"
 subtitle      = "Write Your Catchy Subtitle Here!"
 logo          = "logo/logo.webp"
 twitter       = "@johndoe"
-github_repo   = "masputrawae/official"
-
+github_repo   = "wumbojb/my-notes-demo"
+branch        = "main"
 
 taxonomies_featured = ["tags", "categories", "status", "grouping"]
 

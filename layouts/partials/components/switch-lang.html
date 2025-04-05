@@ -1,3 +1,4 @@
+{{ if gt (len $.Site.Home.AllTranslations) 1 }}
 <nav class="navbar">
   <div class="navbar__label">Language</div>
   <ul class="nav" id="languageList">
@@ -15,3 +16,4 @@
     {{ end }}
   </ul>
 </nav>
+{{ end }}

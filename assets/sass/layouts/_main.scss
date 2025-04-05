@@ -1,62 +1,35 @@
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
-.grid {
-  display: grid;
-  gap: 1rem;
-  
-  &--small {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.main {
+  display: block;
+
+  &__layout {
+
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
   }
 
-  &--medium {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  &__title {
+    font-size: v.$font__size--2xl;
+    display: block;
+    margin: 1rem;
+    border-bottom: 1px solid var(--border-first);
   }
-
-  &--large {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
 }
 
-/* Ubah warna background editor */
-.CodeMirror {
-  background-color: var(--bg-first) !important; /* dark mode imut */
-  color: var(--text-first) !important;
-  font-family: "Fira Code", monospace;
-  font-size: 16px;
-  border-radius: 10px;
-}
-
-/* Style toolbar */
-.editor-toolbar {
-  background-color: var(--bg-second);
-  border: none;
-}
-
-.editor-toolbar button {
-  color: var(--accent-first)!important;
-  background: none !important;
-}
-
-.editor-toolbar button:hover {
-  background-color: var(--bg-second) !important;
-}
-
-/* Placeholder style */
-.CodeMirror-placeholder {
-  color: var(--text-third) !important;
-  font-style: italic;
-}
-
-/* Preview area (kalau live preview diaktifkan) */
-.editor-preview {
-  background-color: var(--bg-first);
-  color: var(--text-first);
+.hero {
+  text-align: center;
   padding: 1rem;
-}
+  margin: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
 
-/* Fullscreen */
-.editor-preview-side,
-.CodeMirror-fullscreen {
-  z-index: 9999;
+  &__social-link {
+    @include m.flex-center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 }

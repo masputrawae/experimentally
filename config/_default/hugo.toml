@@ -5,7 +5,7 @@ baseURL     = "https://your-domain"
 
 enableEmoji  = true
 capitalizeListTitles = false
-defaultContentLanguage = 'en'
+defaultContentLanguage = 'id'
 defaultContentLanguageInSubdir = false
 disableDefaultLanguageRedirect = false
 

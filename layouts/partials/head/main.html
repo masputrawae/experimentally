@@ -17,6 +17,7 @@
     {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "index.xml" | relURL }}">
+  <link rel="alternate" hreflang="{{ site.Language.Lang }}" href="{{ .Permalink }}" />
 
   {{ partial "head/twitter.html" . }}
   {{ partial "head/facebook.html" . }}

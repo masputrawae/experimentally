@@ -2,7 +2,7 @@
 title: "Pratinjau Tipografi"
 image: https://placehold.co/1080x520
 description: "Panduan untuk melihat semua elemen tipografi dalam tema My Notes."
-date: 2025-04-02T01:19:10+07:00
+date: 2021-04-02T01:19:10+07:00
 lastModified: 2025-04-02T01:19:10+07:00
 tags:
   - tipografi
@@ -13,7 +13,7 @@ categories:
   - Blog
   - Konten
   - Artikel
-pinned: true
+pinned: false
 mathjax: true
 draft: false
 ---

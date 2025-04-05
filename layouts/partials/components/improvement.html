@@ -1,31 +1,42 @@
 {{ with .File }}
-<nav class="navbar">
-  <div class="navbar__label">Improvement</div>
-  <ul class="nav">
-    <li class="nav__item">
-      <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/edit/main/content/{{- .Path -}}" target="_blank" rel="noopener noreferrer nofollow">
-        <i class="bi bi-pencil-square"></i>
-        <span>Edit Content</span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/blob/main/content/{{- .Path -}}?plain=1" rel="noopener noreferrer nofollow">
-        <i class="bi bi-braces"></i>
-        <span>Source Code</span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/new/main/content/inbox/" rel="noopener noreferrer nofollow">
-        <i class="bi bi-pen"></i>
-        <span>New Content</span>
-      </a>
-    </li>
-    <li class="nav__item">
-      <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/delete/main/content/{{- .Path -}}" rel="noopener noreferrer nofollow">
-        <i class="bi bi-trash3-fill"></i>
-        <span>Delete</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+  {{ $contentPath := "content" }}
+  {{ if hugo.IsMultilingual }}
+    {{ $contentPath = printf "content/%s" site.Language.Lang }}
+  {{ end }}
+  
+  <nav class="navbar">
+    <div class="navbar__label">Improvement</div>
+    <ul class="nav">
+      <li class="nav__item">
+        <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/edit/{{- site.Params.branch -}}/{{ $contentPath }}/{{- strings.TrimPrefix (printf "%s/" $contentPath) .Path -}}" target="_blank" rel="noopener noreferrer nofollow">
+          <i class="bi bi-pencil-square"></i>
+          <span>Edit Content</span>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/blob/{{- site.Params.branch -}}/{{ $contentPath }}/{{- strings.TrimPrefix (printf "%s/" $contentPath) .Path -}}?plain=1" rel="noopener noreferrer nofollow">
+          <i class="bi bi-braces"></i>
+          <span>Source Code</span>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/new/{{- site.Params.branch -}}/{{ $contentPath }}/inbox/" rel="noopener noreferrer nofollow">
+          <i class="bi bi-pen"></i>
+          <span>New Content</span>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/commits/{{- site.Params.branch -}}/{{ $contentPath }}/{{- strings.TrimPrefix (printf "%s/" $contentPath) .Path -}}" rel="noopener noreferrer nofollow">
+          <i class="bi bi-clock-history"></i>
+          <span>History</span>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="https://github.com/{{- site.Params.github_repo -}}/delete/{{- site.Params.branch -}}/{{ $contentPath }}/{{- strings.TrimPrefix (printf "%s/" $contentPath) .Path -}}" rel="noopener noreferrer nofollow">
+          <i class="bi bi-trash3-fill"></i>
+          <span>Delete</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 {{ end }}
