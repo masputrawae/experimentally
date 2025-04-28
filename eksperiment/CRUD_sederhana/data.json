@@ -1,0 +1,32 @@
+{
+    "27941edb-f862-46ca-b077-7ce2a75af5b1": {
+        "name": "Baju",
+        "stock": 20,
+        "price": 1200
+    },
+    "51d19644-7eef-4f0a-8aea-d1d5fcbe1ff9": {
+        "name": "Mangga",
+        "stock": 20,
+        "price": 1200
+    },
+    "4dd0aeb1-33c5-4c58-bd89-e9101e711a06": {
+        "name": "Baju",
+        "stock": 12,
+        "price": 30000
+    },
+    "3c921d4e-a29e-4539-bf50-9054e9b88dd6": {
+        "name": "Bumbu",
+        "stock": 12,
+        "price": 4000
+    },
+    "9ec525d7-0e40-423b-91ff-d351d887f5ea": {
+        "name": "Melon",
+        "stock": 5,
+        "price": 5000
+    },
+    "004d2eee-a9fc-4d00-be78-245ef69f1a1c": {
+        "name": "Sepatu",
+        "stock": 20,
+        "price": 50000
+    }
+}
